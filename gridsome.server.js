@@ -9,7 +9,7 @@
 var fs = require('fs-extra');
 var apiSchemaPath = process.env.API_SCHEMA_PATH;
 
-if(apiSchemaPath == null) { apiSchemaPath = "../api-schema.json"; }
+if(apiSchemaPath == null) { apiSchemaPath = "../app/api-schema.json"; }
 
 if (apiSchemaPath != null) {
   var apiSchema = fs.readFileSync(apiSchemaPath, { encoding: 'utf8', flag: 'r' })
