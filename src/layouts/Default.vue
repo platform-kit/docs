@@ -10,9 +10,20 @@
       >
         <!-- Left aligned nav items -->
         <b-navbar-brand href="/" id="navLogo">
-          <g-image v-if="uiSchema != null && uiSchema.icons != null && uiSchema.icons.favicon != null" :src="uiSchema.icons.favicon" style="max-width: 50px" />
+          <g-image
+            v-if="
+              uiSchema != null &&
+              uiSchema.icons != null &&
+              uiSchema.icons.favicon != null
+            "
+            :src="uiSchema.icons.favicon"
+            style="max-width: 50px"
+          />
           <g-image v-else src="~/images/icon.png" style="max-width: 50px" />
-          <span class="ml-3">{{  uiSchema.name || $static.metadata.siteName }}</span>
+          <span v-if="uiSchema != null && uiSchema.name != null" class="ml-3">{{
+            uiSchema.name
+          }}</span>
+          <span v-else class="ml-3">{{ $static.metadata.siteName }}</span>
         </b-navbar-brand>
 
         <b-navbar-toggle
