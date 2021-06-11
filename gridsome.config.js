@@ -4,7 +4,7 @@
 // Changes here require a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
-var docsPath = process.env.DOCS_PATH || './docs';
+var docsPath = process.env.DOCS_PATH || '../../docs';
 
 var plugins = []
 
