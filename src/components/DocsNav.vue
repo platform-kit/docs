@@ -23,13 +23,7 @@
       <span class="badge text-dark px-3 py-2 mt-4 badge-light-blue"
         >API Resources</span
       >
-      <a
-        :href="'/graphql'"
-        v-if="graphQL"
-        target="_blank"
-        class="btn btn-block text-left px-2 py-1 my-2 text-capitalize"
-        >GraphQL Explorer</a
-      >
+
       <div v-for="(resource, index) in apiSchema.schemas" :key="index">
         <g-link
           :to="'/docs/api/' + index"
@@ -44,6 +38,14 @@
           {{ humanizeResourceName(index) }}
         </g-link>
       </div>
+      <span v-if="graphQL" class="badge text-dark px-3 py-2 mt-4 badge-light-blue">Tools</span>
+      <a
+        :href="'/graphql'"
+        v-if="graphQL"
+        target="_blank"
+        class="btn btn-block text-left px-2 py-1 my-2 text-capitalize"
+        >GraphQL Explorer</a
+      >
     </div>
   </div>
 </template>
