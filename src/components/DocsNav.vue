@@ -25,7 +25,7 @@
       >
        <g-link
           :to="'/graphql'"    
-          v-if="graphQL == true"      
+          
           class="btn btn-block text-left px-2 py-1 my-2 text-capitalize"
         >GraphQL Explorer</g-link>
       <div v-for="(resource, index) in apiSchema.schemas" :key="index">
@@ -91,7 +91,7 @@ export default {
   methods: {
     async checkForGraphQL(){
       try {
-      const results = await axios.get("/graphql");
+      const results = await axios.get("http://localhost:3000/graphql");
       console.log(results)
       this.graphQL = true
       }
