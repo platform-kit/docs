@@ -23,6 +23,11 @@
       <span class="badge text-dark px-3 py-2 mt-4 badge-light-blue"
         >API Resources</span
       >
+       <g-link
+          :to="'/graphql'"    
+          v-if="graphQL == true"      
+          class="btn btn-block text-left px-2 py-1 my-2 text-capitalize"
+        >GraphQL Explorer</g-link>
       <div v-for="(resource, index) in apiSchema.schemas" :key="index">
         <g-link
           :to="'/docs/api/' + index"
@@ -74,14 +79,27 @@ export default {
       uiSettings: {},
       apiSchema: null,
       docs: null,
+      graphQL: null
     };
   },
   async mounted() {
     this.docs = this.$static.docs.edges;
     this.getApiSchema();
     this.sortDocs();
+    this.checkForGraphQL();
   },
   methods: {
+    async checkForGraphQL(){
+      try {
+      const results = await axios.get("/graphql");
+      console.log(results)
+      this.graphQL = true
+      }
+      catch(err){
+        console.log(err)
+        this.graphQL = false
+      }
+    },
     sortDocs() {
       var docs = this.docs;
       docs = docs.sort(function compareFn(firstEl, secondEl) {
