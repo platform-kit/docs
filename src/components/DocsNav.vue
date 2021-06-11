@@ -23,11 +23,12 @@
       <span class="badge text-dark px-3 py-2 mt-4 badge-light-blue"
         >API Resources</span
       >
-       <g-link
-          :to="'/graphql'"    
-          
-          class="btn btn-block text-left px-2 py-1 my-2 text-capitalize"
-        >GraphQL Explorer</g-link>
+      <g-link
+        :to="'/graphql'"
+        v-if="graphQL"
+        class="btn btn-block text-left px-2 py-1 my-2 text-capitalize"
+        >GraphQL Explorer</g-link
+      >
       <div v-for="(resource, index) in apiSchema.schemas" :key="index">
         <g-link
           :to="'/docs/api/' + index"
@@ -70,6 +71,7 @@ query{
 
 <script>
 import axios from "axios";
+import urlExist from "url-exist"
 
 export default {
   name: "DocsNav",
@@ -79,7 +81,7 @@ export default {
       uiSettings: {},
       apiSchema: null,
       docs: null,
-      graphQL: null
+      graphQL: null,
     };
   },
   async mounted() {
@@ -89,16 +91,14 @@ export default {
     this.checkForGraphQL();
   },
   methods: {
-    async checkForGraphQL(){
-      try {
-      const results = await axios.get("http://localhost:3000/graphql");
-      console.log(results)
-      this.graphQL = true
-      }
-      catch(err){
-        console.log(err)
-        this.graphQL = false
-      }
+    async checkForGraphQL() {
+      
+      (async () => {
+        const exists = await urlExist("http://localhost:3000/graphql");        
+        console.log(exists);
+        this.graphQL = exists;
+      })();
+      
     },
     sortDocs() {
       var docs = this.docs;

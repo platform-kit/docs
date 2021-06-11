@@ -1,6 +1,6 @@
 {
   "name": "platformkit-ui",
-  "license": "mit",  
+  "license": "mit",
   "scripts": {
     "build": "gridsome build",
     "develop": "gridsome develop",
@@ -13,6 +13,7 @@
     "bootstrap-vue": "^2.21.2",
     "fs": "0.0.1-security",
     "fs-extra": "^10.0.0",
-    "gridsome": "^0.7.0"
+    "gridsome": "^0.7.0",
+    "url-exist": "^3.0.0"
   }
 }
