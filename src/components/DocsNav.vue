@@ -94,7 +94,7 @@ export default {
     async checkForGraphQL() {
       
       (async () => {
-        const exists = await urlExist("http://localhost:3000/graphql");        
+        const exists = urlExist("http://localhost:3000/graphql");        
         console.log(exists);
         this.graphQL = exists;
       })();
