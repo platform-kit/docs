@@ -71,7 +71,6 @@ query{
 
 <script>
 import axios from "axios";
-import urlExist from "url-exist"
 
 export default {
   name: "DocsNav",
@@ -92,13 +91,9 @@ export default {
   },
   methods: {
     async checkForGraphQL() {
-      
-      (async () => {
-        const exists = urlExist("http://localhost:3000/graphql");        
-        console.log(exists);
-        this.graphQL = exists;
-      })();
-      
+      let res = await axios.get("http://webcode.me");
+      let data = res.data;
+      console.log(data);
     },
     sortDocs() {
       var docs = this.docs;
