@@ -23,11 +23,12 @@
       <span class="badge text-dark px-3 py-2 mt-4 badge-light-blue"
         >API Resources</span
       >
-      <g-link
-        :to="'/graphql'"
+      <a
+        :href="'/graphql'"
         v-if="graphQL"
+        target="_blank"
         class="btn btn-block text-left px-2 py-1 my-2 text-capitalize"
-        >GraphQL Explorer</g-link
+        >GraphQL Explorer</a
       >
       <div v-for="(resource, index) in apiSchema.schemas" :key="index">
         <g-link
@@ -91,13 +92,12 @@ export default {
   },
   methods: {
     async checkForGraphQL() {
-      let res = await axios.get("/api");      
+      let res = await axios.get("/api");
       console.log(res.status);
-      if(res.status == 200){
-        this.graphQL = true
-      }
-      else {
-        this.graphQL = false
+      if (res.status == 200) {
+        this.graphQL = true;
+      } else {
+        this.graphQL = false;
       }
     },
     sortDocs() {
