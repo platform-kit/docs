@@ -3,7 +3,7 @@
     <header class="header">
       <b-navbar id="navbar" :toggleable="'lg'" type="light" variant="light">
         <!-- Left aligned nav items -->
-        <b-navbar-brand href="/" style="width: 300px" id="navLogo">
+        <b-navbar-brand href="/" id="navLogo">
           <g-image src="~/images/icon.png" style="max-width: 50px" />
           <span class="ml-3">{{ $static.metadata.siteName }}</span>
         </b-navbar-brand>
@@ -171,12 +171,13 @@
                   :to="'/docs/api/' + item.node.key"
                   style="text-decoration: none !important"
                 >
-                  <b class="text-dark"
-                    >
+                  <b class="text-dark">
                     <span class="text-light bg-dark br-5 mr-2 p-1 px-2"
                       >API Resource</span
                     >
-                    <span class="text-capitalize"> {{ humanizeResourceName(item.node.key) }} </span></b
+                    <span class="text-capitalize">
+                      {{ humanizeResourceName(item.node.key) }}
+                    </span></b
                   >
                   <br />
                   <span class="text-dark o-50">
@@ -189,7 +190,10 @@
         </div>
       </div>
     </header>
-    <div class="mainContent" v-bind:class="{blurred: search != null && search != ''}">
+    <div
+      class="mainContent"
+      v-bind:class="{ blurred: search != null && search != '' }"
+    >
       <slot />
     </div>
   </div>
@@ -307,7 +311,7 @@ body {
 }
 .mainContent.blurred {
   filter: blur(5px);
-  opacity:0.4;
+  opacity: 0.4;
 }
 
 h1,
@@ -359,7 +363,15 @@ h6 {
 }
 
 #navLogo {
+  width: 300px;
   transition: all 0.5s;
+}
+
+@media (max-width: 720px) {
+  #navLogo {
+    width: 100px;
+    transition: all 0.5s;
+  }
 }
 
 #navLogo:hover {
