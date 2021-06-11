@@ -1,7 +1,7 @@
 <template>
   <div class="layout">
     <header class="header">
-      <b-navbar id="navbar" :toggleable="'lg'" type="light" variant="light">
+      <b-navbar id="navbar" :toggleable="'lg'" type="light" variant="light" v-bind:class="{static: search != null & search != ''}">
         <!-- Left aligned nav items -->
         <b-navbar-brand href="/" id="navLogo">
           <g-image src="~/images/icon.png" style="max-width: 50px" />
@@ -420,6 +420,12 @@ h6 {
   transition: all 0.5s;
   box-shadow: 0px 15px 30px rgba(0, 100, 200, 0.1);
   background-position-x: 50% !important;
+}
+
+#navbar.static {
+  position:absolute;
+  top:0px;
+  left:0px;
 }
 
 #navbar:hover,
