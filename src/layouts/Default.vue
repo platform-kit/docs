@@ -266,16 +266,16 @@ export default {
       var apiSchemas = Object.entries(this.$static.apiSchemas.edges);
       for (const [key, value] of docs) {
         if (
-          value.node.content.includes(this.search) ||
-          value.node.title.includes(this.search)
+          value.node.content.toLowerCase().includes(this.search.toLowerCase()) ||
+          value.node.title.toLowerCase().includes(this.search.toLowerCase())
         ) {
           this.searchResults[value.node.id] = value;
         }
       }
       for (const [key, value] of apiSchemas) {
         if (
-          value.node.data.includes(this.search) ||
-          value.node.key.includes(this.search)
+          value.node.data.toLowerCase().includes(this.search.toLowerCase()) ||
+          value.node.key.toLowerCase().includes(this.search.toLowerCase())
         ) {
           this.searchResults[value.node.id] = value;
         }
