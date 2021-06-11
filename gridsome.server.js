@@ -9,7 +9,7 @@
 var fs = require('fs-extra');
 var apiSchemaPath = process.env.API_SCHEMA_PATH;
 
-if(apiSchemaPath == null) { apiSchemaPath = "../app/api-schema.json"; }
+if (apiSchemaPath == null) { apiSchemaPath = "../app/api-schema.json"; }
 
 if (apiSchemaPath != null) {
   var apiSchema = fs.readFileSync(apiSchemaPath, { encoding: 'utf8', flag: 'r' })
@@ -24,8 +24,34 @@ if (apiSchemaPath != null) {
   }
 }
 
+var uiSchemaPath = process.env.UI_SCHEMA_PATH;
+if (uiSchemaPath == null) { uiSchemaPath = "../app/ui-schema.json"; }
+if (uiSchemaPath != null) {
+  try {
+    var uiSchema = fs.readFileSync(uiSchemaPath, { encoding: 'utf8', flag: 'r' })
+    uiSchema = JSON.parse(uiSchema)
+  }
+  catch (err) {
+    var uiSchema = null
+  }
+
+  if (uiSchema != null) {
+    try {
+      fs.copySync(uiSchemaPath, './static/temp/ui-schema.json')
+      console.log('UI Schema copied to static directory.')
+    } catch (err) {
+      console.error(err)
+    }
+  }
+}
+
 module.exports = function (api) {
   // Use the Data Store API here: https://gridsome.org/docs/data-store-api/    
+
+  api.loadSource(async store => {
+    store.addMetadata('apiSchema', { data: apiSchema, string: JSON.stringify(apiSchema) })
+    store.addMetadata('uiSchema', { data: uiSchema, string: JSON.stringify(uiSchema) })
+  })
 
   // Add ApiSchema Collection
   api.loadSource(actions => {

@@ -1,14 +1,24 @@
 <template>
   <div class="layout">
     <header class="header">
-      <b-navbar id="navbar" :toggleable="'lg'" type="light" variant="light" v-bind:class="{static: search != null & search != ''}">
+      <b-navbar
+        id="navbar"
+        :toggleable="'lg'"
+        type="light"
+        variant="light"
+        v-bind:class="{ static: (search != null) & (search != '') }"
+      >
         <!-- Left aligned nav items -->
         <b-navbar-brand href="/" id="navLogo">
-          <g-image src="~/images/icon.png" style="max-width: 50px" />
-          <span class="ml-3">{{ $static.metadata.siteName }}</span>
+          <g-image v-if="uiSchema != null && uiSchema.icons != null && uiSchema.icons.favicon != null" :src="uiSchema.icons.favicon" style="max-width: 50px" />
+          <g-image v-else src="~/images/icon.png" style="max-width: 50px" />
+          <span class="ml-3">{{  uiSchema.name || $static.metadata.siteName }}</span>
         </b-navbar-brand>
 
-        <b-navbar-toggle @click="search = null" target="nav-collapse"></b-navbar-toggle>
+        <b-navbar-toggle
+          @click="search = null"
+          target="nav-collapse"
+        ></b-navbar-toggle>
 
         <b-collapse id="nav-collapse" is-nav :v-model="uiSettings.navBarOpen">
           <b-navbar-nav class="d-none">
@@ -247,12 +257,14 @@ export default {
         navBarOpen: true,
       },
       apiSchema: null,
+      uiSchema: null,
       search: null,
       searchResults: {},
     };
   },
   async mounted() {
     this.getApiSchema();
+    this.getUiSchema();
     this.window = window;
     window.addEventListener("keydown", this.escapeListener);
   },
@@ -266,7 +278,9 @@ export default {
       var apiSchemas = Object.entries(this.$static.apiSchemas.edges);
       for (const [key, value] of docs) {
         if (
-          value.node.content.toLowerCase().includes(this.search.toLowerCase()) ||
+          value.node.content
+            .toLowerCase()
+            .includes(this.search.toLowerCase()) ||
           value.node.title.toLowerCase().includes(this.search.toLowerCase())
         ) {
           this.searchResults[value.node.id] = value;
@@ -285,6 +299,14 @@ export default {
       try {
         const results = await axios.get("/temp/api-schema.json");
         this.apiSchema = results.data;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    async getUiSchema() {
+      try {
+        const results = await axios.get("/temp/ui-schema.json");
+        this.uiSchema = results.data;
       } catch (error) {
         console.log(error);
       }
@@ -423,9 +445,9 @@ h6 {
 }
 
 #navbar.static {
-  position:absolute;
-  top:0px;
-  left:0px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
 }
 
 #navbar:hover,

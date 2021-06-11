@@ -72,6 +72,10 @@ export default {
   background: rgba(0, 50, 100, 0.05);
 }
 
+.docs-page ul p {
+  margin-bottom:0px !important;
+}
+
 .docs-page h1:first-of-type{
   margin-bottom:20px;
 }
