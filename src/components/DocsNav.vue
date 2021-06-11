@@ -91,7 +91,7 @@ export default {
   },
   methods: {
     async checkForGraphQL() {
-      let res = await axios.get("/graphql");      
+      let res = await axios.get("/api");      
       console.log(res.status);
       if(res.status == 200){
         this.graphQL = true
