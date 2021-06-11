@@ -8,7 +8,7 @@
           <span class="ml-3">{{ $static.metadata.siteName }}</span>
         </b-navbar-brand>
 
-        <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+        <b-navbar-toggle @click="search = null" target="nav-collapse"></b-navbar-toggle>
 
         <b-collapse id="nav-collapse" is-nav :v-model="uiSettings.navBarOpen">
           <b-navbar-nav class="d-none">
