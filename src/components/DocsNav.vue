@@ -91,9 +91,14 @@ export default {
   },
   methods: {
     async checkForGraphQL() {
-      let res = await axios.get("http://webcode.me");
-      let data = res.data;
-      console.log(data);
+      let res = await axios.get("/graphql");      
+      console.log(res.status);
+      if(res.status == 200){
+        this.graphQL = true
+      }
+      else {
+        this.graphQL = false
+      }
     },
     sortDocs() {
       var docs = this.docs;
