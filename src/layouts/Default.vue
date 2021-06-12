@@ -183,6 +183,7 @@
             No Results.
           </div>
           <div
+            @click="hideNavCollapse"
             v-for="(item, index) in Object.values(searchResults)"
             :key="index"
           >
@@ -282,7 +283,7 @@ query {
 import axios from "axios";
 
 export default {
-  props: ['title'],
+  props: ["title"],
   data() {
     return {
       uiSettings: {
@@ -296,13 +297,16 @@ export default {
     };
   },
   async mounted() {
-    console.log(this.$page)
+    console.log(this.$page);
     this.getApiSchema();
     this.getUiSchema();
     this.window = window;
     window.addEventListener("keydown", this.escapeListener);
   },
   methods: {
+    hideNavCollapse() {
+      this.$root.$emit("bv::toggle::collapse", "nav-collapse");
+    },
     visibleHandler(isVisible) {
       if (isVisible) {
         // Do something
