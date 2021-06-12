@@ -1,9 +1,11 @@
 <template>
   <div class="docs-page pb-5 mb-2">
     <div
-      class="btn btn-dark d-inline d-md-none raised px-3 py-2"
+      class="btn btn-dark d-inline d-md-none raised"
       v-b-modal.docs-modal
       style="
+        height:50px;
+        width:50px;
         cursor:pointer;
         z-index: 99;
         position: fixed !important;
@@ -12,7 +14,7 @@
         float: left;
       "
     >
-      <b-icon-book></b-icon-book> <span class="ml-2 d-none">{{ title }}</span>
+      <b-icon-book class="mx-auto" style="margin-top:8px !important;"></b-icon-book> <span class="ml-2 d-none">{{ title }}</span>
     </div>
     <div class="container-fluid h-md-100">
       <div class="row h-md-100 w-100 mx-auto" style="max-width: 1350px">
