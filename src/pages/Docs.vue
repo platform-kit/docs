@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <docs-layout v-if="docs != null" :content="docs[0].node.content">
+    <docs-layout v-if="docs != null" :content="docs[0].node.content" :title="'Docs'">
       <template v-slot:sidebar v-if="docs[0].node.headings.length > 1">
         <div>On This Page</div>
         <span

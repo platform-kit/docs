@@ -88,12 +88,19 @@ export default {
   background: rgba(0, 50, 100, 0.05);
 }
 
-.docs-page ul p {
-  margin-bottom:0px !important;
+@media (max-width: 720px) {
+  .docs-page ul {
+    margin-left: 0px;
+    padding-left: 10px;
+  }
 }
 
-.docs-page h1:first-of-type{
-  margin-bottom:20px;
+.docs-page ul p {
+  margin-bottom: 0px !important;
+}
+
+.docs-page h1:first-of-type {
+  margin-bottom: 20px;
 }
 .docs-page h1 {
   font-size: 2rem;
@@ -110,9 +117,9 @@ export default {
 }
 
 .language-diff {
-  color:green;
-  background-color:#edfff5;
-  padding:3px;
-  border-radius:3px;
+  color: green;
+  background-color: #edfff5;
+  padding: 3px;
+  border-radius: 3px;
 }
 </style>
