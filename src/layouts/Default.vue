@@ -188,7 +188,7 @@
       >
         <div
           class="card border-light-blue raised mx-auto p-3"
-          style="z-index: 999"
+          style="z-index: 999; border-radius:0px 0px 10px 10px;"
 
         >
           <div
@@ -247,6 +247,7 @@
         </div>
       </div>
     </header>
+    <div id="mainContainer" style="background-image: linear-gradient(rgb(112, 113, 128), #07082b) !important;">
     <div
       id="main"
       class="mainContent"
@@ -254,6 +255,7 @@
     >
       <div id="topOfContent" v-b-visible.50="visibleHandler"></div>
       <slot />
+    </div>
     </div>
   </div>
 </template>
@@ -400,15 +402,16 @@ body {
     "Helvetica Neue", Arial, sans-serif !important;
   margin: 0;
   padding: 0;
-  line-height: 1.5;
+  line-height: 1.5;  
 }
 .mainContent {
+  background:#fff;
   transition: all 0.2s !important;
 }
 .mainContent.blurred {
   pointer-events: none;
   filter: blur(5px);
-  opacity: 0.4;
+  opacity: 0.3;
 }
 
 h1,
