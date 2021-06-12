@@ -26,26 +26,27 @@
               class="ml-3"
               >{{ uiSchema.name }}</span
             >
-            <span v-else class="ml-3">{{ $static.metadata.siteName }}</span>            
+            <span v-else class="ml-3">{{ $static.metadata.siteName }}</span>
           </span>
           <span v-else>
             <span v-if="title == null">
               <span
-              v-if="uiSchema != null && uiSchema.name != null"
-              class="ml-3"
-              >{{ uiSchema.name }}</span
-            >
-            <span v-else class="ml-3">{{ $static.metadata.siteName }}</span>            
-              
+                v-if="uiSchema != null && uiSchema.name != null"
+                class="ml-3"
+                >{{ uiSchema.name }}</span
+              >
+              <span v-else class="ml-3">{{ $static.metadata.siteName }}</span>
             </span>
             <span v-else class="text-dark ml-2"> {{ title }}</span>
           </span>
         </b-navbar-brand>
 
-        <b-navbar-toggle
-          @click="search = null"
-          target="nav-collapse"
-        ></b-navbar-toggle>
+        <b-navbar-toggle @click="search = null" target="nav-collapse" style="width:50px;height:50px;">
+          <template #default="{ expanded }">
+            <b-icon v-if="expanded" icon="list" class="text-primary"></b-icon>
+            <b-icon v-else icon="list"></b-icon>
+          </template>
+        </b-navbar-toggle>
 
         <b-collapse id="nav-collapse" is-nav :v-model="uiSettings.navBarOpen">
           <b-navbar-nav class="d-none">

@@ -10,7 +10,7 @@
         z-index: 99;
         position: fixed !important;
         bottom: 15px !important;
-        left: 15px;
+        right: 15px;
         float: left;
       "
     >
