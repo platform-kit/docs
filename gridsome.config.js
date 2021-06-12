@@ -65,26 +65,27 @@ if (uiSchema != null && uiSchema.docs != null && uiSchema.docs.collections != nu
     console.log('\n');
     console.log(element);
     console.log('\n');
+    if (element.publish != false) {
 
-    // Markdown Docs
-    var newDocs = {
-      use: '@gridsome/source-filesystem',
-      options: {
-        //path: element.path + element.name.toLowerCase() + '/*.md',      
-        path: '*.md',
-        subdirectory: element.label,
-        baseDir: element.path,
-        pathPrefix: '/' + element.label + '/',
-        typeName: 'Doc'
-      }
-    };
+      // Markdown Docs
+      var newDocs = {
+        use: '@gridsome/source-filesystem',
+        options: {
+          //path: element.path + element.name.toLowerCase() + '/*.md',      
+          path: '*.md',
+          subdirectory: element.label,
+          baseDir: element.path,
+          pathPrefix: element.prefix,
+          typeName: 'Doc'
+        }
+      };
 
-    console.log('PATHS');
-    console.log('../platformkit-api/docs/*.md');
-    console.log(element.path + '/*.md');
-    console.log(element);
-    plugins.push(newDocs)
-
+      console.log('PATHS');
+      console.log('../platformkit-api/docs/*.md');
+      console.log(element.path + '/*.md');
+      console.log(element);
+      plugins.push(newDocs)
+    }
   });
 
 }
