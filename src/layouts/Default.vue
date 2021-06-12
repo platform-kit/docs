@@ -198,7 +198,7 @@
             No Results.
           </div>
           <div
-            @click="hideNavCollapse; $router.push(item.node.path)"
+            @click="hideNavCollapse; $router.push(getPath(item.node))"
             style="cursor:pointer;"
             v-for="(item, index) in Object.values(searchResults)"
             :key="index"                      
@@ -206,7 +206,7 @@
             <div v-if="item.node.content != null">
               <div v-on:click="search = null" class="search-result p-3 my-2">
                 <g-link
-                  :to="item.node.path"
+                  :to="'#'"
                   style="text-decoration: none !important"
                 >
                   <b class="text-dark"
@@ -225,7 +225,7 @@
             <div v-if="item.node.key != null">
               <div v-on:click="search = null" class="search-result p-3 my-2">
                 <g-link
-                  :to="'/docs/api/' + item.node.key"
+                  :to="'#'"
                   style="text-decoration: none !important"
                 >
                   <b class="text-dark">
@@ -320,6 +320,14 @@ export default {
     window.addEventListener("keydown", this.escapeListener);
   },
   methods: {
+    getPath(node){
+      if(node.key != null){
+        return '/docs/api/' + node.key;
+      }
+      if(node.path != null){
+        return node.path;
+      }
+    },
     hideNavCollapse() {
       this.$root.$emit("bv::toggle::collapse", "nav-collapse");
     },
