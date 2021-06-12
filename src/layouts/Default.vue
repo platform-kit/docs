@@ -406,7 +406,7 @@ body {
 }
 .mainContent {
   background:#fff;
-  transition: all 0.2s !important;
+  transition: opacity 0.5s !important;
 }
 .mainContent.blurred {
   pointer-events: none;
