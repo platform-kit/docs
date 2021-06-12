@@ -5,7 +5,7 @@
       v-b-modal.docs-modal
       style="
         cursor:pointer;
-        z-index: 99999;
+        z-index: 99;
         position: fixed !important;
         bottom: 15px !important;
         left: 15px;

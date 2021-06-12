@@ -1,5 +1,5 @@
 <template>
-  <div>    
+  <div>
     <div class="docs-nav">
       <g-link :to="'/docs'"
         ><span class="badge text-dark px-3 py-2 badge-light-blue"
@@ -53,14 +53,14 @@
         >
       </div>
 
-      <b-modal id="docs-modal">
-        <div class="docs-nav mx-4">
+      <b-modal id="docs-modal" ref="docs-modal" hide-footer title="Docs" >
+        <div class="docs-nav mx-4" @click="hideModal()">
           <g-link :to="'/docs'"
             ><span class="badge text-dark px-3 py-2 badge-light-blue"
               >Docs</span
             ></g-link
           >
-          <g-link
+          <g-link            
             :to="doc.node.path"
             active-class="active"
             v-for="(doc, index) in docs"
@@ -163,6 +163,10 @@ export default {
       } else {
         this.graphQL = false;
       }
+    },
+    hideModal() {
+      console.log('test');
+      this.$refs["docs-modal"].hide();
     },
     sortDocs() {
       var docs = this.docs;
