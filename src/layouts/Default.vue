@@ -334,8 +334,9 @@ export default {
         console.log(error);
       }
     },
-    async escapeListener(event) {
+    async escapeListener(event) {      
       if (event.key === "Escape") {
+        this.search = null;
         this.$refs.navSearch.$el.focus();
       }
     },
