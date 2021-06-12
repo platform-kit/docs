@@ -110,7 +110,7 @@
           </b-navbar-nav>
 
           <!-- Right aligned nav items -->
-          <b-navbar-nav
+          <b-navbar-nav            
             class="ml-auto text-right mb-2 mb-md-0 d-block"
             id="nav-right"
           >

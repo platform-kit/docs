@@ -4,9 +4,16 @@
 // Changes here require a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
+
+// Requires
 var fs = require('fs-extra');
+const shell = require('shelljs')
+const token = process.env.GITHUB_TOKEN;
+
+// Vars
 var docsPath = process.env.DOCS_PATH || '../docs';
 
+// UI Schema
 var uiSchemaPath = process.env.UI_SCHEMA_PATH;
 if (uiSchemaPath == null) { uiSchemaPath = "../app/ui-schema.json"; }
 if (uiSchemaPath != null) {
@@ -27,6 +34,7 @@ if (uiSchemaPath != null) {
   }
 }
 
+// API Schema
 var apiSchemaPath = process.env.API_SCHEMA_PATH;
 if (apiSchemaPath == null) { apiSchemaPath = "../app/api-schema.json"; }
 if (apiSchemaPath != null) {
@@ -55,36 +63,35 @@ else {
   favicon = './src/favicon.png'
 }
 
-
+// Plugins
 var plugins = [];
 
 if (uiSchema != null && uiSchema.docs != null && uiSchema.docs.collections != null) {
-  console.log('TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST ');
   var collections = Object.values(uiSchema.docs.collections);
+  shell.exec('rm -r temp; mkdir temp');
   collections.forEach(function callbackFn(element, index, array) {
     console.log('\n');
     console.log(element);
     console.log('\n');
-    if (element.publish != false) {
+    if (element.publish != false && element.repo != null) {
 
-      // Markdown Docs
+      // Clone Doc repos
+      var path = "temp";
+      var repo = element.repo;
+      shell.exec('cd temp; git clone ' + element.repo + ' ' + element.name);
+      var docs = 'temp/' + element.name + '/' + element.path;
+      console.log('Docs Path: ' + docs);
+
+      // Create Content from Docs
       var newDocs = {
         use: '@gridsome/source-filesystem',
         options: {
-          //path: element.path + element.name.toLowerCase() + '/*.md',      
           path: '*.md',
-          subdirectory: element.label,
-          baseDir: element.path,
-          pathPrefix: element.prefix,
+          baseDir: docs,
           typeName: 'Doc'
         }
       };
-
-      console.log('PATHS');
-      console.log('../platformkit-api/docs/*.md');
-      console.log(element.path + '/*.md');
-      console.log(element);
-      plugins.push(newDocs)
+      plugins.push(newDocs);
     }
   });
 

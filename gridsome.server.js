@@ -6,44 +6,21 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 // Import the API Schema
-var fs = require('fs-extra');
+var fs = require('fs');
 var apiSchemaPath = process.env.API_SCHEMA_PATH;
 
-if (apiSchemaPath == null) { apiSchemaPath = "../app/api-schema.json"; }
-
-if (apiSchemaPath != null) {
+if (apiSchemaPath != null) { 
+  apiSchemaPath = "static/temp/api-schema.json";
   var apiSchema = fs.readFileSync(apiSchemaPath, { encoding: 'utf8', flag: 'r' })
-  apiSchema = JSON.parse(apiSchema)
-  if (apiSchema != null) {
-    try {
-      fs.copySync(apiSchemaPath, './static/temp/api-schema.json')
-      console.log('API Schema copied to static directory.')
-    } catch (err) {
-      console.error(err)
-    }
-  }
-}
+      apiSchema = JSON.parse(apiSchema);
+ }
+
 
 var uiSchemaPath = process.env.UI_SCHEMA_PATH;
-if (uiSchemaPath == null) { uiSchemaPath = "../app/ui-schema.json"; }
-if (uiSchemaPath != null) {
-  try {
-    var uiSchema = fs.readFileSync(uiSchemaPath, { encoding: 'utf8', flag: 'r' })
-    uiSchema = JSON.parse(uiSchema)
-  }
-  catch (err) {
-    var uiSchema = null
-  }
-
-  if (uiSchema != null) {
-    try {
-      fs.copySync(uiSchemaPath, './static/temp/ui-schema.json')
-      console.log('UI Schema copied to static directory.')
-    } catch (err) {
-      console.error(err)
-    }
-  }
-}
+if (uiSchemaPath == null) { 
+  uiSchemaPath = "static/temp/ui-schema.json";
+  var uiSchema = fs.readFileSync(uiSchemaPath, { encoding: 'utf8', flag: 'r' })
+      uiSchema = JSON.parse(uiSchema) }
 
 module.exports = function (api) {
   // Use the Data Store API here: https://gridsome.org/docs/data-store-api/    
