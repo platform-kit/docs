@@ -55,7 +55,55 @@ else {
   favicon = './src/favicon.png'
 }
 
-var plugins = []
+
+var plugins = [];
+
+if (uiSchema != null && uiSchema.docs != null && uiSchema.docs.collections != null) {
+  console.log('TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST ');
+  var collections = Object.values(uiSchema.docs.collections);
+  collections.forEach(function callbackFn(element, index, array) {
+    console.log('\n');
+    console.log(element);
+    console.log('\n');
+
+    // Markdown Docs
+    var newDocs = {
+      use: '@gridsome/source-filesystem',
+      options: {
+        //path: element.path + element.name.toLowerCase() + '/*.md',      
+        path: '*.md',
+        subdirectory: element.label,
+        baseDir: element.path,
+        pathPrefix: '/' + element.label + '/',
+        typeName: 'Doc'
+      }
+    };
+
+    console.log('PATHS');
+    console.log('../platformkit-api/docs/*.md');
+    console.log(element.path + '/*.md');
+    console.log(element);
+    plugins.push(newDocs)
+
+  });
+
+}
+
+else {
+
+  // Markdown Docs
+  var defaultDocs = {
+    use: '@gridsome/source-filesystem',
+    options: {
+      //path: docsPath + '/*.md',
+      path: docsPath + '/*.md',
+      typeName: 'Doc'
+    }
+  };
+  plugins.push(defaultDocs);
+}
+
+
 
 var gridsomeConfig = {
   siteName: siteName,
@@ -63,29 +111,10 @@ var gridsomeConfig = {
     favicon: favicon,
     touchicon: favicon
   },
-  plugins: [
-    // Markdown Docs
-    {
-      use: '@gridsome/source-filesystem',
-      options: {
-        //path: docsPath + '/*.md',
-        path: docsPath + '/*.md',
-        typeName: 'Doc'
-      }
-    },
-    // Markdown Docs
-    {
-      use: '@gridsome/source-filesystem',
-      options: {
-        //path: docsPath + '/*.md',
-        path: docsPath + '/**/*.md',
-        typeName: 'Doc'
-      }
-    },
-  ],
+  plugins: plugins,
   // Assign Templates & Routes
   templates: {
-    Doc: '/docs/:title',
+    Doc: '/docs/:path',
     ApiSchema: '/docs/api/:key'
   }
 }
