@@ -406,6 +406,7 @@ body {
   transition: all 0.2s !important;
 }
 .mainContent.blurred {
+  pointer-events: none;
   filter: blur(5px);
   opacity: 0.4;
 }
