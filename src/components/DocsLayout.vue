@@ -1,5 +1,19 @@
 <template>
-  <div class="docs-page">
+  <div class="docs-page pb-5 mb-2">
+    <div
+      class="btn btn-dark d-inline d-md-none raised"
+      v-b-modal.docs-modal
+      style="
+        cursor:pointer;
+        z-index: 99999;
+        position: fixed !important;
+        bottom: 15px !important;
+        left: 15px;
+        float: left;
+      "
+    >
+      <b-icon-list></b-icon-list> <span class="ml-2">Navigation</span>
+    </div>
     <div class="container-fluid h-md-100">
       <div class="row h-md-100 w-100 mx-auto" style="max-width: 1350px">
         <div

@@ -1,11 +1,21 @@
 <template>
-  <Layout>
+  <Layout :title="'API Schema'">
     <docs-layout>
       <template v-slot:sidebar>
         <div v-for="(s, index) in $page.allApiSchema.edges" :key="index">
           <div v-if="slug == s.node.key">
             <div>On This Page</div>
-            <span class="my-3" style="width:100px;background:#007bff;opacity:0.25;height:4px;border-radius:4px;display:inline-block;"></span>
+            <span
+              class="my-3"
+              style="
+                width: 100px;
+                background: #007bff;
+                opacity: 0.25;
+                height: 4px;
+                border-radius: 4px;
+                display: inline-block;
+              "
+            ></span>
             <div
               v-for="(endpoint, index) in Object.entries(
                 JSON.parse(s.node.data, null, 3)
@@ -107,12 +117,20 @@
               >
 
               <br />
-              <b-card bg-variant="dark" text-variant="white" class="api-schema-card">
+              <b-card
+                bg-variant="dark"
+                text-variant="white"
+                class="api-schema-card"
+              >
                 <template #header>
-                  <span class="o-60" >Input Validation Rules</span>
+                  <span class="o-60">Input Validation Rules</span>
                 </template>
                 <code>
-                  <pre class="text-light mb-0" v-if="endpoint[1]['input_validation_rules'] != null">{{ endpoint[1]['input_validation_rules'] }}</pre>
+                  <pre
+                    class="text-light mb-0"
+                    v-if="endpoint[1]['input_validation_rules'] != null"
+                    >{{ endpoint[1]["input_validation_rules"] }}</pre
+                  >
                 </code>
               </b-card>
               <div class="mt-2">
@@ -201,6 +219,6 @@ export default {
 }
 
 .api-schema-card .card-header {
-  background:rgb(41 43 51) !important
+  background: rgb(41 43 51) !important;
 }
 </style>

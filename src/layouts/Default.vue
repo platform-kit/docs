@@ -20,10 +20,17 @@
             style="max-width: 50px"
           />
           <g-image v-else src="~/images/icon.png" style="max-width: 50px" />
-          <span v-if="uiSchema != null && uiSchema.name != null" class="ml-3">{{
-            uiSchema.name
-          }}</span>
-          <span v-else class="ml-3">{{ $static.metadata.siteName }}</span>
+          <span v-if="scrolled != true">
+            <span
+              v-if="uiSchema != null && uiSchema.name != null"
+              class="ml-3"
+              >{{ uiSchema.name }}</span
+            >
+            <span v-else class="ml-3">{{ $static.metadata.siteName }}</span>
+          </span>
+          <span v-else>
+            <span class="text-dark ml-2"> {{ title }}</span>
+          </span>
         </b-navbar-brand>
 
         <b-navbar-toggle
@@ -224,9 +231,11 @@
       </div>
     </header>
     <div
+      id="main"
       class="mainContent"
       v-bind:class="{ blurred: search != null && search != '' }"
     >
+      <div id="topOfContent" v-b-visible.50="visibleHandler"></div>
       <slot />
     </div>
   </div>
@@ -273,7 +282,7 @@ query {
 import axios from "axios";
 
 export default {
-  props: [],
+  props: ['title'],
   data() {
     return {
       uiSettings: {
@@ -283,15 +292,28 @@ export default {
       uiSchema: null,
       search: null,
       searchResults: {},
+      scrolled: null,
     };
   },
   async mounted() {
+    console.log(this.$page)
     this.getApiSchema();
     this.getUiSchema();
     this.window = window;
     window.addEventListener("keydown", this.escapeListener);
   },
   methods: {
+    visibleHandler(isVisible) {
+      if (isVisible) {
+        // Do something
+        console.log("visible");
+        this.scrolled = false;
+      } else {
+        // Do something else
+        console.log("not visible");
+        this.scrolled = true;
+      }
+    },
     humanizeResourceName(input) {
       return input.replace(/_/g, " ");
     },
@@ -334,7 +356,7 @@ export default {
         console.log(error);
       }
     },
-    async escapeListener(event) {      
+    async escapeListener(event) {
       if (event.key === "Escape") {
         this.search = null;
         this.$refs.navSearch.$el.focus();
@@ -480,7 +502,7 @@ h6 {
 }
 
 #navbar #searchInputLabel {
-  color: rgb(0, 50, 200, 0.8) !important;  
+  color: rgb(0, 50, 200, 0.8) !important;
   width: 60px;
   margin-left: -60px;
   padding-right: 15px;

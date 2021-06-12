@@ -1,15 +1,29 @@
 <template>
-  <Layout>
+  <Layout :title="$page.doc.title">
     <docs-layout :content="$page.doc.content">
       <template v-slot:sidebar v-if="$page.doc.headings.length > 1">
-        <div >On This Page</div>
-        <span class="mt-3 mb-2" style="width:100px;background:#007bff;opacity:0.25;height:4px;border-radius:4px;display:inline-block;"></span>
+        <div>On This Page</div>
+        <span
+          class="mt-3 mb-2"
+          style="
+            width: 100px;
+            background: #007bff;
+            opacity: 0.25;
+            height: 4px;
+            border-radius: 4px;
+            display: inline-block;
+          "
+        ></span>
         <div
           v-for="(heading, index) in $page.doc.headings"
           :key="index"
           style="letter-spacing: 1px"
         >
-          <a :href="heading.anchor" v-if="index != 0" class="btn p-0 mb-2 mt-1 o-70 o-h-100 text-dark text-left">
+          <a
+            :href="heading.anchor"
+            v-if="index != 0"
+            class="btn p-0 mb-2 mt-1 o-70 o-h-100 text-dark text-left"
+          >
             {{ heading.value }}
           </a>
         </div>
@@ -39,8 +53,13 @@ export default {
   components: {
     DocsLayout,
   },
-  metaInfo: {
-    title: "Docs",
+  metaInfo() {
+    return {
+      title: this.$page.doc.title,
+      meta: [{ name: "description", content: this.$page.doc.excerpt }],      
+    };
+  },
+  async mounted() {    
   },
 };
 </script>

@@ -1,51 +1,113 @@
 <template>
-  <div id="docs-nav">
-    <g-link :to="'/docs'"
-      ><span class="badge text-dark px-3 py-2 badge-light-blue"
-        >Docs</span
-      ></g-link
-    >
-    <g-link
-      :to="doc.node.path"
-      active-class="active"
-      v-for="(doc, index) in docs"
-      :key="index"
-      class="btn btn-block text-left px-2 py-1 my-2 text-capitalize"
-    >
-      <span class="nav-indicator o-50"
-        ><b-icon-caret-right-fill
-          style="margin-top: 2px"
-        ></b-icon-caret-right-fill
-      ></span>
-      {{ doc.node.title }}
-    </g-link>
-    <div v-if="apiSchema != null">
-      <span class="badge text-dark px-3 py-2 mt-4 badge-light-blue"
-        >API Resources</span
+  <div>    
+    <div class="docs-nav">
+      <g-link :to="'/docs'"
+        ><span class="badge text-dark px-3 py-2 badge-light-blue"
+          >Docs</span
+        ></g-link
       >
-
-      <div v-for="(resource, index) in apiSchema.schemas" :key="index">
-        <g-link
-          :to="'/docs/api/' + index"
-          active-class="active"
-          class="btn btn-block text-left px-2 py-1 my-2 text-capitalize"
-        >
-          <span class="nav-indicator o-50"
-            ><b-icon-caret-right-fill
-              style="margin-top: 2px"
-            ></b-icon-caret-right-fill
-          ></span>
-          {{ humanizeResourceName(index) }}
-        </g-link>
-      </div>
-      <span v-if="graphQL" class="badge text-dark px-3 py-2 mt-4 badge-light-blue">Tools</span>
-      <a
-        :href="'/graphql'"
-        v-if="graphQL"
-        target="_blank"
+      <g-link
+        :to="doc.node.path"
+        active-class="active"
+        v-for="(doc, index) in docs"
+        :key="index"
         class="btn btn-block text-left px-2 py-1 my-2 text-capitalize"
-        >GraphQL Explorer</a
       >
+        <span class="nav-indicator o-50"
+          ><b-icon-caret-right-fill
+            style="margin-top: 2px"
+          ></b-icon-caret-right-fill
+        ></span>
+        {{ doc.node.title }}
+      </g-link>
+      <div v-if="apiSchema != null">
+        <span class="badge text-dark px-3 py-2 mt-4 badge-light-blue"
+          >API Resources</span
+        >
+
+        <div v-for="(resource, index) in apiSchema.schemas" :key="index">
+          <g-link
+            :to="'/docs/api/' + index"
+            active-class="active"
+            class="btn btn-block text-left px-2 py-1 my-2 text-capitalize"
+          >
+            <span class="nav-indicator o-50"
+              ><b-icon-caret-right-fill
+                style="margin-top: 2px"
+              ></b-icon-caret-right-fill
+            ></span>
+            {{ humanizeResourceName(index) }}
+          </g-link>
+        </div>
+        <span
+          v-if="graphQL"
+          class="badge text-dark px-3 py-2 mt-4 badge-light-blue"
+          >Tools</span
+        >
+        <a
+          :href="'/graphql'"
+          v-if="graphQL"
+          target="_blank"
+          class="btn btn-block text-left px-2 py-1 my-2 text-capitalize"
+          >GraphQL Explorer</a
+        >
+      </div>
+
+      <b-modal id="docs-modal">
+        <div class="docs-nav mx-4">
+          <g-link :to="'/docs'"
+            ><span class="badge text-dark px-3 py-2 badge-light-blue"
+              >Docs</span
+            ></g-link
+          >
+          <g-link
+            :to="doc.node.path"
+            active-class="active"
+            v-for="(doc, index) in docs"
+            :key="index"
+            class="btn btn-block text-left px-2 py-1 my-2 text-capitalize"
+          >
+            <span class="nav-indicator o-50"
+              ><b-icon-caret-right-fill
+                style="margin-top: 2px"
+              ></b-icon-caret-right-fill
+            ></span>
+            {{ doc.node.title }}
+          </g-link>
+          <div v-if="apiSchema != null">
+            <span class="badge text-dark px-3 py-2 mt-4 badge-light-blue"
+              >API Resources</span
+            >
+
+            <div v-for="(resource, index) in apiSchema.schemas" :key="index">
+              <g-link
+                :to="'/docs/api/' + index"
+                active-class="active"
+                class="btn btn-block text-left px-2 py-1 my-2 text-capitalize"
+              >
+                <span class="nav-indicator o-50"
+                  ><b-icon-caret-right-fill
+                    style="margin-top: 2px"
+                  ></b-icon-caret-right-fill
+                ></span>
+                {{ humanizeResourceName(index) }}
+              </g-link>
+            </div>
+            <span
+              v-if="graphQL"
+              class="badge text-dark px-3 py-2 mt-4 badge-light-blue"
+              >Tools</span
+            >
+            <a
+              :href="'/graphql'"
+              v-if="graphQL"
+              target="_blank"
+              class="btn btn-block text-left px-2 py-1 my-2 text-capitalize"
+              >GraphQL Explorer</a
+            >
+          </div>
+        </div>
+      </b-modal>
     </div>
   </div>
 </template>
@@ -137,20 +199,20 @@ export default {
 </script>
 
 <style>
-#docs-nav .btn:hover {
+.docs-nav .btn:hover {
   background-color: #f0f6ff !important;
 }
-#docs-nav .btn.active {
+.docs-nav .btn.active {
   color: #007bff;
 }
-#docs-nav .badge-light-blue {
+.docs-nav .badge-light-blue {
   background: rgba(0, 50, 100, 0.05);
 }
 
-#docs-nav .nav-indicator {
+.docs-nav .nav-indicator {
   display: none;
 }
-#docs-nav .active .nav-indicator {
+.docs-nav .active .nav-indicator {
   display: inline;
   float: left;
   margin-left: -35px;
