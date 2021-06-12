@@ -150,7 +150,7 @@
 </template>
 
 <page-query>
-query {
+query($id: ID)  {  
   allApiSchema {
     edges {
       node {
@@ -159,6 +159,11 @@ query {
         data
       }
     }
+  }
+  apiSchema(id: $id) {      
+    id
+    key
+    data    
   }
 }
 </page-query>
@@ -171,8 +176,11 @@ export default {
   components: {
     DocsLayout,
   },
-  metaInfo: {
-    title: "Docs",
+  metaInfo() {
+    return {
+      title: this.capitalize(this.slug) + ' API Schema '
+      /* meta: [{ name: "description", content: '...' }], */
+    };
   },
   data() {
     return {
@@ -180,17 +188,27 @@ export default {
       apiSchema: {},
       slug: null,
       window: null,
+      schema: {}
     };
-  },
+  },  
   async mounted() {
-    this.getApiSchema();
+    this.getApiSchema();    
     this.window = window;
     this.slug = this.window.location.href.substring(
       this.window.location.href.lastIndexOf("/") + 1
     );
+    this.getSchema();
     console.log(this.$page);
   },
   methods: {
+    capitalize(s){
+        s = s.replace(/_/g, " ");
+        return s.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')
+    },
+    async getSchema() {
+      await this.getApiSchema();
+      this.schema = this.apiSchema.schemas[this.slug]      
+    },
     async getApiSchema() {
       try {
         const results = await axios.get("/temp/api-schema.json");
