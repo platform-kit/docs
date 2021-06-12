@@ -1,6 +1,6 @@
 <template>
   <Layout :title="$page.doc.title">
-    <docs-layout :content="$page.doc.content">
+    <docs-layout :content="$page.doc.content" :title="$page.doc.title">
       <template v-slot:sidebar v-if="$page.doc.headings.length > 1">
         <div>On This Page</div>
         <span

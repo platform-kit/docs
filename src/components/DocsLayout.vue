@@ -1,7 +1,7 @@
 <template>
   <div class="docs-page pb-5 mb-2">
     <div
-      class="btn btn-dark d-inline d-md-none raised"
+      class="btn btn-dark d-inline d-md-none raised px-3 py-2"
       v-b-modal.docs-modal
       style="
         cursor:pointer;
@@ -12,7 +12,7 @@
         float: left;
       "
     >
-      <b-icon-list></b-icon-list> <span class="ml-2">Navigation</span>
+      <b-icon-book></b-icon-book> <span class="ml-2 d-none">{{ title }}</span>
     </div>
     <div class="container-fluid h-md-100">
       <div class="row h-md-100 w-100 mx-auto" style="max-width: 1350px">
@@ -45,7 +45,7 @@ import DocsNav from "~/components/DocsNav.vue";
 
 export default {
   name: "DocsPage",
-  props: ["content", "sidebar"],
+  props: ["content", "sidebar", "title"],
   components: {
     DocsNav,
   },

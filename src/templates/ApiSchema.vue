@@ -1,6 +1,6 @@
 <template>
   <Layout :title="'API Schema'">
-    <docs-layout>
+    <docs-layout :title="$page.doc.title">
       <template v-slot:sidebar>
         <div v-for="(s, index) in $page.allApiSchema.edges" :key="index">
           <div v-if="slug == s.node.key">
