@@ -41,9 +41,13 @@
           </span>
         </b-navbar-brand>
 
-        <b-navbar-toggle @click="search = null" target="nav-collapse" style="width:50px;height:50px;">
+        <b-navbar-toggle
+          @click="search = null"
+          target="nav-collapse"
+          style="width: 50px; height: 50px"
+        >
           <template #default="{ expanded }">
-            <b-icon v-if="expanded" icon="list" ></b-icon>
+            <b-icon v-if="expanded" icon="list"></b-icon>
             <b-icon v-else icon="search"></b-icon>
           </template>
         </b-navbar-toggle>
@@ -185,6 +189,7 @@
         <div
           class="card border-light-blue raised mx-auto p-3"
           style="z-index: 999"
+
         >
           <div
             v-if="Object.values(searchResults).length == 0"
@@ -193,9 +198,10 @@
             No Results.
           </div>
           <div
-            @click="hideNavCollapse"
+            @click="hideNavCollapse; $router.push(item.node.path)"
+            style="cursor:pointer;"
             v-for="(item, index) in Object.values(searchResults)"
-            :key="index"
+            :key="index"                      
           >
             <div v-if="item.node.content != null">
               <div v-on:click="search = null" class="search-result p-3 my-2">
