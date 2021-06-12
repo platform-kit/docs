@@ -198,7 +198,7 @@
             No Results.
           </div>
           <div
-            @click="hideNavCollapse; $router.push(getPath(item.node))"
+            @click="hideNavCollapse(); $router.push(getPath(item.node))"
             style="cursor:pointer;"
             v-for="(item, index) in Object.values(searchResults)"
             :key="index"                      
