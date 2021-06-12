@@ -43,8 +43,8 @@
 
         <b-navbar-toggle @click="search = null" target="nav-collapse" style="width:50px;height:50px;">
           <template #default="{ expanded }">
-            <b-icon v-if="expanded" icon="list" class="text-primary"></b-icon>
-            <b-icon v-else icon="list"></b-icon>
+            <b-icon v-if="expanded" icon="list" ></b-icon>
+            <b-icon v-else icon="search"></b-icon>
           </template>
         </b-navbar-toggle>
 
