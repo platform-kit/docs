@@ -59,7 +59,7 @@
                   @input="getSearchResults()"
                   ref="navSearch"
                   class="mr-sm-2 mr-0 br-25 px-3 border-light-blue"
-                  style="text-align: center"
+                  style="text-align: center; z-index: 1 !important"
                   placeholder="Search"
                 ></b-form-input>
                 <div class="input-group-append">
@@ -67,8 +67,20 @@
                     class="btn bg-none border-0 border-left-0 o-50"
                     id="searchInputLabel"
                   >
-                    <span class="badge border" style="background: #eee">
+                    <span
+                      class="badge border hint"
+                      v-if="search == null || search == ''"
+                      style="background: #eee"
+                    >
                       Esc
+                    </span>
+                    <span
+                      class="badge border clear"
+                      v-else
+                      @click="search = null"
+                      style="background: #eee; z-index: 999999999999 !important"
+                    >
+                      <b-icon-x></b-icon-x>
                     </span>
                   </div>
                 </div>
@@ -467,12 +479,15 @@ h6 {
 }
 
 #navbar #searchInputLabel {
-  color: rgb(0, 50, 200, 0.8) !important;
-  pointer-events: none;
+  color: rgb(0, 50, 200, 0.8) !important;  
   width: 60px;
   margin-left: -60px;
   padding-right: 15px;
   border-radius: 0px 25px 25px 0px;
+}
+
+#navbar #searchInputLabel .hint {
+  pointer-events: none;
 }
 
 #navbar #searchInputButton {
