@@ -13,12 +13,22 @@ if (apiSchemaPath != null) {
   apiSchemaPath = "static/temp/api-schema.json";
   var apiSchema = fs.readFileSync(apiSchemaPath, { encoding: 'utf8', flag: 'r' })
   apiSchema = JSON.parse(apiSchema);
+} else {
+  apiSchemaPath = "../app/api-schema.json";
+  var apiSchema = fs.readFileSync(apiSchemaPath, { encoding: 'utf8', flag: 'r' })
+  apiSchema = JSON.parse(apiSchema);
 }
+
 
 
 var uiSchemaPath = process.env.UI_SCHEMA_PATH;
 if (uiSchemaPath == null) {
   uiSchemaPath = "static/temp/ui-schema.json";
+  var uiSchema = fs.readFileSync(uiSchemaPath, { encoding: 'utf8', flag: 'r' })
+  uiSchema = JSON.parse(uiSchema)
+}
+else {
+  uiSchemaPath = "../app/ui-schema.json";
   var uiSchema = fs.readFileSync(uiSchemaPath, { encoding: 'utf8', flag: 'r' })
   uiSchema = JSON.parse(uiSchema)
 }
