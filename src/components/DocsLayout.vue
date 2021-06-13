@@ -1,5 +1,5 @@
 <template>
-  <div class="docs-page pb-5 mb-2">
+  <div class="docs-page">
     <div
       class="btn btn-dark d-inline d-md-none raised"
       v-b-modal.docs-modal
@@ -16,7 +16,7 @@
     >
       <b-icon-book class="mx-auto" style="margin-top:8px !important;"></b-icon-book> <span class="ml-2 d-none">{{ title }}</span>
     </div>
-    <div class="container-fluid h-md-100">
+    <div class="container-fluid h-md-100 ">
       <div class="row h-md-100 w-100 mx-auto" style="max-width: 1350px">
         <div
           class="col-lg-2 h-md-100 d-none d-md-inline-block border-right"
@@ -26,7 +26,7 @@
             <docsNav></docsNav>
           </div>
         </div>
-        <div class="col-lg-8 pt-5 px-2 px-md-5 mt-5">
+        <div class="col-lg-8 pt-5 px-2 px-md-5 mt-5 pb-5 mb-2">
           <div v-if="content != null" v-html="content"></div>
           <slot v-else name="content" ></slot>
         </div>
