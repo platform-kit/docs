@@ -178,7 +178,7 @@ export default {
   },
   metaInfo() {
     return {
-      title: this.capitalize(this.slug) + ' API Schema '
+      title: this.capitalize(this.getSchemaKey()) + ' API Schema '
       /* meta: [{ name: "description", content: '...' }], */
     };
   },
@@ -201,6 +201,14 @@ export default {
     console.log(this.$page);
   },
   methods: {
+    getSchemaKey(){      
+      if(this.slug != null){
+        return this.slug;
+      }
+      else {
+        return '';
+      }
+    },
     capitalize(s){
         s = s.replace(/_/g, " ");
         return s.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')
