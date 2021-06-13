@@ -22,16 +22,11 @@ if (apiSchemaPath != null) {
 
 
 var uiSchemaPath = process.env.UI_SCHEMA_PATH;
-if (uiSchemaPath == null) {
-  uiSchemaPath = "static/temp/ui-schema.json";
-  var uiSchema = fs.readFileSync(uiSchemaPath, { encoding: 'utf8', flag: 'r' })
-  uiSchema = JSON.parse(uiSchema)
-}
-else {
-  uiSchemaPath = "../app/ui-schema.json";
-  var uiSchema = fs.readFileSync(uiSchemaPath, { encoding: 'utf8', flag: 'r' })
-  uiSchema = JSON.parse(uiSchema)
-}
+
+uiSchemaPath = "static/temp/ui-schema.json";
+var uiSchema = fs.readFileSync(uiSchemaPath, { encoding: 'utf8', flag: 'r' })
+uiSchema = JSON.parse(uiSchema)
+
 
 module.exports = function (api) {
   // Use the Data Store API here: https://gridsome.org/docs/data-store-api/    
