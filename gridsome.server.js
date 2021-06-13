@@ -9,22 +9,24 @@
 var fs = require('fs');
 var apiSchemaPath = process.env.API_SCHEMA_PATH;
 
-if (apiSchemaPath != null) { 
+if (apiSchemaPath != null) {
   apiSchemaPath = "static/temp/api-schema.json";
   var apiSchema = fs.readFileSync(apiSchemaPath, { encoding: 'utf8', flag: 'r' })
-      apiSchema = JSON.parse(apiSchema);
- }
+  apiSchema = JSON.parse(apiSchema);
+}
 
 
 var uiSchemaPath = process.env.UI_SCHEMA_PATH;
-if (uiSchemaPath == null) { 
+if (uiSchemaPath == null) {
   uiSchemaPath = "static/temp/ui-schema.json";
   var uiSchema = fs.readFileSync(uiSchemaPath, { encoding: 'utf8', flag: 'r' })
-      uiSchema = JSON.parse(uiSchema) }
+  uiSchema = JSON.parse(uiSchema)
+}
 
 module.exports = function (api) {
   // Use the Data Store API here: https://gridsome.org/docs/data-store-api/    
 
+  // Add API & UI schemas to global metadata
   api.loadSource(async store => {
     store.addMetadata('apiSchema', { data: apiSchema, string: JSON.stringify(apiSchema) })
     store.addMetadata('uiSchema', { data: uiSchema, string: JSON.stringify(uiSchema) })
