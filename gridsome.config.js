@@ -78,22 +78,24 @@ if (uiSchema != null && uiSchema.docs != null && uiSchema.docs.collections != nu
       // Clone Doc repos
       var path = "temp";
       var repo = element.repo;
-      shell.exec('cd temp; git clone ' + element.repo + ' ' + element.name);
+      shell.exec('cd temp; git clone ' + element.repo + ' docs/' + element.name + ' && cd docs/' + element.name + ' && git filter-branch --subdirectory-filter ' + element.path);
+      // Example of Git Clone with subdirectory filter 
+      // git clone https://github.com/platform-kit/platformkit-api.git api && cd api && git filter-branch --subdirectory-filter docs
+
       var docs = 'temp/' + element.name + '/' + element.path;
       console.log('Docs Path: ' + docs);
-
-      // Create Content from Docs
-      var newDocs = {
-        use: '@gridsome/source-filesystem',
-        options: {
-          path: '*.md',
-          baseDir: docs,
-          typeName: 'Doc'
-        }
-      };
-      plugins.push(newDocs);
     }
   });
+  // Create Content from Docs
+  var newDocs = {
+    use: '@gridsome/source-filesystem',
+    options: {
+      path: '**/*.md',
+      baseDir: 'temp/docs',
+      typeName: 'Doc'
+    }
+  };
+  plugins.push(newDocs);
 
 }
 
