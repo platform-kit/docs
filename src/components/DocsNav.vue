@@ -61,34 +61,19 @@
 
     <b-modal id="docs-modal" ref="docs-modal" hide-footer title="Docs">
       <div class="docs-nav mx-4" @click="hideModal()">
-        <g-link :to="'/docs'"
-          ><span class="badge text-dark px-3 py-2 badge-light-blue"
-            >Docs</span
-          ></g-link
-        >
-        <g-link
-          :to="doc.node.path"
-          active-class="active"
-          v-for="(doc, index) in docs"
-          :key="index"
-          class="btn btn-block text-left px-2 py-1 my-2 text-capitalize"
-        >
-          <span class="nav-indicator o-50"
-            ><b-icon-caret-right-fill
-              style="margin-top: 2px"
-            ></b-icon-caret-right-fill
-          ></span>
-          {{ doc.node.title }}
-        </g-link>
-        <div v-if="apiSchema != null">
-          <span class="badge text-dark px-3 py-2 mt-4 badge-light-blue"
-            >API Resources</span
+          <div v-if="directories != null">
+      <div v-for="(directory, index) in directories" :key="index" class="mb-4">
+        <div>
+          <g-link :to="'/docs'"
+            ><span class="badge text-dark px-3 py-2 badge-light-blue">{{
+              directory
+            }}</span></g-link
           >
-
-          <div v-for="(resource, index) in apiSchema.schemas" :key="index">
+          <div v-for="(doc, index) in docs" :key="index">
             <g-link
-              :to="'/docs/api/' + index"
+              :to="doc.node.path"
               active-class="active"
+              v-if="directory == doc.node.fileInfo.directory"
               class="btn btn-block text-left px-2 py-1 my-2 text-capitalize"
             >
               <span class="nav-indicator o-50"
@@ -96,22 +81,45 @@
                   style="margin-top: 2px"
                 ></b-icon-caret-right-fill
               ></span>
-              {{ humanizeResourceName(index) }}
+              {{ doc.node.title }}
             </g-link>
           </div>
-          <span
-            v-if="graphQL"
-            class="badge text-dark px-3 py-2 mt-4 badge-light-blue"
-            >Tools</span
-          >
-          <a
-            :href="'/graphql'"
-            v-if="graphQL"
-            target="_blank"
-            class="btn btn-block text-left px-2 py-1 my-2 text-capitalize"
-            >GraphQL Explorer</a
-          >
         </div>
+      </div>
+    </div>
+    <div v-if="apiSchema != null">
+      <span class="badge text-dark px-3 py-2 badge-light-blue"
+        >API Resources</span
+      >
+
+      <div v-for="(resource, index) in apiSchema.schemas" :key="index">
+        <g-link
+          :to="'/docs/api/' + index"
+          active-class="active"
+          class="btn btn-block text-left px-2 py-1 my-2 text-capitalize"
+        >
+          <span class="nav-indicator o-50"
+            ><b-icon-caret-right-fill
+              style="margin-top: 2px"
+            ></b-icon-caret-right-fill
+          ></span>
+          {{ humanizeResourceName(index) }}
+        </g-link>
+      </div>
+      <span
+        v-if="graphQL"
+        class="badge text-dark px-3 py-2 mt-4 badge-light-blue"
+        >Tools</span
+      >
+      <a
+        :href="'/graphql'"
+        v-if="graphQL"
+        target="_blank"
+        class="btn btn-block text-left px-2 py-1 my-2 text-capitalize"
+        >GraphQL Explorer</a
+      >
+    </div>
+
       </div>
     </b-modal>
   </div>
