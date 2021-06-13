@@ -4,7 +4,7 @@
   "scripts": {
     "build": "gridsome build",
     "develop": "gridsome develop",
-    "explore": "gridsome explore",    
+    "explore": "gridsome explore",
     "reset": "node commands/git/reset.js"
   },
   "dependencies": {

@@ -113,7 +113,17 @@ else {
   plugins.push(defaultDocs);
 }
 
-
+function slugify(node) {
+  var text = node.title;
+  console.log(node);  
+  var text = text.toString().toLowerCase()
+    .replace(/\s+/g, '-')           // Replace spaces with -
+    .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
+    .replace(/\-\-+/g, '-')         // Replace multiple - with single -
+    .replace(/^-+/, '')             // Trim - from start of text
+    .replace(/-+$/, '');            // Trim - from end of text
+    return  node.fileInfo.directory + '/' + text;
+}
 
 var gridsomeConfig = {
   siteName: siteName,
@@ -124,7 +134,12 @@ var gridsomeConfig = {
   plugins: plugins,
   // Assign Templates & Routes
   templates: {
-    Doc: '/docs/:path',
+    //Doc: '/docs/:path',
+    Doc:
+      (node) => {
+        return `/docs/${slugify(node)}/`
+      }
+    ,
     ApiSchema: '/docs/api/:key'
   }
 }
