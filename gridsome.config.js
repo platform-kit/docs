@@ -133,8 +133,7 @@ var gridsomeConfig = {
   },
   plugins: plugins,
   // Assign Templates & Routes
-  templates: {
-    //Doc: '/docs/:path',
+  templates: {    
     Doc:
       (node) => {
         return `/docs/${slugify(node)}/`
