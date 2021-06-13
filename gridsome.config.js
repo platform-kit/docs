@@ -69,7 +69,7 @@ var plugins = [];
 if (uiSchema != null && uiSchema.docs != null && uiSchema.docs.collections != null) {
   var collections = Object.values(uiSchema.docs.collections);
   shell.exec('rm -r temp; mkdir temp');
-  collections.forEach(function callbackFn(element, index, array) {
+  collections.forEach(function callbackFn(element, index, array) {    
     console.log('\n');
     console.log(element);
     console.log('\n');
@@ -114,8 +114,8 @@ else {
 }
 
 function slugify(node) {
-  var text = node.title;
-  console.log(node);  
+  // console.log(node);  
+  var text = node.title;  
   var text = text.toString().toLowerCase()
     .replace(/\s+/g, '-')           // Replace spaces with -
     .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
