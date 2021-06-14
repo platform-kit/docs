@@ -411,7 +411,7 @@ body {
   pointer-events: none;
   filter: blur(5px);
   opacity: 0.35;
-  background: none !important;
+  
 }
 
 #mainContainer {
