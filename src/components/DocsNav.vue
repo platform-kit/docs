@@ -70,7 +70,7 @@
             <div>
               <g-link :to="'/docs'"
                 ><span class="badge text-dark px-3 py-2 badge-light-blue">{{
-                  directory
+                  getCollectionName(directory)
                 }}</span></g-link
               >
               <div v-for="(doc, index) in docs" :key="index">
