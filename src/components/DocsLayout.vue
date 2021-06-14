@@ -16,7 +16,7 @@
     >
       <b-icon-book class="mx-auto" style="margin-top:8px !important;"></b-icon-book> <span class="ml-2 d-none">{{ title }}</span>
     </div>
-    <div class="container-fluid h-md-100 " style="background:linear-gradient(-90deg, rgb(255, 255, 255), rgba(0, 0, 0, 0)), linear-gradient(0deg, rgb(255, 255, 255) 0px, rgb(247 249 255) 500px);" >
+    <div class="container-fluid h-md-100 " style="" >
       <div class="row h-md-100 w-100 mx-auto" style="max-width: 1350px;">
         <div
           class="col-lg-2 h-md-100 d-none d-md-inline-block border-right"
@@ -81,6 +81,8 @@ export default {
 </script>
 
 <style>
+
+
 #docs-nav .btn:hover {
   background-color: #f0f6ff !important;
 }

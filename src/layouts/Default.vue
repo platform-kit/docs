@@ -243,16 +243,7 @@
         </div>
       </div>
     </header>
-    <div
-      id="mainContainer"
-      class="h-100"
-      style="
-        background-image: linear-gradient(
-          rgb(112, 113, 128),
-          #07082b
-        ) !important;
-      "
-    >
+    <div id="mainContainer" class="h-100">
       <div
         id="main"
         class="mainContent h-100"
@@ -411,13 +402,20 @@ body {
 }
 
 .mainContent {
-  background: #fff;
-  transition: opacity 0.5s !important;
+  background: linear-gradient(-90deg, rgb(255, 255, 255), rgba(0, 0, 0, 0)),
+    linear-gradient(0deg, rgb(255, 255, 255) 0px, rgb(247 249 255) 500px);
+  transition: all 0s, opacity 0.5s !important;
 }
+
 .mainContent.blurred {
   pointer-events: none;
   filter: blur(5px);
-  opacity: 0.3;
+  opacity: 0.35;
+  background: none !important;
+}
+
+#mainContainer {
+  background-image: linear-gradient(rgb(112, 113, 128), #191a29) !important;
 }
 
 h1,
