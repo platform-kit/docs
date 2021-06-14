@@ -37,6 +37,16 @@ module.exports = function (api) {
     store.addMetadata('uiSchema', { data: uiSchema, string: JSON.stringify(uiSchema) })
   })
 
+  var enableCMS = process.env.ENABLE_CMS;  
+  if(enableCMS.toLowerCase() == 'true') {
+    api.createPages(({ createPage }) => {
+      createPage({
+        path: '/admin',
+        component: './src/admin/Index.vue'
+      })
+    })
+  }
+
   // Add ApiSchema Collection
   api.loadSource(actions => {
     const apiSchemas = actions.addCollection({
