@@ -407,6 +407,12 @@ body {
   transition: all 0s, opacity 0.5s !important;
 }
 
+@media(max-width:991px){
+  .mainContent {
+    background:#fff;
+  }
+}
+
 .mainContent.blurred {
   pointer-events: none;
   filter: blur(5px);
