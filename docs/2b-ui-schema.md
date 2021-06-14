@@ -36,7 +36,7 @@ The schema looks like this:
                 "label": "PlatformKit UI Docs",
                 "repo": "https://github.com/platform-kit/platformkit-ui",
                 "path": "docs",
-                "publish": true
+                "publish": false
             }
         ]
     }
@@ -49,3 +49,7 @@ The schema looks like this:
 - `siteName` determines the name that appears in the navbar and in the site's page titles and SEO metadata.
 - `icons` determine the images used for favicon / touch icon and in the navbar.
 - `docs` allows you to specify multiple git repositories and the path to the docs in each of them.
+  - `collections`: an array of objects defining collections of docs
+    - `repo`: the GitHub repo to source files from
+    - `path`: the path to the folder repo holding the markdown files
+    - `publish`: if set to false, will be disregarded in production.
