@@ -110,7 +110,7 @@
           </b-navbar-nav>
 
           <!-- Right aligned nav items -->
-          <b-navbar-nav            
+          <b-navbar-nav
             class="ml-auto text-right mb-2 mb-md-0 d-block"
             id="nav-right"
           >
@@ -188,8 +188,7 @@
       >
         <div
           class="card border-light-blue raised mx-auto p-3"
-          style="z-index: 999; border-radius:0px 0px 10px 10px;"
-
+          style="z-index: 999; border-radius: 0px 0px 10px 10px"
         >
           <div
             v-if="Object.values(searchResults).length == 0"
@@ -198,17 +197,17 @@
             No Results.
           </div>
           <div
-            @click="hideNavCollapse(); $router.push(getPath(item.node))"
-            style="cursor:pointer;"
+            @click="
+              hideNavCollapse();
+              $router.push(getPath(item.node));
+            "
+            style="cursor: pointer"
             v-for="(item, index) in Object.values(searchResults)"
-            :key="index"                      
+            :key="index"
           >
             <div v-if="item.node.content != null">
               <div v-on:click="search = null" class="search-result p-3 my-2">
-                <g-link
-                  :to="'#'"
-                  style="text-decoration: none !important"
-                >
+                <g-link :to="'#'" style="text-decoration: none !important">
                   <b class="text-dark"
                     ><span class="text-primary bg-light br-5 mr-2 p-1 px-2"
                       >Doc</span
@@ -224,10 +223,7 @@
 
             <div v-if="item.node.key != null">
               <div v-on:click="search = null" class="search-result p-3 my-2">
-                <g-link
-                  :to="'#'"
-                  style="text-decoration: none !important"
-                >
+                <g-link :to="'#'" style="text-decoration: none !important">
                   <b class="text-dark">
                     <span class="text-light bg-dark br-5 mr-2 p-1 px-2"
                       >API Resource</span
@@ -247,15 +243,24 @@
         </div>
       </div>
     </header>
-    <div id="mainContainer" class="h-100" style="background-image: linear-gradient(rgb(112, 113, 128), #07082b) !important;">
     <div
-      id="main"
-      class="mainContent h-100"
-      v-bind:class="{ blurred: search != null && search != '' }"
+      id="mainContainer"
+      class="h-100"
+      style="
+        background-image: linear-gradient(
+          rgb(112, 113, 128),
+          #07082b
+        ) !important;
+      "
     >
-      <div id="topOfContent" v-b-visible.50="visibleHandler"></div>
-      <slot />
-    </div>
+      <div
+        id="main"
+        class="mainContent h-100"
+        v-bind:class="{ blurred: search != null && search != '' }"
+      >
+        <div id="topOfContent" v-b-visible.50="visibleHandler"></div>
+        <slot />
+      </div>
     </div>
   </div>
 </template>
@@ -322,11 +327,11 @@ export default {
     window.addEventListener("keydown", this.escapeListener);
   },
   methods: {
-    getPath(node){
-      if(node.key != null){
-        return '/docs/api/' + node.key;
+    getPath(node) {
+      if (node.key != null) {
+        return "/docs/api/" + node.key;
       }
-      if(node.path != null){
+      if (node.path != null) {
         return node.path;
       }
     },
@@ -402,11 +407,11 @@ body {
     "Helvetica Neue", Arial, sans-serif !important;
   margin: 0;
   padding: 0;
-  line-height: 1.5;  
+  line-height: 1.5;
 }
 
 .mainContent {
-  background:#fff;
+  background: #fff;
   transition: opacity 0.5s !important;
 }
 .mainContent.blurred {
@@ -799,5 +804,4 @@ h6 {
   border-radius: 4px !important;
   overflow: hidden;
 }
-
 </style>
