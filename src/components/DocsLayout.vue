@@ -26,7 +26,7 @@
             <docsNav></docsNav>
           </div>
         </div>
-        <div class="col-lg-8 bg-white pt-5 px-2 px-md-5 mt-5 pb-5 mb-2">
+        <div class="col-lg-8 docs-content pt-5 px-2 px-md-5 mt-5 pb-5 mb-2">
           <div v-if="content != null" v-html="content"></div>
           <slot v-else name="content" ></slot>
         </div>
@@ -97,6 +97,11 @@ export default {
   }
 }
 
+@media(min-width:768px){
+.docs-content {
+  background:#fff;
+}
+}
 .docs-page ul p {
   margin-bottom: 0px !important;
 }
