@@ -247,10 +247,10 @@
         </div>
       </div>
     </header>
-    <div id="mainContainer" style="background-image: linear-gradient(rgb(112, 113, 128), #07082b) !important;">
+    <div id="mainContainer" class="h-100" style="background-image: linear-gradient(rgb(112, 113, 128), #07082b) !important;">
     <div
       id="main"
-      class="mainContent"
+      class="mainContent h-100"
       v-bind:class="{ blurred: search != null && search != '' }"
     >
       <div id="topOfContent" v-b-visible.50="visibleHandler"></div>
@@ -404,6 +404,7 @@ body {
   padding: 0;
   line-height: 1.5;  
 }
+
 .mainContent {
   background:#fff;
   transition: opacity 0.5s !important;
@@ -798,4 +799,5 @@ h6 {
   border-radius: 4px !important;
   overflow: hidden;
 }
+
 </style>
