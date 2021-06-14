@@ -59,7 +59,7 @@
       >
     </div>
 
-    <b-modal id="docs-modal" ref="docs-modal" hide-footer title="Docs Navigation">
+    <b-modal id="docs-modal" ref="docs-modal" hide-footer title="Navigation">
       <div class="docs-nav mx-4" @click="hideModal()">
         <div v-if="directories != null">
           <div
