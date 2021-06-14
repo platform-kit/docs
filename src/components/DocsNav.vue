@@ -1,5 +1,5 @@
 <template>
-  <div class="docs-nav">
+  <div class="docs-nav"  v-if="directories != null && apiSchema != null && docs != null">
     <div v-if="directories != null">
       <div v-for="(directory, index) in directories" :key="index" class="mb-4">
         <div>

@@ -1,7 +1,7 @@
 <template>
   <div class="layout">
     <header class="header"></header>
-    <div id="mainContainer" class="h-100">
+    <div id="mainContainer" class="admin-page h-100">
       <div
         id="main"
         class="mainContent h-100"
@@ -11,13 +11,13 @@
           <div class="row">
             <div class="col-md-2 h-100 admin-sidebar px-0 d-none d-md-inline">
               <div
-                class="w-100 row m-0 border-bottom border-light-blue"
+                class="w-100 row m-0 border-bottom border-light-blue pl-3 pl-lg-0"
                 style="height: 77px; background: #fff"
               >
                 <b-navbar-brand
                   href="/"
                   id="navLogo"
-                  class="mx-auto text-center w-100 py-2 my-auto"
+                  class="mx-auto text-center w-100 py-2 my-auto mx-auto mx-lg-0"
                   style="width: auto"
                 >
                   <g-image
@@ -28,24 +28,28 @@
                     "
                     :src="uiSchema.icons.favicon"
                     style="max-width: 50px"
+                    class="d-inline"
                   />
                   <g-image
                     v-else
                     src="~/images/icon.png"
                     style="max-width: 50px"
+                    class="d-inline"
                   />
-                  <span class="text-dark">
+                  <span class="text-dark d-none d-lg-inline">
                     <span v-if="title == null">
                       <span
                         v-if="uiSchema != null && uiSchema.name != null"
-                        class="ml-2"                        
+                        class="ml-2"
                         >{{ uiSchema.name }}</span
                       >
-                      <span v-else class="ml-3 ">{{
+                      <span v-else class="ml-3">{{
                         $static.metadata.siteName
                       }}</span>
                     </span>
-                    <span v-else class="text-dark ml-2"><span>{{ title }}</span></span>
+                    <span v-else class="text-dark ml-2 d-none d-lg-inline"
+                      ><span>{{ title }}</span></span
+                    >
                   </span>
                 </b-navbar-brand>
               </div>
@@ -56,8 +60,10 @@
                     style="height: 50px"
                     class="bg-white br-5 d-flex mx-auto nav-icon-container btn"
                   >
-                    <b-icon-grid1x2 class="my-auto mr-3"></b-icon-grid1x2>
-                    <span class="mr-auto my-auto">Dashboard</span>
+                    <b-icon-grid1x2 class="my-auto"></b-icon-grid1x2>
+                    <span class="mr-auto my-auto nav-icon-label"
+                      >Dashboard</span
+                    >
                   </g-link>
                 </div>
                 <div style="" class="btn btn-block text-dark">
@@ -65,8 +71,8 @@
                     style="height: 50px"
                     class="bg-white br-5 d-flex mx-auto nav-icon-container btn"
                   >
-                    <b-icon-person class="my-auto mr-3"></b-icon-person>
-                    <span class="mr-auto my-auto">Users</span>
+                    <b-icon-person class="my-auto"></b-icon-person>
+                    <span class="mr-auto my-auto nav-icon-label">Users</span>
                   </div>
                 </div>
                 <div style="" class="btn btn-block text-dark">
@@ -74,10 +80,8 @@
                     style="height: 50px"
                     class="bg-white br-5 d-flex mx-auto nav-icon-container btn"
                   >
-                    <b-icon-file-earmark
-                      class="my-auto mr-3"
-                    ></b-icon-file-earmark>
-                    <span class="mr-auto my-auto">Pages</span>
+                    <b-icon-file-earmark class="my-auto"></b-icon-file-earmark>
+                    <span class="mr-auto my-auto nav-icon-label">Pages</span>
                   </div>
                 </div>
                 <div style="" class="btn btn-block text-dark">
@@ -85,8 +89,8 @@
                     style="height: 50px"
                     class="bg-white br-5 d-flex mx-auto nav-icon-container btn"
                   >
-                    <b-icon-pen class="my-auto mr-3"></b-icon-pen>
-                    <span class="mr-auto my-auto">Content</span>
+                    <b-icon-pen class="my-auto"></b-icon-pen>
+                    <span class="mr-auto my-auto nav-icon-label">Content</span>
                   </div>
                 </div>
                 <div style="" class="btn btn-block text-dark">
@@ -94,10 +98,10 @@
                     style="height: 50px"
                     class="bg-white br-5 d-flex mx-auto nav-icon-container btn"
                   >
-                    <b-icon-credit-card
-                      class="my-auto mr-3"
-                    ></b-icon-credit-card>
-                    <span class="mr-auto my-auto">Subscriptions</span>
+                    <b-icon-credit-card class="my-auto"></b-icon-credit-card>
+                    <span class="mr-auto my-auto nav-icon-label"
+                      >Subscriptions</span
+                    >
                   </div>
                 </div>
                 <div style="" class="btn btn-block text-dark">
@@ -105,8 +109,10 @@
                     style="height: 50px"
                     class="bg-white br-5 d-flex mx-auto nav-icon-container btn"
                   >
-                    <b-icon-graph-up class="my-auto mr-3"></b-icon-graph-up>
-                    <span class="mr-auto my-auto">Analytics</span>
+                    <b-icon-graph-up class="my-auto"></b-icon-graph-up>
+                    <span class="mr-auto my-auto nav-icon-label"
+                      >Analytics</span
+                    >
                   </div>
                 </div>
                 <div style="" class="btn btn-block text-dark">
@@ -114,10 +120,8 @@
                     style="height: 50px"
                     class="bg-white br-5 d-flex mx-auto nav-icon-container btn"
                   >
-                    <b-icon-file-earmark
-                      class="my-auto mr-3"
-                    ></b-icon-file-earmark>
-                    <span class="mr-auto my-auto">Docs</span>
+                    <b-icon-file-earmark class="my-auto"></b-icon-file-earmark>
+                    <span class="mr-auto my-auto nav-icon-label">Docs</span>
                   </div>
                 </div>
                 <div style="" class="btn btn-block text-dark">
@@ -125,10 +129,8 @@
                     style="height: 50px"
                     class="bg-white br-5 d-flex mx-auto nav-icon-container btn"
                   >
-                    <b-icon-code-square
-                      class="my-auto mr-3"
-                    ></b-icon-code-square>
-                    <span class="mr-auto my-auto">API</span>
+                    <b-icon-code-square class="my-auto"></b-icon-code-square>
+                    <span class="mr-auto my-auto nav-icon-label">API</span>
                   </div>
                 </div>
                 <div id="settings-button" class="btn btn-block text-dark">
@@ -136,8 +138,8 @@
                     style="height: 50px"
                     class="br-5 d-flex mx-auto nav-icon-container btn"
                   >
-                    <b-icon-gear class="my-auto mr-3"></b-icon-gear>
-                    <span class="mr-auto my-auto">Settings</span>
+                    <b-icon-gear class="my-auto"></b-icon-gear>
+                    <span class="mr-auto my-auto nav-icon-label">Settings</span>
                   </div>
                 </div>
               </div>
@@ -149,6 +151,52 @@
                 class="border-bottom border-light-blue"
                 style="height: 77px; background: none !important"
               >
+                <b-nabar-nav class="mr-auto">
+                  <b-navbar-brand
+                    href="/"
+                    id="navLogo"
+                    class="
+                      ml-3
+                      mr-auto
+                      text-center
+                      w-100
+                      py-2
+                      my-auto
+                      d-inline d-md-none
+                    "
+                    style="width: auto"
+                  >
+                    <g-image
+                      v-if="
+                        uiSchema != null &&
+                        uiSchema.icons != null &&
+                        uiSchema.icons.favicon != null
+                      "
+                      :src="uiSchema.icons.favicon"
+                      style="max-width: 50px"
+                    />
+                    <g-image
+                      v-else
+                      src="~/images/icon.png"
+                      style="max-width: 50px"
+                    />
+                    <span class="text-dark">
+                      <span v-if="title == null">
+                        <span
+                          v-if="uiSchema != null && uiSchema.name != null"
+                          class="ml-3"
+                          >{{ uiSchema.name }}</span
+                        >
+                        <span v-else class="ml-3">{{
+                          $static.metadata.siteName
+                        }}</span>
+                      </span>
+                      <span v-else class="text-dark ml-2"
+                        ><span>{{ title }}</span></span
+                      >
+                    </span>
+                  </b-navbar-brand>
+                </b-nabar-nav>
                 <b-navbar-nav class="ml-auto">
                   <b-nav-form>
                     <b-form-input
@@ -172,7 +220,7 @@
                 </b-navbar-nav>
               </b-navbar>
               <div
-                class="px-5 pt-5 admin-content"
+                class="px-4 pt-4 admin-content"
                 style="min-height: calc(100vh - 77px)"
               >
                 <slot />
@@ -360,14 +408,14 @@ body {
 .admin-sidebar {
 }
 
-.admin-sidebar .btn.bg-white:hover, .admin-sidebar .btn.bg-white.active {
-  color:royalblue;
-  background:#f4f8ff !important;
+.admin-sidebar .btn.bg-white:hover,
+.admin-sidebar .btn.bg-white.active {
+  color: royalblue;
+  background: #f4f8ff !important;
 }
 
 .admin-sidebar .btn.bg-white:hover {
-  border-color:rgba(65, 105, 225, 0.089);
-  
+  border-color: rgba(65, 105, 225, 0.089);
 }
 
 #settings-button {
@@ -776,5 +824,24 @@ h6 {
 .nav-icon-container:hover svg {
   color: royalblue;
   opacity: 1;
+}
+
+.admin-page h1,
+.admin-page h2,
+.admin-page h3,
+.admin-page h4,
+.admin-page h5,
+.admin-page h6 {
+  font-family: "Open Sans" !important;
+  font-weight: 400;
+}
+
+@media (max-width: 1300px) {
+  .admin-sidebar .nav-icon-container svg {
+    margin-left: calc(50% - 10px);
+  }
+  .nav-icon-label {
+    display: none;
+  }
 }
 </style>

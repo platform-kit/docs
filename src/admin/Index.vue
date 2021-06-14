@@ -1,7 +1,26 @@
 <template>
   <Layout>
-    <div>
-      test
+    <div class="admin-page admin-overview">
+      <h5 class="mb-4 mt-2">Overview</h5>
+      <div class="row pr-3 mt-3">
+        <div class="col-md-4 mb-2">
+          <b-card class="border-0 raised" title="New Users"> </b-card>
+        </div>
+        <div class="col-md-4 mb-2">
+          <b-card class="border-0 raised" title="Revenue"> </b-card>
+        </div>
+        <div class="col-md-4 mb-2">
+          <b-card class="border-0 raised" title="Engagement"> </b-card>
+        </div>
+      </div>
+      <div class="row pr-3 mt-3">
+        <div class="col-md-6 mb-2">
+          <b-card class="border-0 raised" title="Top Pages"> </b-card>
+        </div>
+        <div class="col-md-6 mb-2">
+          <b-card class="border-0 raised" title="Top Content"> </b-card>
+        </div>
+      </div>
     </div>
   </Layout>
 </template>
@@ -24,8 +43,7 @@ export default {
       uiSettings: {},
     };
   },
-  async mounted() {        
-  },
+  async mounted() {},
   methods: {},
 };
 </script>
@@ -40,5 +58,13 @@ export default {
 }
 #docs-sidebar {
   border-right: 1px solid rgba(0, 50, 150, 0.1);
+}
+
+.admin-overview .card-title {
+    font-size:100% !important;
+}
+
+.admin-page .card.raised {
+  box-shadow:0px 15px 30px rgba(0,0,75,0.1);
 }
 </style>
