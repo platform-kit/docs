@@ -1,19 +1,63 @@
 <template>
   <Layout>
     <div class="admin-page admin-overview">
-      <h5 class="mb-4 mt-2">Overview</h5>
-      <div class="row pr-3 mt-3">
+      <div
+        class="ml-0 ml-md-3 mt-0 mt-lg-2 mb-4 mb-lg-0 text-center text-md-left"
+        style="font-weight: 400; font-size: 110%; color: royalblue"
+      >
+        Overview
+      </div>
+      <div class="row pr-3 mt-3 ml-0 mr-lg-0">
         <div class="col-md-4 mb-2">
-          <b-card class="border-0 raised" title="New Users"> </b-card>
+          <b-card class="border-0 raised" title="New Users">
+            <trend
+              :data="[0, 2, 5, 9, 5, 10, 3, 5, 0, 0, 1, 8, 2, 9, 0]"
+              :gradientDirection="top"
+              :gradient="['#b8f2e6', '#6fa8dc', '#3a86ff']"
+              :padding="1"
+              :radius="12"
+              :stroke-width="1.7"
+              :stroke-linecap="butt"
+              auto-draw
+              smooth
+            >
+            </trend>
+          </b-card>
         </div>
         <div class="col-md-4 mb-2">
-          <b-card class="border-0 raised" title="Revenue"> </b-card>
+          <b-card class="border-0 raised" title="Revenue">
+            <trend
+              :data="[0, 2, 5, 9, 5, 10, 3, 5, 0, 0, 1, 8, 2, 9, 0]"
+              :gradientDirection="top"
+              :gradient="['#b8f2e6', '#42b983', '#6fa8dc']"
+              :padding="1"
+              :radius="12"
+              :stroke-width="1.7"
+              :stroke-linecap="butt"
+              auto-draw
+              smooth
+            >
+            </trend>
+          </b-card>
         </div>
         <div class="col-md-4 mb-2">
-          <b-card class="border-0 raised" title="Engagement"> </b-card>
+          <b-card class="border-0 raised" title="Engagement">
+            <trend
+              :data="[0, 2, 5, 9, 5, 10, 3, 5, 0, 0, 1, 8, 2, 9, 0]"
+              :gradientDirection="top"
+              :gradient="['#ffe74c', '#ffbe88', '#ff93df']"
+              :padding="1"
+              :radius="12"
+              :stroke-width="1.7"
+              :stroke-linecap="butt"
+              auto-draw
+              smooth
+            >
+            </trend>
+          </b-card>
         </div>
       </div>
-      <div class="row pr-3 mt-3">
+      <div class="row pr-3 mt-3 ml-0 mr-lg-0">
         <div class="col-md-6 mb-2">
           <b-card class="border-0 raised" title="Top Pages"> </b-card>
         </div>
@@ -29,11 +73,13 @@
 <script>
 import Layout from "../layouts/Admin.vue";
 import DocsLayout from "../components/DocsLayout.vue";
+import Trend from "vuetrend";
 
 export default {
   components: {
     Layout,
     DocsLayout,
+    Trend,
   },
   metaInfo: {
     title: "Admin",
@@ -61,10 +107,6 @@ export default {
 }
 
 .admin-overview .card-title {
-    font-size:100% !important;
-}
-
-.admin-page .card.raised {
-  box-shadow:0px 15px 30px rgba(0,0,75,0.1);
+  font-size: 100% !important;
 }
 </style>

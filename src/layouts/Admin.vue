@@ -844,4 +844,8 @@ h6 {
     display: none;
   }
 }
+
+.admin-page .card.raised {
+  box-shadow:0px 10px 20px rgba(0,0,75,0.075);
+}
 </style>

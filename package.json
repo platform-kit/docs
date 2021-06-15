@@ -15,7 +15,8 @@
     "fs": "0.0.1-security",
     "fs-extra": "^10.0.0",
     "gridsome": "^0.7.0",
-    "shelljs": "^0.8.4"
+    "shelljs": "^0.8.4",
+    "vuetrend": "^0.3.4"
   },
   "engines": {
     "node": "14.x"
