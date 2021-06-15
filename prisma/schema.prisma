@@ -1,0 +1,117 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                Int                @id @default(autoincrement())
+  uuid              String             @unique @default(uuid()) @db.Uuid
+  email             String?
+  oauth_id          String             @unique
+  name              String?
+  pages             Page[]
+  contentItems      ContentItem[]
+  subscriptionPlans SubscriptionPlan[]
+  analyticEvents    AnalyticEvents[]
+  Product           Product[]
+  stripeId          String             @unique
+}
+
+model Page {
+  id        Int      @id @default(autoincrement())
+  uuid      String   @unique @default(uuid()) @db.Uuid
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  publishAt DateTime @default(now())
+  content   String?
+  published Boolean  @default(false)
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int
+  json      Json
+}
+
+enum ContentType {
+  text
+  audio
+  video
+  link
+  iframe
+}
+
+model ContentItem {
+  id                 Int               @id @default(autoincrement())
+  uuid               String            @unique @default(uuid()) @db.Uuid
+  createdAt          DateTime          @default(now())
+  updatedAt          DateTime          @updatedAt
+  publishAt          DateTime          @default(now())
+  contentType        ContentType       @default(text)
+  thumbnail          String?
+  cover              String?
+  content            String
+  contentPreview     String
+  excerpt            String?
+  published          Boolean           @default(false)
+  user               User              @relation(fields: [userId], references: [id])
+  userId             Int
+  json               Json
+  requiredPlan       SubscriptionPlan? @relation(fields: [subscriptionPlanId], references: [id])
+  subscriptionPlanId Int
+}
+
+enum PricingInterval {
+  day
+  week
+  month
+  year
+}
+
+model Product {
+  id          Int      @id @default(autoincrement())
+  uuid        String   @unique @default(uuid()) @db.Uuid
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  publishAt   DateTime @default(now())
+  thumbnail   String?
+  name        String
+  description String
+  slug        String
+  price_usd   Int
+  published   Boolean  @default(false)
+  user        User?    @relation(fields: [userId], references: [id])
+  userId      Int?
+  stripeId    String?  @unique
+}
+
+model SubscriptionPlan {
+  id          Int             @id @default(autoincrement())
+  uuid        String          @unique @default(uuid()) @db.Uuid
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+  publishAt   DateTime        @default(now())
+  name        String
+  description String
+  slug        String
+  price_usd   Int
+  interval    PricingInterval @default(month)
+  published   Boolean         @default(false)
+  user        User?           @relation(fields: [userId], references: [id])
+  userId      Int?
+  stripeId    String?         @unique
+  ContentItem ContentItem[]
+}
+
+model AnalyticEvents {
+  id          Int      @id @default(autoincrement())
+  uuid        String   @unique @default(uuid()) @db.Uuid
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  type        String
+  description String?
+  user        User?    @relation(fields: [userId], references: [id])
+  userId      Int?
+  json        Json?
+}

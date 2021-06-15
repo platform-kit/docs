@@ -19,8 +19,6 @@ if (apiSchemaPath != null) {
   apiSchema = JSON.parse(apiSchema);
 }
 
-
-
 var uiSchemaPath = process.env.UI_SCHEMA_PATH;
 
 uiSchemaPath = "static/temp/ui-schema.json";
@@ -37,12 +35,18 @@ module.exports = function (api) {
     store.addMetadata('uiSchema', { data: uiSchema, string: JSON.stringify(uiSchema) })
   })
 
-  var enableCMS = process.env.ENABLE_CMS;  
-  if(enableCMS != null && enableCMS.toLowerCase() == 'true') {
+  var enableCMS = process.env.ENABLE_CMS;
+  if (enableCMS != null && enableCMS.toLowerCase() == 'true') {
     api.createPages(({ createPage }) => {
       createPage({
         path: '/admin',
         component: './src/admin/Index.vue'
+      })
+    })
+    api.createPages(({ createPage }) => {
+      createPage({
+        path: '/admin/api',
+        component: './src/admin/API.vue'
       })
     })
   }

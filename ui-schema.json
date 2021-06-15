@@ -1,0 +1,31 @@
+{
+    "name": "PlatformKit",
+    "siteName": "PlatformKit",
+    "version": "0.0.1",
+    "logos": {
+        "light": "https://avatars.githubusercontent.com/u/54647524?v=4"
+    },
+    "icons": {
+        "favicon": "https://avatars.githubusercontent.com/u/54647524?v=4",
+        "touch": "https://avatars.githubusercontent.com/u/54647524?v=4"
+    },
+    "docs": {
+        "collections": [
+            {
+                "name": "API",
+                "prefix": "pka",
+                "label": "PlatformKit API",
+                "repo": "https://github.com/platform-kit/platformkit-api",
+                "path": "docs"
+            },
+            {                
+                "name": "UI",
+                "prefix": "pku",
+                "label": "PlatformKit UI",
+                "repo": "https://github.com/platform-kit/platformkit-ui",
+                "path": "docs",
+                "publish": true
+            }
+        ]
+    }
+}

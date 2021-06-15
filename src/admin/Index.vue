@@ -12,12 +12,12 @@
           <b-card class="border-0 raised" title="New Users">
             <trend
               :data="[0, 2, 5, 9, 5, 10, 3, 5, 0, 0, 1, 8, 2, 9, 0]"
-              :gradientDirection="top"
+              gradientDirection="top"
               :gradient="['#b8f2e6', '#6fa8dc', '#3a86ff']"
               :padding="1"
               :radius="12"
               :stroke-width="1.7"
-              :stroke-linecap="butt"
+              stroke-linecap="round"
               auto-draw
               smooth
             >
@@ -28,12 +28,12 @@
           <b-card class="border-0 raised" title="Revenue">
             <trend
               :data="[0, 2, 5, 9, 5, 10, 3, 5, 0, 0, 1, 8, 2, 9, 0]"
-              :gradientDirection="top"
+              gradientDirection="top"
               :gradient="['#b8f2e6', '#42b983', '#6fa8dc']"
               :padding="1"
               :radius="12"
               :stroke-width="1.7"
-              :stroke-linecap="butt"
+              stroke-linecap="round"
               auto-draw
               smooth
             >
@@ -44,12 +44,12 @@
           <b-card class="border-0 raised" title="Engagement">
             <trend
               :data="[0, 2, 5, 9, 5, 10, 3, 5, 0, 0, 1, 8, 2, 9, 0]"
-              :gradientDirection="top"
+              gradientDirection="top"
               :gradient="['#ffe74c', '#ffbe88', '#ff93df']"
               :padding="1"
               :radius="12"
               :stroke-width="1.7"
-              :stroke-linecap="butt"
+              stroke-linecap="round"
               auto-draw
               smooth
             >
@@ -61,22 +61,62 @@
         <div class="col-md-6 mb-2">
           <b-card class="border-0 raised" title="Top Pages">
             <b-list-group class="mt-3">
-              <b-list-group-item href="#">Cras justo odio</b-list-group-item>
-              <b-list-group-item href="#"
-                >Dapibus ac facilisis in</b-list-group-item
+              <b-list-group-item
+                href="#"
+                v-for="(item, index) in [1, 2, 3]"
+                :key="index"
               >
-              <b-list-group-item href="#">Vestibulum at eros</b-list-group-item>
+                <span
+                  style="
+                    display: inline-block !important;
+                    float: left;
+                    background-color: #eee;
+                    height: 25px;
+                    width: 50px;
+                    background-size: cover;
+                    background-position: center center;
+                  "
+                  v-bind:style="{
+                    'background-image':
+                      'url(https://source.unsplash.com/random/160x90?' +
+                      index +
+                      ')',
+                  }"
+                  class="br-5"
+                ></span
+                ><span style="margin-left: 15px">Cras justo odio</span>
+              </b-list-group-item>
             </b-list-group>
           </b-card>
         </div>
         <div class="col-md-6 mb-2">
           <b-card class="border-0 raised" title="Top Content">
             <b-list-group class="mt-3">
-              <b-list-group-item href="#">Cras justo odio</b-list-group-item>
-              <b-list-group-item href="#"
-                >Dapibus ac facilisis in</b-list-group-item
+              <b-list-group-item
+                href="#"
+                v-for="(item, index) in [1, 2, 3]"
+                :key="index"
               >
-              <b-list-group-item href="#">Vestibulum at eros</b-list-group-item>
+                <span
+                  style="
+                    display: inline-block !important;
+                    float: left;
+                    background-color: #eee;
+                    height: 25px;
+                    width: 50px;
+                    background-size: cover;
+                    background-position: center center;
+                  "
+                  v-bind:style="{
+                    'background-image':
+                      'url(https://source.unsplash.com/random/160x90?' +
+                      index +
+                      ')',
+                  }"
+                  class="br-5"
+                ></span
+                ><span style="margin-left: 15px">Cras justo odio</span>
+              </b-list-group-item>
             </b-list-group>
           </b-card>
         </div>
@@ -85,22 +125,62 @@
         <div class="col-md-6 mb-2">
           <b-card class="border-0 raised" title="Top Products">
             <b-list-group class="mt-3">
-              <b-list-group-item href="#">Cras justo odio</b-list-group-item>
-              <b-list-group-item href="#"
-                >Dapibus ac facilisis in</b-list-group-item
+              <b-list-group-item
+                href="#"
+                v-for="(item, index) in [1, 2, 3]"
+                :key="index"
               >
-              <b-list-group-item href="#">Vestibulum at eros</b-list-group-item>
+                <span
+                  style="
+                    display: inline-block !important;
+                    float: left;
+                    background-color: #eee;
+                    height: 25px;
+                    width: 25px;
+                    background-size: cover;
+                    background-position: center center;
+                  "
+                  v-bind:style="{
+                    'background-image':
+                      'url(https://source.unsplash.com/random/160x90?' +
+                      index +
+                      ')',
+                  }"
+                  class="br-5"
+                ></span
+                ><span style="margin-left: 15px">Cras justo odio</span>
+              </b-list-group-item>
             </b-list-group>
           </b-card>
         </div>
         <div class="col-md-6 mb-2">
           <b-card class="border-0 raised" title="Top Users">
             <b-list-group class="mt-3">
-              <b-list-group-item href="#">Cras justo odio</b-list-group-item>
-              <b-list-group-item href="#"
-                >Dapibus ac facilisis in</b-list-group-item
+              <b-list-group-item
+                href="#"
+                v-for="(item, index) in [1, 2, 3]"
+                :key="index"
               >
-              <b-list-group-item href="#">Vestibulum at eros</b-list-group-item>
+                <span
+                  style="
+                    display: inline-block !important;
+                    float: left;
+                    background-color: #eee;
+                    height: 25px;
+                    width: 25px;
+                    background-size: cover;
+                    background-position: center center;
+                  "
+                  v-bind:style="{
+                    'background-image':
+                      'url(https://source.unsplash.com/random/160x90?' +
+                      index +
+                      ')',
+                  }"
+                  class="br-25"
+                ></span
+                ><span style="margin-left: 15px">Cras justo odio</span>
+              </b-list-group-item>
             </b-list-group>
           </b-card>
         </div>

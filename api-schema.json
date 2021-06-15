@@ -1,0 +1,17 @@
+{
+    "name": "PlatformKit API",
+    "version": "0.0.1",
+    "resources": [
+     "analytic_events"
+    ],
+    "schemas": {
+        "analytic_events": {
+            "browse": {
+                "input_validation_rules": {
+                    "type": "required|string",
+                    "id": "integer"
+                }
+            }
+        }
+    }
+}

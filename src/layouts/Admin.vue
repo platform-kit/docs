@@ -8,7 +8,7 @@
         v-bind:class="{ blurred: search != null && search != '' }"
       >
         <div class="w-100 h-100 bg-white admin-logo">
-          <div class="row">
+          <div class="row m-0">
             <div class="col-md-2 h-100 admin-sidebar px-0 d-none d-md-inline">
               <div
                 class="
@@ -59,107 +59,7 @@
                   </span>
                 </b-navbar-brand>
               </div>
-              <div class="ml-3 pr-2 pl-1 pt-3">
-                <div style="" class="btn btn-block text-dark">
-                  <g-link
-                    to="/admin"
-                    style="height: 50px"
-                    class="bg-white br-5 d-flex mx-auto nav-icon-container btn"
-                  >
-                    <b-icon-grid1x2 class="my-auto"></b-icon-grid1x2>
-                    <span class="mr-auto my-auto nav-icon-label"
-                      >Dashboard</span
-                    >
-                  </g-link>
-                </div>
-                <div style="" class="btn btn-block text-dark">
-                  <div
-                    style="height: 50px"
-                    class="bg-white br-5 d-flex mx-auto nav-icon-container btn"
-                  >
-                    <b-icon-person class="my-auto"></b-icon-person>
-                    <span class="mr-auto my-auto nav-icon-label">Users</span>
-                  </div>
-                </div>
-                <div style="" class="btn btn-block text-dark">
-                  <div
-                    style="height: 50px"
-                    class="bg-white br-5 d-flex mx-auto nav-icon-container btn"
-                  >
-                    <b-icon-file-earmark class="my-auto"></b-icon-file-earmark>
-                    <span class="mr-auto my-auto nav-icon-label">Pages</span>
-                  </div>
-                </div>
-                <div style="" class="btn btn-block text-dark">
-                  <div
-                    style="height: 50px"
-                    class="bg-white br-5 d-flex mx-auto nav-icon-container btn"
-                  >
-                    <b-icon-pen class="my-auto"></b-icon-pen>
-                    <span class="mr-auto my-auto nav-icon-label">Content</span>
-                  </div>
-                </div>
-                <div style="" class="btn btn-block text-dark">
-                  <div
-                    style="height: 50px"
-                    class="bg-white br-5 d-flex mx-auto nav-icon-container btn"
-                  >
-                    <b-icon-box-seam class="my-auto"></b-icon-box-seam>
-                    <span class="mr-auto my-auto nav-icon-label"
-                      >Products</span
-                    >
-                  </div>
-                </div>
-                <div style="" class="btn btn-block text-dark">
-                  <div
-                    style="height: 50px"
-                    class="bg-white br-5 d-flex mx-auto nav-icon-container btn"
-                  >
-                    <b-icon-credit-card class="my-auto"></b-icon-credit-card>
-                    <span class="mr-auto my-auto nav-icon-label"
-                      >Payments</span
-                    >
-                  </div>
-                </div>
-                <div style="" class="btn btn-block text-dark">
-                  <div
-                    style="height: 50px"
-                    class="bg-white br-5 d-flex mx-auto nav-icon-container btn"
-                  >
-                    <b-icon-graph-up class="my-auto"></b-icon-graph-up>
-                    <span class="mr-auto my-auto nav-icon-label"
-                      >Analytics</span
-                    >
-                  </div>
-                </div>
-                <a href="/docs" target="_blank" class="btn btn-block text-dark">
-                  <div
-                    style="height: 50px"
-                    class="bg-white br-5 d-flex mx-auto nav-icon-container btn"
-                  >
-                    <b-icon-file-earmark class="my-auto"></b-icon-file-earmark>
-                    <span class="mr-auto my-auto nav-icon-label">Docs</span>
-                  </div>
-                </a>
-                <a href="/graphql" target="_blank" class="btn btn-block text-dark">
-                  <div
-                    style="height: 50px"
-                    class="bg-white br-5 d-flex mx-auto nav-icon-container btn"
-                  >
-                    <b-icon-code-square class="my-auto"></b-icon-code-square>
-                    <span class="mr-auto my-auto nav-icon-label">API</span>
-                  </div>
-                </a>
-                <div id="settings-button" class="btn btn-block text-dark">
-                  <div
-                    style="height: 50px"
-                    class="br-5 d-flex mx-auto nav-icon-container btn"
-                  >
-                    <b-icon-gear class="my-auto"></b-icon-gear>
-                    <span class="mr-auto my-auto nav-icon-label">Settings</span>
-                  </div>
-                </div>
-              </div>
+              <admin-nav> </admin-nav>
             </div>
             <div class="col-md-10 admin-main p-0 m-0" style="">
               <b-navbar
@@ -168,7 +68,7 @@
                 class="border-bottom border-light-blue"
                 style="height: 77px; background: none !important"
               >
-                <b-nabar-nav class="mr-auto">
+                <b-navbar-nav class="mr-auto">
                   <b-navbar-brand
                     href="/"
                     id="navLogo"
@@ -197,7 +97,7 @@
                       src="~/images/icon.png"
                       style="max-width: 50px"
                     />
-                    <span class="text-dark">
+                    <span class="text-dark d-none d-sm-inline">
                       <span v-if="title == null">
                         <span
                           v-if="uiSchema != null && uiSchema.name != null"
@@ -213,26 +113,41 @@
                       >
                     </span>
                   </b-navbar-brand>
-                </b-nabar-nav>
+                </b-navbar-nav>
                 <b-navbar-nav class="ml-auto">
                   <b-nav-form>
                     <b-form-input
+                      id="admin-search-input"
                       class="mr-2 border-light-blue br-25 px-4"
                       autocomplete="off"
-                      placeholder="Search"
+                      placeholder="Search..."
                     ></b-form-input>
                   </b-nav-form>
                   <div
+                    v-b-modal.admin-modal
                     class="
                       bg-white
                       br-25
                       mr-4
                       px-3
-                      d-flex
+                      d-none d-md-flex
                       border border-light-blue
                     "
                   >
                     <b-icon-person class="m-auto"></b-icon-person>
+                  </div>
+                  <div
+                    v-b-modal.admin-modal
+                    class="
+                      bg-white
+                      br-25
+                      mr-4
+                      px-3
+                      d-flex d-md-none
+                      border border-light-blue
+                    "
+                  >
+                    <b-icon-list class="m-auto"></b-icon-list>
                   </div>
                 </b-navbar-nav>
               </b-navbar>
@@ -247,6 +162,9 @@
         </div>
       </div>
     </div>
+    <b-modal id="admin-modal" title="Navigation" hide-footer>
+      <admin-nav></admin-nav>
+    </b-modal>
   </div>
 </template>
 
@@ -289,9 +207,13 @@ query {
 
 <script>
 import axios from "axios";
+import AdminNav from "../components/AdminNav.vue";
 
 export default {
   props: ["title"],
+  components: {
+    AdminNav,
+  },
   data() {
     return {
       uiSettings: {
@@ -425,21 +347,43 @@ body {
 .admin-sidebar {
 }
 
+#admin-modal .btn.bg-white:hover,
+#admin-modal .btn.bg-white.active,
 .admin-sidebar .btn.bg-white:hover,
 .admin-sidebar .btn.bg-white.active {
   color: royalblue;
   background: #f4f8ff !important;
 }
 
+#admin-modal .btn.bg-white:hover,
 .admin-sidebar .btn.bg-white:hover {
   border-color: rgba(65, 105, 225, 0.089);
 }
 
-#settings-button {
-  background: rgba(255, 255, 255, 0.2) !important;
-  position: absolute;
-  bottom: 0px;
-  left: 8px;
+@media (min-width: 991px) {
+  #settings-button {
+    position: absolute !important;
+    bottom: 0px !important;
+    left: 8px !important;
+  }
+}
+
+@media (max-width: 991px) {
+  #settings-button {
+    position: relative !important;
+    bottom: unset !important;
+    left: unset !important;
+  }
+}
+
+#admin-modal #settings-button {
+  position: relative;
+  bottom: unset;
+  left: unset;
+}
+
+#admin-modal .nav-icon-label {
+  display: inline-block !important;
 }
 
 h1,
@@ -864,5 +808,20 @@ h6 {
 
 .admin-page .card.raised {
   box-shadow: 0px 10px 20px rgba(0, 0, 75, 0.075);
+}
+
+#admin-search-input {
+  width: 300px;
+}
+@media (max-width: 991px) {
+  #admin-search-input {
+    width: 200px;
+  }
+}
+
+@media (max-width: 720px) {
+  #admin-search-input {
+    width: 130px;
+  }
 }
 </style>
