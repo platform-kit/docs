@@ -6,11 +6,7 @@
     ],
     "schemas": {
         "analytic_events": {
-            "browse": {
-                "input_validation_rules": {
-                    "type": "required|string",
-                    "id": "integer"
-                }
+            "browse": {          
             }
         }
     }
