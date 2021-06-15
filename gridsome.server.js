@@ -38,7 +38,7 @@ module.exports = function (api) {
   })
 
   var enableCMS = process.env.ENABLE_CMS;  
-  if(enableCMS.toLowerCase() == 'true') {
+  if(enableCMS != null && enableCMS.toLowerCase() == 'true') {
     api.createPages(({ createPage }) => {
       createPage({
         path: '/admin',
