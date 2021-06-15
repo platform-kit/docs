@@ -4,10 +4,6 @@
     "resources": [
      "analytic_events"
     ],
-    "schemas": {
-        "analytic_events": {
-            "browse": {          
-            }
-        }
+    "schemas": {  
     }
 }
