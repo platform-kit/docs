@@ -3,7 +3,7 @@
     <div class="admin-page admin-overview">
       <div
         class="ml-0 ml-md-3 mt-0 mt-lg-2 mb-4 mb-lg-0 text-center text-md-left"
-        style="font-weight: 400; font-size: 110%; color: royalblue"
+        style="font-weight: 400; font-size: 110%; color: rgba(0, 0, 100, 0.65)"
       >
         Overview
       </div>
@@ -57,12 +57,52 @@
           </b-card>
         </div>
       </div>
-      <div class="row pr-3 mt-3 ml-0 mr-lg-0">
+      <div class="row pr-3 mt-0 mt-md-3 ml-0 mr-lg-0">
         <div class="col-md-6 mb-2">
-          <b-card class="border-0 raised" title="Top Pages"> </b-card>
+          <b-card class="border-0 raised" title="Top Pages">
+            <b-list-group class="mt-3">
+              <b-list-group-item href="#">Cras justo odio</b-list-group-item>
+              <b-list-group-item href="#"
+                >Dapibus ac facilisis in</b-list-group-item
+              >
+              <b-list-group-item href="#">Vestibulum at eros</b-list-group-item>
+            </b-list-group>
+          </b-card>
         </div>
         <div class="col-md-6 mb-2">
-          <b-card class="border-0 raised" title="Top Content"> </b-card>
+          <b-card class="border-0 raised" title="Top Content">
+            <b-list-group class="mt-3">
+              <b-list-group-item href="#">Cras justo odio</b-list-group-item>
+              <b-list-group-item href="#"
+                >Dapibus ac facilisis in</b-list-group-item
+              >
+              <b-list-group-item href="#">Vestibulum at eros</b-list-group-item>
+            </b-list-group>
+          </b-card>
+        </div>
+      </div>
+      <div class="row pr-3 mt-0 mt-md-3 ml-0 mr-lg-0">
+        <div class="col-md-6 mb-2">
+          <b-card class="border-0 raised" title="Top Products">
+            <b-list-group class="mt-3">
+              <b-list-group-item href="#">Cras justo odio</b-list-group-item>
+              <b-list-group-item href="#"
+                >Dapibus ac facilisis in</b-list-group-item
+              >
+              <b-list-group-item href="#">Vestibulum at eros</b-list-group-item>
+            </b-list-group>
+          </b-card>
+        </div>
+        <div class="col-md-6 mb-2">
+          <b-card class="border-0 raised" title="Top Users">
+            <b-list-group class="mt-3">
+              <b-list-group-item href="#">Cras justo odio</b-list-group-item>
+              <b-list-group-item href="#"
+                >Dapibus ac facilisis in</b-list-group-item
+              >
+              <b-list-group-item href="#">Vestibulum at eros</b-list-group-item>
+            </b-list-group>
+          </b-card>
         </div>
       </div>
     </div>

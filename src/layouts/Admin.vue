@@ -11,7 +11,13 @@
           <div class="row">
             <div class="col-md-2 h-100 admin-sidebar px-0 d-none d-md-inline">
               <div
-                class="w-100 row m-0 border-bottom border-light-blue pl-3 pl-lg-0"
+                class="
+                  w-100
+                  row
+                  m-0
+                  border-bottom border-light-blue
+                  pl-3 pl-lg-0
+                "
                 style="height: 77px; background: #fff"
               >
                 <b-navbar-brand
@@ -98,9 +104,20 @@
                     style="height: 50px"
                     class="bg-white br-5 d-flex mx-auto nav-icon-container btn"
                   >
+                    <b-icon-box-seam class="my-auto"></b-icon-box-seam>
+                    <span class="mr-auto my-auto nav-icon-label"
+                      >Products</span
+                    >
+                  </div>
+                </div>
+                <div style="" class="btn btn-block text-dark">
+                  <div
+                    style="height: 50px"
+                    class="bg-white br-5 d-flex mx-auto nav-icon-container btn"
+                  >
                     <b-icon-credit-card class="my-auto"></b-icon-credit-card>
                     <span class="mr-auto my-auto nav-icon-label"
-                      >Subscriptions</span
+                      >Payments</span
                     >
                   </div>
                 </div>
@@ -115,7 +132,7 @@
                     >
                   </div>
                 </div>
-                <div style="" class="btn btn-block text-dark">
+                <a href="/docs" target="_blank" class="btn btn-block text-dark">
                   <div
                     style="height: 50px"
                     class="bg-white br-5 d-flex mx-auto nav-icon-container btn"
@@ -123,8 +140,8 @@
                     <b-icon-file-earmark class="my-auto"></b-icon-file-earmark>
                     <span class="mr-auto my-auto nav-icon-label">Docs</span>
                   </div>
-                </div>
-                <div style="" class="btn btn-block text-dark">
+                </a>
+                <a href="/graphql" target="_blank" class="btn btn-block text-dark">
                   <div
                     style="height: 50px"
                     class="bg-white br-5 d-flex mx-auto nav-icon-container btn"
@@ -132,7 +149,7 @@
                     <b-icon-code-square class="my-auto"></b-icon-code-square>
                     <span class="mr-auto my-auto nav-icon-label">API</span>
                   </div>
-                </div>
+                </a>
                 <div id="settings-button" class="btn btn-block text-dark">
                   <div
                     style="height: 50px"
@@ -846,6 +863,6 @@ h6 {
 }
 
 .admin-page .card.raised {
-  box-shadow:0px 10px 20px rgba(0,0,75,0.075);
+  box-shadow: 0px 10px 20px rgba(0, 0, 75, 0.075);
 }
 </style>
