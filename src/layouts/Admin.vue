@@ -192,16 +192,6 @@ query {
       }
     }
   }
-  apiSchemas: allApiSchema {
-    edges {
-      node {
-        id
-        key        
-        data
-        path
-      }
-    }
-  }
 }
 </static-query>
 

@@ -4,6 +4,43 @@
     "resources": [
      "analytic_events"
     ],
-    "schemas": {  
+    "schemas": {
+        "users": {
+            "browse": {     
+                "input_validation_rules": {
+                    "type": "string|required"
+                }     
+            },
+            "read": {     
+                "input_validation_rules": {
+                    "id": "numeric|required",
+                    "type": "string|required"
+                }     
+            },
+            "edit": {     
+                "input_validation_rules": {
+                    "id": "numeric|required",
+                    "name": "string|required"
+                }     
+            },
+            "add": {     
+                "input_validation_rules": {
+                    "name": "string|required",
+                    "email": "string|required"
+                }     
+            },
+            "delete": {     
+                "input_validation_rules": {
+                    "id": "numeric|required"
+                }     
+            }
+        },
+        "analytic_events": {
+            "browse": {     
+                "input_validation_rules": {
+                    "type": "string|required"
+                }     
+            }
+        }
     }
 }

@@ -5,7 +5,7 @@ CREATE TYPE "ContentType" AS ENUM ('text', 'audio', 'video', 'link', 'iframe');
 CREATE TYPE "PricingInterval" AS ENUM ('day', 'week', 'month', 'year');
 
 -- CreateTable
-CREATE TABLE "User" (
+CREATE TABLE "users" (
     "id" SERIAL NOT NULL,
     "uuid" UUID NOT NULL,
     "email" TEXT,
@@ -17,7 +17,7 @@ CREATE TABLE "User" (
 );
 
 -- CreateTable
-CREATE TABLE "Page" (
+CREATE TABLE "pages" (
     "id" SERIAL NOT NULL,
     "uuid" UUID NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -32,7 +32,7 @@ CREATE TABLE "Page" (
 );
 
 -- CreateTable
-CREATE TABLE "ContentItem" (
+CREATE TABLE "content_items" (
     "id" SERIAL NOT NULL,
     "uuid" UUID NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -53,7 +53,7 @@ CREATE TABLE "ContentItem" (
 );
 
 -- CreateTable
-CREATE TABLE "Product" (
+CREATE TABLE "products" (
     "id" SERIAL NOT NULL,
     "uuid" UUID NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -72,7 +72,7 @@ CREATE TABLE "Product" (
 );
 
 -- CreateTable
-CREATE TABLE "SubscriptionPlan" (
+CREATE TABLE "subscription_plans" (
     "id" SERIAL NOT NULL,
     "uuid" UUID NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -91,7 +91,7 @@ CREATE TABLE "SubscriptionPlan" (
 );
 
 -- CreateTable
-CREATE TABLE "AnalyticEvents" (
+CREATE TABLE "analytic_events" (
     "id" SERIAL NOT NULL,
     "uuid" UUID NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -105,49 +105,49 @@ CREATE TABLE "AnalyticEvents" (
 );
 
 -- CreateIndex
-CREATE UNIQUE INDEX "User.uuid_unique" ON "User"("uuid");
+CREATE UNIQUE INDEX "users.uuid_unique" ON "users"("uuid");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "User.oauth_id_unique" ON "User"("oauth_id");
+CREATE UNIQUE INDEX "users.oauth_id_unique" ON "users"("oauth_id");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "User.stripeId_unique" ON "User"("stripeId");
+CREATE UNIQUE INDEX "users.stripeId_unique" ON "users"("stripeId");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "Page.uuid_unique" ON "Page"("uuid");
+CREATE UNIQUE INDEX "pages.uuid_unique" ON "pages"("uuid");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "ContentItem.uuid_unique" ON "ContentItem"("uuid");
+CREATE UNIQUE INDEX "content_items.uuid_unique" ON "content_items"("uuid");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "Product.uuid_unique" ON "Product"("uuid");
+CREATE UNIQUE INDEX "products.uuid_unique" ON "products"("uuid");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "Product.stripeId_unique" ON "Product"("stripeId");
+CREATE UNIQUE INDEX "products.stripeId_unique" ON "products"("stripeId");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "SubscriptionPlan.uuid_unique" ON "SubscriptionPlan"("uuid");
+CREATE UNIQUE INDEX "subscription_plans.uuid_unique" ON "subscription_plans"("uuid");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "SubscriptionPlan.stripeId_unique" ON "SubscriptionPlan"("stripeId");
+CREATE UNIQUE INDEX "subscription_plans.stripeId_unique" ON "subscription_plans"("stripeId");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "AnalyticEvents.uuid_unique" ON "AnalyticEvents"("uuid");
+CREATE UNIQUE INDEX "analytic_events.uuid_unique" ON "analytic_events"("uuid");
 
 -- AddForeignKey
-ALTER TABLE "Page" ADD FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "pages" ADD FOREIGN KEY ("userId") REFERENCES "users"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "ContentItem" ADD FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "content_items" ADD FOREIGN KEY ("userId") REFERENCES "users"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "ContentItem" ADD FOREIGN KEY ("subscriptionPlanId") REFERENCES "SubscriptionPlan"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "content_items" ADD FOREIGN KEY ("subscriptionPlanId") REFERENCES "subscription_plans"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Product" ADD FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE "products" ADD FOREIGN KEY ("userId") REFERENCES "users"("id") ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "SubscriptionPlan" ADD FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE "subscription_plans" ADD FOREIGN KEY ("userId") REFERENCES "users"("id") ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "AnalyticEvents" ADD FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE "analytic_events" ADD FOREIGN KEY ("userId") REFERENCES "users"("id") ON DELETE SET NULL ON UPDATE CASCADE;

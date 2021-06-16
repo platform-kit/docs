@@ -280,16 +280,7 @@ query {
       }
     }
   }
-  apiSchemas: allApiSchema {
-    edges {
-      node {
-        id
-        key        
-        data
-        path
-      }
-    }
-  }
+  
 }
 </static-query>
 
@@ -346,7 +337,7 @@ export default {
     getSearchResults() {
       this.searchResults = {};
       var docs = Object.entries(this.$static.docs.edges);
-      var apiSchemas = Object.entries(this.$static.apiSchemas.edges);
+      // var apiSchemas = Object.entries(this.$static.apiSchemas.edges);
       for (const [key, value] of docs) {
         if (
           value.node.content
@@ -357,6 +348,7 @@ export default {
           this.searchResults[value.node.id] = value;
         }
       }
+      /*
       for (const [key, value] of apiSchemas) {
         if (
           value.node.data.toLowerCase().includes(this.search.toLowerCase()) ||
@@ -365,6 +357,7 @@ export default {
           this.searchResults[value.node.id] = value;
         }
       }
+      */
     },
     async getApiSchema() {
       try {

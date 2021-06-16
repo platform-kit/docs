@@ -26,7 +26,7 @@
         </div>
       </div>
     </div>
-    <div v-if="apiSchema != null">
+    <div v-if="apiSchema != null && apiSchema.schemas != null">
       <span class="badge text-dark px-3 py-2 badge-light-blue"
         >API Resources</span
       >

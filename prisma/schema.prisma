@@ -8,6 +8,7 @@ datasource db {
 }
 
 model User {
+  @@map(name: "users")
   id                Int                @id @default(autoincrement())
   uuid              String             @unique @default(uuid()) @db.Uuid
   email             String?
@@ -16,12 +17,13 @@ model User {
   pages             Page[]
   contentItems      ContentItem[]
   subscriptionPlans SubscriptionPlan[]
-  analyticEvents    AnalyticEvents[]
-  Product           Product[]
+  analyticEvents    AnalyticEvent[]
+  Products          Product[]
   stripeId          String             @unique
 }
 
 model Page {
+  @@map(name: "pages")
   id        Int      @id @default(autoincrement())
   uuid      String   @unique @default(uuid()) @db.Uuid
   createdAt DateTime @default(now())
@@ -43,6 +45,7 @@ enum ContentType {
 }
 
 model ContentItem {
+  @@map(name: "content_items")
   id                 Int               @id @default(autoincrement())
   uuid               String            @unique @default(uuid()) @db.Uuid
   createdAt          DateTime          @default(now())
@@ -70,6 +73,7 @@ enum PricingInterval {
 }
 
 model Product {
+  @@map(name: "products")
   id          Int      @id @default(autoincrement())
   uuid        String   @unique @default(uuid()) @db.Uuid
   createdAt   DateTime @default(now())
@@ -87,6 +91,7 @@ model Product {
 }
 
 model SubscriptionPlan {
+  @@map(name: "subscription_plans")
   id          Int             @id @default(autoincrement())
   uuid        String          @unique @default(uuid()) @db.Uuid
   createdAt   DateTime        @default(now())
@@ -104,7 +109,8 @@ model SubscriptionPlan {
   ContentItem ContentItem[]
 }
 
-model AnalyticEvents {
+model AnalyticEvent {
+  @@map(name: "analytic_events")
   id          Int      @id @default(autoincrement())
   uuid        String   @unique @default(uuid()) @db.Uuid
   createdAt   DateTime @default(now())
