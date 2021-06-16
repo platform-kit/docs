@@ -8,13 +8,13 @@
         "users": {
             "browse": {     
                 "input_validation_rules": {
-                    "type": "string|required"
+                    "name": "string|required"
                 }     
             },
             "read": {     
                 "input_validation_rules": {
                     "id": "numeric|required",
-                    "type": "string|required"
+                    "name": "string|required"
                 }     
             },
             "edit": {     
