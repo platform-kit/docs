@@ -8,6 +8,7 @@
         "users": {
             "browse": {     
                 "input_validation_rules": {
+                    "id": "integer|required",
                     "name": "string|required"
                 }     
             },
