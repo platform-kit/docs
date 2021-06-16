@@ -25,39 +25,33 @@
               <span
                 v-if="endpoint[0] == 'browse'"
                 style="letter-spacing: 1px"
-                class="badge badge-light mb-2 px-3 py-2 text-uppercase"
-                >GET &nbsp;
-                <span class="o-50"
-                  >/ api / {{ s.node.key }} / browse</span
-                ></span
+                class="btn p-0 mb-2 mt-1 o-70 o-h-100 text-dark text-left"
+                >
+                Browse</span
               >
               <span
                 v-if="endpoint[0] == 'read'"
                 style="letter-spacing: 1px"
-                class="badge badge-light mb-2 px-3 py-2 text-uppercase"
-                >GET &nbsp;
-                <span class="o-50">/ api / {{ s.node.key }} / {id}</span></span
+                class="btn p-0 mb-2 mt-1 o-70 o-h-100 text-dark text-left"
+                >Read</span
               >
               <span
                 v-if="endpoint[0] == 'add'"
                 style="letter-spacing: 1px"
-                class="badge badge-light mb-2 px-3 py-2 text-uppercase"
-                >POST &nbsp;
-                <span class="o-50">/ api / {{ s.node.key }}</span></span
+                class="btn p-0 mb-2 mt-1 o-70 o-h-100 text-dark text-left"
+                >Add</span
               >
               <span
                 v-if="endpoint[0] == 'edit'"
                 style="letter-spacing: 1px"
-                class="badge badge-light mb-2 px-3 py-2 text-uppercase"
-                >POST &nbsp;
-                <span class="o-50">/ api / {{ s.node.key }} / {id}</span></span
+                class="btn p-0 mb-2 mt-1 o-70 o-h-100 text-dark text-left"
+                >Edit</span
               >
               <span
                 v-if="endpoint[0] == 'delete'"
                 style="letter-spacing: 1px"
-                class="badge badge-light mb-2 px-3 py-2 text-uppercase"
-                >DELETE &nbsp;
-                <span class="o-50">/ api / {{ s.node.key }} / {id}</span></span
+                class="btn p-0 mb-2 mt-1 o-70 o-h-100 text-dark text-left"
+                >Delete</span
               >
             </div>
           </div>
@@ -133,17 +127,15 @@
                   >
                 </code>
               </b-card>
-              
             </div>
             <div class="mt-2">
-                For more info on the validation rules, see the documentation for
-                <a
-                  href="https://www.npmjs.com/package/validatorjs"
-                  target="_blank"
-                  >ValidatorJS</a
-                >.
-              </div>
-            
+              For more info on the validation rules, see the documentation for
+              <a
+                href="https://www.npmjs.com/package/validatorjs"
+                target="_blank"
+                >ValidatorJS</a
+              >.
+            </div>
           </div>
         </div>
       </template>
@@ -180,7 +172,7 @@ export default {
   },
   metaInfo() {
     return {
-      title: this.capitalize(this.getSchemaKey()) + ' API Schema '
+      title: this.capitalize(this.getSchemaKey()) + " API Schema ",
       /* meta: [{ name: "description", content: '...' }], */
     };
   },
@@ -190,11 +182,11 @@ export default {
       apiSchema: {},
       slug: null,
       window: null,
-      schema: {}
+      schema: {},
     };
-  },  
+  },
   async mounted() {
-    this.getApiSchema();    
+    this.getApiSchema();
     this.window = window;
     this.slug = this.window.location.href.substring(
       this.window.location.href.lastIndexOf("/") + 1
@@ -203,21 +195,23 @@ export default {
     console.log(this.$page);
   },
   methods: {
-    getSchemaKey(){      
-      if(this.slug != null){
+    getSchemaKey() {
+      if (this.slug != null) {
         return this.slug;
-      }
-      else {
-        return '';
+      } else {
+        return "";
       }
     },
-    capitalize(s){
-        s = s.replace(/_/g, " ");
-        return s.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')
+    capitalize(s) {
+      s = s.replace(/_/g, " ");
+      return s
+        .split(" ")
+        .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+        .join(" ");
     },
     async getSchema() {
       await this.getApiSchema();
-      this.schema = this.apiSchema.schemas[this.slug]      
+      this.schema = this.apiSchema.schemas[this.slug];
     },
     async getApiSchema() {
       try {
