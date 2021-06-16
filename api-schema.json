@@ -13,13 +13,13 @@
             },
             "read": {     
                 "input_validation_rules": {
-                    "id": "numeric|required",
+                    "id": "integer|required",
                     "name": "string|required"
                 }     
             },
             "edit": {     
                 "input_validation_rules": {
-                    "id": "numeric|required",
+                    "id": "integer|required",
                     "name": "string|required"
                 }     
             },
@@ -31,14 +31,15 @@
             },
             "delete": {     
                 "input_validation_rules": {
-                    "id": "numeric|required"
+                    "id": "integer|required"
                 }     
             }
         },
         "analytic_events": {
-            "browse": {     
+            "add": {     
                 "input_validation_rules": {
-                    "type": "string|required"
+                    "type": "string|required",
+                    "json": "string|required"
                 }     
             }
         }
