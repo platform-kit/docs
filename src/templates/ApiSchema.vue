@@ -133,7 +133,9 @@
                   >
                 </code>
               </b-card>
-              <div class="mt-2">
+              
+            </div>
+            <div class="mt-2">
                 For more info on the validation rules, see the documentation for
                 <a
                   href="https://www.npmjs.com/package/validatorjs"
@@ -141,7 +143,7 @@
                   >ValidatorJS</a
                 >.
               </div>
-            </div>
+            
           </div>
         </div>
       </template>
