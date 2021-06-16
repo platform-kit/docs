@@ -114,7 +114,7 @@
               <b-card
                 bg-variant="dark"
                 text-variant="white"
-                class="api-schema-card"
+                class="api-schema-card mb-2"
               >
                 <template #header>
                   <span class="o-60">Input Validation Rules</span>
