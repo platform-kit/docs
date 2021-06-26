@@ -9,4 +9,4 @@ PlatformKit UI is a **static site generator** built with [Gridsome](https://www.
 - Generate docs from [Markdown](https://www.markdownguide.org) files in any number of repositories.
 - Generate docs for any API via an [API Schema](https://www.platformkit.com/docs/API/the-api-schema) file.
 - Built-in, client-side search functionality - no API calls necessary.
-- Progressive Web App - pages load even in offline mode...
+- Progressive Web App - pages load even in offline mode.
