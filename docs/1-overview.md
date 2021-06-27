@@ -1,6 +1,6 @@
 # Overview
 
-PlatformKit UI is a **static site generator** built with [Gridsome](https://www.gridsome.org) and [VueJS](https://www.vuejs.org).
+PlatformKit UI is a **static site generator** built with [VueJS](https://www.vuejs.org), [BootstrapVue](https://bootstrap-vue.org) and [Gridsome](https://www.gridsome.org).
 
 [Get the source on GitHub](https://github.com/platform-kit/platformkit-ui).
 
