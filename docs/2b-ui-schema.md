@@ -1,7 +1,5 @@
 # The UI Schema 
 
-THIS IS A TEST
-
 If the repo you've specified in your `GITHUB_REPO` environment variable includes a folder with markdown files, you may specify the path to those files in the `DOCS_PATH` environment variable.
 
 Alternatively, if you'd like to track this in your codebase, or specify additional configuration options, you can use a `ui-schema.json` file in the root of your repository.
