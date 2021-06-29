@@ -195,7 +195,7 @@ export default {
           })
           .catch(function (error) {
             console.log("Show error notification!");
-            window.alert("Something went wrong. Try again.");
+            this.window.alert("Something went wrong. Try again.");
             self.uiSettings.loading = false;
             return Promise.reject(error);
           })
