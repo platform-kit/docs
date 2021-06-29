@@ -13,13 +13,42 @@ model User {
   uuid              String             @unique @default(uuid()) @db.Uuid
   email             String?
   oauth_id          String             @unique
+  username          String             @unique
   name              String?
+  bio               String?
+  website           String?
+  tags              Json?
+  roles             Json?
+  permissions       Json?
+  topics            Json?
   pages             Page[]
+  images            Image[]           
   contentItems      ContentItem[]
   subscriptionPlans SubscriptionPlan[]
   analyticEvents    AnalyticEvent[]
   Products          Product[]
   stripeId          String             @unique
+  avatar            String?
+  status            UserStatus?        @default(Enabled)
+}
+
+enum UserStatus {
+  Enabled
+  Disabled
+}
+
+model Image {
+  @@map(name: "images")
+  id        Int      @id @default(autoincrement())
+  uuid      String   @unique @default(uuid()) @db.Uuid
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  publishAt DateTime @default(now())
+  base64    String?
+  published Boolean  @default(false)
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int
+  json      Json
 }
 
 model Page {
@@ -116,6 +145,7 @@ model AnalyticEvent {
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
   type        String
+  object      String?
   description String?
   user        User?    @relation(fields: [userId], references: [id])
   userId      Int?

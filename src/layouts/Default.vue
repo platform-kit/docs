@@ -2,7 +2,9 @@
   <div class="layout">
     <header class="header">
       <b-navbar
+        v-if="hideheader != true"
         id="navbar"
+        style="min-height:77px;"
         :toggleable="'lg'"
         type="light"
         variant="light"
@@ -10,16 +12,16 @@
       >
         <!-- Left aligned nav items -->
         <b-navbar-brand href="/" id="navLogo">
-          <g-image
+          <img
             v-if="
               uiSchema != null &&
               uiSchema.icons != null &&
               uiSchema.icons.favicon != null
             "
             :src="uiSchema.icons.favicon"
-            style="max-width: 50px"
+            style="width: 50px"
           />
-          <g-image v-else src="~/images/icon.png" style="max-width: 50px" />
+          <img v-else src="/images/icon.png" style="width: 50px" />
           <span v-if="scrolled != true">
             <span
               v-if="uiSchema != null && uiSchema.name != null"
@@ -133,7 +135,58 @@
               <b-icon-github class="mx-1"></b-icon-github
               ><span class="d-inline-block d-md-none mx-2">Github</span>
             </g-link>
-            <div class="btn-group w-100 mt-3 mt-md-0 d-none">
+
+            <div class="btn-group w-100 mt-3 mt-md-0">
+              <g-link
+                v-if="getUserEmail() == null"
+                :to="'/auth/login'"
+                class="
+                  btn
+                  d-block
+                  ml-auto
+                  mr-auto
+                  ml-md-0
+                  mr-md-0
+                  text-center text-md-right
+                "
+              >
+                <b-icon-person-circle
+                  class="mr-2 text-dark"
+                ></b-icon-person-circle>
+                Sign In
+              </g-link>
+              <b-dropdown
+                v-if="getUserEmail() != null"
+                block
+                class="w-100"
+                menu-class="w-100"
+                variant="text-dark"
+              >
+                <template #button-content>
+                  <avatar
+                    class="d-inline-block"
+                    :username="getUserEmail()"
+                    :size="25"
+                  ></avatar>
+
+                  {{ getUserEmail() }}
+                </template>
+                <b-dropdown-item
+                  v-if="
+                    getUser() != null &&
+                    getUser().roles != null &&
+                    getUser().roles.includes('admin')
+                  "
+                  href="/admin"
+                  ><b-icon-grid1x2 class="mr-2 text-dark"></b-icon-grid1x2>
+                  Admin</b-dropdown-item
+                >
+                <b-dropdown-item @click="logOut()" href="#"
+                  ><b-icon-lock class="mr-2 text-danger"></b-icon-lock> Sign
+                  Out</b-dropdown-item
+                >
+              </b-dropdown>
+
               <g-link
                 class="btn o-70 o-h-100 d-none"
                 :to="'/'"
@@ -286,9 +339,11 @@ query {
 
 <script>
 import axios from "axios";
+import Avatar from "vue-avatar";
 
 export default {
-  props: ["title"],
+  props: ["title", "hideheader"],
+  components: { Avatar },
   data() {
     return {
       uiSettings: {
@@ -309,6 +364,15 @@ export default {
     window.addEventListener("keydown", this.escapeListener);
   },
   methods: {
+    logOut() {
+      this.$store.commit("updateUser", {});
+    },
+    getUserEmail() {
+      return this.$store?.getters?.getUser?.data?.sub;
+    },
+    getUser() {
+      return this.$store?.getters?.getUser?.data;
+    },
     getPath(node) {
       if (node.key != null) {
         return "/docs/api/" + node.key;
@@ -400,9 +464,9 @@ body {
   transition: all 0s, opacity 0.5s !important;
 }
 
-@media(max-width:991px){
+@media (max-width: 991px) {
   .mainContent {
-    background:#fff;
+    background: #fff;
   }
 }
 
@@ -410,7 +474,6 @@ body {
   pointer-events: none;
   filter: blur(5px);
   opacity: 0.35;
-  
 }
 
 #mainContainer {
@@ -593,6 +656,10 @@ h6 {
   background: #f1f8ff !important;
 }
 
+.bg-light-blue-gradient {
+  background: linear-gradient(180deg, #f4f8ff, rgb(220 228 255)) !important;
+}
+
 .navgroup .btn {
   background: #fff !important;
   border-color: #a8b2bd;
@@ -683,10 +750,10 @@ h6 {
 }
 
 .raised {
-  box-shadow: 0px 8px 20px rgba(0, 100, 150, 0.2);
+  box-shadow: 0px 8px 20px rgba(0, 33, 100, 0.1) !important;
 }
 .raisedTop {
-  box-shadow: 0px -20px 20px rgba(0, 50, 70, 0.2);
+  box-shadow: 0px -20px 20px rgba(0, 50, 70, 0.2) !important;
 }
 
 .br-5 {
@@ -801,4 +868,59 @@ h6 {
   border-radius: 4px !important;
   overflow: hidden;
 }
+.docs-page .docs-content,
+.docs-page .docs-sidebar {  
+  transition: 0.3s all;
+}
+
+.docs-page.loading .docs-content,
+.docs-page.loading .docs-sidebar {
+  opacity: 0 !important;
+}
+
+.docs-page.loaded .docs-content,
+.docs-page.loaded .docs-sidebar {
+  opacity: 1;
+}
+
+#edit-doc-button {
+  position: fixed !important;
+  bottom: 15px;
+  left: 15px;
+  height: 50px;
+  width: 50px;
+  background:#deebff !important;
+  border: none !important;
+  z-index: 999;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+#edit-doc-button:hover {
+  background: #fff;
+  color: royalblue;
+}
+
+.docs-nav .btn:focus,
+.docs-nav .btn:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.list-group-item-details-badge {
+  opacity:0;
+}
+
+.list-group-item:hover .list-group-item-details-badge{ 
+  opacity:1;
+}
+
+a:hover {
+  text-decoration: none !important;
+}
+
+.editor-preview pre, .editor-preview-side pre {
+    background: none !important;    
+}
+
+
 </style>

@@ -2,11 +2,7 @@
   <div class="layout">
     <header class="header"></header>
     <div id="mainContainer" class="admin-page h-100">
-      <div
-        id="main"
-        class="mainContent h-100"
-        v-bind:class="{ blurred: search != null && search != '' }"
-      >
+      <div id="main" class="mainContent h-100">
         <div class="w-100 h-100 bg-white admin-logo">
           <div class="row m-0">
             <div class="col-md-2 h-100 admin-sidebar px-0 d-none d-md-inline">
@@ -26,7 +22,7 @@
                   class="mx-auto text-center w-100 py-2 my-auto mx-auto mx-lg-0"
                   style="width: auto"
                 >
-                  <g-image
+                  <img
                     v-if="
                       uiSchema != null &&
                       uiSchema.icons != null &&
@@ -36,9 +32,9 @@
                     style="max-width: 50px"
                     class="d-inline"
                   />
-                  <g-image
+                  <b-img-lazy
                     v-else
-                    src="~/images/icon.png"
+                    src="/images/icon.png"
                     style="max-width: 50px"
                     class="d-inline"
                   />
@@ -46,10 +42,10 @@
                     <span v-if="title == null">
                       <span
                         v-if="uiSchema != null && uiSchema.name != null"
-                        class="ml-2"
+                        class="ml-2 w-100"
                         >{{ uiSchema.name }}</span
                       >
-                      <span v-else class="ml-3">{{
+                      <span v-else class="ml-3 w-100">{{
                         $static.metadata.siteName
                       }}</span>
                     </span>
@@ -120,22 +116,51 @@
                       id="admin-search-input"
                       class="mr-2 border-light-blue br-25 px-4"
                       autocomplete="off"
+                      v-model="search"
                       placeholder="Search..."
                     ></b-form-input>
                   </b-nav-form>
-                  <div
-                    v-b-modal.admin-modal
+                  <b-dropdown
+                    variant="transparent"
+                    v-if="getUserEmail() != null"
+                    menu-class="w-100"
+                    style="margin-right: 12px !important"
                     class="
-                      bg-white
+                      bg-light-blue
                       br-25
-                      mr-4
-                      px-3
+                      mr-3
+                      px-1
                       d-none d-md-flex
                       border border-light-blue
                     "
                   >
-                    <b-icon-person class="m-auto"></b-icon-person>
-                  </div>
+                    <template #button-content>
+                      <avatar
+                        class="d-inline-block"
+                        style="
+                          margin-top: 0px;
+                          margin-left: -5px !important;
+                          margin-right: -5px;
+                        "
+                        :username="getUserEmail()"
+                        :size="25"
+                      ></avatar>
+                      <span style="margin-left: 10px; margin-right: 5px">{{
+                        getUserEmail()
+                      }}</span>
+                    </template>
+                    <b-dropdown-item href="/"
+                      ><b-icon-house-door
+                        class="mr-2 text-dark"
+                      ></b-icon-house-door>
+                      Home</b-dropdown-item
+                    >
+                    <b-dropdown-item @click="logOut()" href="#"
+                      ><b-icon-lock class="mr-2 text-danger"></b-icon-lock> Sign
+                      Out</b-dropdown-item
+                    >
+                  </b-dropdown>
+
                   <div
                     v-b-modal.admin-modal
                     class="
@@ -155,7 +180,10 @@
                 class="px-4 pt-4 admin-content"
                 style="min-height: calc(100vh - 77px)"
               >
-                <slot />
+                <div v-if="search != null && search != ''">
+                  <AdminSearchResults></AdminSearchResults>
+                </div>
+                <slot v-else />
               </div>
             </div>
           </div>
@@ -198,11 +226,15 @@ query {
 <script>
 import axios from "axios";
 import AdminNav from "../components/AdminNav.vue";
+import Avatar from "vue-avatar";
+import AdminSearchResults from "../admin/AdminSearchResults.vue";
 
 export default {
   props: ["title"],
   components: {
+    AdminSearchResults,
     AdminNav,
+    Avatar,
   },
   data() {
     return {
@@ -217,13 +249,32 @@ export default {
     };
   },
   async mounted() {
-    console.log(this.$page);
-    this.getApiSchema();
-    this.getUiSchema();
     this.window = window;
-    window.addEventListener("keydown", this.escapeListener);
+    var user = this.getUser();
+    if (
+      user != null &&
+      (user?.data?.roles?.includes("admin") ||
+        user?.data?.roles?.includes("editor") ||
+        user?.data?.roles?.includes("developer"))
+    ) {
+      window.addEventListener("keydown", this.escapeListener);
+      this.getApiSchema();
+      this.getUiSchema();
+    } else {
+      window.location.href = "/";
+    }
   },
   methods: {
+    logOut() {
+      this.$store.commit("updateUser", {});
+      window.location.href = "/";
+    },
+    getUserEmail() {
+      return this.$store?.getters?.getUser?.data?.sub;
+    },
+    getUser() {
+      return this.$store?.getters?.getUser;
+    },
     getPath(node) {
       if (node.key != null) {
         return "/docs/api/" + node.key;
@@ -549,7 +600,8 @@ h6 {
   background: #f1f8ff !important;
 }
 .bg-light-blue {
-  background: #f1f8ff !important;
+  background: rgb(233, 239, 253) !important;
+  color: rgba(0, 50, 150, 1) !important;
 }
 
 .navgroup .btn {
@@ -777,14 +829,18 @@ h6 {
   opacity: 1;
 }
 
+.admin-page a {
+  color: #444;
+}
+
 .admin-page h1,
 .admin-page h2,
 .admin-page h3,
 .admin-page h4,
 .admin-page h5,
 .admin-page h6 {
-  font-family: "Open Sans" !important;
-  font-weight: 400;
+  font-family: "Open Sans";
+  font-weight: 500;
 }
 
 @media (max-width: 1300px) {
@@ -813,5 +869,215 @@ h6 {
   #admin-search-input {
     width: 130px;
   }
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(0, 50, 100, 0.03) !important;
+}
+
+.table-striped tbody tr {
+  transition: all 0.3s;
+}
+
+.table-striped tbody tr:hover {
+  color: royalblue !important;
+  background-color: rgba(0, 50, 100, 0.07) !important;
+}
+.table-striped tbody tr td:first-child {
+  border-radius: 4px 0px 0px 4px !important;
+}
+
+.table-striped tbody tr td:last-child {
+  border-radius: 0px 4px 4px 0px !important;
+}
+
+@import "~simplemde/dist/simplemde.min.css";
+
+.home-links a {
+  margin-right: 1rem;
+}
+
+#docs-sidebar.dark-mode {
+  background: linear-gradient(#384754, #1f2830) !important;
+}
+#docs-sidebar {
+  border-right: 1px solid rgba(0, 50, 150, 0.1);
+}
+
+.admin-overview .card-title {
+  font-size: 100% !important;
+}
+
+#page-activity .badge {
+  min-width: 100px;
+}
+
+.multiselect__option--highlight {
+  background: linear-gradient(90deg, #e4f0fc, #f1f8ff);
+  outline: none;
+  color: #000;
+}
+
+.multiselect__option .multiselect__option--highlight {
+  background: #d1e4ff;
+  outline: none;
+  color: #000;
+}
+
+.image-placeholder-large {
+  background: #d0e0fd !important;
+  color: royalblue !important;
+}
+.disabledMDE {
+  transition: all 0.3s;
+  pointer-events: none !important;
+  opacity: 0.5;
+}
+.disabledCE {
+  background: rgb(233, 239, 253) !important;
+  transition: all 0.3s;
+}
+
+.disabledMDE > *,
+.disabledCE > * {
+  cursor: not-allowed !important;
+  pointer-events: none !important;
+}
+
+.disabledCE > * {
+  transition: all 0.3s;
+  opacity: 0.5;
+}
+
+.multiselect {
+  background: #fff;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+}
+
+.multiselect {
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+}
+
+.multiselect * {
+  border: none !important;
+  transition: all 0s;
+}
+
+.multiselect__option {
+  box-shadow: 0px 5px 15px rgba(0, 0, 50, 0.1);
+}
+
+.multiselect__select {
+  height: 42px !important;
+}
+
+.multiselect--disabled {
+  border-radius: 5px;
+  background: rgb(233, 239, 253) !important;
+  opacity: 1;
+  border-color: transparent !important;
+}
+.multiselect--disabled .multiselect__tags {
+  background: none !important;
+}
+.multiselect--disabled .multiselect__select {
+  background: none !important;
+}
+
+input:disabled,
+textarea:disabled,
+select:disabled {
+  background: rgb(233, 239, 253) !important;
+  opacity: 1;
+  border-color: transparent !important;
+}
+
+.multiselect__placeholder,
+input::placeholder,
+textarea::placeholder,
+.custom-select > option {
+  color: navy !important;
+  opacity: 0.65 !important;
+}
+
+.multiselect__placeholder,
+input::placeholder,
+textarea::placeholder,
+option[value=""][disabled] {
+  color: navy !important;
+  opacity: 0.65 !important;
+}
+
+.multiselect--disabled .multiselect__placeholder,
+input:disabled::placeholder,
+textarea:disabled::placeholder,
+option[value=""][disabled] {
+  opacity: 0.25 !important;
+}
+
+.disabledMDE,
+.disabledCE,
+.multiselect--disabled,
+input:disabled,
+textarea:disabled,
+select:disabled {
+  cursor: not-allowed !important;
+  transition: all 0s;
+}
+
+input,
+textarea,
+select,
+.multiselect {
+  transition: all 0s !important;
+}
+
+.btn:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+tr:focus {
+  outline: none !important;
+}
+
+.CodeMirror
+  .cm-spell-error:not(.cm-url):not(.cm-comment):not(.cm-tag):not(.cm-word) {
+  background: none !important;
+}
+
+.cm-header, 
+.admin-page .editor-preview h1,
+.admin-page .editor-preview h2,
+.admin-page .editor-preview h3,
+.admin-page .editor-preview h4,
+.admin-page .editor-preview h5,
+.admin-page .editor-preview h6 {
+  font-weight: 500 !important;
+  font-family: "Jost", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif !important;
+  letter-spacing: 0.75px !important;  
+}
+
+.admin-page .b-table tr {
+  cursor: pointer;
+}
+
+.page-item .page-link {
+  border-right-width: 0px;
+  border-left-width: 1px;
+  border-top-width: 0px;
+  border-bottom-width: 0px;
+}
+
+.page-item:first-of-type .page-link {
+  border:none;
+}
+
+.multiselect__single {
+  margin-top:2px;
+  background:none;
 }
 </style>

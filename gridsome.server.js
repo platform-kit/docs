@@ -39,8 +39,74 @@ module.exports = function (api) {
   if (enableCMS != null && enableCMS.toLowerCase() == 'true') {
     api.createPages(({ createPage }) => {
       createPage({
+        path: '/auth/login',
+        component: './src/auth/Login.vue'
+      })
+    })
+    api.createPages(({ createPage }) => {
+      createPage({
         path: '/admin',
         component: './src/admin/Index.vue'
+      })
+    })
+    api.createPages(({ createPage }) => {
+      createPage({
+        path: '/admin/users',
+        component: './src/admin/Users.vue'
+      })
+    })
+    api.createPages(({ createPage }) => {
+      createPage({
+        path: '/admin/users/editor',
+        component: './src/admin/UserEditor.vue'
+      })
+    })
+    api.createPages(({ createPage }) => {
+      createPage({
+        path: '/admin/pages',
+        component: './src/admin/Pages.vue'
+      })
+    })
+    api.createPages(({ createPage }) => {
+      createPage({
+        path: '/admin/pages/editor',
+        component: './src/admin/PageEditor.vue'
+      })
+    })
+    api.createPages(({ createPage }) => {
+      createPage({
+        path: '/admin/content',
+        component: './src/admin/Content.vue'
+      })
+    })
+    api.createPages(({ createPage }) => {
+      createPage({
+        path: '/admin/content/editor',
+        component: './src/admin/ContentEditor.vue'
+      })
+    })
+    api.createPages(({ createPage }) => {
+      createPage({
+        path: '/admin/products',
+        component: './src/admin/Products.vue'
+      })
+    })
+    api.createPages(({ createPage }) => {
+      createPage({
+        path: '/admin/products/editor',
+        component: './src/admin/ProductEditor.vue'
+      })
+    })
+    api.createPages(({ createPage }) => {
+      createPage({
+        path: '/admin/docs',
+        component: './src/admin/Docs.vue'
+      })
+    })
+    api.createPages(({ createPage }) => {
+      createPage({
+        path: '/admin/docs/editor',
+        component: './src/admin/DocsEditor.vue'
       })
     })
     api.createPages(({ createPage }) => {

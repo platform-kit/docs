@@ -1,5 +1,8 @@
 <template>
-  <div class="docs-nav"  v-if="directories != null && apiSchema != null && docs != null">
+  <div
+    class="docs-nav"
+    v-if="directories != null && apiSchema != null && docs != null"
+  >
     <div v-if="directories != null">
       <div v-for="(directory, index) in directories" :key="index" class="mb-4">
         <div>
@@ -10,6 +13,7 @@
           >
           <div v-for="(doc, index) in docs" :key="index">
             <g-link
+              :altTo="doc.node.fileInfo.directory + '/' + doc.node.fileInfo.name"
               :to="doc.node.path"
               active-class="active"
               v-if="directory == doc.node.fileInfo.directory"
@@ -57,6 +61,8 @@
         class="btn btn-block text-left px-2 py-1 my-2 text-capitalize"
         >GraphQL Explorer</a
       >
+      <a class="btn btn-sm text-center text-dark my-2 w-100 raised border border-light-blue br-25" style="font-size:70%;" href="https://www.platformkit.com"
+      target="_blank">⚡ <small><span class="mx-1 text-dark o-70">BUILT WITH</span></small>PlatformKit</a>
     </div>
 
     <b-modal id="docs-modal" ref="docs-modal" hide-footer title="Navigation">
@@ -159,7 +165,8 @@ export default {
   props: [],
   data() {
     return {
-      uiSettings: {},
+      uiSettings: {  
+      },
       apiSchema: null,
       uiSchema: null,
       docs: null,
@@ -176,17 +183,17 @@ export default {
     this.checkForGraphQL();
   },
   methods: {
-    getCollectionName(directory) {      
+    getCollectionName(directory) {
       if (
         this.uiSchema != null &&
         this.uiSchema.docs != null &&
         this.uiSchema.docs.collections != null
       ) {
-        var collections = Object.values(this.uiSchema.docs.collections);        
+        var collections = Object.values(this.uiSchema.docs.collections);
         var name = directory;
-        function getName(collection) {          
+        function getName(collection) {
           if (collection.name == directory && collection.label != null) {
-            name = collection.label;            
+            name = collection.label;
           }
         }
         collections.forEach((element) => getName(element));
@@ -211,7 +218,7 @@ export default {
       }
     },
     async checkForGraphQL() {
-      let res = await axios.get("/api");
+      let res = await axios.get("/graphql");
       console.log(res.status);
       if (res.status == 200) {
         this.graphQL = true;
@@ -266,7 +273,9 @@ export default {
 </script>
 
 <style>
-.docs-nav .btn:hover {
+.docs-nav .btn:hover,
+.docs-nav .btn:focus,
+.docs-nav .btn.active {
   background-color: #f0f6ff !important;
 }
 .docs-nav .btn.active {

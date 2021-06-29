@@ -68,8 +68,10 @@ var plugins = [];
 
 if (uiSchema != null && uiSchema.docs != null && uiSchema.docs.collections != null) {
   var collections = Object.values(uiSchema.docs.collections);
-  shell.exec('rm -r temp; mkdir temp');
-  collections.forEach(function callbackFn(element, index, array) {    
+  if (process.env.PULL_ON_REBUILD != 'false') {
+    shell.exec('rm -r temp; mkdir temp');
+  }
+  collections.forEach(function callbackFn(element, index, array) {
     console.log('\n');
     console.log(element);
     console.log('\n');
@@ -78,10 +80,11 @@ if (uiSchema != null && uiSchema.docs != null && uiSchema.docs.collections != nu
       // Clone Doc repos
       var path = "temp";
       var repo = element.repo;
-      shell.exec('cd temp; git clone ' + element.repo + ' docs/' + element.name + ' && cd docs/' + element.name + ' && git filter-branch --subdirectory-filter ' + element.path);
+      if (process.env.PULL_ON_REBUILD != 'false') {
+        shell.exec('cd temp; git clone ' + element.repo + ' docs/' + element.name + ' && cd docs/' + element.name + ' && git filter-branch --subdirectory-filter ' + element.path);
+      }
       // Example of Git Clone with subdirectory filter 
       // git clone https://github.com/platform-kit/platformkit-api.git api && cd api && git filter-branch --subdirectory-filter docs
-
       var docs = 'temp/' + element.name + '/' + element.path;
       console.log('Docs Path: ' + docs);
     }
@@ -115,14 +118,14 @@ else {
 
 function slugify(node) {
   // console.log(node);  
-  var text = node.title;  
+  var text = node.title;
   var text = text.toString().toLowerCase()
     .replace(/\s+/g, '-')           // Replace spaces with -
     .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
     .replace(/\-\-+/g, '-')         // Replace multiple - with single -
     .replace(/^-+/, '')             // Trim - from start of text
     .replace(/-+$/, '');            // Trim - from end of text
-    return  node.fileInfo.directory + '/' + text;
+  return node.fileInfo.directory + '/' + text;
 }
 
 var gridsomeConfig = {
@@ -133,7 +136,7 @@ var gridsomeConfig = {
   },
   plugins: plugins,
   // Assign Templates & Routes
-  templates: {    
+  templates: {
     Doc:
       (node) => {
         return `/docs/${slugify(node)}/`

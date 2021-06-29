@@ -1,5 +1,8 @@
 <template>
-  <div class="docs-page" >
+  <div class="docs-page"  >
+    <g-link :to="link" id="edit-doc-button" v-if="link != null && isAdmin()" class="br-5 raised border border-light-blue">
+      <b-icon-pen scale="1.5" class="mx-auto d-block" style="margin-top:16px;"></b-icon-pen>
+    </g-link>
     <div
       class="btn btn-dark d-inline d-md-none raised"
       v-b-modal.docs-modal
@@ -12,6 +15,7 @@
         bottom: 15px !important;
         right: 15px;
         float: left;
+        background:#111;
       "
     >
       <b-icon-book class="mx-auto" style="margin-top:8px !important;"></b-icon-book> <span class="ml-2 d-none">{{ title }}</span>
@@ -31,7 +35,7 @@
           <slot v-else name="content" ></slot>
         </div>
         <div
-          class="col-lg-2 h-md-100 pt-5 mt-5 d-none d-md-inline-block border-left"                    
+          class="col-lg-2 docs-sidebar h-md-100 pt-5 mt-5 d-none d-md-inline-block border-left"                    
         >
           <slot name="sidebar" ></slot>
         </div>
@@ -47,7 +51,7 @@ import DocsNav from "~/components/DocsNav.vue";
 
 export default {
   name: "DocsPage",
-  props: ["content", "sidebar", "title"],
+  props: ["content", "sidebar", "title", "link"],
   components: {
     DocsNav,
   },
@@ -58,9 +62,17 @@ export default {
     };
   },
   async mounted() {
+    console.log( this.$store.getters.getUser);
     this.getApiSchema();
   },
   methods: {
+    isAdmin(){
+      var user = this.$store.getters.getUser;
+      if(user.data?.roles?.includes("admin")) {
+        return true;
+      }
+      else { return false; }
+    },
     async getApiSchema() {
       try {
         const results = await axios.get("/temp/api-schema.json");
@@ -81,8 +93,6 @@ export default {
 </script>
 
 <style>
-
-
 #docs-nav .btn:hover {
   background-color: #f0f6ff !important;
 }
@@ -97,10 +107,10 @@ export default {
   }
 }
 
-@media(min-width:768px){
-.docs-content {
-  background:#fff;
-}
+@media (min-width: 768px) {
+  .docs-content {
+    background: #fff;
+  }
 }
 .docs-page ul p {
   margin-bottom: 0px !important;
@@ -119,7 +129,7 @@ export default {
 .docs-page h5,
 .docs-page h6 {
   opacity: 0.95;
-  color: royalblue;
+  color: #000;
   margin: 25px 0px;
 }
 

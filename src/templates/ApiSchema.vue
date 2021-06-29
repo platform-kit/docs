@@ -1,6 +1,13 @@
 <template>
   <Layout :title="'API Schema'">
-    <docs-layout :title="apiSchema.key">
+    <docs-layout
+      v-bind:class="{
+        loading: uiSettings.loading == true,
+        loaded: uiSettings.loading != true,
+      }"
+      :time="uiSettings.componentKey"
+      :title="apiSchema.key"
+    >
       <template v-slot:sidebar>
         <div v-for="(s, index) in $page.allApiSchema.edges" :key="index">
           <div v-if="slug == s.node.key">
@@ -26,7 +33,7 @@
                 v-if="endpoint[0] == 'browse'"
                 style="letter-spacing: 1px"
                 class="btn p-0 mb-2 mt-1 o-70 o-h-100 text-dark text-left"
-                >
+              >
                 Browse</span
               >
               <span
@@ -178,23 +185,45 @@ export default {
   },
   data() {
     return {
-      uiSettings: {},
+      uiSettings: {
+        loading: true,
+        componentKey: 0,
+      },
       apiSchema: {},
       slug: null,
       window: null,
       schema: {},
     };
   },
-  async mounted() {
+  watch: {
+    async $route(to, from) {      
+      this.uiSettings.loading = true;
+      this.forceRerender();
+      this.getApiSchema();
+      this.window = window;
+      this.slug = this.window.location.href.substring(
+        this.window.location.href.lastIndexOf("/") + 1
+      );
+      this.getSchema();
+      this.uiSettings.loading = false;
+      console.log(this.$page);
+    },
+  },
+  async mounted() {    
+    this.uiSettings.loading = true;
     this.getApiSchema();
     this.window = window;
     this.slug = this.window.location.href.substring(
       this.window.location.href.lastIndexOf("/") + 1
     );
     this.getSchema();
+    this.uiSettings.loading = false;
     console.log(this.$page);
   },
   methods: {
+    forceRerender() {
+      this.uiSettings.componentKey += 1;
+    },
     getSchemaKey() {
       if (this.slug != null) {
         return this.slug;
@@ -214,6 +243,7 @@ export default {
       this.schema = this.apiSchema.schemas[this.slug];
     },
     async getApiSchema() {
+      var self = this;
       try {
         const results = await axios.get("/temp/api-schema.json");
         this.apiSchema = results.data;

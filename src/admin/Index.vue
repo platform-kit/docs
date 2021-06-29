@@ -5,7 +5,7 @@
         class="ml-0 ml-md-3 mt-0 mt-lg-2 mb-4 mb-lg-0 text-center text-md-left"
         style="font-weight: 400; font-size: 110%; color: rgba(0, 0, 100, 0.65)"
       >
-        Overview
+        Recent Activity
       </div>
       <div class="row pr-3 mt-3 ml-0 mr-lg-0">
         <div class="col-md-4 mb-2">
@@ -59,7 +59,23 @@
       </div>
       <div class="row pr-3 mt-0 mt-md-3 ml-0 mr-lg-0">
         <div class="col-md-6 mb-2">
-          <b-card class="border-0 raised" title="Top Pages">
+          <b-card class="border-0 raised">
+            <h6 class="mb-0">
+              Pages
+              <g-link
+                :to="'/admin/pages'"
+                class="
+                  badge badge-pill
+                  px-2
+                  py-1
+                  float-right
+                  bg-light-blue
+                  text-primary
+                "
+                style="cursor: pointer"
+                >View All</g-link
+              >
+            </h6>
             <b-list-group class="mt-3">
               <b-list-group-item
                 href="#"
@@ -90,7 +106,23 @@
           </b-card>
         </div>
         <div class="col-md-6 mb-2">
-          <b-card class="border-0 raised" title="Top Content">
+          <b-card class="border-0 raised">
+            <h6 class="mb-0">
+              Content
+              <g-link
+                :to="'/admin/content'"
+                class="
+                  badge badge-pill
+                  px-2
+                  py-1
+                  float-right
+                  bg-light-blue
+                  text-primary
+                "
+                style="cursor: pointer"
+                >View All</g-link
+              >
+            </h6>
             <b-list-group class="mt-3">
               <b-list-group-item
                 href="#"
@@ -123,38 +155,23 @@
       </div>
       <div class="row pr-3 mt-0 mt-md-3 ml-0 mr-lg-0">
         <div class="col-md-6 mb-2">
-          <b-card class="border-0 raised" title="Top Products">
-            <b-list-group class="mt-3">
-              <b-list-group-item
-                href="#"
-                v-for="(item, index) in [1, 2, 3]"
-                :key="index"
+          <b-card class="border-0 raised">
+            <h6 class="mb-0">
+              Users
+              <g-link
+                :to="'/admin/users'"
+                class="
+                  badge badge-pill
+                  px-2
+                  py-1
+                  float-right
+                  bg-light-blue
+                  text-primary
+                "
+                style="cursor: pointer"
+                >View All</g-link
               >
-                <span
-                  style="
-                    display: inline-block !important;
-                    float: left;
-                    background-color: #eee;
-                    height: 25px;
-                    width: 25px;
-                    background-size: cover;
-                    background-position: center center;
-                  "
-                  v-bind:style="{
-                    'background-image':
-                      'url(https://source.unsplash.com/random/160x90?' +
-                      index +
-                      ')',
-                  }"
-                  class="br-5"
-                ></span
-                ><span style="margin-left: 15px">Cras justo odio</span>
-              </b-list-group-item>
-            </b-list-group>
-          </b-card>
-        </div>
-        <div class="col-md-6 mb-2">
-          <b-card class="border-0 raised" title="Top Users">
+            </h6>
             <b-list-group class="mt-3">
               <b-list-group-item
                 href="#"
@@ -178,6 +195,53 @@
                       ')',
                   }"
                   class="br-25"
+                ></span
+                ><span style="margin-left: 15px">Cras justo odio</span>
+              </b-list-group-item>
+            </b-list-group>
+          </b-card>
+        </div>
+        <div class="col-md-6 mb-2">
+          <b-card class="border-0 raised">
+            <h6 class="mb-0">
+              Products
+              <g-link
+                :to="'/admin/products'"
+                class="
+                  badge badge-pill
+                  px-2
+                  py-1
+                  float-right
+                  bg-light-blue
+                  text-primary
+                "
+                style="cursor: pointer"
+                >View All</g-link
+              >
+            </h6>
+            <b-list-group class="mt-3">
+              <b-list-group-item
+                href="#"
+                v-for="(item, index) in [1, 2, 3]"
+                :key="index"
+              >
+                <span
+                  style="
+                    display: inline-block !important;
+                    float: left;
+                    background-color: #eee;
+                    height: 25px;
+                    width: 25px;
+                    background-size: cover;
+                    background-position: center center;
+                  "
+                  v-bind:style="{
+                    'background-image':
+                      'url(https://source.unsplash.com/random/160x90?' +
+                      index +
+                      ')',
+                  }"
+                  class="br-5"
                 ></span
                 ><span style="margin-left: 15px">Cras justo odio</span>
               </b-list-group-item>

@@ -1,0 +1,19 @@
+{
+  "name": "platformkit-content-write-v1",
+  "description": "Read & write files from Github repo.",
+  "private": false,
+  "dependencies": {
+    "@octokit/rest": "^18.5.2",
+    "atob": "^2.1.2",
+    "axios": "^0.19.2",
+    "btoa": "^1.2.1",
+    "dotenv": "^8.2.0",
+    "front-matter": "^4.0.2",
+    "fs": "0.0.1-security",
+    "gitorm": "^0.0.25",
+    "js-base64": "^3.6.0",
+    "jsonwebtoken": "^8.5.1",
+    "path": "^0.12.7"
+  },
+  "version": "0.0.1"
+}
