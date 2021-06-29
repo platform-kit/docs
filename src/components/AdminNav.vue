@@ -29,6 +29,7 @@
           </div>
         </div>
         <g-link
+          v-if="uiSettings.features.dashboard == true">
           to="/admin"
           exact
           style="height: 50px"
@@ -159,6 +160,7 @@ export default {
     return {
       uiSettings: {
         features: {
+          dashboard:false,
           users: false,
           pages: false,
           content: false,

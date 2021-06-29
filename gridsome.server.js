@@ -43,6 +43,7 @@ module.exports = function (api) {
         component: './src/auth/Login.vue'
       })
     })
+    /*
     api.createPages(({ createPage }) => {
       createPage({
         path: '/admin',
@@ -97,6 +98,13 @@ module.exports = function (api) {
         component: './src/admin/ProductEditor.vue'
       })
     })
+    */
+    api.createPages(({ createPage }) => {
+      createPage({
+        path: '/admin',
+        component: './src/admin/Docs.vue'
+      })
+    })
     api.createPages(({ createPage }) => {
       createPage({
         path: '/admin/docs',
@@ -109,12 +117,14 @@ module.exports = function (api) {
         component: './src/admin/DocsEditor.vue'
       })
     })
+    /*
     api.createPages(({ createPage }) => {
       createPage({
         path: '/admin/api',
         component: './src/admin/API.vue'
       })
     })
+    */
   }
 
   // Add ApiSchema Collection
