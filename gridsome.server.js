@@ -134,20 +134,25 @@ module.exports = function (api) {
     const apiSchemas = actions.addCollection({
       typeName: 'ApiSchema'
     })
+    
+    /*
     if (apiSchema != null) {
       var schemas = Object.entries(apiSchema.schemas);
       for (const [key, value] of schemas) {
         var node = { key: key, value: value, data: JSON.stringify(value) }
         apiSchemas.addNode(node)
-        // Use the Pages API here: https://gridsome.org/docs/pages-api/
+        // Use the Pages API here: https://gridsome.org/docs/pages-api/        
         api.createManagedPages(({ createPage }) => {
           createPage({
             path: '/docs/api/' + node.key,
             component: './src/templates/ApiSchema.vue'
           })
         })
+        
       }
     }
+    */
+
   })
 
 }
