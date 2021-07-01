@@ -8,7 +8,7 @@ import DefaultLayout from '~/layouts/Default.vue'
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue' // Bootstrap-Vue
 import 'bootstrap/dist/css/bootstrap.css'                 // Bootstrap-Vue
 import 'bootstrap-vue/dist/bootstrap-vue.css'             // Bootstrap-Vue
-import Editor from 'vue-editor-js/src/index'              // Editor.JS
+
 
 // API Components
 import axios from 'axios'              // Axios
@@ -21,7 +21,7 @@ export default function (Vue, { appOptions }) {
   appOptions.store = new Vuex.Store({
     state: {
       user: {},
-      uiSchema: null
+      uiSchema: null,
     },
     computed: {
       user() {
@@ -30,16 +30,20 @@ export default function (Vue, { appOptions }) {
     },
     mutations: {
       initialiseStore(state) {
-        if (localStorage.getItem('user')) {
-          state.user = JSON.parse(localStorage.getItem('user'));
-        }
-        if (localStorage.getItem('uiSchema')) {
-          state.uiSchema = JSON.parse(localStorage.getItem('uiSchema'));
+        if (process.isClient) {
+          if (localStorage.getItem('user')) {
+            state.user = JSON.parse(localStorage.getItem('user'));
+          }
+          if (localStorage.getItem('uiSchema')) {
+            state.uiSchema = JSON.parse(localStorage.getItem('uiSchema'));
+          }
         }
       },
       updateUser(state, payload) {
-        state.user = payload;
-        localStorage.setItem('user', JSON.stringify(payload));
+        if (process.isClient) {
+          state.user = payload;
+          localStorage.setItem('user', JSON.stringify(payload));
+        }
       }
     },
     getters: {
@@ -54,10 +58,12 @@ export default function (Vue, { appOptions }) {
         return results;
       },
       getUser(state) {
-        if (localStorage.getItem('user')) {
-          state.user = JSON.parse(localStorage.getItem('user'));
+        if (process.isClient) {
+          if (localStorage.getItem('user')) {
+            state.user = JSON.parse(localStorage.getItem('user'));
+          }
+          return state.user;
         }
-        return state.user;
       }
     }
   })
@@ -107,8 +113,5 @@ export default function (Vue, { appOptions }) {
   // Bootstrap Vue
   Vue.use(BootstrapVue)
   Vue.use(IconsPlugin)
-
-  // Add Editor.JS
-  Vue.use(Editor);
 
 }

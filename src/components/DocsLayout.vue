@@ -20,9 +20,10 @@
     >
       <b-icon-book class="mx-auto" style="margin-top:8px !important;"></b-icon-book> <span class="ml-2 d-none">{{ title }}</span>
     </div>
-    <div class="container-fluid h-md-100" style="" >
-      <div class="row h-md-100 w-100 mx-auto" style="max-width: 1350px;">
+    <div class="container-fluid" style=""  v-bind:class="{'h-md-100': flush != true, 'm-0 p-0 w-100 bg-white px-3': flush == true}" >
+      <div class="row w-100 mx-auto pb-4" style="max-width: 1350px;"  v-bind:class="{'h-md-100': flush != true}">
         <div
+          v-if="hideNav != true"
           class="col-lg-2 h-md-100 d-none d-md-inline-block border-right"
           style="overflow: scroll"
         >
@@ -30,11 +31,12 @@
             <docsNav></docsNav>
           </div>
         </div>
-        <div class="col-lg-8 docs-content pt-5 px-2 px-md-5 mt-5 pb-5 mb-2">
-          <div v-if="content != null" v-html="content"></div>
+        <div class="docs-content pt-5 px-2 px-md-5 " v-bind:class="{'mt-5 col-lg-8 pb-5 mb-2': flush != true, 'col-12 m-0 p-0 w-100': flush == true}">
+          <div v-if="content != null" v-html="html"></div>
           <slot v-else name="content" ></slot>
         </div>
         <div
+          v-if="hideSidebar != true"          
           class="col-lg-2 docs-sidebar h-md-100 pt-5 mt-5 d-none d-md-inline-block border-left"                    
         >
           <slot name="sidebar" ></slot>
@@ -49,29 +51,76 @@
 import axios from "axios";
 import DocsNav from "~/components/DocsNav.vue";
 
+var remark = require("remark");
+var recommended = require("remark-preset-lint-recommended");
+var html = require("remark-html");
+var autolinkHeadings = require("remark-autolink-headings");
+
 export default {
-  name: "DocsPage",
-  props: ["content", "sidebar", "title", "link"],
+  name: "DocsLayout",
+  props: [
+    "content",
+    "sidebar",
+    "title",
+    "link",
+    "hideNav",
+    "hideSidebar",
+    "flush",
+    "parseMarkdown",
+  ],
   components: {
     DocsNav,
   },
   data() {
     return {
+      html: null,
       uiSettings: {},
       apiSchema: {},
+      tools: {
+        remark: remark,
+        linter: recommended,
+        remarkHtml: html,
+        autolinkHeadings: autolinkHeadings,
+      },
     };
   },
   async mounted() {
-    console.log( this.$store.getters.getUser);
     this.getApiSchema();
+    await this.renderMarkdown();
+  },
+  watch: {
+    async content(value) {
+      await this.renderMarkdown();
+    },
   },
   methods: {
-    isAdmin(){
-      var user = this.$store.getters.getUser;
-      if(user.data?.roles?.includes("admin")) {
-        return true;
+    async renderMarkdown() {
+      if (this.parseMarkdown != true) {
+        this.html = this.content;
+      } else {
+        var content = this.content;
+        var self = this;
+        var html = await remark()
+          .use(self.tools.autolinkHeadings)
+          .use(self.tools.linter)
+          .use(self.tools.remarkHtml)
+          .process(content)
+          .then(
+            (file) => (self.html = String(file)),
+            (error) => {
+              // Handle your error here!
+              throw error;
+            }
+          );        
       }
-      else { return false; }
+    },
+    isAdmin() {
+      var user = this.$store.getters.getUser;
+      if (user.data?.roles?.includes("admin")) {
+        return true;
+      } else {
+        return false;
+      }
     },
     async getApiSchema() {
       try {

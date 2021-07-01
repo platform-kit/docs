@@ -1,5 +1,6 @@
 {
     "dependencies": {
+        "@maizzle/framework": "^3.5.3",
         "jsonwebtoken": "^8.5.1",
         "nodemailer": "^6.6.2",
         "nodemailer-mailgun-transport": "^2.1.3",

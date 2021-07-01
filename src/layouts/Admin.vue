@@ -135,19 +135,19 @@
                     "
                   >
                     <template #button-content>
-                      <avatar
-                        class="d-inline-block"
+                      
+                          <b-avatar :text="getUserEmail()[0]" class="d-inline-block"
                         style="
                           margin-top: 0px;
                           margin-left: -5px !important;
                           margin-right: -5px;
-                        "
-                        :username="getUserEmail()"
-                        :size="25"
-                      ></avatar>
-                      <span style="margin-left: 10px; margin-right: 5px">{{
-                        getUserEmail()
-                      }}</span>
+                          max-height:25px;
+                          max-width:25px;
+                        "></b-avatar>
+                    
+                      <span style="margin-left: 9px; margin-right: 2px">
+                        {{ getUserEmail() }}
+                      </span>
                     </template>
                     <b-dropdown-item href="/"
                       ><b-icon-house-door
@@ -226,15 +226,13 @@ query {
 <script>
 import axios from "axios";
 import AdminNav from "../components/AdminNav.vue";
-import Avatar from "vue-avatar";
 import AdminSearchResults from "../admin/AdminSearchResults.vue";
 
 export default {
   props: ["title"],
   components: {
     AdminSearchResults,
-    AdminNav,
-    Avatar,
+    AdminNav,    
   },
   data() {
     return {
@@ -270,7 +268,9 @@ export default {
       window.location.href = "/";
     },
     getUserEmail() {
-      return this.$store?.getters?.getUser?.data?.sub;
+      if (this.window != null) {
+        return this.$store?.getters?.getUser?.data?.sub;
+      }
     },
     getUser() {
       return this.$store?.getters?.getUser;
@@ -1048,7 +1048,7 @@ tr:focus {
   background: none !important;
 }
 
-.cm-header, 
+.cm-header,
 .admin-page .editor-preview h1,
 .admin-page .editor-preview h2,
 .admin-page .editor-preview h3,
@@ -1058,7 +1058,7 @@ tr:focus {
   font-weight: 500 !important;
   font-family: "Jost", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
     Roboto, "Helvetica Neue", Arial, sans-serif !important;
-  letter-spacing: 0.75px !important;  
+  letter-spacing: 0.75px !important;
 }
 
 .admin-page .b-table tr {
@@ -1073,11 +1073,11 @@ tr:focus {
 }
 
 .page-item:first-of-type .page-link {
-  border:none;
+  border: none;
 }
 
 .multiselect__single {
-  margin-top:2px;
-  background:none;
+  margin-top: 2px;
+  background: none;
 }
 </style>

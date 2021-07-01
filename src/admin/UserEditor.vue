@@ -350,7 +350,7 @@
 import Layout from "../layouts/Admin.vue";
 import DocsLayout from "../components/DocsLayout.vue";
 import Trend from "vuetrend";
-import Avatar from "vue-avatar";
+import Avatar from "../components/Avatar.vue";
 import Multiselect from "vue-multiselect";
 import AdminEditorButtons from "../admin/AdminEditorButtons.vue";
 

@@ -11,7 +11,10 @@
       :link="uiSettings.editorLink"
     >
       <template v-slot:content v-if="doc.content != null"> </template>
-      <template v-slot:sidebar v-if="doc.headings.length > 1">
+      <template
+        v-slot:sidebar
+        v-if="doc != null && doc.headings != null && doc.headings.length > 1"
+      >
         <div>On This Page</div>
         <span
           class="mt-3 mb-2"
@@ -126,7 +129,9 @@ export default {
         } catch (err) {
           console.log(err);
         }
-        this.doc.headings = this.$page.doc.headings;
+        if (this.doc != null) {
+          this.doc.headings = this.$page.doc.headings;
+        }
         this.forceRerender();
       }
     },
@@ -182,7 +187,7 @@ export default {
           fileName +
           "&repo=" +
           repo;
-          console.log("URL:" + url);
+        console.log("URL:" + url);
         var data = null;
         await axios
           .post(url, data, {
@@ -216,7 +221,7 @@ export default {
                   self.doc.content = result;
                 }
               });
-            
+
             self.uiSettings.loading = false;
             console.log(html);
             //window.alert("Updated.");

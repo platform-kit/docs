@@ -258,6 +258,7 @@
 import Layout from "../layouts/Admin.vue";
 import DocsLayout from "../components/DocsLayout.vue";
 import Trend from "vuetrend";
+import Avatar from "../components/Avatar.vue";
 
 export default {
   components: {

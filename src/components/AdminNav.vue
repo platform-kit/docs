@@ -148,7 +148,7 @@
 
 <script>
 import axios from "axios";
-import Avatar from "vue-avatar";
+import Avatar from "../components/Avatar.vue";
 
 export default {
   name: "AdminNav",

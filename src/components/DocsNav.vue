@@ -61,7 +61,7 @@
         class="btn btn-block text-left px-2 py-1 my-2 text-capitalize"
         >GraphQL Explorer</a
       >
-      <a class="btn btn-sm text-center text-dark my-2 w-100 raised border border-light-blue br-25" style="font-size:70%;" href="https://www.platformkit.com"
+      <a class="btn btn-sm text-center text-dark my-2 w-100 raised border border-light-blue br-25 mb-4" style="font-size:70%;" href="https://www.platformkit.com"
       target="_blank">⚡ <small><span class="mx-1 text-dark o-70">BUILT WITH</span></small>PlatformKit</a>
     </div>
 

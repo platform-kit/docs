@@ -4,7 +4,7 @@
       <b-navbar
         v-if="hideheader != true"
         id="navbar"
-        style="min-height:77px;"
+        style="min-height: 77px"
         :toggleable="'lg'"
         type="light"
         variant="light"
@@ -163,11 +163,17 @@
                 variant="text-dark"
               >
                 <template #button-content>
-                  <avatar
-                    class="d-inline-block"
-                    :username="getUserEmail()"
-                    :size="25"
-                  ></avatar>
+                  <b-avatar
+                    :text="getUserEmail()[0]"
+                    class="d-inline-block mr-1"
+                    style="
+                      margin-top: 0px;
+                      margin-left: -5px !important;
+                      margin-right: -5px;
+                      max-height: 25px;
+                      max-width: 25px;
+                    "
+                  ></b-avatar>
 
                   {{ getUserEmail() }}
                 </template>
@@ -339,11 +345,10 @@ query {
 
 <script>
 import axios from "axios";
-import Avatar from "vue-avatar";
 
 export default {
   props: ["title", "hideheader"],
-  components: { Avatar },
+  components: {  },
   data() {
     return {
       uiSettings: {
@@ -354,6 +359,7 @@ export default {
       search: null,
       searchResults: {},
       scrolled: null,
+      window: null,
     };
   },
   async mounted() {
@@ -368,10 +374,14 @@ export default {
       this.$store.commit("updateUser", {});
     },
     getUserEmail() {
-      return this.$store?.getters?.getUser?.data?.sub;
+      if (this.window != null) {
+        return this.$store?.getters?.getUser?.data?.sub;
+      }
     },
     getUser() {
-      return this.$store?.getters?.getUser?.data;
+      if (this.window != null) {
+        return this.$store?.getters?.getUser?.data;
+      }
     },
     getPath(node) {
       if (node.key != null) {
@@ -869,7 +879,7 @@ h6 {
   overflow: hidden;
 }
 .docs-page .docs-content,
-.docs-page .docs-sidebar {  
+.docs-page .docs-sidebar {
   transition: 0.3s all;
 }
 
@@ -889,7 +899,7 @@ h6 {
   left: 15px;
   height: 50px;
   width: 50px;
-  background:#deebff !important;
+  background: #deebff !important;
   border: none !important;
   z-index: 999;
   cursor: pointer;
@@ -907,20 +917,19 @@ h6 {
 }
 
 .list-group-item-details-badge {
-  opacity:0;
+  opacity: 0;
 }
 
-.list-group-item:hover .list-group-item-details-badge{ 
-  opacity:1;
+.list-group-item:hover .list-group-item-details-badge {
+  opacity: 1;
 }
 
 a:hover {
   text-decoration: none !important;
 }
 
-.editor-preview pre, .editor-preview-side pre {
-    background: none !important;    
+.editor-preview pre,
+.editor-preview-side pre {
+  background: none !important;
 }
-
-
 </style>

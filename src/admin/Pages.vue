@@ -114,14 +114,12 @@
 import Layout from "../layouts/Admin.vue";
 import DocsLayout from "../components/DocsLayout.vue";
 import Trend from "vuetrend";
-import Avatar from "vue-avatar";
 
 export default {
   components: {
     Layout,
     DocsLayout,
-    Trend,
-    Avatar,
+    Trend,  
   },
   metaInfo: {
     title: "Admin",

@@ -260,7 +260,7 @@
 import Layout from "../layouts/Admin.vue";
 import DocsLayout from "../components/DocsLayout.vue";
 import Trend from "vuetrend";
-import Avatar from "vue-avatar";
+import Avatar from "../components/Avatar.vue";
 import AdminEditorButtons from "../admin/AdminEditorButtons.vue";
 import { PrismEditor } from "vue-prism-editor";
 import "vue-prism-editor/dist/prismeditor.min.css"; // import the styles somewhere

@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <div class="admin-page admin-overview">      
+    <div class="admin-page admin-overview">
       <div
         class="
           ml-0 ml-md-3
@@ -49,93 +49,39 @@
               class="br-5"
               v-bind:class="{ disabledCE: uiSettings.view == 'view' }"
             >
-              <div v-if="doc != null">
-                <vue-simplemde
-                  v-if="doc.data != null && typeof doc.data.body == 'string'"
+              <div
+                v-if="
+                  doc != null &&
+                  doc.data != null &&
+                  doc.data.body != null &&
+                  typeof doc.data.body == 'string' &&
+                  this.window != null
+                "
+              >
+                <b-form-textarea
+                  style="min-height:calc(100vh - 470px);"
+                  v-if="doc.data.body != null"
                   v-model="doc.data.body"
-                  class="mt-3"
+                  class="border border-light-blue p-3 mt-3"
                   ref="markdownEditor"
                 />
               </div>
             </div>
           </b-card>
         </div>
-        <div class="col-md-6 d-none">
-          <b-card
-            style="color: #fff"
-            class="border-0 raised mb-2 mb-md-4"
-            title="Engagement"
-            bg-variant="dark"
+        <div class="col-md-6 pb-4">
+          <docs-layout
+            class="br-5 m-0 p-0 raised"
+            style="overflow: hidden !important"
+            :parseMarkdown="true"
+            :content="renderContent()"
+            :hideNav="true"
+            :hideSidebar="true"
+            :flush="true"
+            :iteration="iteration"
           >
-            <trend
-              :data="[0, 2, 5, 9, 5, 10, 3, 5, 0, 0, 1, 8, 2, 9, 0]"
-              gradientDirection="top"
-              :gradient="['#ffe74c', '#ffbe88', '#ff93df']"
-              :padding="1"
-              :radius="12"
-              :stroke-width="1.7"
-              stroke-linecap="round"
-              auto-draw
-              smooth
-            >
-            </trend>
-          </b-card>
-
-          <b-card
-            class="border-0 raised mb-2 mb-md-4"
-            bg-variant="dark text-light"
-            id="page-activity"
-            title="Recent Activity"
-          >
-            <div class="badge badge-pill border text-light"></div>
-            <b-list-group class="mt-3" flush>
-              <b-list-group-item variant="dark" class="bg-dark text-light">
-                <span class="badge badge-secondary mr-2">Today</span>
-                Updated by
-                <avatar
-                  style="margin-left: 5px; display: inline-block"
-                  :username="'john@example.com'"
-                  :size="25"
-                ></avatar>
-              </b-list-group-item>
-              <b-list-group-item variant="dark" class="bg-dark text-light">
-                <span class="badge badge-secondary mr-2">2 days ago</span>
-                Visited by
-                <avatar
-                  style="margin-left: 5px; display: inline-block"
-                  :username="'sam@example.com'"
-                  :size="25"
-                ></avatar>
-              </b-list-group-item>
-              <b-list-group-item variant="dark" class="bg-dark text-light">
-                <span class="badge badge-secondary mr-2">2 days ago</span>
-                Visited by
-                <avatar
-                  style="margin-left: 5px; display: inline-block"
-                  :username="'daniel@example.com'"
-                  :size="25"
-                ></avatar>
-              </b-list-group-item>
-              <b-list-group-item variant="dark" class="bg-dark text-light">
-                <span class="badge badge-secondary mr-2">3 days ago</span>
-                Visited by
-                <avatar
-                  style="margin-left: 5px; display: inline-block"
-                  :username="'john@example.com'"
-                  :size="25"
-                ></avatar>
-              </b-list-group-item>
-              <b-list-group-item variant="dark" class="bg-dark text-light">
-                <span class="badge badge-secondary mr-2">4 days ago</span>
-                Created by
-                <avatar
-                  style="margin-left: 5px; display: inline-block"
-                  :username="'userdata@example.com'"
-                  :size="25"
-                ></avatar>
-              </b-list-group-item>
-            </b-list-group>
-          </b-card>
+            <template v-slot:content v-if="doc.data.body != null"> </template>
+          </docs-layout>
         </div>
       </div>
     </div>
@@ -148,8 +94,6 @@ import axios from "axios";
 import Layout from "../layouts/Admin.vue";
 import DocsLayout from "../components/DocsLayout.vue";
 import Trend from "vuetrend";
-import Avatar from "vue-avatar";
-import VueSimplemde from "vue-simplemde";
 import Multiselect from "vue-multiselect";
 import AdminEditorButtons from "./AdminEditorButtons.vue";
 
@@ -157,9 +101,7 @@ export default {
   components: {
     Layout,
     DocsLayout,
-    Trend,
-    Avatar,
-    VueSimplemde,
+    Trend,    
     Multiselect,
     AdminEditorButtons,
   },
@@ -167,7 +109,8 @@ export default {
     title: "Admin",
   },
   data() {
-    return {
+    return {      
+      iteration: 0,
       uiSchema: null,
       uiSettings: {
         action: null,
@@ -184,9 +127,10 @@ export default {
       docRepo: null,
     };
   },
+
   async mounted() {
     this.window = window;
-    this.doc = {data: {body: "Loading..."}};
+    // this.doc = { data: { body: "Loading..." } };
     this.uiSettings.action = decodeURIComponent(this.getUrlVars()["action"]);
     this.docFile = decodeURIComponent(this.getUrlVars()["fileName"]);
     this.docPath = decodeURIComponent(this.getUrlVars()["path"]);
@@ -197,16 +141,33 @@ export default {
     this.getUiSchema();
     //this.getFile();
     this.updateFile();
-    if(this.uiSettings.action == 'create'){
+
+    if (this.uiSettings.action == "create") {
       this.doc.data = {
         body: "",
         docRemotePath: this.docRemotePath,
-        docRepo: this.docRepo
-      }
-      this.uiSettings.view = 'edit';
+        docRepo: this.docRepo,
+      };
+      this.uiSettings.view = "edit";
     }
   },
+  watch: {
+    doc: {
+      handler(newDoc) {
+        this.iterate();
+        console.log("UPDATED ------- \n");
+        console.log(this.iteration);
+      },
+      deep: true,
+    },
+  },
   methods: {
+    renderContent() {
+      return this.doc.data.body;
+    },
+    iterate() {
+      this.iteration++;
+    },
     getDoc() {},
     addTag(newTag) {
       const tag = {
@@ -264,7 +225,7 @@ export default {
           .catch(function (error) {
             //console.log("Show error notification!");
             //return Promise.reject(error);
-            //window.alert("Something went wrong. Try again.");            
+            //window.alert("Something went wrong. Try again.");
           })
           .then(function (response) {
             // Handle success
@@ -329,4 +290,7 @@ export default {
 </script>
 
 <style>
+.ProseMirror {
+  padding: 15px;
+}
 </style>

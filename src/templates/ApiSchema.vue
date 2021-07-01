@@ -196,20 +196,24 @@ export default {
     };
   },
   watch: {
-    async $route(to, from) {      
+    async $route(to, from) {
       this.uiSettings.loading = true;
       this.forceRerender();
       this.getApiSchema();
-      this.window = window;
-      this.slug = this.window.location.href.substring(
-        this.window.location.href.lastIndexOf("/") + 1
-      );
+      try {
+        this.window = window;
+        this.slug = this.window.location.href.substring(
+          this.window.location.href.lastIndexOf("/") + 1
+        );
+      } catch (err) {}
+
       this.getSchema();
       this.uiSettings.loading = false;
       console.log(this.$page);
     },
   },
-  async mounted() {    
+  async mounted() {
+    try {
     this.uiSettings.loading = true;
     this.getApiSchema();
     this.window = window;
@@ -219,6 +223,7 @@ export default {
     this.getSchema();
     this.uiSettings.loading = false;
     console.log(this.$page);
+    } catch (err){}
   },
   methods: {
     forceRerender() {

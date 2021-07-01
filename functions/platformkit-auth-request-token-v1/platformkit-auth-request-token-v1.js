@@ -1,4 +1,7 @@
 const dotenv = require('dotenv').config();
+const Maizzle = require('@maizzle/framework')
+
+
 var sesAccessKey = process.env.MAIL_USER;
 var sesSecretKey = process.env.MAIL_KEY;
 var mailHost = process.env.MAIL_HOST;
@@ -21,7 +24,6 @@ console.log(process.env.MAIL_API_KEY);
 
 // Docs on event and context https://www.netlify.com/docs/functions/#the-handler-method
 exports.handler = async (event, context) => {
-    
 
     try {
         // Get filename from url parameter
@@ -31,7 +33,6 @@ exports.handler = async (event, context) => {
         var data = null;
         var message = null;
         let token = null;
-
 
         const jwt = require('jsonwebtoken');
 
@@ -90,16 +91,64 @@ exports.handler = async (event, context) => {
             }));
         }
 
-        var text = 'To log in to ' + process.env.APP_DOMAIN + ', go to this link: ' + process.env.APP_URL + '?token=' + token + "Your login token is:  " + token;
-        var html = "<br><a href='" + process.env.APP_DOMAIN + '/' + 'auth/login' + '?token=' + token + "&redirect=" + redirect + "'>Click here to log in to " + process.env.APP_DOMAIN + "</a>";
+        var loginLink = process.env.APP_DOMAIN + '/auth/login?token=' + token + "&redirect=" + redirect;
+
+        var text = 'To log in to ' + process.env.APP_DOMAIN + ', go to this link: ' + loginLink;
+        var html = null;
         //console.log("HTML output: \n" + html + "\n");
+
+        var options = {
+            tailwind: {
+                config: {},
+                compiled: '',
+            },
+            maizzle: {},
+            beforeRender() { },
+            afterRender() { },
+            afterTransformers() { },
+        };
+        const template = `
+                            <!DOCTYPE html>
+                            <html>                        
+                            <body>
+                                <div align="center" style="width:100%;text-align:center;background:rgba(240, 240, 250);display:block;padding:25px;border-radius:5px;">
+                                <img src="https://raw.githubusercontent.com/platform-kit/platformkit-ui/main/src/favicon.png" width="50" height="50" style="margin:25px;border-radius:5px;"/><br>
+                                <a class="button" style="display:inline-block;background:royalblue !important; border-radius:5px !important; color:#fff !important; padding:10px;text-decoration:none;margin-bottom:25px;" href="` + loginLink + `">Click here to sign in.</a>
+                                </div>
+                            </body>
+                            </html>`;
+
+        function setHtml(input) {
+            html = input;
+            console.log("\n\nEMAIL HTML: \n\n ")
+            console.log(input);
+        }
+
+        await Maizzle.render(
+            template,
+            {
+                tailwind: {
+                    config: null,
+                    css: `
+                  @tailwind utilities;
+                  .button { @apply rounded text-center bg-blue-500 text-white; }
+                  .button:hover { @apply bg-blue-700; }
+                  .button a { @apply inline-block py-16 px-24 text-sm font-semibold no-underline text-white; }
+                `,
+                },
+                maizzle: {}
+            }
+        ).then(({ html }) => setHtml(html)).catch(error => console.log(error))
+
+        console.log('TEST ---------');
+        console.log(html);
 
         var mailOptions = {
             from: mailSender,
             to: email,
-            subject: 'Your login instructions for ' + process.env.APP_DOMAIN,
-            text: text,
-            html: html
+            subject: 'Login instructions for ' + process.env.APP_DOMAIN,
+            html: html,
+            text: text
         };
 
         let info = await transporter.sendMail(mailOptions);
@@ -109,7 +158,7 @@ exports.handler = async (event, context) => {
         return {
             statusCode: 200,
 
-            body: JSON.stringify({ status: 200, data, error: false, message: message }, null, 3)
+            body: JSON.stringify({ status: 200, data, error: false, message: message, html: html }, null, 3)
             // // more keys you can return:
             // headers: { "headerName": "headerValue", ... },
             // isBase64Encoded: true,

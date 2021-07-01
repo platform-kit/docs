@@ -111,12 +111,14 @@ module.exports = function (api) {
         component: './src/admin/Docs.vue'
       })
     })
+    
     api.createPages(({ createPage }) => {
       createPage({
         path: '/admin/docs/editor',
         component: './src/admin/DocsEditor.vue'
       })
     })
+    
     /*
     api.createPages(({ createPage }) => {
       createPage({
