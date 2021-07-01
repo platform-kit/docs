@@ -1,7 +1,7 @@
 <template>
   <b-avatar
     :text="getUsername()"
-    class="d-inline-block"
+    class="d-inline-block bg-light-blue"
     style="
       margin-top: 0px;
       margin-left: -5px !important;

@@ -2,46 +2,61 @@
     "name": "PlatformKit API",
     "version": "0.0.1",
     "resources": [
-     "analytic_events"
+        "analytic_events"
     ],
     "schemas": {
         "users": {
-            "browse": {     
+            "browse": {
+                "roles_required": [
+                    "admin"
+                ],
                 "input_validation_rules": {
                     "id": "integer|required",
                     "name": "string|required"
-                }     
+                }
             },
-            "read": {     
+            "read": {
+                "roles_required": [
+                    "admin"
+                ],
                 "input_validation_rules": {
                     "id": "integer|required",
                     "name": "string|required"
-                }     
+                }
             },
-            "edit": {     
+            "edit": {
+                "roles_required": [
+                    "admin"
+                ],
                 "input_validation_rules": {
                     "id": "integer|required",
                     "name": "string|required"
-                }     
+                }
             },
-            "add": {     
+            "add": {
+                "roles_required": [
+                    "admin"
+                ],
                 "input_validation_rules": {
                     "name": "string|required",
                     "email": "string|required"
-                }     
+                }
             },
-            "delete": {     
+            "delete": {
+                "roles_required": [
+                    "admin"
+                ],
                 "input_validation_rules": {
                     "id": "integer|required"
-                }     
+                }
             }
         },
         "analytic_events": {
-            "add": {     
+            "add": {
                 "input_validation_rules": {
                     "type": "string|required",
                     "json": "string|required"
-                }     
+                }
             }
         }
     }
