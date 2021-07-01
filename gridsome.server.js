@@ -135,12 +135,13 @@ module.exports = function (api) {
       typeName: 'ApiSchema'
     })
     
-    /*
+    
     if (apiSchema != null) {
       var schemas = Object.entries(apiSchema.schemas);
       for (const [key, value] of schemas) {
         var node = { key: key, value: value, data: JSON.stringify(value) }
         apiSchemas.addNode(node)
+        /*
         // Use the Pages API here: https://gridsome.org/docs/pages-api/        
         api.createManagedPages(({ createPage }) => {
           createPage({
@@ -148,10 +149,11 @@ module.exports = function (api) {
             component: './src/templates/ApiSchema.vue'
           })
         })
+        */
         
       }
     }
-    */
+    
 
   })
 
