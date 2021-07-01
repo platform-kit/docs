@@ -50,13 +50,13 @@
         </g-link>
       </div>
       <span
-        v-if="graphQL"
+        v-if="graphQL && false"
         class="badge text-dark px-3 py-2 mt-4 badge-light-blue"
         >Tools</span
       >
       <a
         :href="'/graphql'"
-        v-if="graphQL"
+        v-if="graphQL && false"
         target="_blank"
         class="btn btn-block text-left px-2 py-1 my-2 text-capitalize"
         >GraphQL Explorer</a
@@ -180,7 +180,7 @@ export default {
     this.getUiSchema();
     this.sortDocs();
     this.getDirectories();
-    this.checkForGraphQL();
+    // this.checkForGraphQL();
   },
   methods: {
     getCollectionName(directory) {
