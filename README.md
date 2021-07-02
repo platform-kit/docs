@@ -17,18 +17,21 @@ The [source code](https://github.com/platform-kit/platformkit-ui) is available o
 
 ### Comparisons
 
-| Feature                       | PlatformKit  | Ghost         | Wordpress | Strapi     | Forestry     | Contentful    | 
-| ----------------------------- | ------------ | ------------- | --------- | ---------- | ------------ | ------------- |  
-| Open Source                   | ✅           | ✅             | ✅        | ✅         | ❌            | ❌            |
-| Zero Config / Time To Launch  | ✅           | ✅             | ✅        | ❌         | ❌            | ❌            |
-| Content Subscriptions         | ✅           | ✅             | ❌        | ❌         | ❌            | ❌            |
-| Content Sales (ala-carte)     | ✅           | ❌             | ❌        | ❌         | ❌            | ❌            |
-| Custom Content Models         | ✅           | ❌             | ❌        | ✅         | ✅            | ✅            |
-| Landing Pages                 | ✅           | ❌             | ✅        | ❌         | ❌            | ❌            |
-| Serverless Architecture       | ✅           | ❌             | ❌        | ❌         | ✅            | ✅            |
-| Passwordless Login            | ✅           | ❌             | ❌        | ❌         | ❌            | ❌            |
-| Analytics                     | ✅           | ❌             | ❌        | ❌         | ❌            | ❌            |
-| Static Files (Git-based)      | ✅           | ❌             | ❌        | ❌         | ✅            | ❌            |
+| Feature                      | PlatformKit | Ghost | Wordpress | Strapi | Forestry | Contentful |
+| ---------------------------- | ----------- | ----- | --------- | ------ | -------- | ---------- |
+| Open Source                  | ✅           | ✅     | ✅         | ✅      | ❌        | ❌          |
+| Zero Config / Time To Launch | ✅           | ✅     | ✅         | ❌      | ❌        | ❌          |
+| **Content Management**       |
+| Content Subscriptions        | ✅           | ✅     | ❌         | ❌      | ❌        | ❌          |
+| Content Sales (ala-carte)    | ✅           | ❌     | ❌         | ❌      | ❌        | ❌          |
+| Custom Content Models        | ✅           | ❌     | ❌         | ✅      | ✅        | ✅          |
+| Landing Pages                | ✅           | ❌     | ✅         | ❌      | ❌        | ❌          |
+| **Technical Features**       | 
+| Serverless Architecture      | ✅           | ❌     | ❌         | ❌      | ✅        | ✅          |
+| Headless Architecture        | ✅           | ❌     | ❌         | ✅      | ✅        | ✅          |
+| Passwordless Login           | ✅           | ❌     | ❌         | ❌      | ❌        | ❌          |
+| Analytics                    | ✅           | ❌     | ❌         | ❌      | ❌        | ❌          |
+| Static Files (Git-based)     | ✅           | ❌     | ❌         | ❌      | ✅        | ❌          |
 
 ### Benefits
 - **For Founders**
