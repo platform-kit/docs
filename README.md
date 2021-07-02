@@ -15,16 +15,17 @@ PlatformKit UI is a **static site generator** built with [VueJS](https://www.vue
 
 ### Comparisons
 
-| Feature                 | PlatformKit  | Ghost         | Wordpress | Strapi     | Forestry     | Contentful    |
-| ----------------------- | ------------ | ------------- | --------- | ---------- | ------------ | ------------- |  
-| Open Source             | ✅           | ✅             | ✅        | ✅         | ❌            | ❌            |
-| Content Subscriptions   | ✅           | ✅             | ❌        | ❌         | ❌            | ❌            |
-| Custom Content Models   | ✅           | ❌             | ❌        | ✅         | ✅            | ✅            |
-| Landing Pages           | ✅           | ❌             | ✅        | ❌         | ❌            | ❌            |
-| Serverless Architecture | ✅           | ❌             | ❌        | ❌         | ✅            | ✅            |
-| Passwordless Login      | ✅           | ❌             | ❌        | ❌         | ❌            | ❌            |
-| Analytics               | ✅           | ❌             | ❌        | ❌         | ❌            | ❌            |
-| Static Files (Git-based)| ✅           | ❌             | ❌        | ❌         | ✅            | ❌            |
+| Feature                  | PlatformKit  | Ghost         | Wordpress | Strapi     | Forestry     | Contentful    |
+| ------------------------ | ------------ | ------------- | --------- | ---------- | ------------ | ------------- |  
+| Open Source              | ✅           | ✅             | ✅        | ✅         | ❌            | ❌            |
+| Content Subscriptions    | ✅           | ✅             | ❌        | ❌         | ❌            | ❌            |
+| Content Sales (ala-carte)| ✅           | ❌             | ❌        | ❌         | ❌            | ❌            |
+| Custom Content Models    | ✅           | ❌             | ❌        | ✅         | ✅            | ✅            |
+| Landing Pages            | ✅           | ❌             | ✅        | ❌         | ❌            | ❌            |
+| Serverless Architecture  | ✅           | ❌             | ❌        | ❌         | ✅            | ✅            |
+| Passwordless Login       | ✅           | ❌             | ❌        | ❌         | ❌            | ❌            |
+| Analytics                | ✅           | ❌             | ❌        | ❌         | ❌            | ❌            |
+| Static Files (Git-based) | ✅           | ❌             | ❌        | ❌         | ✅            | ❌            |
 
 ### Benefits
 - **For Developers**
