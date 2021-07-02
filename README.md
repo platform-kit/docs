@@ -1,24 +1,66 @@
 # PlatformKit UI
 
-### Features
-- Static Site Generator
-  - Landing Pages
-  - Free or Paid Content (Audio, Video, or Text)
-  - Searchable Documentation
-- Headless / Serverless Content Management System 
-  - Edit Markdown/JSON files
-  - Use any data structure
-  - Pre-built content types
-- User Authentication
-  - Passwordless Login via Email / Magic Link / JWT
-- User Management
-  - Assign Tags, Roles, & Permissions from the Admin
+### Overview
+
+PlatformKit UI is a **static site generator** built with [VueJS](https://www.vuejs.org), [BootstrapVue](https://bootstrap-vue.org) and [Gridsome](https://www.gridsome.org).
+
+[Get the source on GitHub](https://github.com/platform-kit/platformkit-ui).
+
+### Key Features
+
+- **Publishing:** Publish content & sell access via subscriptions OR on a per-item basis
+- **E-Commerce:** Sell products, services, & subscriptions via Stripe or 3rd Party services
+- **Marketing:** Create landing pages & track results via the built-in (zero-config) analytics API
+- **Security**: Protect paid content/pages behind a secure API that requires login & a valid subscription
+
+### Comparisons
+
+| Feature                 | PlatformKit  | Ghost         | Wordpress | Strapi     | Forestry     | Contentful    |
+| ----------------------- | ------------ | ------------- | --------- | ---------- | ------------ | ------------- |  
+| Open Source             | ✅           | ✅             | ✅        | ✅         | ❌            | ❌            |
+| Content Subscriptions   | ✅           | ✅             | ❌        | ❌         | ❌            | ❌            |
+| Custom Content Models   | ✅           | ❌             | ❌        | ✅         | ✅            | ✅            |
+| Landing Pages           | ✅           | ❌             | ✅        | ❌         | ❌            | ❌            |
+| Serverless Architecture | ✅           | ❌             | ❌        | ❌         | ✅            | ✅            |
+| Passwordless Login      | ✅           | ❌             | ❌        | ❌         | ❌            | ❌            |
+| Analytics               | ✅           | ❌             | ❌        | ❌         | ❌            | ❌            |
+| Static Files (Git-based)| ✅           | ❌             | ❌        | ❌         | ✅            | ❌            |
 
 ### Benefits
-- **Infinite Scalability**: Turn your static content into a serverless API
-- **Easy Monetization** Control access to content based on user's Stripe subscriptions
-- **Easy Content Management** Edit content from multiple repositories in one place
+- **For Developers**
+  - Pre-Built Pages & Templates
+    - Marketing: Landing Pages
+    - Sales: Product Pages / Checkout
+    - Content: Audio / Video or Text Articles
+  - Pre-Installed Authentication
+    - Passwordless Login via Email / Magic Link / JWT    
+  - Decoupled (Headless) Architecture
+    - Deploy the front-end and the back-end together OR...
+    - Deploy the backend alone, OR....
+    - Deploy the backend alongside the front-end of your choice.
+- **For Marketers**
+  - Content Management
+    - Edit static content (json/markdown) from any number of repositories
+    - Specify custom data models (input validation schemas) per-collection
+    - Specify custom browse/read/edit/add/delete permissions per-collection
+- **For Sales People**
+  - Sell subscriptions via Stripe.
+  - Restrict access to content / API endpoints based on the users' subscriptions.
+- **For DevOps**
+  - Instant Updates
+    - Changes to your content are reflected immediately.
+    - No need to rebuild the website = lower costs.
+  - Infinite Scalability
+    - Scale globally without worries of outages / attacks.
+    - The static front-end can deployed "to the edge" (CDN).
+    - The API can scale infintely via serverless architecture.
+- **For Administrators**
+  - User Management
+    - Assign Tags, Roles, & Permissions from the Admin UI  
+  - Analytics API
+    - Capture analytics with complex JSON data structures
 
+### Tech Stack 
 Built with [Bootstrap-Vue](https://bootstrap-vue.org) and [Gridsome](https://gridsome.org).
 
 ### 1-Click Deployment
@@ -31,15 +73,3 @@ Note: if you deploy to Netlify, you will have to provision a database manually.
 
 
 
-# Overview
-
-PlatformKit UI is a **static site generator** built with [VueJS](https://www.vuejs.org), [BootstrapVue](https://bootstrap-vue.org) and [Gridsome](https://www.gridsome.org).
-
-[Get the source on GitHub](https://github.com/platform-kit/platformkit-ui).
-
-#### Features
-
-- Generate docs from [Markdown](https://www.markdownguide.org) files in any number of repositories.
-- Generate docs for any API via an [API Schema](https://www.platformkit.com/docs/API/the-api-schema) file.
-- Built-in, client-side search functionality - no API calls necessary.
-- Progressive Web App - pages load even in offline mode!
