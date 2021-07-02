@@ -1,4 +1,4 @@
-# PlatformKit API
+# PlatformKit UI
 
 ### Features
 - Static Site Generator
