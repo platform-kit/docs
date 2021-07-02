@@ -21,12 +21,12 @@ The [source code](https://github.com/platform-kit/platformkit-ui) is available o
 | ---------------------------- | ----------- | ----- | --------- | ------ | -------- | ---------- |
 | Open Source                  | ✅           | ✅     | ✅         | ✅      | ❌        | ❌          |
 | Zero Config / Time To Launch | ✅           | ✅     | ✅         | ❌      | ❌        | ❌          |
-| <h4 align="center">Content Management</h4>
+| <td align="left" colspan=7>Content Management</td>
 | Content Subscriptions        | ✅           | ✅     | ❌         | ❌      | ❌        | ❌          |
 | Content Sales (ala-carte)    | ✅           | ❌     | ❌         | ❌      | ❌        | ❌          |
 | Custom Content Models        | ✅           | ❌     | ❌         | ✅      | ✅        | ✅          |
 | Landing Pages                | ✅           | ❌     | ✅         | ❌      | ❌        | ❌          |
-| <h4 align="center">Technical Features</h4>    
+| <td align="left" colspan=7>Technical Features</td>
 | Serverless Architecture      | ✅           | ❌     | ❌         | ❌      | ✅        | ✅          |
 | Headless Architecture        | ✅           | ❌     | ❌         | ✅      | ✅        | ✅          |
 | Passwordless Login           | ✅           | ❌     | ❌         | ❌      | ❌        | ❌          |
