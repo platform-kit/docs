@@ -21,7 +21,7 @@ The [source code](https://github.com/platform-kit/platformkit-ui) is available o
 | ---------------------------- | ----------- | ----- | --------- | ------ | -------- | ---------- |
 | Open Source                  | ✅           | ✅     | ✅         | ✅      | ❌        | ❌          |
 | Zero Config / Time To Launch | ✅           | ✅     | ✅         | ❌      | ❌        | ❌          |
-| **Content Management**       ||||||
+| <td align="center" colspan=7>**Content Management**  </td>  |
 | Content Subscriptions        | ✅           | ✅     | ❌         | ❌      | ❌        | ❌          |
 | Content Sales (ala-carte)    | ✅           | ❌     | ❌         | ❌      | ❌        | ❌          |
 | Custom Content Models        | ✅           | ❌     | ❌         | ✅      | ✅        | ✅          |
