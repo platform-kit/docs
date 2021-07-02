@@ -29,6 +29,10 @@ PlatformKit UI is a **static site generator** built with [VueJS](https://www.vue
 | Static Files (Git-based)      | ✅           | ❌             | ❌        | ❌         | ✅            | ❌            |
 
 ### Benefits
+- **For Founders**
+  - No Platform Lock-In (adopt Serverless Node/Lambda functions without comitting to a cloud platform).
+  - No CMS Lock-In (your content lives as static files in your own GitHub account).
+  - Zero Time-to-Launch on marketing, sales, payments, and user authentication. 
 - **For Developers**
   - Pre-Built Pages & Templates
     - Marketing: Landing Pages.
