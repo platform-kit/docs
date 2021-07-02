@@ -6,7 +6,7 @@ PlatformKit UI is a **static site generator**  and **serverless content manageme
 
 Built with [VueJS](https://www.vuejs.org), [BootstrapVue](https://bootstrap-vue.org) and [Gridsome](https://www.gridsome.org).
 
-[Get the source on GitHub](https://github.com/platform-kit/platformkit-ui).
+The [source code](https://github.com/platform-kit/platformkit-ui) is available on GitHub.
 
 ### Key Features
 
