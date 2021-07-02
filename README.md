@@ -15,10 +15,10 @@ PlatformKit UI is a **static site generator** built with [VueJS](https://www.vue
 
 ### Comparisons
 
-| Feature                       | PlatformKit  | Ghost         | Wordpress | Strapi     | Forestry     | Contentful    |
+| Feature                       | PlatformKit  | Ghost         | Wordpress | Strapi     | Forestry     | Contentful    | 
 | ----------------------------- | ------------ | ------------- | --------- | ---------- | ------------ | ------------- |  
 | Open Source                   | ✅           | ✅             | ✅        | ✅         | ❌            | ❌            |
-| Zero Config/Integratinon Time | ✅           | ✅             | ✅        | ❌         | ❌            | ❌            |
+| Zero Config/Development Time  | ✅           | ✅             | ✅        | ❌         | ❌            | ❌            |
 | Content Subscriptions         | ✅           | ✅             | ❌        | ❌         | ❌            | ❌            |
 | Content Sales (ala-carte)     | ✅           | ❌             | ❌        | ❌         | ❌            | ❌            |
 | Custom Content Models         | ✅           | ❌             | ❌        | ✅         | ✅            | ✅            |
