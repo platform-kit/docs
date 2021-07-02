@@ -30,9 +30,9 @@ PlatformKit UI is a **static site generator** built with [VueJS](https://www.vue
 ### Benefits
 - **For Developers**
   - Pre-Built Pages & Templates
-    - Marketing: Landing Pages
-    - Sales: Product Pages / Checkout
-    - Content: Audio / Video or Text Articles
+    - Marketing: Landing Pages.
+    - Sales: Product Pages / Checkout.
+    - Content: Audio / Video or Text Articles.
   - Pre-Installed Authentication
     - Passwordless Login via Email / Magic Link / JWT    
   - Decoupled (Headless) Architecture
@@ -41,9 +41,9 @@ PlatformKit UI is a **static site generator** built with [VueJS](https://www.vue
     - Deploy the backend alongside the front-end of your choice.
 - **For Marketers**
   - Content Management
-    - Edit static content (json/markdown) from any number of repositories
-    - Specify custom data models (input validation schemas) per-collection
-    - Specify custom browse/read/edit/add/delete permissions per-collection
+    - Edit static content (json/markdown) from any number of repositories.
+    - Specify custom data models (input validation schemas) per-collection.
+    - Specify custom browse/read/edit/add/delete permissions per-collection.
 - **For Sales People**
   - Sell subscriptions via Stripe.
   - Restrict access to content / API endpoints based on the users' subscriptions.
@@ -57,12 +57,9 @@ PlatformKit UI is a **static site generator** built with [VueJS](https://www.vue
     - The API can scale infintely via serverless architecture.
 - **For Administrators**
   - User Management
-    - Assign Tags, Roles, & Permissions from the Admin UI  
+    - Assign Tags, Roles, & Permissions from the Admin UI. 
   - Analytics API
-    - Capture analytics with complex JSON data structures
-
-### Tech Stack 
-Built with [Bootstrap-Vue](https://bootstrap-vue.org) and [Gridsome](https://gridsome.org).
+    - Capture analytics with complex JSON data structures.
 
 ### 1-Click Deployment
 
