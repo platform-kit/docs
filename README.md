@@ -26,7 +26,7 @@ The [source code](https://github.com/platform-kit/platformkit-ui) is available o
 | Content Sales (ala-carte)    | ✅           | ❌     | ❌         | ❌      | ❌        | ❌          |
 | Custom Content Models        | ✅           | ❌     | ❌         | ✅      | ✅        | ✅          |
 | Landing Pages                | ✅           | ❌     | ✅         | ❌      | ❌        | ❌          |
-| <h4>Technical Features</h4>    
+| <h4 align="center">Technical Features</h4>    
 | Serverless Architecture      | ✅           | ❌     | ❌         | ❌      | ✅        | ✅          |
 | Headless Architecture        | ✅           | ❌     | ❌         | ✅      | ✅        | ✅          |
 | Passwordless Login           | ✅           | ❌     | ❌         | ❌      | ❌        | ❌          |
