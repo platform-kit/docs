@@ -20,7 +20,7 @@ The [source code](https://github.com/platform-kit/platformkit-ui) is available o
 | Feature                       | PlatformKit  | Ghost         | Wordpress | Strapi     | Forestry     | Contentful    | 
 | ----------------------------- | ------------ | ------------- | --------- | ---------- | ------------ | ------------- |  
 | Open Source                   | ✅           | ✅             | ✅        | ✅         | ❌            | ❌            |
-| Zero Config/Development Time  | ✅           | ✅             | ✅        | ❌         | ❌            | ❌            |
+| Zero Config / Time To Launch  | ✅           | ✅             | ✅        | ❌         | ❌            | ❌            |
 | Content Subscriptions         | ✅           | ✅             | ❌        | ❌         | ❌            | ❌            |
 | Content Sales (ala-carte)     | ✅           | ❌             | ❌        | ❌         | ❌            | ❌            |
 | Custom Content Models         | ✅           | ❌             | ❌        | ✅         | ✅            | ✅            |
