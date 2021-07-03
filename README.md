@@ -12,9 +12,9 @@ The [source code](https://github.com/platform-kit/platformkit-ui) is available o
 
 ### Key Features
 
+- **Marketing:** Create landing pages & track results via the built-in (zero-config) analytics API
 - **Publishing:** Publish content & sell access via subscriptions OR on a per-item basis
 - **E-Commerce:** Sell products, services, & subscriptions via Stripe or 3rd Party services
-- **Marketing:** Create landing pages & track results via the built-in (zero-config) analytics API
 
 ### Comparisons
 
