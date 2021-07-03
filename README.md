@@ -37,6 +37,15 @@ The [source code](https://github.com/platform-kit/platformkit-ui) is available o
     <td colspan="1">✅</td>
     <td colspan="1">✅</td>
   </tr>
+    <tr>
+    <td colspan="1">Custom Content Types</td>
+    <td colspan="1">✅</td>
+    <td colspan="1">❌</td>
+    <td colspan="1">❌</td>
+    <td colspan="1">✅</td>
+    <td colspan="1">✅</td>
+    <td colspan="1">✅</td>
+  </tr>
   <tr>
     <td colspan="1">Open Source</td>
     <td colspan="1">✅</td>
@@ -84,6 +93,15 @@ The [source code](https://github.com/platform-kit/platformkit-ui) is available o
   </tr>
   <tr>
     <td colspan="1">Serverless Architecture</td>
+    <td colspan="1">✅</td>
+    <td colspan="1">❌</td>
+    <td colspan="1">❌</td>
+    <td colspan="1">❌</td>
+    <td colspan="1">❌</td>
+    <td colspan="1">❌</td>
+  </tr>
+  <tr>
+    <td colspan="1">Extensible API</td>
     <td colspan="1">✅</td>
     <td colspan="1">❌</td>
     <td colspan="1">❌</td>
