@@ -166,9 +166,9 @@ The [source code](https://github.com/platform-kit/platformkit-ui) is available o
   - AGILITY: adopt JAMStack without comitting to a particular cloud platform or framework.
   - OWNERSHIP: your content lives as static files in your own GitHub account.
 - **For Developers**
-  - SECURITY: Pre-Installed Authentication via JWT 
-    - Passwordless Login via Magic Links sent by Email
-  - FLEXIBILITY: Decoupled/Headless Architecture allows 3 configurations:
+  - SECURITY: Authentication via Email ("Magic Links")
+    - Easily integrate passwordless login into your app or website 
+  - FLEXIBILITY: Decoupled/Headless Architecture allows 3 deployment scenarios:
     - Deploy the backend (CMS & API) alone
     - Deploy the back-end with the default front-end
     - Deploy the backend with the front-end framework/generator of your choice
