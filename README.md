@@ -17,21 +17,117 @@ The [source code](https://github.com/platform-kit/platformkit-ui) is available o
 
 ### Comparisons
 
-| Feature                      | PlatformKit | Ghost | Wordpress | Strapi | Forestry | Contentful |
-| ---------------------------- | ----------- | ----- | --------- | ------ | -------- | ---------- |
-| Open Source                  | ✅           | ✅     | ✅         | ✅      | ❌        | ❌          |
-| Zero Config / Time To Launch | ✅           | ✅     | ✅         | ❌      | ❌        | ❌          |
-| <td align="left" colspan=7>Content Management</td>
-| Content Subscriptions        | ✅           | ✅     | ❌         | ❌      | ❌        | ❌          |
-| Content Sales (ala-carte)    | ✅           | ❌     | ❌         | ❌      | ❌        | ❌          |
-| Custom Content Models        | ✅           | ❌     | ❌         | ✅      | ✅        | ✅          |
-| Landing Pages                | ✅           | ❌     | ✅         | ❌      | ❌        | ❌          |
-| <td align="left" colspan=7>Technical Features</td>
-| Serverless Architecture      | ✅           | ❌     | ❌         | ❌      | ✅        | ✅          |
-| Headless Architecture        | ✅           | ❌     | ❌         | ✅      | ✅        | ✅          |
-| Passwordless Login           | ✅           | ❌     | ❌         | ❌      | ❌        | ❌          |
-| Analytics                    | ✅           | ❌     | ❌         | ❌      | ❌        | ❌          |
-| Static Files (Git-based)     | ✅           | ❌     | ❌         | ❌      | ✅        | ❌          |
+
+<table>
+  <tr>
+    <td>Feature</td>
+    <td>PlatformKit</td>
+    <td>Ghost</td>
+    <td>Wordpress</td>
+    <td>Strapi</td>
+    <td>Forestry</td>
+    <td>Contentful</td>
+  </tr>
+  <tr>
+    <td colspan="1">Headless CMS</td>
+    <td colspan="1">✅</td>
+    <td colspan="1">✅</td>
+    <td colspan="1">✅</td>
+    <td colspan="1">✅</td>
+    <td colspan="1">✅</td>
+    <td colspan="1">✅</td>
+  </tr>
+  <tr>
+    <td colspan="1">Open Source</td>
+    <td colspan="1">✅</td>
+    <td colspan="1">✅</td>
+    <td colspan="1">✅</td>
+    <td colspan="1">✅</td>
+    <td colspan="1">❌</td>
+    <td colspan="1">❌</td>
+  </tr>
+  <tr>
+    <td colspan="1">Zero Integration Time</td>
+    <td colspan="1">✅</td>
+    <td colspan="1">✅</td>
+    <td colspan="1">✅</td>
+    <td colspan="1">❌</td>
+    <td colspan="1">❌</td>
+    <td colspan="1">❌</td>
+  </tr>
+  <tr>
+    <td colspan="1">Content Subscriptions</td>
+    <td colspan="1">✅</td>
+    <td colspan="1">✅</td>
+    <td colspan="1">❌</td>
+    <td colspan="1">❌</td>
+    <td colspan="1">❌</td>
+    <td colspan="1">❌</td>
+  </tr>
+  <tr>
+    <td colspan="1">Landing Pages</td>
+    <td colspan="1">✅</td>
+    <td colspan="1">❌</td>
+    <td colspan="1">✅</td>
+    <td colspan="1">❌</td>
+    <td colspan="1">❌</td>
+    <td colspan="1">❌</td>
+  </tr>
+  <tr>
+    <td colspan="1">E-Commerce</td>
+    <td colspan="1">✅</td>
+    <td colspan="1">❌</td>
+    <td colspan="1">❌</td>
+    <td colspan="1">❌</td>
+    <td colspan="1">❌</td>
+    <td colspan="1">❌</td>
+  </tr>
+  <tr>
+    <td colspan="1">Serverless Architecture</td>
+    <td colspan="1">✅</td>
+    <td colspan="1">❌</td>
+    <td colspan="1">❌</td>
+    <td colspan="1">❌</td>
+    <td colspan="1">❌</td>
+    <td colspan="1">❌</td>
+  </tr>
+  <tr>
+    <td colspan="1">Static Site Generator</td>
+    <td colspan="1">✅</td>
+    <td colspan="1">❌</td>
+    <td colspan="1">❌</td>
+    <td colspan="1">❌</td>
+    <td colspan="1">❌</td>
+    <td colspan="1">❌</td>
+  </tr>
+  <tr>
+    <td colspan="1">Built-In Analytics</td>
+    <td colspan="1">✅</td>
+    <td colspan="1">❌</td>
+    <td colspan="1">❌</td>
+    <td colspan="1">❌</td>
+    <td colspan="1">❌</td>
+    <td colspan="1">❌</td>
+  </tr>
+  <tr>
+    <td colspan="1">Passwordless Login</td>
+    <td colspan="1">✅</td>
+    <td colspan="1">❌</td>
+    <td colspan="1">❌</td>
+    <td colspan="1">❌</td>
+    <td colspan="1">❌</td>
+    <td colspan="1">❌</td>
+  </tr>
+  <tr>
+    <td colspan="1">Static Files (Git-Based)</td>
+    <td colspan="1">✅</td>
+    <td colspan="1">❌</td>
+    <td colspan="1">❌</td>
+    <td colspan="1">❌</td>
+    <td colspan="1">✅</td>
+    <td colspan="1">❌</td>
+  </tr>
+</table>
 
 ### Benefits
 - **For Founders**
