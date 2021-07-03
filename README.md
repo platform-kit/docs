@@ -178,9 +178,8 @@ The [source code](https://github.com/platform-kit/platformkit-ui) is available o
     - Manage static content (json/markdown) from any number of repositories
     - Design custom data models (input validation schemas) per-collection
     - Specify custom access rules (required roles/permissions) per-collection  
-- **For Sales People**
-  - Sell subscriptions via Stripe
-  - Develop detailed customer personas with interests & tags  
+- **For Sales People**  
+  - CUSTOMER DEVELOPMENT: create detailed customer personas with interests & tags  
 - **For DevOps**
   - LIVE UPDATES: Changes to your content are reflected immediately in the API. No need for rebuilds.    
   - GLOBAL SCALABILITY: front-end deploys to CDN & serverless API scales automatically
