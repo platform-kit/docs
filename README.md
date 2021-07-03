@@ -160,13 +160,12 @@ The [source code](https://github.com/platform-kit/platformkit-ui) is available o
 
 ### Benefits
 - **For Content Creators**
-  - LAUNCH IMMEDIATELY: publish, market, and sell your content within minutes of deployment.
+  - LAUNCH IMMEDIATELY: publish, market, and sell your content within minutes of deployment
 - **For Startups**
-  - SPEED: Instantly generate content, marketing, & sales pages, so you can focus on your core.
-  - AGILITY: adopt JAMStack without comitting to a particular cloud platform or framework.
-  - OWNERSHIP: your content lives as static files in your own GitHub account.
-  - ANALYTICS: 
-    - Automatically track events (page views, content views) or complex data
+  - SPEED: Instantly generate content, marketing, & sales pages, so you can focus on your core
+  - AGILITY: adopt JAMStack without comitting to a particular cloud platform or framework
+  - OWNERSHIP: your content lives as static files in your own GitHub account
+  - ANALYTICS: track default events (page views, content views) or custom events with complex data
 - **For Developers**
   - SECURITY: Authentication via Email ("Magic Links")
     - Easily integrate passwordless login into your app or website 
