@@ -165,21 +165,21 @@ The [source code](https://github.com/platform-kit/platformkit-ui) is available o
   - SPEED: Instantly generate content, marketing, & sales pages, so you can focus on your core.
   - AGILITY: adopt JAMStack without comitting to a particular cloud platform or framework.
   - OWNERSHIP: your content lives as static files in your own GitHub account.
+  - ANALYTICS: 
+    - Automatically track page views, content views, etc, out of the box
+    - Capture custom analytics events with any data structure
 - **For Developers**
   - SECURITY: Authentication via Email ("Magic Links")
     - Easily integrate passwordless login into your app or website 
   - FLEXIBILITY: Decoupled/Headless Architecture allows 3 deployment scenarios:
     - Deploy the backend (CMS & API) alone
     - Deploy the back-end with the default front-end
-    - Deploy the backend with the front-end framework/generator of your choice
+    - Deploy the backend with the front-end framework/generator of your choice  
 - **For Publishers**
   - CUSTOMIZATION: Build a custom-designed content platform
     - Manage static content (json/markdown) from any number of repositories
     - Design custom data models (input validation schemas) per-collection
-    - Specify custom access rules (required roles/permissions) per-collection
-  - Analytics API
-    - Automatically track page views, content views, etc, out of the box
-    - Capture custom analytics events with any data structure
+    - Specify custom access rules (required roles/permissions) per-collection  
 - **For Sales People**
   - Sell subscriptions via Stripe
   - Develop detailed customer personas with interests & tags  
