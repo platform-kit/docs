@@ -166,13 +166,6 @@ The [source code](https://github.com/platform-kit/platformkit-ui) is available o
   - AGILITY: adopt JAMstack without comitting to a particular cloud platform or framework
   - OWNERSHIP: your content lives as static files in your own GitHub account
   - ANALYTICS: track default events (page views, logins, etc) or custom events with complex data
-- **For Developers**
-  - SECURITY: Authentication via Email ("Magic Links")
-    - Easily integrate passwordless login into your app or website 
-  - FLEXIBILITY: Decoupled/Headless Architecture allows 3 deployment scenarios:
-    - Deploy the backend (CMS & API) alone
-    - Deploy the back-end with the default front-end
-    - Deploy the backend with the front-end framework/generator of your choice  
 - **For Publishers**
   - CUSTOMIZATION: Build a custom-designed content platform
     - Manage static content (json/markdown) from any number of repositories
@@ -180,7 +173,13 @@ The [source code](https://github.com/platform-kit/platformkit-ui) is available o
     - Specify custom access rules (required roles/permissions) per-collection  
 - **For Sales People**  
   - CUSTOMER DEVELOPMENT: create detailed customer personas with interests & tags  
-- **For DevOps**
+- **For Developers**
+  - SECURITY: Authentication via Email ("Magic Links")
+    - Easily integrate passwordless login into your app or website 
+  - FLEXIBILITY: Decoupled/Headless Architecture allows 3 deployment scenarios:
+    - Deploy the backend (CMS & API) alone
+    - Deploy the back-end with the default front-end
+    - Deploy the backend with the front-end framework/generator of your choice  
   - LIVE UPDATES: Changes to your content are reflected immediately in the API. No need for rebuilds.    
   - GLOBAL SCALABILITY: front-end deploys to CDN & serverless API scales automatically
 - **For Administrators**
