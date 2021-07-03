@@ -15,7 +15,6 @@ The [source code](https://github.com/platform-kit/platformkit-ui) is available o
 - **Publishing:** Publish content & sell access via subscriptions OR on a per-item basis
 - **E-Commerce:** Sell products, services, & subscriptions via Stripe or 3rd Party services
 - **Marketing:** Create landing pages & track results via the built-in (zero-config) analytics API
-- **Security**: Protect paid content/pages behind a secure API that requires login & a valid subscription
 
 ### Comparisons
 
@@ -182,7 +181,6 @@ The [source code](https://github.com/platform-kit/platformkit-ui) is available o
     - Deploy the backend (CMS & API) alone
     - Deploy the back-end with the default front-end
     - Deploy the backend with the front-end framework/generator of your choice  
-  - LIVE UPDATES: Changes to your content are reflected immediately in the API. No need for rebuilds.    
   - SCALABILITY: front-end deploys to CDN & serverless API scales automatically
 
 ### 1-Click Deployment
