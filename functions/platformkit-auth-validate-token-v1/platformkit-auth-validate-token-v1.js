@@ -17,8 +17,8 @@ exports.handler = async (event, context) => {
 
         var headers = event.headers;
         console.log('Authorization: \n\n\n\n');
-        console.log(headers.authorization);
-        var token = headers.authorization || event.queryStringParameters.token || null;
+        console.log(headers?.authorization);
+        var token = headers?.authorization || event.queryStringParameters.token || null;
         console.log(token);
 
         if (token.includes('Bearer ')) {
