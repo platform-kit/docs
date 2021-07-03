@@ -160,43 +160,39 @@ The [source code](https://github.com/platform-kit/platformkit-ui) is available o
 
 ### Benefits
 - **For Content Creators**
-  - Zero Time-To-Launch: publish, market, and sell your content within minutes of deployment.
+  - LAUNCH IMMEDIATELY: publish, market, and sell your content within minutes of deployment.
 - **For Startups**
   - SPEED: Instantly generate content, marketing, & sales pages, so you can focus on your core.
   - AGILITY: adopt JAMStack without comitting to a particular cloud platform or framework.
   - OWNERSHIP: your content lives as static files in your own GitHub account.
 - **For Developers**
-  - CONVENIENCE: Pre-Built Pages & Templates
-    - Content
-    - Landing Pages
-    - Products / Payments
-  - SECURITY: Pre-Installed Authentication via JWT
+  - SECURITY: Pre-Installed Authentication via JWT 
     - Passwordless Login via Magic Links sent by Email
-  - FLEXIBILITY: Decoupled/Headless Architecture
-    - Deploy the front-end and the back-end together OR...
-    - Deploy the backend alone, OR....
-    - Deploy the backend alongside the front-end framework/generator of your choice.
+  - FLEXIBILITY: Decoupled/Headless Architecture allows 3 configurations:
+    - Deploy the backend (CMS & API) alone
+    - Deploy the back-end with the default front-end
+    - Deploy the backend with the front-end framework/generator of your choice
 - **For Marketers**
-  - Content Management
-    - Edit static content (json/markdown) from any number of repositories.
-    - Specify custom data models (input validation schemas) per-collection.
-    - Specify custom browse/read/edit/add/delete permissions per-collection.
+  - Content Marketing
+    - Manage static content (json/markdown) from any number of repositories
+    - Specify custom data models (input validation schemas) per-collection
+    - Specify custom browse/read/edit/add/delete permissions per-collection
+  - Analytics API
+    - Capture analytics with complex JSON data structures
 - **For Sales People**
-  - Sell subscriptions via Stripe.
-  - Restrict access to content / API endpoints based on the users' subscriptions.
+  - Sell subscriptions via Stripe
+  - Develop detailed customer personas with interests & tags  
 - **For DevOps**
   - Instant Updates
     - Changes to your content are reflected immediately.
     - No need to rebuild the website = lower costs.
-  - Infinite Scalability
-    - Scale globally without worries of outages / attacks.
-    - The static front-end can deployed "to the edge" (CDN).
-    - The API can scale infintely via serverless architecture.
+  - GLOBAL SCALABILITY: never worry about outages or traffic spikes
+    - The static front-end can deployed "to the edge" (global CDN)
+    - The API can scale infintely, automatically
 - **For Administrators**
   - User Management
     - Assign Tags, Roles, & Permissions from the Admin UI. 
-  - Analytics API
-    - Capture analytics with complex JSON data structures.
+    - Ban / Unban users  
 
 ### 1-Click Deployment
 
