@@ -21,7 +21,7 @@ The [source code](https://github.com/platform-kit/platformkit-ui) is available o
 
 
 <table>
-  <tr>
+  <tr style="font-weight:bold;">
     <td>Feature</td>
     <td>PlatformKit</td>
     <td>Ghost</td>
@@ -162,20 +162,20 @@ The [source code](https://github.com/platform-kit/platformkit-ui) is available o
 - **For Content Creators**
   - Zero Time-To-Launch: publish, market, and sell your content within minutes of deployment.
 - **For Startups**
-  - Instantly generate marketing, sales, payment, & user account pages, so you can focus on your core.
-  - No Platform Lock-In (adopt JAMStack without comitting to a particular cloud platform or framework).
-  - No CMS Lock-In (your content lives as static files in your own GitHub account).
+  - SPEED: Instantly generate content, marketing, & sales pages, so you can focus on your core.
+  - AGILITY: adopt JAMStack without comitting to a particular cloud platform or framework.
+  - OWNERSHIP: your content lives as static files in your own GitHub account.
 - **For Developers**
-  - Pre-Built Pages & Templates
-    - Marketing: Landing Pages.
-    - Sales: Product Pages / Checkout.
-    - Content: Audio / Video or Text Articles.
-  - Pre-Installed Authentication
-    - Passwordless Login via Email / Magic Link / JWT    
-  - Decoupled (Headless) Architecture
+  - CONVENIENCE: Pre-Built Pages & Templates
+    - Content
+    - Landing Pages
+    - Products / Payments
+  - SECURITY: Pre-Installed Authentication via JWT
+    - Passwordless Login via Magic Links sent by Email
+  - FLEXIBILITY: Decoupled/Headless Architecture
     - Deploy the front-end and the back-end together OR...
     - Deploy the backend alone, OR....
-    - Deploy the backend alongside the front-end of your choice.
+    - Deploy the backend alongside the front-end framework/generator of your choice.
 - **For Marketers**
   - Content Management
     - Edit static content (json/markdown) from any number of repositories.
