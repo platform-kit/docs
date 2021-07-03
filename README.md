@@ -157,10 +157,11 @@ The [source code](https://github.com/platform-kit/platformkit-ui) is available o
 </table>
 
 ### Benefits
+- **For Content Creators**
+  - Zero Time-To-Launch: publish, market, and sell your content within minutes of deployment.
 - **For Founders**
   - No Platform Lock-In (adopt Serverless Node/Lambda functions without comitting to a cloud platform).
   - No CMS Lock-In (your content lives as static files in your own GitHub account).
-  - Zero Time-To-Launch: publish, market, and sell within minutes of deployment.
 - **For Developers**
   - Pre-Built Pages & Templates
     - Marketing: Landing Pages.
