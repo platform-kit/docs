@@ -162,7 +162,7 @@ The [source code](https://github.com/platform-kit/platformkit-ui) is available o
 - **For Content Creators**
   - Zero Time-To-Launch: publish, market, and sell your content within minutes of deployment.
 - **For Startups**
-  - Leverage PlatformKit for the marketing, sales, payments, & account management portion of your site, so you can focus on your core offering.
+  - Instantly generate marketing, sales, payment, & user account pages, so you can focus on your core offering.
   - No Platform Lock-In (adopt Serverless Node/Lambda functions without comitting to a cloud platform).
   - No CMS Lock-In (your content lives as static files in your own GitHub account).
 - **For Developers**
