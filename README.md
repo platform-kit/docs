@@ -161,7 +161,7 @@ The [source code](https://github.com/platform-kit/platformkit-ui) is available o
 ### Benefits
 - **For Content Creators**
   - Zero Time-To-Launch: publish, market, and sell your content within minutes of deployment.
-- **For LEAN/AGILE Startups**
+- **For Startups**
   - Instantly generate marketing, sales, payment, & user account pages, so you can focus on your core offering.
   - No Platform Lock-In (adopt JAMStack without comitting to a particular cloud platform or framework).
   - No CMS Lock-In (your content lives as static files in your own GitHub account).
