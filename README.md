@@ -137,6 +137,15 @@ The [source code](https://github.com/platform-kit/platformkit-ui) is available o
     <td colspan="1">❌</td>
   </tr>
   <tr>
+    <td colspan="1">User Roles / Permissions</td>
+    <td colspan="1">✅</td>
+    <td colspan="1">❌</td>
+    <td colspan="1">❌</td>
+    <td colspan="1">✅</td>
+    <td colspan="1">❌</td>
+    <td colspan="1">❌</td>
+  </tr>
+  <tr>
     <td colspan="1">Static Files (Git-Based)</td>
     <td colspan="1">✅</td>
     <td colspan="1">❌</td>
