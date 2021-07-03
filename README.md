@@ -182,12 +182,8 @@ The [source code](https://github.com/platform-kit/platformkit-ui) is available o
   - Sell subscriptions via Stripe
   - Develop detailed customer personas with interests & tags  
 - **For DevOps**
-  - Instant Updates
-    - Changes to your content are reflected immediately.
-    - No need to rebuild the website = lower costs.
-  - GLOBAL SCALABILITY: never worry about outages or traffic spikes
-    - The static front-end can deployed "to the edge" (global CDN)
-    - The API can scale infintely, automatically
+  - LIVE UPDATES: Changes to your content are reflected immediately in the API. No need for rebuilds.    
+  - GLOBAL SCALABILITY: front-end deploys to CDN & serverless API scales automatically
 - **For Administrators**
   - User Management
     - Assign Tags, Roles, & Permissions from the Admin UI. 
