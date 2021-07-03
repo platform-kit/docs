@@ -173,6 +173,10 @@ The [source code](https://github.com/platform-kit/platformkit-ui) is available o
     - Specify custom access rules (required roles/permissions) per-collection  
 - **For Sales People**  
   - CUSTOMER DEVELOPMENT: create detailed customer personas with interests & tags  
+- **For Administrators**
+  - User Management
+    - Assign Tags, Roles, & Permissions from the Admin UI. 
+    - Ban / Unban users     
 - **For Developers**
   - SECURITY: Authentication via Email ("Magic Links")
     - Easily integrate passwordless login into your app or website 
@@ -182,10 +186,6 @@ The [source code](https://github.com/platform-kit/platformkit-ui) is available o
     - Deploy the backend with the front-end framework/generator of your choice  
   - LIVE UPDATES: Changes to your content are reflected immediately in the API. No need for rebuilds.    
   - GLOBAL SCALABILITY: front-end deploys to CDN & serverless API scales automatically
-- **For Administrators**
-  - User Management
-    - Assign Tags, Roles, & Permissions from the Admin UI. 
-    - Ban / Unban users  
 
 ### 1-Click Deployment
 
