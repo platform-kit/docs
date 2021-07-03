@@ -8,8 +8,6 @@ Front-End: [VueJS](https://www.vuejs.org), [BootstrapVue](https://bootstrap-vue.
 
 Back-End: [NodeJS](https://nodejs.org), [ExpressJS](https://expressjs.com) and [Lambda-Local](https://www.npmjs.com/package/lambda-local).
 
-The [source code](https://github.com/platform-kit/platformkit-ui) is available on GitHub.
-
 ### Key Features
 
 - **Marketing:** Create landing pages & track performance via the built-in (zero-config) analytics API
@@ -17,7 +15,6 @@ The [source code](https://github.com/platform-kit/platformkit-ui) is available o
 - **E-Commerce:** Sell products, services, & subscriptions via Stripe or 3rd Party services
 
 ### Comparisons
-
 
 <table>
   <tr style="font-weight:bold;">
