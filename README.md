@@ -178,7 +178,8 @@ The [source code](https://github.com/platform-kit/platformkit-ui) is available o
     - Specify custom data models (input validation schemas) per-collection
     - Specify custom browse/read/edit/add/delete permissions per-collection
   - Analytics API
-    - Capture analytics with complex JSON data structures
+    - Automatically track page views, content views, etc, out of the box
+    - Capture custom analytics events with any data structure
 - **For Sales People**
   - Sell subscriptions via Stripe
   - Develop detailed customer personas with interests & tags  
