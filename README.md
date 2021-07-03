@@ -6,13 +6,13 @@ PlatformKit UI is a **static site generator**  and **serverless content manageme
 
 Front-End: [VueJS](https://www.vuejs.org), [BootstrapVue](https://bootstrap-vue.org) and [Gridsome](https://www.gridsome.org).
 
-Back-End: [NodeJS](https://nodejs.org/en/) and [Lambda-Local](https://www.npmjs.com/package/lambda-local).
+Back-End: [NodeJS](https://nodejs.org), [ExpressJS](https://expressjs.com) and [Lambda-Local](https://www.npmjs.com/package/lambda-local).
 
 The [source code](https://github.com/platform-kit/platformkit-ui) is available on GitHub.
 
 ### Key Features
 
-- **Marketing:** Create landing pages & track results via the built-in (zero-config) analytics API
+- **Marketing:** Create landing pages & track performance via the built-in (zero-config) analytics API
 - **Publishing:** Publish content & sell access via subscriptions OR on a per-item basis
 - **E-Commerce:** Sell products, services, & subscriptions via Stripe or 3rd Party services
 
