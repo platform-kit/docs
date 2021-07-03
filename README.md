@@ -56,7 +56,7 @@ The [source code](https://github.com/platform-kit/platformkit-ui) is available o
     <td colspan="1">❌</td>
   </tr>
   <tr>
-    <td colspan="1">Zero Integration Time</td>
+    <td colspan="1">Front-End Included (Optional)</td>
     <td colspan="1">✅</td>
     <td colspan="1">✅</td>
     <td colspan="1">✅</td>
@@ -160,7 +160,7 @@ The [source code](https://github.com/platform-kit/platformkit-ui) is available o
 - **For Founders**
   - No Platform Lock-In (adopt Serverless Node/Lambda functions without comitting to a cloud platform).
   - No CMS Lock-In (your content lives as static files in your own GitHub account).
-  - Zero Time-to-Launch on marketing, sales, payments, and user authentication. 
+  - Zero Time-To-Launch: publish, market, and sell within minutes of deployment.
 - **For Developers**
   - Pre-Built Pages & Templates
     - Marketing: Landing Pages.
