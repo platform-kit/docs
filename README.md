@@ -22,13 +22,13 @@ The [source code](https://github.com/platform-kit/platformkit-ui) is available o
 
 <table>
   <tr style="font-weight:bold;">
-    <td>Feature</td>
-    <td>PlatformKit</td>
-    <td>Ghost</td>
-    <td>Wordpress</td>
-    <td>Strapi</td>
-    <td>Forestry</td>
-    <td>Contentful</td>
+    <td><b>Feature</b></td>
+    <td><b>PlatformKit</b></td>
+    <td><b>Ghost</b></td>
+    <td><b>Wordpress</b></td>
+    <td><b>Strapi</b></td>
+    <td><b>Forestry</b></td>
+    <td><b>Contentful</b></td>
   </tr>
   <tr>
     <td colspan="1">Headless CMS</td>
