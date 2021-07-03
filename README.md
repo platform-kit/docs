@@ -163,7 +163,7 @@ The [source code](https://github.com/platform-kit/platformkit-ui) is available o
   - LAUNCH IMMEDIATELY: publish, market, and sell your content within minutes of deployment
 - **For Startups**
   - SPEED: Instantly generate content, marketing, & sales pages, so you can focus on your core
-  - AGILITY: adopt JAMStack without comitting to a particular cloud platform or framework
+  - AGILITY: adopt JAMstack without comitting to a particular cloud platform or framework
   - OWNERSHIP: your content lives as static files in your own GitHub account
   - ANALYTICS: track default events (page views, content views) or custom events with complex data
 - **For Developers**
