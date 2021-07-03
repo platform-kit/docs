@@ -67,15 +67,6 @@ The [source code](https://github.com/platform-kit/platformkit-ui) is available o
     <td colspan="1">❌</td>
   </tr>
   <tr>
-    <td colspan="1">Content Subscriptions</td>
-    <td colspan="1">✅</td>
-    <td colspan="1">✅</td>
-    <td colspan="1">❌</td>
-    <td colspan="1">❌</td>
-    <td colspan="1">❌</td>
-    <td colspan="1">❌</td>
-  </tr>
-  <tr>
     <td colspan="1">Landing Pages</td>
     <td colspan="1">✅</td>
     <td colspan="1">❌</td>
@@ -84,6 +75,15 @@ The [source code](https://github.com/platform-kit/platformkit-ui) is available o
     <td colspan="1">❌</td>
     <td colspan="1">❌</td>
   </tr>
+  <tr>
+    <td colspan="1">Content Subscriptions</td>
+    <td colspan="1">✅</td>
+    <td colspan="1">✅</td>
+    <td colspan="1">❌</td>
+    <td colspan="1">❌</td>
+    <td colspan="1">❌</td>
+    <td colspan="1">❌</td>
+  </tr>  
   <tr>
     <td colspan="1">E-Commerce</td>
     <td colspan="1">✅</td>
