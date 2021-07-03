@@ -105,6 +105,9 @@ export default {
       },
     };
   },
+  created(){
+    this.doc = this.$page.doc;
+  },
   async mounted() {
     console.log("--------------");
     this.doc = this.$page.doc;
@@ -200,7 +203,7 @@ export default {
           })
           .catch(function (error) {
             console.log("Show error notification!");
-            this.window.alert("Something went wrong. Try again.");
+            // self.window.alert("Something went wrong. Try again.");
             self.uiSettings.loading = false;
             return Promise.reject(error);
           })

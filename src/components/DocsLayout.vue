@@ -82,9 +82,11 @@ export default {
         remarkHtml: html,
         autolinkHeadings: autolinkHeadings,
       },
+      window: null
     };
   },
   async mounted() {
+    this.window = window;
     this.getApiSchema();
     await this.renderMarkdown();
   },
@@ -115,8 +117,11 @@ export default {
       }
     },
     isAdmin() {
-      var user = this.$store.getters.getUser;
-      if (user.data?.roles?.includes("admin")) {
+      var user = null;
+      if(this.window != null){
+        user = this.$store.getters.getUser;
+      }
+      if (user != null && user.data?.roles?.includes("admin")) {
         return true;
       } else {
         return false;
