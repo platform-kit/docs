@@ -172,11 +172,11 @@ The [source code](https://github.com/platform-kit/platformkit-ui) is available o
     - Deploy the backend (CMS & API) alone
     - Deploy the back-end with the default front-end
     - Deploy the backend with the front-end framework/generator of your choice
-- **For Marketers**
-  - Content Marketing
+- **For Publishers**
+  - CUSTOMIZATION: Build a custom-designed content platform
     - Manage static content (json/markdown) from any number of repositories
-    - Specify custom data models (input validation schemas) per-collection
-    - Specify custom browse/read/edit/add/delete permissions per-collection
+    - Design custom data models (input validation schemas) per-collection
+    - Specify custom access rules (required roles/permissions) per-collection
   - Analytics API
     - Automatically track page views, content views, etc, out of the box
     - Capture custom analytics events with any data structure
