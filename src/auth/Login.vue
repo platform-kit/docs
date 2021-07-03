@@ -242,6 +242,7 @@ export default {
       var self = this;
       try {
         var url = "/api/" + input.function + "?token=" + input.token;
+        console.log('Called:' + url);
         await axios
           .get(url)
           .then((response) => self.saveUser(response.data))
