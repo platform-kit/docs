@@ -166,8 +166,7 @@ The [source code](https://github.com/platform-kit/platformkit-ui) is available o
   - AGILITY: adopt JAMStack without comitting to a particular cloud platform or framework.
   - OWNERSHIP: your content lives as static files in your own GitHub account.
   - ANALYTICS: 
-    - Automatically track page views, content views, etc, out of the box
-    - Capture custom analytics events with any data structure
+    - Automatically track events (page views, content views) or complex data
 - **For Developers**
   - SECURITY: Authentication via Email ("Magic Links")
     - Easily integrate passwordless login into your app or website 
