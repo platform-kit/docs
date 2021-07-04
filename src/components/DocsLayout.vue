@@ -4,6 +4,7 @@
       <b-icon-pen scale="1.5" class="mx-auto d-block" style="margin-top:16px;"></b-icon-pen>
     </g-link>
     <div
+     v-if="hideNav != true" 
       class="btn btn-dark d-inline d-md-none raised"
       v-b-modal.docs-modal
       style="
@@ -18,7 +19,7 @@
         background:#111;
       "
     >
-      <b-icon-book v-if="hideNav != true" class="mx-auto" style="margin-top:8px !important;"></b-icon-book> <span class="ml-2 d-none">{{ title }}</span>
+      <b-icon-bookclass="mx-auto" style="margin-top:8px !important;"></b-icon-book> <span class="ml-2 d-none">{{ title }}</span>
     </div>
     <div class="container-fluid" style=""  v-bind:class="{'h-md-100': flush != true, 'm-0 p-0 w-100 bg-white px-3': flush == true}" >
       <div class="row w-100 mx-auto pb-4" style="max-width: 1350px;"  v-bind:class="{'h-md-100': flush != true}">
