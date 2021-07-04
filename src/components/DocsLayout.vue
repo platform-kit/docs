@@ -19,7 +19,7 @@
         background:#111;
       "
     >
-      <b-icon-bookclass="mx-auto" style="margin-top:8px !important;"></b-icon-book> <span class="ml-2 d-none">{{ title }}</span>
+      <b-icon-book class="mx-auto" style="margin-top:8px !important;"></b-icon-book> <span class="ml-2 d-none">{{ title }}</span>
     </div>
     <div class="container-fluid" style=""  v-bind:class="{'h-md-100': flush != true, 'm-0 p-0 w-100 bg-white px-3': flush == true}" >
       <div class="row w-100 mx-auto pb-4" style="max-width: 1350px;"  v-bind:class="{'h-md-100': flush != true}">
