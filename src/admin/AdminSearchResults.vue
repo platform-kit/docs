@@ -61,6 +61,7 @@ export default {
     };
   },
   async mounted() {
+    this.searchResults = null;
     this.getApiSchema();
     this.getUiSchema();
     this.checkForGraphQL();
