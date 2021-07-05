@@ -16,6 +16,7 @@
       <div v-if="searchResults != null && searchResults.total_count > 0">
         <b-list-group class="mt-3 d-block border-0 raised mx-3">
           <b-list-group-item
+            @click="$parent.search = null"            
             :href="'/admin/docs/editor?repo=' + item.repository + '&remotePath=' + item.path"
             class="border-0"
             v-for="(item, index) in searchResults.items"            
