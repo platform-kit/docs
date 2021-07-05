@@ -12,6 +12,7 @@ exports.handler = async (event, context) => {
   var input = event.queryStringParameters || null;
   var user = input.user;
   var repo = input.repo;
+  var search = input.search;
   var directory = input.directory;
   var error = null;
 
@@ -31,10 +32,10 @@ exports.handler = async (event, context) => {
 
   function extractRepo(element, index, array) {
     if (element.repo == input.repo && element.path == input.directory) {
-      console.log("\n\n\n");
-      console.log("ELEMENT: ");
+      //console.log("\n\n\n");
+      // console.log("ELEMENT: ");
       relevantRepo = element;
-      console.log(element);
+      // console.log(element);
 
     }
   }
@@ -59,37 +60,40 @@ exports.handler = async (event, context) => {
   }
 
   // Request Data
+  var output = [];
   try {
-    var output = await octokit.rest.repos
-      .getContent({
-        owner: user,
-        repo: repo,
-        path: directory
-      })
-      .then(({ data }) => {
-        return data;
-      });
+    var shortRepo = input.repo.split("/")[3] + '/' + input.repo.split("/")[4];
+    var q = 'q=' + search + '+path:/' + directory + '+in:file+language:markdown+repo:' + shortRepo;
+    console.log('Search Query: ' + q);
+
+    try {
+      var output = await octokit.rest.search
+        .code({
+          q
+        })
+        .then(({ data }) => {
+          console.log(data);
+          data.items.forEach((element, index) =>
+
+            (function () {
+              element.repository = element.repository.html_url;
+              delete element.git_url;
+              delete element.html_url;
+            })()
+
+          );
+          return data;
+        });
+    } catch (err) { }
+
   }
   catch (err) {
     error = err;
   }
 
-  var cleanedResults = [];
-
-  function cleanResults(element, index, array) {
-    console.log(element);
-    element = { fileName: element.name, file: element.path, repo: input.repo, sha: element.sha, url: element.url };
-    cleanedResults[index] = element;
-  }
-
-  output.forEach((element, index) =>
-    cleanResults(element, index, output)
-  );
-
-
   // Build Response
   var status = 200;
-  output = JSON.stringify(cleanedResults);
+  output = JSON.stringify(output);
   status = 200;
   return {
     headers: { "content-type": "application/json" },

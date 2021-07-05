@@ -114,6 +114,7 @@
                   <b-nav-form>
                     <b-form-input
                       id="admin-search-input"
+                      @input="updateSearch()"
                       class="mr-2 border-light-blue br-25 px-4"
                       autocomplete="off"
                       v-model="search"
@@ -181,7 +182,7 @@
                 style="min-height: calc(100vh - 77px)"
               >
                 <div v-if="search != null && search != ''">
-                  <AdminSearchResults></AdminSearchResults>
+                  <AdminSearchResults :key="searchIteration" :search="search"></AdminSearchResults>
                 </div>
                 <slot v-else />
               </div>
@@ -244,6 +245,7 @@ export default {
       search: null,
       searchResults: {},
       scrolled: null,
+      searchIteration: 1
     };
   },
   async mounted() {
@@ -263,6 +265,9 @@ export default {
     }
   },
   methods: {
+    updateSearch(){
+      this.searchIteration++;
+    },
     logOut() {
       this.$store.commit("updateUser", {});
       window.location.href = "/";
