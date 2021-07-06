@@ -30,7 +30,7 @@
         </div>
       </div>
     </div>
-    <div v-if="apiSchema != null && apiSchema.schemas != null">
+    <div v-if="apiSchema != null && apiSchema.schemas != null && 1 == 2">
       <span class="badge text-dark px-3 py-2 badge-light-blue"
         >API Resources</span
       >
@@ -61,9 +61,11 @@
         class="btn btn-block text-left px-2 py-1 my-2 text-capitalize"
         >GraphQL Explorer</a
       >
-      <a class="btn btn-sm text-center text-dark my-2 w-100 raised border border-light-blue br-25 mb-4" style="font-size:70%;" href="https://www.platformkit.com"
-      target="_blank">⚡ <small><span class="mx-1 text-dark o-70">BUILT WITH</span></small>PlatformKit</a>
+     
     </div>
+
+     <a class="btn btn-sm text-center text-dark mb-2 w-100 raised border border-light-blue br-25 mb-4" style="font-size:70%;" href="https://www.platformkit.com"
+      target="_blank">⚡ <small><span class="mx-1 text-dark o-70">BUILT WITH</span></small>PlatformKit</a>
 
     <b-modal id="docs-modal" ref="docs-modal" hide-footer title="Navigation">
       <div class="docs-nav mx-4" @click="hideModal()">
@@ -97,7 +99,7 @@
             </div>
           </div>
         </div>
-        <div v-if="apiSchema != null">
+        <div v-if="apiSchema != null && 1 == 2">
           <span class="badge text-dark px-3 py-2 badge-light-blue"
             >API Resources</span
           >
