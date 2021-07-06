@@ -51,7 +51,7 @@
         >
           <template #default="{ expanded }">
             <b-icon v-if="expanded" icon="list"></b-icon>
-            <b-icon v-else icon="search"></b-icon>
+            <b-icon v-else icon="list"></b-icon>
           </template>
         </b-navbar-toggle>
 
