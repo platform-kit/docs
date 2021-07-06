@@ -163,7 +163,7 @@
                     variant="transparent"
                     v-if="getUserEmail() != null"
                     menu-class="w-100 border-light-blue raised"
-                    style="margin-right: 11px !important"
+                    style="margin-right: 13px !important"
                     class="
                       bg-light-blue
                       br-25
