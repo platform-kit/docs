@@ -116,6 +116,7 @@
           <b-navbar-nav
             class="ml-auto text-right mb-2 mb-md-0 d-block"
             id="nav-right"
+            style="margin-right:-6px;"
           >
             <g-link
               v-if="
