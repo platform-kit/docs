@@ -46,7 +46,7 @@
                         class="ml-2 w-100"
                         >{{ uiSchema.name }}</span
                       >
-                      <span v-else class="ml-3 w-100">{{
+                      <span v-else class="ml-2 w-100">{{
                         $static.metadata.siteName
                       }}</span>
                     </span>
@@ -94,14 +94,14 @@
                       src="~/images/icon.png"
                       style="max-width: 50px"
                     />
-                    <span class="text-dark d-none d-sm-inline">
+                    <span class="text-dark d-sm-inline">
                       <span v-if="title == null">
                         <span
                           v-if="uiSchema != null && uiSchema.name != null"
-                          class="ml-3"
+                          class="ml-2"
                           >{{ uiSchema.name }}</span
                         >
-                        <span v-else class="ml-3">{{
+                        <span v-else class="ml-2">{{
                           $static.metadata.siteName
                         }}</span>
                       </span>
@@ -274,13 +274,14 @@ import AdminNav from "../components/AdminNav.vue";
 import AdminSearchResults from "../admin/AdminSearchResults.vue";
 
 export default {
-  props: ["title"],
+  
   components: {
     AdminSearchResults,
     AdminNav,
   },
   data() {
     return {
+      title: null,
       uiSettings: {
         navBarOpen: true,
       },
