@@ -94,7 +94,7 @@
                       src="~/images/icon.png"
                       style="max-width: 50px"
                     />
-                    <span class="text-dark d-sm-inline">
+                    <span class="text-dark d-none d-sm-inline">
                       <span v-if="title == null">
                         <span
                           v-if="uiSchema != null && uiSchema.name != null"
