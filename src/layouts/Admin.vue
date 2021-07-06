@@ -6,7 +6,7 @@
         <div class="w-100 h-100 bg-white admin-logo">
           <div class="row m-0">
             <div class="col-md-2 h-100 admin-sidebar px-0 d-none d-md-inline">
-              <div
+              <div                
                 class="
                   w-100
                   row
@@ -14,6 +14,7 @@
                   border-bottom border-light-blue
                   pl-3 pl-lg-0
                 "
+                id="test"                
                 style="height: 77px; background: #fff"
               >
                 <b-navbar-brand
@@ -62,7 +63,8 @@
                 variant="light"
                 type="light"
                 class="border-bottom border-light-blue"
-                style="height: 77px; background: none !important"
+                style="height: 77px;"
+                v-bind:class="{'bg-darker': search != null && search != '', 'bg-none': search == null || search == ''}"                
               >
                 <b-navbar-nav class="mr-auto">
                   <b-navbar-brand
@@ -585,6 +587,25 @@ h6 {
   position: absolute;
   top: 0px;
   left: 0px;
+}
+
+.navbar {
+  transition:all 0.3s;
+}
+.navbar.bg-none {
+  
+  background: none !important;
+}
+.navbar.bg-white {
+  
+  background: #fff !important;
+}
+
+.navbar:hover,
+.navbar:focus-within,
+.navbar.bg-darker {
+  
+  background: rgba(0,50,150,0.05) !important;
 }
 
 #navbar:hover,
