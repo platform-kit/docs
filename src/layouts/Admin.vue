@@ -594,7 +594,7 @@ h6 {
 }
 .navbar.bg-none {
   
-  background: none !important;
+  background: linear-gradient(90deg, #fff 100px, rgba(0,0,0,0))  !important;
 }
 .navbar.bg-white {
   
