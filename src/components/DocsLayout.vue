@@ -25,7 +25,7 @@
       <div class="row w-100 mx-auto pb-4" style="max-width: 1350px;"  v-bind:class="{'h-md-100': flush != true}">
         <div
           v-if="hideNav != true"
-          class="col-lg-2 h-md-100 d-none d-md-inline-block border-right"
+          class="col-lg-2 h-md-100 d-none d-md-inline-block"
           style="overflow: scroll"
         >
           <div class="px-3 pb-2 pt-4 mt-5 pt-5">
