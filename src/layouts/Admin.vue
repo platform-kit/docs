@@ -87,12 +87,12 @@
                         uiSchema.icons.favicon != null
                       "
                       :src="uiSchema.icons.favicon"
-                      style="max-width: 50px"
+                      style="max-width: 50px;display:inline-block;"
                     />
                     <g-image
                       v-else
                       src="~/images/icon.png"
-                      style="max-width: 50px"
+                      style="max-width: 50px;display:inline-block;"
                     />
                     <span class="text-dark d-none d-sm-inline">
                       <span v-if="title == null">

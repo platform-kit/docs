@@ -34,10 +34,10 @@
             <span v-if="title == null">
               <span
                 v-if="uiSchema != null && uiSchema.name != null"
-                class="ml-3"
+                class="ml-2"
                 >{{ uiSchema.name }}</span
               >
-              <span v-else class="ml-3">{{ $static.metadata.siteName }}</span>
+              <span v-else class="ml-2">{{ $static.metadata.siteName }}</span>
             </span>
             <span v-else class="text-dark ml-2"> {{ title }}</span>
           </span>
