@@ -69,7 +69,6 @@
                     href="/"
                     id="navLogo"
                     class="
-                      
                       mr-auto
                       text-center
                       w-100
@@ -161,7 +160,7 @@
                   <b-dropdown
                     variant="transparent"
                     v-if="getUserEmail() != null"
-                    menu-class="w-100"
+                    menu-class="w-100 border-light-blue raised"
                     style="margin-right: 11px !important"
                     class="
                       bg-light-blue

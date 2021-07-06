@@ -160,7 +160,7 @@
                 v-if="getUserEmail() != null"
                 block
                 class="w-100"
-                menu-class="w-100"
+                menu-class="w-100 border-light-blue raised"
                 variant="text-dark"
               >
                 <template #button-content>
