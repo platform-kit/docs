@@ -904,6 +904,8 @@ h6 {
   opacity: 1;
 }
 
+
+
 #edit-doc-button {
   position: fixed !important;
   bottom: 15px;
@@ -952,5 +954,11 @@ a:hover {
 .brand-logo-desktop {
   margin-left:56px;
 }
+}
+
+.navbar-brand img {
+  height:50px !important;
+  width:50px !important;
+  display:inline-block !important;
 }
 </style>
