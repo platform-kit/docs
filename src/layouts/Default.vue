@@ -940,7 +940,7 @@ a:hover {
 
 @media(min-width:1200px){
 .brand-logo-desktop {
-  margin-left:47px;
+  margin-left:56px;
 }
 }
 </style>
