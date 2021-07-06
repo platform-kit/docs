@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div class="ml-3 pr-2 pl-1 pt-3">
-      <div class="btn btn-block text-dark" style="cursor: default !important">
-        <p class="d-inline-block d-md-none o-50" style="margin-bottom: -15px">
+    <div class="ml-3 pr-2 pl-1 pt-1">
+      <div class="btn btn-block text-dark d-inline-block d-md-none" style="cursor: default !important">
+        <p class="o-50" style="margin-bottom: -15px">
           You're signed in as...
         </p>
         <div
@@ -10,12 +10,12 @@
           class="
             bg-white
             br-5
-            d-flex
+            d-inline-flex d-md-none
             mx-auto
             nav-icon-container
             btn
             d-inline-block d-md-none
-            mb-4
+            mb-2
           "
         >
           <div class="m-auto">
@@ -29,7 +29,7 @@
           </div>
         </div>
         <g-link
-          v-if="uiSettings.features.dashboard == true">
+          v-if="uiSettings.features.dashboard == true"
           to="/admin"
           exact
           style="height: 50px"
