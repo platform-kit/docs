@@ -24,6 +24,7 @@ model User {
   pages             Page[]
   images            Image[]           
   contentItems      ContentItem[]
+  docs              Doc[]
   subscriptionPlans SubscriptionPlan[]
   analyticEvents    AnalyticEvent[]
   Products          Product[]
@@ -83,8 +84,11 @@ model ContentItem {
   contentType        ContentType       @default(text)
   thumbnail          String?
   cover              String?
-  content            String
   contentPreview     String
+  content            String    
+  attributes         Json?    
+  draft_content      String?
+  draft_attributes   Json?  
   excerpt            String?
   published          Boolean           @default(false)
   user               User              @relation(fields: [userId], references: [id])
@@ -92,6 +96,27 @@ model ContentItem {
   json               Json
   requiredPlan       SubscriptionPlan? @relation(fields: [subscriptionPlanId], references: [id])
   subscriptionPlanId Int
+}
+
+model Doc {
+  @@map(name: "docs")
+  id                 Int               @id @default(autoincrement())
+  uuid               String            @unique @default(uuid()) @db.Uuid
+  createdAt          DateTime          @default(now())
+  updatedAt          DateTime          @updatedAt
+  deletedAt          DateTime          @updatedAt
+  publishAt          DateTime          @default(now())      
+  content            String    
+  attributes         Json?    
+  draft_content      String?
+  draft_attributes   Json?
+  published          Boolean           @default(false)
+  repo               String             
+  path               String             
+  git_url            String            @unique  
+  json               Json    
+  user               User?             @relation(fields: [userId], references: [id])
+  userId             Int
 }
 
 enum PricingInterval {
@@ -109,9 +134,9 @@ model Product {
   updatedAt   DateTime @updatedAt
   publishAt   DateTime @default(now())
   thumbnail   String?
-  name        String
+  name        String  
   description String
-  slug        String
+  slug        String   @unique
   price_usd   Int
   published   Boolean  @default(false)
   user        User?    @relation(fields: [userId], references: [id])

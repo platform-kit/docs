@@ -112,15 +112,46 @@
                 </b-navbar-nav>
                 <b-navbar-nav class="ml-auto">
                   <b-nav-form>
-                    <b-form-input
-                      id="admin-search-input"
-                      @input="updateSearch()"
-                      class="mr-2 border-light-blue br-25 px-4"
-                      autocomplete="off"
-                      v-model="search"
-                      placeholder="Search..."
-                    ></b-form-input>
+                    <div class="input-group mx-auto pr-2">
+                      <b-form-input                        
+                        ref="navSearch"
+                        id="admin-search-input"
+                        @input="updateSearch()"
+                        class="mr-3 border-light-blue br-25 px-4"
+                        autocomplete="off"
+                        v-model="search"
+                        style="z-index:1;"
+                        placeholder="Search..."
+                      ></b-form-input>                    
+                    <div class="input-group-append" style="margin-left:-60px !important;z-index:99;">
+                      <div
+                        class="btn bg-none border-0 border-left-0 o-50"
+                        id="searchInputLabel"
+                      >
+                        <span
+                          class="badge border hint"
+                          v-if="search == null || search == ''"
+                          style="background: #eee;margin-left:-13px !important;"
+                        >
+                          Esc
+                        </span>
+                        <span
+                          class="badge border clear"
+                          v-else
+                          @click="search = null"
+                          style="background: #eee; z-index: 999999999999 !important;margin-left:-7px;"
+                        >
+                          <b-icon-x></b-icon-x>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
                   </b-nav-form>
+                
+                
+                  
+                  
+                
                   <b-dropdown
                     variant="transparent"
                     v-if="getUserEmail() != null"
@@ -233,7 +264,7 @@ export default {
   props: ["title"],
   components: {
     AdminSearchResults,
-    AdminNav,    
+    AdminNav,
   },
   data() {
     return {
@@ -245,7 +276,7 @@ export default {
       search: null,
       searchResults: {},
       scrolled: null,
-      searchIteration: 1
+      searchIteration: 1,
     };
   },
   async mounted() {
@@ -265,7 +296,7 @@ export default {
     }
   },
   methods: {
-    updateSearch(){
+    updateSearch() {
       this.searchIteration++;
     },
     logOut() {
@@ -1007,6 +1038,11 @@ textarea::placeholder,
   opacity: 0.65 !important;
 }
 
+#admin-search-input::placeholder {
+  color: #000 !important;
+  opacity: 0.65 !important;
+}
+
 .multiselect__placeholder,
 input::placeholder,
 textarea::placeholder,
@@ -1085,4 +1121,6 @@ tr:focus {
   margin-top: 2px;
   background: none;
 }
+
+
 </style>
