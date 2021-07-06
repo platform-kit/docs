@@ -473,7 +473,7 @@ body {
 .mainContent {
   background-color:#fff !important;
   background-image:   
-    linear-gradient(-90deg, rgb(255, 255, 255), rgba(232, 239, 250, 1)),
+    linear-gradient(-90deg, rgb(255, 255, 255), rgb(237, 243, 253)),
     linear-gradient(0deg, rgb(255, 255, 255) 0px, rgb(247 249 255) 500px);
   transition: all 0s, opacity 0.5s !important;
 }
