@@ -592,12 +592,10 @@ h6 {
 .navbar {
   transition:all 0.3s;
 }
-.navbar.bg-none {
-  
+.navbar.bg-none {  
   background: linear-gradient(90deg, #fff 100px, rgba(0,0,0,0))  !important;
 }
-.navbar.bg-white {
-  
+.navbar.bg-white {  
   background: #fff !important;
 }
 
