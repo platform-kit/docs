@@ -113,50 +113,56 @@
                 <b-navbar-nav class="ml-auto">
                   <b-nav-form>
                     <div class="input-group mx-auto pr-2">
-                      <b-form-input                        
+                      <b-form-input
                         ref="navSearch"
                         id="admin-search-input"
                         @input="updateSearch()"
                         class="mr-3 border-light-blue br-25 px-4"
                         autocomplete="off"
                         v-model="search"
-                        style="z-index:1;"
+                        style="z-index: 1"
                         placeholder="Search..."
-                      ></b-form-input>                    
-                    <div class="input-group-append" style="margin-left:-60px !important;z-index:99;">
+                      ></b-form-input>
                       <div
-                        class="btn bg-none border-0 border-left-0 o-50"
-                        id="searchInputLabel"
+                        class="input-group-append"
+                        style="margin-left: -60px !important; z-index: 99"
                       >
-                        <span
-                          class="badge border hint"
-                          v-if="search == null || search == ''"
-                          style="background: #eee;margin-left:-13px !important;"
+                        <div
+                          class="btn bg-none border-0 border-left-0 o-50"
+                          id="searchInputLabel"
                         >
-                          Esc
-                        </span>
-                        <span
-                          class="badge border clear"
-                          v-else
-                          @click="search = null"
-                          style="background: #eee; z-index: 999999999999 !important;margin-left:-7px;"
-                        >
-                          <b-icon-x></b-icon-x>
-                        </span>
+                          <span
+                            class="badge border hint"
+                            v-if="search == null || search == ''"
+                            style="
+                              background: #eee;
+                              margin-left: -13px !important;
+                            "
+                          >
+                            Esc
+                          </span>
+                          <span
+                            class="badge border clear"
+                            v-else
+                            @click="search = null"
+                            style="
+                              background: #eee;
+                              z-index: 999999999999 !important;
+                              margin-left: -7px;
+                            "
+                          >
+                            <b-icon-x></b-icon-x>
+                          </span>
+                        </div>
                       </div>
                     </div>
-                  </div>
                   </b-nav-form>
-                
-                
-                  
-                  
-                
+
                   <b-dropdown
                     variant="transparent"
                     v-if="getUserEmail() != null"
                     menu-class="w-100"
-                    style="margin-right: 12px !important"
+                    style="margin-right: 11px !important"
                     class="
                       bg-light-blue
                       br-25
@@ -167,17 +173,19 @@
                     "
                   >
                     <template #button-content>
-                      
-                          <b-avatar :text="getUserEmail()[0]" class="d-inline-block"
+                      <b-avatar
+                        :text="getUserEmail()[0]"
+                        class="d-inline-block"
                         style="
                           margin-top: 0px;
                           margin-left: -5px !important;
                           margin-right: -5px;
-                          max-height:25px;
-                          max-width:25px;
-                        "></b-avatar>
-                    
-                      <span style="margin-left: 9px; margin-right: 2px">
+                          max-height: 25px;
+                          max-width: 25px;
+                        "
+                      ></b-avatar>
+
+                      <span style="margin-left: 9px; margin-right: 0px">
                         {{ getUserEmail() }}
                       </span>
                     </template>
@@ -213,7 +221,10 @@
                 style="min-height: calc(100vh - 77px)"
               >
                 <div v-if="search != null && search != ''">
-                  <AdminSearchResults :key="searchIteration" :search="search"></AdminSearchResults>
+                  <AdminSearchResults
+                    :key="searchIteration"
+                    :search="search"
+                  ></AdminSearchResults>
                 </div>
                 <slot v-else />
               </div>
@@ -1121,6 +1132,4 @@ tr:focus {
   margin-top: 2px;
   background: none;
 }
-
-
 </style>
