@@ -589,7 +589,7 @@ h6 {
   position: fixed;
   width: 100%;
   z-index: 999;
-  background: linear-gradient(90deg, #d9e4f5, #fff 50%) !important;
+  background: linear-gradient(90deg, #fff 50%, #d9e4f5 ) !important;
   background-repeat: no-repeat;
   background-size: 200% !important;
   border-bottom: 1px solid rgba(0, 50, 150, 0.1);
@@ -606,7 +606,7 @@ h6 {
 
 #navbar:hover,
 #navbar:focus-within {
-  background-position-x: 0% !important;
+  background-position-x: 90% !important;
 }
 
 #navbar #searchInputLabel {
