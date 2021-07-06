@@ -28,7 +28,7 @@
         </b-list-group>
       </div>
       <b-list-group
-        v-else-if="searchResults != null && searchResults.total_count == 0"
+        v-else-if="uiSettings.loading == true || (searchResults != null && searchResults.total_count == 0) || typeof searchResults == 'array' && searchResults.length == 0"
         class="mt-3 d-block border-0 raised mx-3 bg-white p-3 text-center"
       >        
         No Results.
@@ -52,7 +52,9 @@ export default {
   props: ["search"],
   data() {
     return {
-      uiSettings: {},
+      uiSettings: {
+        loading:true
+      },
       apiSchema: null,
       uiSchema: null,
       docs: null,
@@ -101,6 +103,7 @@ export default {
       this.uiSchema.docs.collections.forEach((collection, index) =>
         this.getSearchResults(collection.repo, collection.path)
       );
+      this.uiSettings.loading = false;
     },
     async getSearchResults(repo, directory) {
       console.log(repo);
