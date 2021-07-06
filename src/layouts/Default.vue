@@ -568,6 +568,13 @@ h6 {
   }
 }
 
+@media(min-width:768px){
+  #nav-middle {
+    margin-left:-50px !important;
+    
+  }
+}
+
 @media (min-width: 991px) {
   #nav-right {
     width: 400px;
