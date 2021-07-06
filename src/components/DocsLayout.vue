@@ -1,5 +1,5 @@
 <template>
-  <div class="docs-page"  >
+  <div class="docs-page "  >
     <g-link :to="link" id="edit-doc-button" v-if="link != null && isAdmin()" class="br-5 raised border border-light-blue">
       <b-icon-pen scale="1.5" class="mx-auto d-block" style="margin-top:16px;"></b-icon-pen>
     </g-link>
@@ -22,7 +22,7 @@
       <b-icon-book class="mx-auto" style="margin-top:8px !important;"></b-icon-book> <span class="ml-2 d-none">{{ title }}</span>
     </div>
     <div class="container-fluid" style=""  v-bind:class="{'h-md-100': flush != true, 'm-0 p-0 w-100 bg-white px-3': flush == true}" >
-      <div class="row w-100 mx-auto pb-4" style="max-width: 1350px;"  v-bind:class="{'h-md-100': flush != true}">
+      <div class="row w-100 mx-auto" style="max-width: 1350px;"  v-bind:class="{'h-md-100': flush != true}">
         <div
           v-if="hideNav != true"
           class="col-lg-2 h-md-100 d-none d-md-inline-block"
@@ -32,7 +32,7 @@
             <docsNav></docsNav>
           </div>
         </div>
-        <div class="docs-content pt-5 px-2 px-md-5 " v-bind:class="{'mt-5 col-lg-8 pb-5 mb-2': flush != true, 'col-12 m-0 p-0 w-100': flush == true}">
+        <div class="docs-content pt-5 px-2 px-md-5 pb-4" v-bind:class="{'mt-5 col-lg-8 pb-5 mb-2': flush != true, 'col-12 m-0 p-0 w-100': flush == true}">
           <div v-if="content != null" v-html="html"></div>
           <slot v-else name="content" ></slot>
         </div>
