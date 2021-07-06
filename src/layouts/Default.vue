@@ -46,6 +46,7 @@
         <b-navbar-toggle
           @click="search = null"
           target="nav-collapse"
+          class="bg-white border-0 raised"
           style="width: 50px; height: 50px"
         >
           <template #default="{ expanded }">
