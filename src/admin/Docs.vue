@@ -141,7 +141,7 @@
             v-b-modal.add-new-doc-modal
             class="float-right btn btn-light raised mt-3"
             target="_blank"
-            >Add New Content
+            >New
             <b-icon-plus class="ml-2 text-primary"></b-icon-plus
           ></a>
         </div>
