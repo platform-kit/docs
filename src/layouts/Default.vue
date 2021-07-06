@@ -348,7 +348,7 @@ import axios from "axios";
 
 export default {
   props: ["title", "hideheader"],
-  components: {  },
+  components: {},
   data() {
     return {
       uiSettings: {
@@ -931,5 +931,9 @@ a:hover {
 .editor-preview pre,
 .editor-preview-side pre {
   background: none !important;
+}
+
+.dropdown-menu {
+  padding: 0.5rem !important;
 }
 </style>

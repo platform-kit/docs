@@ -1132,4 +1132,8 @@ tr:focus {
   margin-top: 2px;
   background: none;
 }
+
+.dropdown-menu {
+  padding: 0.5rem !important;
+}
 </style>
