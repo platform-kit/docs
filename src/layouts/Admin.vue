@@ -207,13 +207,14 @@
                     class="
                       bg-white
                       br-25
-                      mr-4
+                      
                       px-3
                       d-flex d-md-none
                       border border-light-blue
                     "
+                    style="margin-right:-2px !important;font-size:125% !important;"
                   >
-                    <b-icon-list class="m-auto"></b-icon-list>
+                    <b-icon-list class="m-auto" ></b-icon-list>
                   </div>
                 </b-navbar-nav>
               </b-navbar>
