@@ -69,7 +69,7 @@
                     href="/"
                     id="navLogo"
                     class="
-                      ml-3
+                      
                       mr-auto
                       text-center
                       w-100

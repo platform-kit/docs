@@ -11,7 +11,7 @@
         v-bind:class="{ static: (search != null) & (search != '') }"
       >
         <!-- Left aligned nav items -->
-        <b-navbar-brand href="/" id="navLogo">
+        <b-navbar-brand href="/" id="navLogo" class="brand-logo-desktop">
           <img
             v-if="
               uiSchema != null &&
@@ -25,7 +25,7 @@
           <span v-if="scrolled != true">
             <span
               v-if="uiSchema != null && uiSchema.name != null"
-              class="ml-3"
+              class="ml-2"
               >{{ uiSchema.name }}</span
             >
             <span v-else class="ml-3">{{ $static.metadata.siteName }}</span>
@@ -935,5 +935,11 @@ a:hover {
 
 .dropdown-menu {
   padding: 0.5rem !important;
+}
+
+@media(min-width:1200px){
+.brand-logo-desktop {
+  margin-left:47px;
+}
 }
 </style>
