@@ -595,12 +595,12 @@ h6 {
   transition:all 0.3s;
 }
 .navbar.bg-none {  
-  background: linear-gradient(90deg,rgba(255,255,255,0.6) 100px, rgba(0,0,0,0))  !important;
+  background: linear-gradient(90deg,rgba(255,255,255,0.6) 100px, rgb(237, 243, 253)) !important;
 }
 
 @media(max-width:991px){
   .navbar.bg-none {  
-  background: linear-gradient(90deg,rgba(255,255,255,1) 100px, rgba(0,0,0,0))  !important;
+  background: linear-gradient(90deg,rgba(255,255,255,1) 100px, rgb(237, 243, 253)) !important;
 }
 }
 
