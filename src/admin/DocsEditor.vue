@@ -6,8 +6,7 @@
           ml-0 ml-md-3
           mt-0 mt-lg-2
           mb-4 mb-lg-0
-          text-center text-md-left
-          mr-4
+          text-center text-md-left          
         "
         style="font-weight: 400; font-size: 110%; color: rgba(0, 0, 100, 0.65)"
       >
