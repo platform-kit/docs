@@ -201,7 +201,7 @@ export default {
         sortBy: "name",
         sortDesc: true,
         currentPage: 1,
-        perPage: 15,        
+        perPage: 10,        
         fields: [
           // A virtual column that doesn't exist in items
           // 'index',
@@ -225,7 +225,11 @@ export default {
     try {
       this.window = window;
       this.windowHeight = window.innerHeight;
-      if(this.windowHeight != null && this.windowHeight < 1350){
+      var breakpoint = 675;
+      if(this.window.devicePixelRatio > 1){
+        breakpoint = 1350;
+      }
+      if(this.windowHeight != null && this.windowHeight < breakpoint){
         this.uiSettings.perPage = 5;
       }
     } catch (err) {}
