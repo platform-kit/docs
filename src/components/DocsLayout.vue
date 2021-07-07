@@ -6,7 +6,7 @@
     <div
      v-if="hideNav != true" 
       class="btn btn-dark d-inline d-md-none raised"
-      v-b-modal.docs-modal
+      v-b-toggle.docs-sidebar-mobile
       style="
         height:50px;
         width:50px;
@@ -25,14 +25,14 @@
       <div class="row w-100 mx-auto" style="max-width: 1350px;"  v-bind:class="{'h-md-100': flush != true}">
         <div
           v-if="hideNav != true"
-          class="col-lg-2 h-md-100 d-none d-md-inline-block"
+          class="col-lg-2 h-md-100"
           style="overflow: scroll"
         >
           <div class="px-3 pb-2 pt-4 mt-5 pt-5">
             <docsNav></docsNav>
           </div>
         </div>
-        <div class="docs-content pt-5 px-2 px-md-5 pb-4" v-bind:class="{'mt-5 col-lg-8 pb-5 mb-0': flush != true, 'col-12 m-0 p-0 w-100': flush == true}">
+        <div class="docs-content pt-lg-5 px-2 px-md-5 pb-4" v-bind:class="{'mt-lg-5 col-lg-8 pb-5 mb-0': flush != true, 'col-12 m-0 p-0 w-100': flush == true}">
           <div v-if="content != null" v-html="html"></div>
           <slot v-else name="content" ></slot>
         </div>
