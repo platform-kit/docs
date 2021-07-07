@@ -137,7 +137,7 @@
 
     <b-sidebar id="docs-sidebar-mobile" ref="docs-sidebar-mobile" bg-variant="light-blue-gradient" no-header backdrop shadow width="clamp(300px, calc(100% - 80px), 375px)">
       <div class="docs-nav mx-4 mt-4" @click="hideModal()">
-        <g-link :to="'/admin'" class="btn btn-sm btn-block btn-dark mb-4 raised text-center" v-if="isAdmin()">
+        <g-link :to="'/admin'" class="btn btn-sm btn-block mb-4 raised text-center" style="background:#000 !important;color:#fff !important;" v-if="isAdmin()">
           <b-icon-grid class="mr-2"></b-icon-grid class="mr-2 o-50"> Admin
         </g-link>
         <div v-if="directories != null">
