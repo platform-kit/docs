@@ -137,6 +137,9 @@
 
     <b-sidebar id="docs-sidebar-mobile" ref="docs-sidebar-mobile" bg-variant="light-blue-gradient" no-header backdrop shadow width="clamp(300px, calc(100% - 80px), 375px)">
       <div class="docs-nav mx-4 mt-4" @click="hideModal()">
+        <g-link :to="'/admin'" class="btn btn-sm btn-block btn-dark mb-4 raised text-center" v-if="isAdmin()">
+          <b-icon-grid class="mr-2"></b-icon-grid class="mr-2 o-50"> Admin
+        </g-link>
         <div v-if="directories != null">
           <div
             v-for="(directory, index) in directories"
@@ -235,7 +238,7 @@ import axios from "axios";
 
 export default {
   name: "DocsNav",
-  props: [],
+  
   data() {
     return {
       uiSettings: {  
@@ -245,9 +248,11 @@ export default {
       docs: null,
       graphQL: null,
       directories: null,
+      window: null
     };
   },
   async mounted() {
+    this.window = window;
     this.docs = this.$static.docs.edges;
     this.getApiSchema();
     this.getUiSchema();
@@ -256,6 +261,17 @@ export default {
     // this.checkForGraphQL();
   },
   methods: {
+    isAdmin() {
+      var user = null;
+      if(this.window != null){
+        user = this.$store.getters.getUser;
+      }
+      if (user != null && user.data?.roles?.includes("admin")) {
+        return true;
+      } else {
+        return false;
+      }
+    },
     getCollectionName(directory) {
       if (
         this.uiSchema != null &&

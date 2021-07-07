@@ -1,6 +1,6 @@
 <template>
   <div class="docs-page "  >
-    <g-link :to="link" id="edit-doc-button" v-if="link != null && isAdmin()" class="br-5 raised border border-white">
+    <g-link :to="link" id="edit-doc-button" v-if="link != null && isAdmin()" class="br-5 raised border border-white d-none">
       <b-icon-pen scale="1.5" class="mx-auto d-block" style="margin-top:16px;"></b-icon-pen>
     </g-link>
     <div
@@ -19,7 +19,7 @@
         background:#111;
       "
     >
-      <b-icon-book class="mx-auto" style="margin-top:8px !important;"></b-icon-book> <span class="ml-2 d-none">{{ title }}</span>
+      <b-icon-list class="mx-auto" style="margin-top:8px !important;"></b-icon-list> <span class="ml-2 d-none">{{ title }}</span>
     </div>
     <div class="container-fluid" style=""  v-bind:class="{'h-md-100': flush != true, 'm-0 p-0 w-100 bg-white px-3': flush == true}" >
       <div class="row w-100 mx-auto" style="max-width: 1350px;"  v-bind:class="{'h-md-100': flush != true}">
@@ -40,7 +40,7 @@
           v-if="hideSidebar != true"          
           class="col-lg-2 docs-sidebar h-md-100 pt-5 mt-5 d-none d-lg-inline-block border-left"                    
         >
-          <slot name="sidebar" ></slot>
+          <slot name="sidebar"  ></slot>
         </div>
         </div>
       </div>
