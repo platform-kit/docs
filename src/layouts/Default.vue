@@ -463,7 +463,7 @@ export default {
 
 <style>
 body {
-  font-family: "Open Sans", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto,
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, sans-serif !important;
   margin: 0;
   padding: 0;
