@@ -463,7 +463,7 @@ export default {
 
 <style>
 body {
-  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto,
+  font-family: "Open Sans", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, sans-serif !important;
   margin: 0;
   padding: 0;
@@ -503,9 +503,10 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Jost", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
-    Roboto, "Helvetica Neue", Arial, sans-serif !important;
-  letter-spacing: 0.75px;
+  font-family: "Montserrat",  -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif !important; 
+  font-weight:600 !important;
+  letter-spacing: 0.25px;  
 }
 
 #modal-search {
@@ -665,7 +666,7 @@ h6 {
 }
 
 .navlist .list-group-item:hover {
-  background: #f1f8ff !important;
+  background: #fff !important;
 }
 
 .search-result {
@@ -891,6 +892,11 @@ h6 {
   border-radius: 4px !important;
   overflow: hidden;
 }
+
+.docs-content p {
+  line-height: 200% !important;
+}
+
 .docs-page .docs-content,
 .docs-page .docs-sidebar {
   transition: 0.3s all;
@@ -912,7 +918,8 @@ h6 {
   left: 15px;
   height: 50px;
   width: 50px;
-  background: #deebff !important;
+  background: #fff !important;
+  color:#000 !important;
   border: none !important;
   z-index: 999;
   cursor: pointer;
@@ -928,6 +935,7 @@ h6 {
   outline: none !important;
   box-shadow: none !important;
 }
+
 
 .list-group-item-details-badge {
   opacity: 0;

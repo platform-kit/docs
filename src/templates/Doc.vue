@@ -15,11 +15,11 @@
         v-slot:sidebar
         v-if="doc != null && doc.headings != null && doc.headings.length > 1"
       >
-        <div>On This Page</div>
+        <div class="" style="color:#000"><small style="font-weight:700 !important;"><b-icon-journal-text class="mr-2 o-80" ></b-icon-journal-text><span class="" style="letter-spacing:1.25px;">CONTENTS</span></small></div>
         <span
           class="mt-3 mb-2"
           style="
-            width: 100px;
+            width: 103px;
             background: #007bff;
             opacity: 0.25;
             height: 4px;
@@ -31,12 +31,13 @@
           v-for="(heading, index) in doc.headings"
           :key="index"
           :time="uiSettings.componentKey"
-          style="letter-spacing: 1px"
+          style="letter-spacing: 1px; pointer-events:none;"
         >
           <a
             :href="heading.anchor"
             v-if="index != 0"
             class="btn p-0 mb-2 mt-1 o-70 o-h-100 text-dark text-left"
+            style="font-size:85% !important;"
           >
             {{ heading.value }}
           </a>

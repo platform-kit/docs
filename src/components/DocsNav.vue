@@ -19,10 +19,10 @@
               v-if="directory == doc.node.fileInfo.directory"
               class="btn btn-block text-left px-2 py-1 my-2 text-capitalize"
             >
-              <span class="nav-indicator o-50"
-                ><b-icon-caret-right-fill
-                  style="margin-top: 2px"
-                ></b-icon-caret-right-fill
+              <span class="nav-indicator "
+                ><b-icon-caret-right
+                  style="margin-top: 2px;color:#007bff;opacity:0.4;"
+                ></b-icon-caret-right
               ></span>
               {{ doc.node.title }}
             </g-link>
@@ -275,14 +275,28 @@ export default {
 </script>
 
 <style>
-.docs-nav .btn:hover,
+
 .docs-nav .btn:focus,
 .docs-nav .btn.active {
   background-color: #f0f6ff !important;
 }
-.docs-nav .btn.active {
-  color: #007bff;
+.docs-nav .btn:hover {
+  background-color: rgb(255, 255, 255) !important;
+  
+  box-shadow:3px 10px 16px rgb(0 0 100 / 10%) !important;
 }
+
+.docs-nav .btn.active {
+  color: #007bff;  
+}
+
+@media(min-width:991px){
+  .docs-nav .btn.active {
+  background:rgba(255, 255, 255, 0.75) !important;  
+  box-shadow:3px 10px 16px rgb(0 0 100 / 10%) !important;
+}
+}
+
 .docs-nav .badge-light-blue {
   background: rgba(0, 50, 100, 0.05);
 }

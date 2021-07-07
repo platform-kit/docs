@@ -1,6 +1,6 @@
 <template>
   <div class="docs-page "  >
-    <g-link :to="link" id="edit-doc-button" v-if="link != null && isAdmin()" class="br-5 raised border border-light-blue">
+    <g-link :to="link" id="edit-doc-button" v-if="link != null && isAdmin()" class="br-5 raised border border-white">
       <b-icon-pen scale="1.5" class="mx-auto d-block" style="margin-top:16px;"></b-icon-pen>
     </g-link>
     <div
