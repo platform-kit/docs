@@ -141,8 +141,7 @@
             v-b-modal.add-new-doc-modal
             class="float-right btn btn-light raised mt-3"
             target="_blank"
-            >New
-            <b-icon-plus class="ml-2 text-primary"></b-icon-plus
+            >New <b-icon-plus class="ml-2 text-primary"></b-icon-plus
           ></a>
         </div>
       </div>
@@ -194,6 +193,7 @@ export default {
   data() {
     return {
       uiSchema: null,
+      windowHeight: null,
       uiSettings: {
         newFileName: null,
         selectedRepo: null,
@@ -201,7 +201,7 @@ export default {
         sortBy: "name",
         sortDesc: true,
         currentPage: 1,
-        perPage: 15,
+        perPage: 15,        
         fields: [
           // A virtual column that doesn't exist in items
           // 'index',
@@ -224,7 +224,16 @@ export default {
     this.getUiSchema();
     try {
       this.window = window;
+      this.windowHeight = window.innerHeight;
+      if(this.windowHeight != null && this.windowHeight < 1350){
+        this.uiSettings.perPage = 5;
+      }
     } catch (err) {}
+  },
+  watch: {
+    windowHeight(newHeight, oldHeight) {
+     // this.txt = `it changed to ${newHeight} from ${oldHeight}`;
+    },
   },
   methods: {
     getEditorLink() {
