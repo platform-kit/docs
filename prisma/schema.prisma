@@ -25,12 +25,29 @@ model User {
   images            Image[]           
   contentItems      ContentItem[]
   docs              Doc[]
+  identities        Identity[]           
   subscriptionPlans SubscriptionPlan[]
   analyticEvents    AnalyticEvent[]
   Products          Product[]
   stripeId          String             @unique
   avatar            String?
   status            UserStatus?        @default(Enabled)
+}
+
+model Identity {
+  @@map(name: "identities")
+  id                 Int                @id @default(autoincrement())
+  uuid               String             @unique @default(uuid()) @db.Uuid
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  oauth_id           String     
+  platform           String     
+  email              String?          
+  username           String?             
+  name               String?    
+  token              String?    
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int  
 }
 
 enum UserStatus {
