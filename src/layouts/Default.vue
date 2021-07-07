@@ -970,11 +970,13 @@ a:hover {
   }
 }
 
+@media (min-width: 991px) {
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
   /* Retina-specific stuff here */
   .brand-logo-desktop {
     margin-left: 56px !important;
   }
+}
 }
 .navbar-brand img {
   height: 50px !important;
