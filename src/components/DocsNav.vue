@@ -135,7 +135,7 @@
     </b-modal>
 
 
-    <b-sidebar id="docs-sidebar-mobile" ref="docs-sidebar-mobile" bg-variant="light-blue-gradient" no-header backdrop shadow width="300px">
+    <b-sidebar id="docs-sidebar-mobile" ref="docs-sidebar-mobile" bg-variant="light-blue-gradient" no-header backdrop shadow width="clamp(300px, calc(100% - 80px), 500px)">
       <div class="docs-nav mx-4 mt-4" @click="hideModal()">
         <div v-if="directories != null">
           <div

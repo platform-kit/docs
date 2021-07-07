@@ -46,12 +46,12 @@
         <b-navbar-toggle
           @click="search = null"
           target="nav-collapse"
-          class="bg-white border-0 raised"
+          class="bg-white text-dark border-0 raised"
           style="width: 50px; height: 50px"
         >
           <template #default="{ expanded }">
-            <b-icon v-if="expanded" icon="list"></b-icon>
-            <b-icon v-else icon="list"></b-icon>
+            <b-icon v-if="expanded" icon="search"></b-icon>
+            <b-icon v-else icon="search"></b-icon>
           </template>
         </b-navbar-toggle>
 
@@ -138,7 +138,7 @@
               ><span class="d-inline-block d-md-none mx-2">Github</span>
             </g-link>
 
-            <div class="btn-group w-100 mt-3 mt-md-0">
+            <div class="btn-group w-100 mt-3 mt-md-0 d-none d-lg-inline-block" >
               <g-link
                 v-if="getUserEmail() == null"
                 :to="'/auth/login'"
@@ -161,7 +161,7 @@
                 v-if="getUserEmail() != null"
                 block
                 class="w-100"
-                menu-class="w-100 border-light-blue raised"
+                menu-class="w-100 border-light-blue raised "
                 variant="text-dark"
               >
                 <template #button-content>
