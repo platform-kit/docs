@@ -135,8 +135,8 @@
     </b-modal>
 
 
-    <b-sidebar id="docs-sidebar-mobile" ref="docs-sidebar-mobile" bg-variant="light-blue-gradient"  width="300px">
-      <div class="docs-nav mx-4" @click="hideModal()">
+    <b-sidebar id="docs-sidebar-mobile" ref="docs-sidebar-mobile" bg-variant="light-blue-gradient" no-header backdrop shadow width="300px">
+      <div class="docs-nav mx-4 mt-4" @click="hideModal()">
         <div v-if="directories != null">
           <div
             v-for="(directory, index) in directories"

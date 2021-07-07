@@ -38,7 +38,7 @@
         </div>
         <div
           v-if="hideSidebar != true"          
-          class="col-lg-2 docs-sidebar h-md-100 pt-5 mt-5 d-none d-md-inline-block border-left"                    
+          class="col-lg-2 docs-sidebar h-md-100 pt-5 mt-5 d-none d-lg-inline-block border-left"                    
         >
           <slot name="sidebar" ></slot>
         </div>

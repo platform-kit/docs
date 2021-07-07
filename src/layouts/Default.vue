@@ -503,10 +503,10 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Montserrat",  -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
-    Roboto, "Helvetica Neue", Arial, sans-serif !important; 
-  font-weight:600 !important;
-  letter-spacing: 0.25px;  
+  font-family: "Montserrat", -apple-system, system-ui, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.25px;
 }
 
 #modal-search {
@@ -919,7 +919,7 @@ h6 {
   height: 50px;
   width: 50px;
   background: #fff !important;
-  color:#000 !important;
+  color: #000 !important;
   border: none !important;
   z-index: 999;
   cursor: pointer;
@@ -935,7 +935,6 @@ h6 {
   outline: none !important;
   box-shadow: none !important;
 }
-
 
 .list-group-item-details-badge {
   opacity: 0;
@@ -971,12 +970,12 @@ a:hover {
 }
 
 @media (min-width: 991px) {
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-  /* Retina-specific stuff here */
-  .brand-logo-desktop {
-    margin-left: 56px !important;
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    /* Retina-specific stuff here */
+    .brand-logo-desktop {
+      margin-left: 56px !important;
+    }
   }
-}
 }
 .navbar-brand img {
   height: 50px !important;
