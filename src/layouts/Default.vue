@@ -453,7 +453,7 @@ export default {
     },
     async escapeListener(event) {
       if (event.key === "Escape") {
-        this.search = null;
+        this.search = null;                
         this.$refs.navSearch.$el.focus();
       }
     },

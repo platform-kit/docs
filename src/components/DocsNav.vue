@@ -140,6 +140,10 @@
         <g-link :to="'/admin'" class="btn btn-sm btn-block mb-4 raised text-center" style="background:#000 !important;color:#fff !important;" v-if="isAdmin()">
           <b-icon-grid class="mr-2"></b-icon-grid class="mr-2 o-50"> Admin
         </g-link>
+        <g-link :to="'/auth/login'" class="btn btn-sm btn-block mb-4 raised text-center" style="background:#000 !important;color:#fff !important;" v-if="!isSignedIn()">
+          <b-icon-person-circle class="mr-2"></b-icon-person-circle class="mr-2 o-50"> Sign In
+        </g-link>
+        
         <div v-if="directories != null">
           <div
             v-for="(directory, index) in directories"
@@ -238,17 +242,16 @@ import axios from "axios";
 
 export default {
   name: "DocsNav",
-  
+
   data() {
     return {
-      uiSettings: {  
-      },
+      uiSettings: {},
       apiSchema: null,
       uiSchema: null,
       docs: null,
       graphQL: null,
       directories: null,
-      window: null
+      window: null,
     };
   },
   async mounted() {
@@ -263,10 +266,23 @@ export default {
   methods: {
     isAdmin() {
       var user = null;
-      if(this.window != null){
+      if (this.window != null) {
         user = this.$store.getters.getUser;
       }
       if (user != null && user.data?.roles?.includes("admin")) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+    isSignedIn() {
+      var user = null;
+      if (this.window != null) {
+        user = this.$store.getters.getUser;
+        console.log('USER:');
+        console.log(user.data);
+      }
+      if (user != null && user.data != null) {
         return true;
       } else {
         return false;
@@ -362,27 +378,24 @@ export default {
 </script>
 
 <style>
-
 .docs-nav .btn:focus,
 .docs-nav .btn.active {
   background-color: #f0f6ff !important;
 }
 .docs-nav .btn:hover {
   background-color: rgb(255, 255, 255) !important;
-  
-  box-shadow:3px 10px 16px rgb(0 0 100 / 10%) !important;
+
+  box-shadow: 3px 10px 16px rgb(0 0 100 / 10%) !important;
 }
 
 .docs-nav .btn.active {
-  color: #007bff;  
+  color: #007bff;
 }
 
-
-  .docs-nav .btn.active {
-  background:rgba(255, 255, 255, 0.75) !important;  
-  box-shadow:3px 10px 16px rgb(0 0 100 / 10%) !important;
+.docs-nav .btn.active {
+  background: rgba(255, 255, 255, 0.75) !important;
+  box-shadow: 3px 10px 16px rgb(0 0 100 / 10%) !important;
 }
-
 
 .docs-nav .badge-light-blue {
   background: rgba(0, 50, 100, 0.05);
