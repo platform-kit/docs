@@ -116,7 +116,7 @@
           <b-navbar-nav
             class="ml-auto text-right mb-2 mb-md-0 d-block"
             id="nav-right"
-            style="margin-right:-6px;"
+            style="margin-right: -6px"
           >
             <g-link
               v-if="
@@ -471,9 +471,12 @@ body {
 }
 
 .mainContent {
-  background-color:#fff !important;
-  background-image:   
-    linear-gradient(-90deg, rgb(255, 255, 255), rgb(237, 243, 253)),
+  background-color: #fff !important;
+  background-image: linear-gradient(
+      -90deg,
+      rgb(255, 255, 255),
+      rgb(237, 243, 253)
+    ),
     linear-gradient(0deg, rgb(255, 255, 255) 0px, rgb(247 249 255) 500px);
   transition: all 0s, opacity 0.5s !important;
 }
@@ -571,10 +574,9 @@ h6 {
   }
 }
 
-@media(min-width:768px){
+@media (min-width: 768px) {
   #nav-middle {
-    margin-left:-50px !important;
-    
+    margin-left: -50px !important;
   }
 }
 
@@ -600,7 +602,7 @@ h6 {
   position: fixed;
   width: 100%;
   z-index: 999;
-  background: linear-gradient(90deg, #fff 50%, #d9e4f5 ) !important;
+  background: linear-gradient(90deg, #fff 50%, #d9e4f5) !important;
   background-repeat: no-repeat;
   background-size: 200% !important;
   border-bottom: 1px solid rgba(0, 50, 150, 0.1);
@@ -904,8 +906,6 @@ h6 {
   opacity: 1;
 }
 
-
-
 #edit-doc-button {
   position: fixed !important;
   bottom: 15px;
@@ -950,15 +950,27 @@ a:hover {
   padding: 0.5rem !important;
 }
 
-@media(min-width:1200px){
-.brand-logo-desktop {
-  margin-left:56px;
-}
+@media (min-width: 991px) {
+  .brand-logo-desktop {
+    margin-left: 56px;
+  }
 }
 
+@media (min-width: 1020px) {
+  .brand-logo-desktop {
+    margin-left: 47px;
+  }
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  /* Retina-specific stuff here */
+  .brand-logo-desktop {
+    margin-left: 56px !important;
+  }
+}
 .navbar-brand img {
-  height:50px !important;
-  width:50px !important;
-  display:inline-block !important;
+  height: 50px !important;
+  width: 50px !important;
+  display: inline-block !important;
 }
 </style>
