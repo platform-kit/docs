@@ -941,7 +941,7 @@ h6 {
 
 @media (max-width: 720px) {
   #admin-search-input {
-    width: calc(100%);
+    width: calc(100% - 20px);
   }
 }
 
