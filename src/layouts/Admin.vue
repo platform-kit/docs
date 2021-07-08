@@ -609,7 +609,7 @@ h6 {
   background: #fff !important;
 }
 
-.navbar:hover,
+
 .navbar:focus-within,
 .navbar.bg-darker {
   
@@ -938,13 +938,13 @@ h6 {
 }
 @media (max-width: 991px) {
   #admin-search-input {
-    width: 200px;
+    width: 180px;
   }
 }
 
 @media (max-width: 720px) {
   #admin-search-input {
-    width: calc(100% - 20px);
+    width: calc(100% - 40px);
   }
 }
 
