@@ -82,8 +82,8 @@
                   id="nav-input"
                   @input="getSearchResults()"
                   ref="navSearch"
-                  class="mr-sm-2 mr-0 br-25 px-3 border-light-blue"
-                  style="text-align: center; z-index: 1 !important"
+                  class="mr-sm-2 mr-0 br-25 px-3 border-0"
+                  style="text-align: center; z-index: 1 !important;"
                   placeholder="Search"
                 ></b-form-input>
                 <div class="input-group-append">
@@ -94,7 +94,7 @@
                     <span
                       class="badge border hint"
                       v-if="search == null || search == ''"
-                      style="background: #eee"
+                      style="background: #fff"
                     >
                       Esc
                     </span>
@@ -102,7 +102,7 @@
                       class="badge border clear"
                       v-else
                       @click="search = null"
-                      style="background: #eee; z-index: 999999999999 !important"
+                      style="background: #fff; z-index: 999999999999 !important"
                     >
                       <b-icon-x></b-icon-x>
                     </span>
@@ -568,6 +568,7 @@ h6 {
 }
 #nav-input {
   width: 350px !important;
+  background:#bcc5e22e !important;
 }
 @media (max-width: 768px) {
   #nav-middle {
@@ -618,7 +619,7 @@ h6 {
   left: 0px;
 }
 
-#navbar:hover,
+
 #navbar:focus-within {
   background-position-x: 90% !important;
 }
