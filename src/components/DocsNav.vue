@@ -161,7 +161,8 @@
                     "
                   ></b-avatar>
 
-                  {{ getUserEmail() }}
+                  <span class="d-none d-md-inline">{{ getUserEmail() }}</span>
+                  <span class="d-inline d-md-none">{{ truncate(getUserEmail(), 18) }}</span>
                 </template>                
                 <b-dropdown-item @click="logOut()" href="#"
                   ><b-icon-lock class="mr-2 text-danger"></b-icon-lock> Sign
@@ -292,6 +293,9 @@ export default {
     // this.checkForGraphQL();
   },
   methods: {
+    truncate(string, limit) {
+      return string.length > limit ? `${string.substr(0, limit)}...` : string;
+    },
     getUserEmail() {
       if (this.window != null) {
         return this.$store?.getters?.getUser?.data?.sub;
