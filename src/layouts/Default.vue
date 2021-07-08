@@ -589,7 +589,11 @@ h6 {
 #nav-input {
   width: 340px !important;
   transition: all 0.3s !important;
-  background: rgb(189 199 234 / 29%) !important;
+  background: rgb(211 216 234 / 29%) !important;
+}
+
+#nav-input::placeholder {
+  color:#444 !important;
 }
 
 #nav-input:focus {
