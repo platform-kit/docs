@@ -568,8 +568,14 @@ h6 {
 }
 #nav-input {
   width: 350px !important;
-  background:#bcc5e22e !important;
+  transition: all 0.3s !important;
+  background:#c6d3ff49 !important;
 }
+
+#nav-input:focus {
+    background:#fff !important;
+}
+
 @media (max-width: 768px) {
   #nav-middle {
     margin-top: 20px !important;

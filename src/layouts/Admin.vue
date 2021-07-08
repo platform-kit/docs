@@ -118,7 +118,7 @@
                         ref="navSearch"
                         id="admin-search-input"
                         @input="updateSearch()"
-                        class="mr-3 border-light-blue br-25 px-4"
+                        class="mr-3 border-0 br-25 px-4"
                         autocomplete="off"
                         v-model="search"
                         style="z-index: 1"
@@ -133,21 +133,21 @@
                           id="searchInputLabel"
                         >
                           <span
-                            class="badge border hint"
+                            class="badge  hint"
                             v-if="search == null || search == ''"
                             style="
-                              background: #eee;
+                              background: #fff;
                               margin-left: -13px !important;
                             "
                           >
                             Esc
                           </span>
                           <span
-                            class="badge border clear"
+                            class="badge  clear"
                             v-else
                             @click="search = null"
                             style="
-                              background: #eee;
+                              background: #fff;
                               z-index: 999999999999 !important;
                               margin-left: -7px;
                             "
@@ -547,6 +547,7 @@ h6 {
 }
 #nav-input {
   width: 350px !important;
+  
 }
 @media (max-width: 768px) {
   #nav-middle {
@@ -932,6 +933,8 @@ h6 {
 
 #admin-search-input {
   width: 300px;
+  transition: all 0.3s !important;
+  background:#c6d3ff49 !important;
 }
 @media (max-width: 991px) {
   #admin-search-input {
@@ -943,6 +946,10 @@ h6 {
   #admin-search-input {
     width: calc(100% - 20px);
   }
+}
+
+#admin-search-input:focus {
+  background:#fff !important;
 }
 
 .table-striped tbody tr:nth-of-type(odd) {
