@@ -82,7 +82,7 @@
                   id="nav-input"
                   @input="getSearchResults()"
                   ref="navSearch"
-                  class="mr-sm-2 mr-0 br-25 px-3 border-0"
+                  class="mr-sm-2 mr-0 br-5 px-3 border-0"
                   style="text-align: center; z-index: 1 !important;"
                   placeholder="Search"
                 ></b-form-input>
@@ -569,7 +569,7 @@ h6 {
 #nav-input {
   width: 350px !important;
   transition: all 0.3s !important;
-  background:#c6d3ff49 !important;
+  background:rgb(189 199 234 / 29%) !important;
 }
 
 #nav-input:focus {
