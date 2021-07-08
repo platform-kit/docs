@@ -83,7 +83,7 @@
                   @input="getSearchResults()"
                   ref="navSearch"
                   class="mr-sm-2 mr-0 br-5 px-3 border-0"
-                  style="text-align: center; z-index: 1 !important;"
+                  style="text-align: center; z-index: 1 !important"
                   placeholder="Search"
                 ></b-form-input>
                 <div class="input-group-append">
@@ -138,7 +138,7 @@
               ><span class="d-inline-block d-md-none mx-2">Github</span>
             </g-link>
 
-            <div class="btn-group w-100 mt-3 mt-md-0 d-none d-lg-inline-block" >
+            <div class="btn-group w-100 mt-3 mt-md-0 d-none d-lg-inline-block">
               <g-link
                 v-if="getUserEmail() == null"
                 :to="'/auth/login'"
@@ -157,8 +157,28 @@
                 ></b-icon-person-circle>
                 Sign In
               </g-link>
+              <div
+                v-if="hideNav != true"
+                class="btn d-none d-md-inline-block raised"
+                v-b-toggle.docs-sidebar-mobile
+                style="
+                  height: 50px;
+                  width: 50px;
+                  border-radius:5px !important;
+                  margin-right:5px;
+                  cursor: pointer;
+                  z-index: 99;                
+                  background: #fff;
+                "
+              >
+                <b-icon-list
+                  class="mx-auto text-dark"
+                  style="margin-top: 8px !important"
+                ></b-icon-list>
+                <span class="ml-2 d-none">{{ title }}</span>
+              </div>
               <b-dropdown
-                v-if="getUserEmail() != null"
+                v-if="getUserEmail() != null && false == true"
                 block
                 class="w-100"
                 menu-class="w-100 border-light-blue raised "
@@ -453,7 +473,7 @@ export default {
     },
     async escapeListener(event) {
       if (event.key === "Escape") {
-        this.search = null;                
+        this.search = null;
         this.$refs.navSearch.$el.focus();
       }
     },
@@ -475,13 +495,9 @@ body {
   background-image: linear-gradient(
       0deg,
       rgb(255, 255, 255),
-      rgba(237, 243, 253,0)
+      rgba(237, 243, 253, 0)
     ),
-     linear-gradient(
-      -90deg,
-      rgb(255, 255, 255),
-      rgb(237, 243, 253)
-    );
+    linear-gradient(-90deg, rgb(237, 243, 253), rgb(255, 255, 255), rgb(237, 243, 253));
   transition: all 0s, opacity 0.5s !important;
 }
 
@@ -573,11 +589,11 @@ h6 {
 #nav-input {
   width: 340px !important;
   transition: all 0.3s !important;
-  background:rgb(189 199 234 / 29%) !important;
+  background: rgb(189 199 234 / 29%) !important;
 }
 
 #nav-input:focus {
-    background:#fff !important;
+  background: #fff !important;
 }
 
 @media (max-width: 768px) {
@@ -628,7 +644,6 @@ h6 {
   top: 0px;
   left: 0px;
 }
-
 
 #navbar:focus-within {
   background-position-x: 90% !important;

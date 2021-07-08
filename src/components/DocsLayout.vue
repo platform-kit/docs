@@ -25,7 +25,7 @@
       <div class="row w-100 mx-auto" style="max-width: 1350px;"  v-bind:class="{'h-md-100': flush != true}">
         <div
           v-if="hideNav != true"
-          class="col-lg-2 h-md-100 border-right border-light-blue"
+          class="col-lg-2 h-md-100 "
           style="overflow: scroll"
         >
           <div class="px-3 pb-2 pt-4 mt-5 pt-5">
@@ -38,7 +38,7 @@
         </div>
         <div
           v-if="hideSidebar != true"          
-          class="col-lg-2 docs-sidebar h-md-100 pt-5 mt-5 d-none d-lg-inline-block border-left"                    
+          class="col-none col-lg-2 docs-sidebar h-md-100 pt-5 mt-5 d-none d-lg-inline-block "                    
         >
           <slot name="sidebar"  ></slot>
         </div>
