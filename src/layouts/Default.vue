@@ -139,24 +139,7 @@
             </g-link>
 
             <div class="btn-group w-100 mt-3 mt-md-0 d-none d-lg-inline-block">
-              <g-link
-                v-if="getUserEmail() == null"
-                :to="'/auth/login'"
-                class="
-                  btn
-                  d-block
-                  ml-auto
-                  mr-auto
-                  ml-md-0
-                  mr-md-0
-                  text-center text-md-right
-                "
-              >
-                <b-icon-person-circle
-                  class="mr-2 text-dark"
-                ></b-icon-person-circle>
-                Sign In
-              </g-link>
+              
               <div
                 v-if="hideNav != true"
                 class="btn d-none d-md-inline-block raised"

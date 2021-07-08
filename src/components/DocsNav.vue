@@ -137,11 +137,39 @@
 
     <b-sidebar id="docs-sidebar-mobile" ref="docs-sidebar-mobile" bg-variant="light-blue-gradient" no-header backdrop shadow width="clamp(300px, calc(100% - 80px), 375px)">
       <div class="docs-nav mx-4 mt-4" @click="hideModal()">
-        <g-link :to="'/admin'" class="btn btn-sm btn-block mb-4 raised text-center" style="background:#000 !important;color:#fff !important;" v-if="isAdmin()">
+        <g-link :to="'/admin'" class="btn btn-sm btn-block mb-2 raised text-center" style="background:#000 !important;color:#fff !important;" v-if="isAdmin()">
           <b-icon-grid class="mr-2"></b-icon-grid class="mr-2 o-50"> Admin
         </g-link>
+        <b-dropdown
+                v-if="isSignedIn()"
+                block
+                class="w-100"
+                menu-class="w-100 border-light-blue raised "
+                variant="btn-sm btn-block p-1 bg-white mb-4 text-dark border border-light-blue"                
+              >
+                <template #button-content>
+                  <b-avatar
+                    :text="getUserEmail()[0]"
+                    class="d-inline-block mr-1"
+                    style="
+                      margin-top: 0px;
+                      margin-left: -5px !important;
+                      margin-right: -5px;
+                      max-height: 25px;
+                      max-width: 25px;
+                      background:#000 !important;
+                    "
+                  ></b-avatar>
+
+                  {{ getUserEmail() }}
+                </template>                
+                <b-dropdown-item @click="logOut()" href="#"
+                  ><b-icon-lock class="mr-2 text-danger"></b-icon-lock> Sign
+                  Out</b-dropdown-item
+                >
+              </b-dropdown>
         <g-link :to="'/auth/login'" class="btn btn-sm btn-block mb-4 raised text-center" style="background:#000 !important;color:#fff !important;" v-if="!isSignedIn()">
-          <b-icon-person-circle class="mr-2"></b-icon-person-circle class="mr-2 o-50"> Sign In
+          <b-icon-person-circle class="mr-2"></b-icon-person-circle> Sign In
         </g-link>
         
         <div v-if="directories != null">
@@ -264,6 +292,16 @@ export default {
     // this.checkForGraphQL();
   },
   methods: {
+    getUserEmail() {
+      if (this.window != null) {
+        return this.$store?.getters?.getUser?.data?.sub;
+      }
+    },
+    getUser() {
+      if (this.window != null) {
+        return this.$store?.getters?.getUser?.data;
+      }
+    },
     isAdmin() {
       var user = null;
       if (this.window != null) {
@@ -279,7 +317,7 @@ export default {
       var user = null;
       if (this.window != null) {
         user = this.$store.getters.getUser;
-        console.log('USER:');
+        console.log("USER:");
         console.log(user.data);
       }
       if (user != null && user.data != null) {
