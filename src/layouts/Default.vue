@@ -467,10 +467,8 @@ export default {
     },
     async escapeListener(event) {
       if (event.key === "Escape") {
-        this.search = null;
-        if (this.device == "desktop") {
-          this.$refs.navSearch.$el.focus();
-        }
+        this.search = null;        
+        this.$refs.navSearch.$el.focus();        
       }
     },
   },
