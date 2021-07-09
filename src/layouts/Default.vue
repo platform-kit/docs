@@ -139,7 +139,6 @@
             </g-link>
 
             <div class="btn-group w-100 mt-3 mt-md-0 d-none d-lg-inline-block">
-              
               <div
                 v-if="hideNav != true"
                 class="btn d-none d-md-inline-block raised"
@@ -147,10 +146,10 @@
                 style="
                   height: 50px;
                   width: 50px;
-                  border-radius:5px !important;
-                  margin-right:5px;
+                  border-radius: 5px !important;
+                  margin-right: 5px;
                   cursor: pointer;
-                  z-index: 99;                
+                  z-index: 99;
                   background: #fff;
                 "
               >
@@ -365,6 +364,7 @@ export default {
       searchResults: {},
       scrolled: null,
       window: null,
+      device: null,
     };
   },
   async mounted() {
@@ -373,6 +373,15 @@ export default {
     this.getUiSchema();
     this.window = window;
     window.addEventListener("keydown", this.escapeListener);
+
+    var windowHeight = window.innerHeight;
+    var breakpoint = 675;
+    if (this.window.devicePixelRatio > 1) {
+      breakpoint = 1350;
+    }
+    if (windowHeight != null && windowHeight > breakpoint) {
+      this.device = "desktop";
+    }
   },
   methods: {
     logOut() {
@@ -397,7 +406,9 @@ export default {
       }
     },
     hideNavCollapse() {
-      this.$root.$emit("bv::toggle::collapse", "nav-collapse");
+      if (this.device != "desktop") {
+        this.$root.$emit("bv::toggle::collapse", "nav-collapse");
+      }
     },
     visibleHandler(isVisible) {
       if (isVisible) {
@@ -457,7 +468,9 @@ export default {
     async escapeListener(event) {
       if (event.key === "Escape") {
         this.search = null;
-        this.$refs.navSearch.$el.focus();
+        if (this.device == "desktop") {
+          this.$refs.navSearch.$el.focus();
+        }
       }
     },
   },
@@ -477,10 +490,15 @@ body {
   background-color: #fff !important;
   background-image: linear-gradient(
       0deg,
-      rgba(255, 255, 255, .5),
+      rgba(255, 255, 255, 0.5),
       rgba(237, 243, 253, 0)
     ),
-    linear-gradient(-90deg, rgb(237, 243, 253), rgb(255, 255, 255), rgb(237, 243, 253));
+    linear-gradient(
+      -90deg,
+      rgb(237, 243, 253),
+      rgb(255, 255, 255),
+      rgb(237, 243, 253)
+    );
   transition: all 0s, opacity 0.5s !important;
 }
 
@@ -576,7 +594,7 @@ h6 {
 }
 
 #nav-input::placeholder {
-  color:#444 !important;
+  color: #444 !important;
 }
 
 #nav-input:focus {
