@@ -375,9 +375,9 @@ export default {
     window.addEventListener("keydown", this.escapeListener);
 
     var windowHeight = window.innerHeight;
-    var breakpoint = 675;
+    var breakpoint = 991;
     if (this.window.devicePixelRatio > 1) {
-      breakpoint = 1350;
+      breakpoint = 1920;
     }
     if (windowHeight != null && windowHeight > breakpoint) {
       this.device = "desktop";
