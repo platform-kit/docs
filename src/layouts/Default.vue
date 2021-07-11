@@ -586,7 +586,7 @@ h6 {
   max-width: 340px !important;
 }
 #nav-input {
-  /* width: 240px !important; */  
+  width: 340px !important;
   transition: all 0.3s !important;
   background: rgb(211 216 234 / 29%) !important;
 }
