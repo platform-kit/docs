@@ -583,7 +583,7 @@ h6 {
 
 #nav-search {
   width: 100% !important;
-  max-width: 240px;
+  max-width: 240px !important;
 }
 #nav-input {
   width: 240px !important;
