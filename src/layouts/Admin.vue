@@ -541,11 +541,11 @@ h6 {
   opacity: 0.7;
 }
 
-#nav-search {
+.admin-page #nav-search {
   width: 100% !important;
   max-width: 350px;
 }
-#nav-input {
+.admin-page #nav-input {
   width: 350px !important;
   
 }
