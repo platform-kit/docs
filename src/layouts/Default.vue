@@ -583,10 +583,10 @@ h6 {
 
 #nav-search {
   width: 100% !important;
-  max-width: 240px !important;
+  max-width: 340px !important;
 }
 #nav-input {
-  width: 240px !important;
+  /* width: 240px !important; */  
   transition: all 0.3s !important;
   background: rgb(211 216 234 / 29%) !important;
 }
