@@ -12,17 +12,26 @@
     "docs": {
         "collections": [
             {
-                "name": "API",
-                "prefix": "pka",
-                "label": "PlatformKit API",
-                "repo": "https://github.com/platform-kit/platformkit-api",
-                "path": "docs"
+                "name": "Server",
+                "prefix": "server",
+                "label": "PlatformKit Server",
+                "repo": "https://github.com/platform-kit/server",
+                "path": "docs",
+                "publish": true
+            },
+              {
+                "name": "Auth",
+                "prefix": "auth",
+                "label": "PlatformKit Auth",
+                "repo": "https://github.com/platform-kit/auth",
+                "path": "docs",
+                "publish": true
             },
             {                
-                "name": "UI",
-                "prefix": "pku",
-                "label": "PlatformKit UI",
-                "repo": "https://github.com/platform-kit/platformkit-ui",
+                "name": "Docs",
+                "prefix": "docs",
+                "label": "PlatformKit Docs",
+                "repo": "https://github.com/platform-kit/docs",
                 "path": "docs",
                 "publish": true
             }
