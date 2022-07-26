@@ -24,17 +24,24 @@ The schema looks like this:
     "docs": {
         "collections": [
             {
-                "name": "API",
+                "name": "Server",
+                "prefix": "pks",
+                "label": "PlatformKit Server",
+                "repo": "https://github.com/platform-kit/server",
+                "path": "docs"
+            },
+              {
+                "name": "Auth",
                 "prefix": "pka",
-                "label": "PlatformKit API Docs",
-                "repo": "https://github.com/platform-kit/platformkit-api",
+                "label": "PlatformKit Auth",
+                "repo": "https://github.com/platform-kit/auth",
                 "path": "docs"
             },
             {                
-                "name": "UI",
+                "name": "Docs",
                 "prefix": "pku",
-                "label": "PlatformKit UI Docs",
-                "repo": "https://github.com/platform-kit/platformkit-ui",
+                "label": "PlatformKit Docs",
+                "repo": "https://github.com/platform-kit/docs",
                 "path": "docs",
                 "publish": false
             }
