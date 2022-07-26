@@ -1,192 +1,77 @@
-# PlatformKit UI
+<h1 align="center">PlatformKit Docs</h1>
 
-### Overview
+<p align="center">
+Static documentation generator and serverless CMS.
+</p>
 
-PlatformKit UI is a **static site generator**  and **serverless content management system**. 
+**Built with:** <br>
 
-Front-End: [VueJS](https://www.vuejs.org), [BootstrapVue](https://bootstrap-vue.org) and [Gridsome](https://www.gridsome.org).
+<p float="left">
+<img src="https://img.shields.io/badge/Node.js-ebf5fb?style=for-the-badge&logo=nodedotjs"/>
+<img src="https://img.shields.io/badge/Vue.js-ebf5fb?style=for-the-badge&logo=vuedotjs" />
+<img src="https://img.shields.io/badge/Lambda-ebf5fb?style=for-the-badge&logo=awslambda" />
+</p>
 
-Back-End: [NodeJS](https://nodejs.org), [ExpressJS](https://expressjs.com) and [Lambda-Local](https://www.npmjs.com/package/lambda-local).
+**Deploy with:** <br> 
+<p float="left">
+<img src="https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white"/> <img src="https://img.shields.io/badge/Digital_Ocean-0080FF?style=for-the-badge&logo=DigitalOcean&logoColor=white" /> <img src="https://img.shields.io/badge/Render-46E3B7?style=for-the-badge&logo=Render&logoColor=white"/> 
+</p>
 
-### Key Features
+**License:** <br> <img src="https://img.shields.io/badge/License-000000?style=for-the-badge"/><img src="https://img.shields.io/badge/MIT-222?style=for-the-badge&logoColor=white"/>
 
-- **Marketing:** Create landing pages & track performance via the built-in (zero-config) analytics API
-- **Publishing:** Publish content & sell access via subscriptions OR on a per-item basis
-- **E-Commerce:** Sell products, services, & subscriptions via Stripe or 3rd Party services
+## Features
 
-### Comparisons
+- Generate docs from [Markdown](https://www.markdownguide.org) files in any number of repositories.
+- Generate docs for any API via an [API Schema](https://www.platformkit.com/docs/API/the-api-schema) file.
+- PWA & client-side search (works offline).
 
-<table>
-  <tr style="font-weight:bold;">
-    <td><b>Feature</b></td>
-    <td><b>PlatformKit</b></td>
-    <td><b>Ghost</b></td>
-    <td><b>Wordpress</b></td>
-    <td><b>Strapi</b></td>
-    <td><b>Forestry</b></td>
-    <td><b>Contentful</b></td>
-  </tr>
-  <tr>
-    <td colspan="1">Headless CMS</td>
-    <td colspan="1">✅</td>
-    <td colspan="1">✅</td>
-    <td colspan="1">✅</td>
-    <td colspan="1">✅</td>
-    <td colspan="1">✅</td>
-    <td colspan="1">✅</td>
-  </tr>
-    <tr>
-    <td colspan="1">Custom Content Types</td>
-    <td colspan="1">✅</td>
-    <td colspan="1">❌</td>
-    <td colspan="1">❌</td>
-    <td colspan="1">✅</td>
-    <td colspan="1">✅</td>
-    <td colspan="1">✅</td>
-  </tr>
-  <tr>
-    <td colspan="1">Open Source</td>
-    <td colspan="1">✅</td>
-    <td colspan="1">✅</td>
-    <td colspan="1">✅</td>
-    <td colspan="1">✅</td>
-    <td colspan="1">❌</td>
-    <td colspan="1">❌</td>
-  </tr>
-  <tr>
-    <td colspan="1">Front-End Included (Optional)</td>
-    <td colspan="1">✅</td>
-    <td colspan="1">✅</td>
-    <td colspan="1">✅</td>
-    <td colspan="1">❌</td>
-    <td colspan="1">❌</td>
-    <td colspan="1">❌</td>
-  </tr>
-  <tr>
-    <td colspan="1">Landing Pages</td>
-    <td colspan="1">✅</td>
-    <td colspan="1">❌</td>
-    <td colspan="1">✅</td>
-    <td colspan="1">❌</td>
-    <td colspan="1">❌</td>
-    <td colspan="1">❌</td>
-  </tr>
-  <tr>
-    <td colspan="1">Content Subscriptions</td>
-    <td colspan="1">✅</td>
-    <td colspan="1">✅</td>
-    <td colspan="1">❌</td>
-    <td colspan="1">❌</td>
-    <td colspan="1">❌</td>
-    <td colspan="1">❌</td>
-  </tr>  
-  <tr>
-    <td colspan="1">E-Commerce</td>
-    <td colspan="1">✅</td>
-    <td colspan="1">❌</td>
-    <td colspan="1">❌</td>
-    <td colspan="1">❌</td>
-    <td colspan="1">❌</td>
-    <td colspan="1">❌</td>
-  </tr>
-  <tr>
-    <td colspan="1">Serverless Architecture</td>
-    <td colspan="1">✅</td>
-    <td colspan="1">❌</td>
-    <td colspan="1">❌</td>
-    <td colspan="1">❌</td>
-    <td colspan="1">❌</td>
-    <td colspan="1">❌</td>
-  </tr>
-  <tr>
-    <td colspan="1">Extensible API</td>
-    <td colspan="1">✅</td>
-    <td colspan="1">❌</td>
-    <td colspan="1">❌</td>
-    <td colspan="1">❌</td>
-    <td colspan="1">❌</td>
-    <td colspan="1">❌</td>
-  </tr>
-  <tr>
-    <td colspan="1">Static Site Generator</td>
-    <td colspan="1">✅</td>
-    <td colspan="1">❌</td>
-    <td colspan="1">❌</td>
-    <td colspan="1">❌</td>
-    <td colspan="1">❌</td>
-    <td colspan="1">❌</td>
-  </tr>
-  <tr>
-    <td colspan="1">Built-In Analytics</td>
-    <td colspan="1">✅</td>
-    <td colspan="1">❌</td>
-    <td colspan="1">❌</td>
-    <td colspan="1">❌</td>
-    <td colspan="1">❌</td>
-    <td colspan="1">❌</td>
-  </tr>
-  <tr>
-    <td colspan="1">Passwordless Login</td>
-    <td colspan="1">✅</td>
-    <td colspan="1">❌</td>
-    <td colspan="1">❌</td>
-    <td colspan="1">❌</td>
-    <td colspan="1">❌</td>
-    <td colspan="1">❌</td>
-  </tr>
-  <tr>
-    <td colspan="1">User Roles / Permissions</td>
-    <td colspan="1">✅</td>
-    <td colspan="1">❌</td>
-    <td colspan="1">❌</td>
-    <td colspan="1">✅</td>
-    <td colspan="1">❌</td>
-    <td colspan="1">❌</td>
-  </tr>
-  <tr>
-    <td colspan="1">Static Files (Git-Based)</td>
-    <td colspan="1">✅</td>
-    <td colspan="1">❌</td>
-    <td colspan="1">❌</td>
-    <td colspan="1">❌</td>
-    <td colspan="1">✅</td>
-    <td colspan="1">❌</td>
-  </tr>
-</table>
+## Local Development
 
-### Benefits
-- **For Content Creators**
-  - LAUNCH IMMEDIATELY: publish, market, and sell your content within minutes of deployment
-- **For Startups**
-  - SPEED: Instantly generate content, marketing, & sales pages, so you can focus on your core
-  - AGILITY: adopt JAMstack without comitting to a particular cloud platform or framework
-  - OWNERSHIP: your content lives as static files in your own GitHub account
-  - ANALYTICS: track default events (page views, logins, etc) or custom events with complex data
-- **For Publishers**
-  - CUSTOMIZATION: Build a custom-designed content platform
-    - Manage static content (json/markdown) from any number of repositories
-    - Design custom data models (input validation schemas) per-collection
-    - Specify custom access rules (required roles/permissions) per-collection  
-- **For Sales People**  
-  - CUSTOMER DEVELOPMENT: create detailed customer personas with interests & tags  
-- **For Administrators**
-  - USER MANAGEMENT: Assign Tags, Roles, & Permissions and ban/unban users from the Admin UI
-- **For Developers**
-  - SECURITY: Authentication via Email ("Magic Links")
-    - Easily integrate passwordless login into your app or website 
-  - FLEXIBILITY: Decoupled/Headless Architecture allows 3 deployment scenarios:
-    - Deploy the backend (CMS & API) alone
-    - Deploy the back-end with the default front-end
-    - Deploy the backend with the front-end framework/generator of your choice  
-  - SCALABILITY: front-end deploys to CDN & serverless API scales automatically
+Clone the project
 
-### 1-Click Deployment
+```bash
+  git clone https://github.com/platform-kit/docs pk-docs
+```
 
-To deploy to the cloud, simply click one of the buttons below...
+Go to the project directory
 
-<a href="https://heroku.com/deploy?template=https://github.com/platform-kit/platformkit-ui" target="_blank"><img src="https://www.herokucdn.com/deploy/button.svg" height="35"></a> <a href="https://render.com/deploy?repo=https://github.com/platform-kit/platformkit-api" target="_blank"><img src="https://render.com/images/deploy-to-render-button.svg" height="35"></a> <a href="https://cloud.digitalocean.com/apps/new?repo=https://github.com/platform-kit/platformkit-api/tree/main" target="_blank"><img src="https://www.deploytodo.com/do-btn-blue.svg" height="35"></a> <a href="https://app.netlify.com/start/deploy?repository=https://github.com/platform-kit/platformkit-ui" target="_blank"><img height="35" src="https://www.netlify.com/img/deploy/button.svg"></a> 
+```bash
+  cd pk-docs
+```
+
+Install dependencies
+
+```bash
+  npm install 
+```
+
+Start the server
+
+```bash
+  npm run develop
+```
+
+A local instance is now running at `https://localhost:8080`
+
+## Configuration
+
+Before use, you will need to add the following environment variables to your .env file
+
+```env
+GITHUB_REPO=
+DOCS_PATH=docs
+```
+
+## Deployment
+
+To deploy to the cloud, simply click one of the buttons below.
 
 Note: if you deploy to Netlify, you will have to provision a database manually.
+
+<a href="https://heroku.com/deploy?template=https://github.com/platform-kit/docs" target="_blank"><img src="https://img.shields.io/badge/Deploy%20to%20Heroku→-430098?style=for-the-badge&logo=heroku&logoColor=white"/></a> <a href="https://cloud.digitalocean.com/apps/new?repo=https://github.com/platform-kit/docs/tree/main" target="_blank"><img src="https://img.shields.io/badge/Deploy%20to%20Digital_Ocean→-0080FF?style=for-the-badge&logo=DigitalOcean&logoColor=white" /> </a> <a href="https://render.com/deploy?repo=https://github.com/platform-kit/docs" target="_blank"> <img src="https://img.shields.io/badge/Deploy%20to%20Render→-46E3B7?style=for-the-badge&logo=Render&logoColor=fff"/> </a> 
+
+
+
 
 
 
