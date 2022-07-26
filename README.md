@@ -1,77 +1,55 @@
-<h1 align="center">PlatformKit Docs</h1>
+# The UI Schema 
 
-<p align="center">
-Static documentation generator and serverless CMS.
-</p>
+If the repo you've specified in your `GITHUB_REPO` environment variable includes a folder with markdown files, you may specify the path to those files in the `DOCS_PATH` environment variable.
 
-**Built with:** <br>
+Alternatively, if you'd like to track this in your codebase, or specify additional configuration options, you can use a `ui-schema.json` file in the root of your repository.
 
-<p float="left">
-<img src="https://img.shields.io/badge/Node.js-ebf5fb?style=for-the-badge&logo=nodedotjs"/>
-<img src="https://img.shields.io/badge/Vue.js-ebf5fb?style=for-the-badge&logo=vuedotjs" />
-<img src="https://img.shields.io/badge/Lambda-ebf5fb?style=for-the-badge&logo=awslambda" />
-</p>
+The schema looks like this:
 
-**Deploy with:** <br> 
-<p float="left">
-<img src="https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white"/> <img src="https://img.shields.io/badge/Digital_Ocean-0080FF?style=for-the-badge&logo=DigitalOcean&logoColor=white" /> <img src="https://img.shields.io/badge/Render-46E3B7?style=for-the-badge&logo=Render&logoColor=white"/> 
-</p>
+<div class="card api-schema-card bg-dark br-5">
+<div class="card-header text-light"><span class="o-50">ui-schema.json</span></div>
+<div class="card-body">
+<pre class="text-light mb-0">
+{
+    "name": "PlatformKit",
+    "siteName": "PlatformKit",
+    "version": "0.0.1",
+    "logos": {
+        "light": "https://avatars.githubusercontent.com/u/54647524?v=4"
+    },
+    "icons": {
+        "favicon": "https://avatars.githubusercontent.com/u/54647524?v=4",
+        "touch": "https://avatars.githubusercontent.com/u/54647524?v=4"
+    },
+    "docs": {
+        "collections": [
+            {
+                "name": "API",
+                "prefix": "pka",
+                "label": "PlatformKit API Docs",
+                "repo": "https://github.com/platform-kit/platformkit-api",
+                "path": "docs"
+            },
+            {                
+                "name": "UI",
+                "prefix": "pku",
+                "label": "PlatformKit UI Docs",
+                "repo": "https://github.com/platform-kit/platformkit-ui",
+                "path": "docs",
+                "publish": false
+            }
+        ]
+    }
+}
 
-**License:** <br> <img src="https://img.shields.io/badge/License-000000?style=for-the-badge"/><img src="https://img.shields.io/badge/MIT-222?style=for-the-badge&logoColor=white"/>
+</pre>
+</div>
+</div>
 
-## Features
-
-- Generate docs from [Markdown](https://www.markdownguide.org) files in any number of repositories.
-- Generate docs for any API via an [API Schema](https://www.platformkit.com/docs/API/the-api-schema) file.
-- PWA & client-side search (works offline).
-
-## Local Development
-
-Clone the project
-
-```bash
-  git clone https://github.com/platform-kit/docs pk-docs
-```
-
-Go to the project directory
-
-```bash
-  cd pk-docs
-```
-
-Install dependencies
-
-```bash
-  npm install 
-```
-
-Start the server
-
-```bash
-  npm run develop
-```
-
-A local instance is now running at `https://localhost:8080`
-
-## Configuration
-
-Before use, you will need to add the following environment variables to your .env file
-
-```env
-GITHUB_REPO=
-DOCS_PATH=docs
-```
-
-## Deployment
-
-To deploy to the cloud, simply click one of the buttons below.
-
-Note: if you deploy to Netlify, you will have to provision a database manually.
-
-<a href="https://heroku.com/deploy?template=https://github.com/platform-kit/docs" target="_blank"><img src="https://img.shields.io/badge/Deploy%20to%20Heroku→-430098?style=for-the-badge&logo=heroku&logoColor=white"/></a> <a href="https://cloud.digitalocean.com/apps/new?repo=https://github.com/platform-kit/docs/tree/main" target="_blank"><img src="https://img.shields.io/badge/Deploy%20to%20Digital_Ocean→-0080FF?style=for-the-badge&logo=DigitalOcean&logoColor=white" /> </a> <a href="https://render.com/deploy?repo=https://github.com/platform-kit/docs" target="_blank"> <img src="https://img.shields.io/badge/Deploy%20to%20Render→-46E3B7?style=for-the-badge&logo=Render&logoColor=fff"/> </a> 
-
-
-
-
-
-
+- `siteName` determines the name that appears in the navbar and in the site's page titles and SEO metadata.
+- `icons` determine the images used for favicon / touch icon and in the navbar.
+- `docs` allows you to specify multiple git repositories and the path to the docs in each of them.
+  - `collections`: an array of objects defining collections of docs
+    - `repo`: the GitHub repo to source files from
+    - `path`: the path to the folder repo holding the markdown files
+    - `publish`: if set to false, will be disregarded in production.
