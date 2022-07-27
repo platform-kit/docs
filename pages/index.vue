@@ -1,6 +1,7 @@
 <template>
   <Layout id="layout">
     <Navbar
+      ref="navbar"
       v-if="showNavbar == true"
       @updateSearch="updateSearch"
       :search="search"
@@ -20,7 +21,7 @@
       v-else-if="(search == null || search == '') && currentPage != null"
       id="search-results"
       :content="currentPage"
-      :navOptions="navOptions"      
+      :navOptions="navOptions"
     />
     <SearchResults
       id="default-content"
@@ -77,6 +78,8 @@ export default {
     },
   },
   async mounted() {
+    window.addEventListener("keydown", (e) => this.keyDetector("keydown", e));
+    window.addEventListener("keypress", (e) => this.keyDetector("keypress", e));
     this.content = await this.$content("docs").sortBy("path").fetch();
 
     if (this.content != null) {
@@ -104,6 +107,23 @@ export default {
     },
   },
   methods: {
+    keyDetector(type, event) {
+      // console.info(type, event)
+      if (event.key == "Escape" || event.key == "Meta") {
+        console.log(event);
+        this.focusSearch();
+      }
+    },
+    focusSearch() {
+      // this.$refs.searchinput.focus();
+      if (this.search == "" || this.search == null) {
+        this.$refs.navbar.$refs.searchinput.focus();
+      }
+      else {
+        this.search = null;
+      }
+      console.log("Escape key pressed.");
+    },
     async updateSearch(search) {
       this.search = search;
       if (typeof search == "string") {

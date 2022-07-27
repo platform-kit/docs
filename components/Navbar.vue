@@ -23,6 +23,7 @@
           <div id="navbar-search-form">
             <b-input-group id="navbar-search-input-group">
               <b-form-input
+                ref="searchinput"                
                 @input="updateSearch"
                 @change="updateSearch"
                 v-model="search"
@@ -50,6 +51,7 @@
                 type="submit"
                 ><b-icon-search scale="0.75"></b-icon-search
               ></b-button>
+              <div id="navbar-search-input-label">Esc</div>
             </b-input-group>
           </div>
         </b-navbar-nav>
@@ -112,7 +114,7 @@ export default {
     );
     this.navOptions = navOptions;
   },
-  methods: {
+  methods: {  
     updateSearch: function (value) {
       this.$emit("updateSearch", value);
     },
@@ -138,6 +140,7 @@ export default {
   border-radius: 4px;
 }
 
+
 .navbar-search-input {
   border-radius: 15px !important;
   padding-left: 15px;
@@ -155,6 +158,25 @@ export default {
     width: calc(100% - 10px);
     height: 31px;
   }
+}
+
+#navbar-search-input-label {
+  border-radius:4px;
+  border:1px solid rgba(0,50,100,0.2);
+  position:absolute;
+  z-index:1000;
+  right:30px;
+  font-size:12px;
+  padding:0px 4px;
+  top:5px;  
+  margin-right:2px;
+  float:right;
+}
+
+@media(max-width:991px){
+  #navbar-search-input-label {
+  margin-right:5px;
+}
 }
 
 .navbar-search-button {
