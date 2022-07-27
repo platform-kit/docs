@@ -56,11 +56,12 @@
       </div>
       <b-navbar-nav
         class="d-none d-md-block navbar-nav-right"
-        style="float: right; padding-left: 23px; text-align: right; width:33%"
+        style="padding-left: 19px; text-align: left; width: 33%"
       >
-        <b-nav-item :href="links.github"
-          class="icon-button px-3 px-md-1 text-dark d-block"
-          style="float: right"
+        <b-nav-item
+          :href="links.github"
+          class="icon-button px-3 px-md-1 text-dark text-center"
+          style="width: 50px"
           ><b-icon-github></b-icon-github
         ></b-nav-item>
       </b-navbar-nav>
@@ -83,11 +84,11 @@ export default {
       siteName: "PlatformKit Docs",
       search: null,
       links: {
-        github: null
-      }
+        github: null,
+      },
     };
   },
-  async mounted(){    
+  async mounted() {
     this.links.github = process.env.GITHUB_URL;
   },
   methods: {
@@ -187,6 +188,8 @@ export default {
   background: #fff;
   border-radius: 5px;
   transition:all 0.3s;
+  border-left: rgb(0, 50, 100, 0.1) 2px solid;
+  border-bottom: rgb(0, 50, 100, 0.1) 2px solid;
 }
 .icon-button:hover {
   background: #ecf1f5;
