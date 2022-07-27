@@ -23,7 +23,7 @@
           <div id="navbar-search-form">
             <b-input-group id="navbar-search-input-group">
               <b-form-input
-                ref="searchinput"                
+                ref="searchinput"
                 @input="updateSearch"
                 @change="updateSearch"
                 v-model="search"
@@ -62,12 +62,7 @@
       >
         <b-nav-item
           :href="links.github"
-          class="
-            icon-button
-            px-3 px-md-1
-            text-dark text-center
-            d-none
-          "
+          class="icon-button px-3 px-md-1 text-dark text-center d-none"
           style="width: 50px"
           ><b-icon-github></b-icon-github
         ></b-nav-item>
@@ -94,7 +89,7 @@
 <script>
 export default {
   name: "Navbar",
-  props: ["variant", "type", "classes", "category", "page"],
+  props: ["variant", "type", "classes", "category", "page", "search"],
   data() {
     return {
       logo: "/icon.png",
@@ -114,7 +109,7 @@ export default {
     );
     this.navOptions = navOptions;
   },
-  methods: {  
+  methods: {
     updateSearch: function (value) {
       this.$emit("updateSearch", value);
     },
@@ -134,18 +129,17 @@ export default {
 
 .navbar-icon {
   max-height: 30px;
-  width:30px;
-  height:30px;
+  width: 30px;
+  height: 30px;
   margin-right: 5px;
   border-radius: 4px;
 }
-
 
 .navbar-search-input {
   border-radius: 15px !important;
   padding-left: 15px;
   border: none !important;
-  background:rgb(239, 243, 249) !important;
+  background: rgb(239, 243, 249) !important;
   min-width: 300px;
 }
 
@@ -161,22 +155,22 @@ export default {
 }
 
 #navbar-search-input-label {
-  border-radius:4px;
-  border:1px solid rgba(0,50,100,0.2);
-  position:absolute;
-  z-index:1000;
-  right:30px;
-  font-size:12px;
-  padding:0px 4px;
-  top:5px;  
-  margin-right:2px;
-  float:right;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 50, 100, 0.2);
+  position: absolute;
+  z-index: 1000;
+  right: 30px;
+  font-size: 12px;
+  padding: 0px 4px;
+  top: 5px;
+  margin-right: 2px;
+  float: right;
 }
 
-@media(max-width:991px){
+@media (max-width: 991px) {
   #navbar-search-input-label {
-  margin-right:5px;
-}
+    margin-right: 5px;
+  }
 }
 
 .navbar-search-button {
@@ -185,7 +179,7 @@ export default {
   padding-left: 7px;
   width: 40px;
   border: none !important;
-  background:rgb(239, 243, 249) !important;
+  background: rgb(239, 243, 249) !important;
   color: #000 !important;
   position: absolute;
   right: 0px;
@@ -252,7 +246,7 @@ export default {
   }
 }
 
-code{
-  background:rgb(239, 243, 249) !important;
+code {
+  background: rgb(239, 243, 249) !important;
 }
 </style>
