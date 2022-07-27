@@ -31,10 +31,14 @@ export default {
   components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: [],
+  buildModules: ['@nuxtjs/pwa'],
 
   bootstrapVue: {
     icons: true,
+  },
+
+  manifest: {
+    name: process.env.PWA_NAME || 'Docs',    
   },
 
   // Modules: https://go.nuxtjs.dev/config-modules
