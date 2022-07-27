@@ -41,7 +41,8 @@ Self-Hosted Authentication
 <img src="https://img.shields.io/badge/Bootstrap-ebf5fb?style=for-the-badge&logo=bootstrap"/>
 </p>
 
-**Deploy with:** <br> 
+**Deploy with:** <br>
+
 <p float="left">
 <img src="https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white"/> <img src="https://img.shields.io/badge/Digital_Ocean-0080FF?style=for-the-badge&logo=DigitalOcean&logoColor=white" /> <img src="https://img.shields.io/badge/Render-46E3B7?style=for-the-badge&logo=Render&logoColor=white"/> 
 </p>
@@ -141,7 +142,7 @@ GOOGLE_CLIENT_SECRET=
 YOUTUBE_CLIENT_ID=
 YOUTUBE_CLIENT_SECRET=
 
-# Pinterest 
+# Pinterest
 PINTEREST_APP_ID=
 PINTEREST_APP_SECRET=
 PINTEREST_SCOPES=user_accounts:read,pins:read,pins:write,boards:write,boards:read
@@ -188,7 +189,7 @@ Simply provide the `REPO`, `BUILD_COMMAND`, and `UI_DIRECTORY` environment varia
 
 ### Dynamic Options
 
-If you want to limit the options available to the user, simply pass a `platforms` parameter in the url.  For example, if you only wanted to show the user the Facebook button and the Instagram button, you'd add `platforms=facebook,instagram` - like so:
+If you want to limit the options available to the user, simply pass a `platforms` parameter in the url. For example, if you only wanted to show the user the Facebook button and the Instagram button, you'd add `platforms=facebook,instagram` - like so:
 
 https://auth.platformkit.com/?platforms=mail,google,github
 
@@ -198,4 +199,4 @@ https://auth.platformkit.com/?platforms=facebook,instagram,twitter,reddit,youtub
 
 To deploy to the cloud, simply click one of the buttons below.
 
-<a href="https://heroku.com/deploy?template=https://github.com/platform-kit/auth" target="_blank"><img src="https://img.shields.io/badge/Deploy%20to%20Heroku→-430098?style=for-the-badge&logo=heroku&logoColor=white"/></a> <a href="https://cloud.digitalocean.com/apps/new?repo=https://github.com/platform-kit/auth/tree/main" target="_blank"><img src="https://img.shields.io/badge/Deploy%20to%20Digital_Ocean→-0080FF?style=for-the-badge&logo=DigitalOcean&logoColor=white" /> </a> <a href="https://render.com/deploy?repo=https://github.com/platform-kit/auth" target="_blank"> <img src="https://img.shields.io/badge/Deploy%20to%20Render→-46E3B7?style=for-the-badge&logo=Render&logoColor=fff"/> </a> 
+<a href="https://heroku.com/deploy?template=https://github.com/platform-kit/auth" target="_blank"><img src="https://img.shields.io/badge/Deploy%20to%20Heroku→-430098?style=for-the-badge&logo=heroku&logoColor=white"/></a> <a href="https://cloud.digitalocean.com/apps/new?repo=https://github.com/platform-kit/auth/tree/main" target="_blank"><img src="https://img.shields.io/badge/Deploy%20to%20Digital_Ocean→-0080FF?style=for-the-badge&logo=DigitalOcean&logoColor=white" /> </a> <a href="https://render.com/deploy?repo=https://github.com/platform-kit/auth" target="_blank"> <img src="https://img.shields.io/badge/Deploy%20to%20Render→-46E3B7?style=for-the-badge&logo=Render&logoColor=fff"/> </a>

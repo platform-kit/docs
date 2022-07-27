@@ -7,7 +7,7 @@
         updateSearch(null);
       "
       style="cursor: pointer"
-      class="search-result-card"
+      class="search-result-card mx-4 mt-4"
       v-for="(result, index) in searchResults"
       :key="index"
       :title="result.Title"

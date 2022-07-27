@@ -55,7 +55,7 @@
         </b-navbar-nav>
       </div>
       <b-navbar-nav
-        class="d-block navbar-nav-right"
+        class="d-none d-md-block navbar-nav-right"
         style="float: right; padding-left: 23px; text-align: right; width:33%"
       >
         <b-nav-item :href="links.github"
