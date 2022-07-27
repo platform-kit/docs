@@ -201,7 +201,7 @@ export default {
 }
 
 .navbar-search-button:hover {
-  background: rgb(210, 219, 231) !important;
+  /* background: rgb(210, 219, 231) !important; */
 }
 
 #navbar-search-input-group {
