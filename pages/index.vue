@@ -30,8 +30,23 @@ import SearchResults from "../components/SearchResults.vue";
 
 export default {
   name: "Index",
+  data() {
+    return {
+      title: "Index",
+      showNavbar: true,
+      search: null,
+      searchResults: null,
+      content: null,
+      currentPage: null,
+      navOptions: null,
+      hash: null,
+      route: null,
+    };
+  },
   head: {
-    title: "Index",
+    title: "Docs",
+    titleTemplate: `%s`,
+
     /*
         meta: [
           { charset: 'utf-8' },
@@ -47,20 +62,13 @@ export default {
       { rel: "icon", type: "image/png", href: process.env.LOGO || "/icon.png" },
     ],
   },
-  data() {
-    return {
-      showNavbar: true,
-      search: null,
-      searchResults: null,
-      content: null,
-      currentPage: null,
-      navOptions: null,
-      hash: null,
-      route: null,
-    };
+  computed: {
+    getTitle() {
+      return this.title;
+    },
   },
   async mounted() {
-    this.content = await this.$content("docs").sortBy('path').fetch();
+    this.content = await this.$content("docs").sortBy("path").fetch();
 
     if (this.content != null) {
       this.currentPage = this.content[0];
@@ -91,9 +99,7 @@ export default {
       this.search = search;
       if (typeof search == "string") {
         console.log("Search: " + search);
-        this.searchResults = await this.$content("docs")
-          .search(search)
-          .fetch();
+        this.searchResults = await this.$content("docs").search(search).fetch();
       } else {
         this.showNavbar = false;
         this.search = null;
