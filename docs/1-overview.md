@@ -1,4 +1,4 @@
-<h1 align="center">PlatformKit Messenger</h1>
+<h1 align="center">PlatformKit Docs</h1>
 
 <p align="center">
 Static documentation generator and serverless CMS.

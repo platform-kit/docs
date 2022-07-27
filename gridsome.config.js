@@ -117,8 +117,11 @@ else {
 }
 
 function slugify(node) {
-  // console.log(node);  
+  console.log(node);  
   var text = node.title;
+  if(node.title == null){
+    text = node.fileInfo.name;
+  }
   var text = text.toString().toLowerCase()
     .replace(/\s+/g, '-')           // Replace spaces with -
     .replace(/[^\w\-]+/g, '')       // Remove all non-word chars

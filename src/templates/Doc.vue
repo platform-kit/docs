@@ -163,6 +163,7 @@ export default {
       var col = this.$page.doc.path.split("/")[2];
       var collection = await this.$store.methods.getDocsCollection(col);
       var file = this.$page.doc.fileInfo.name + ".md";
+      console.log(collection);
       var githubRepo = collection.repo;
       var docsDir = collection.path;
 

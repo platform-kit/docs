@@ -76,7 +76,7 @@ export default {
     return {
       html: null,
       uiSettings: {},
-      apiSchema: {},
+      apiSchema: {},      
       tools: {
         remark: remark,
         linter: recommended,

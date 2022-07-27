@@ -351,7 +351,7 @@ query {
 import axios from "axios";
 
 export default {
-  props: ["title", "hideheader"],
+  props: ["title", "hideheader", "hideNav"],
   components: {},
   data() {
     return {
