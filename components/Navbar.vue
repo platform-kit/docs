@@ -58,15 +58,27 @@
         class="navbar-nav-right"
         style="padding-left: 19px; text-align: left; width: 33%"
       >
-        <b-nav-item v-if="navOptions != null"
+        <b-nav-item
           :href="links.github"
-          class="icon-button px-3 px-md-1 text-dark text-center d-none d-md-inline-block"
+          class="
+            icon-button
+            px-3 px-md-1
+            text-dark text-center
+            d-none d-md-inline-block
+          "
           style="width: 50px"
           ><b-icon-github></b-icon-github
         ></b-nav-item>
-        <b-nav-item v-for="(navLink,index) in navOptions" :key="index" :href="'/#/' + navLink.slug" class="d-block d-md-none w-100 mobile-nav-links">
-          {{ navLink.Title }}
-        </b-nav-item>
+        <div v-if="navOptions != null">
+          <b-nav-item
+            v-for="(navLink, index) in navOptions"
+            :key="index"
+            :href="'/#/' + navLink.slug"
+            class="d-block d-md-none w-100 mobile-nav-links"
+          >
+            {{ navLink.Title }}
+          </b-nav-item>
+        </div>
       </b-navbar-nav>
     </b-collapse>
 
