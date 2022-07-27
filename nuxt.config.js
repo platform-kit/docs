@@ -46,7 +46,9 @@ export default {
     // https://go.nuxtjs.dev/bootstrap
     "bootstrap-vue/nuxt",
     // https://content.nuxtjs.org/v1/
-    "@nuxt/content",   
+    "@nuxt/content",
+    // https://www.npmjs.com/package/@nuxtjs/toast   
+    '@nuxtjs/toast',
   ],
 
   content: {

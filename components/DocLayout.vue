@@ -123,13 +123,20 @@ export default {
   props: ["content", "navOptions"],
   methods: {
     copyURL: function () {
+      var self = this;
       this.$copyText(window.location.href).then(
         function (e) {
-          alert("Copied");
+          // alert("Copied");
+
+          self.$toast.success("URL copied to clipboard.", {
+            position: "top-center",
+            theme: "bubble",
+            duration: 3000,
+          });
           console.log(e);
         },
         function (e) {
-          alert("Can not copy");
+          // alert("Can not copy");
           console.log(e);
         }
       );
@@ -148,7 +155,6 @@ export default {
   border-right: 1px solid rgba(221, 223, 239, 0.75);
   background: #fff !important;
 }
-
 
 .main-left-nav {
   background: rgb(245, 247, 249);
