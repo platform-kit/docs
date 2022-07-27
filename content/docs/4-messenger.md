@@ -65,7 +65,7 @@ Alternatively you can run the application using docker with:
 
 A local instance is now running at `https://localhost:3000`
 
-## Configuration
+### Configuration
 
 Before use, you will need to add the following environment variables to your .env file
 
