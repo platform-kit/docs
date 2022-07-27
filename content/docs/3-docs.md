@@ -7,7 +7,7 @@ Icon: "book"
 <h1 align="center">PlatformKit Docs</h1>
 
 <p align="center">
-Static documentation generator & PWA.
+Static Documentation Generator
 </p>
 
 **Built with:** <br>

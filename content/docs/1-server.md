@@ -1,6 +1,6 @@
 ---
 Title: Server
-Description: Self-Hosted Serverless Infrastructure
+Description: Self-Hosted Serverless API
 Repository: "https://github.com/platform-kit/server"
 Icon: "server"
 ---

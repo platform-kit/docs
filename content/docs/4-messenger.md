@@ -7,7 +7,7 @@ Icon: "chat-dots"
 <h1 align="center">PlatformKit Messenger</h1>
 
 <p align="center">
-Self-Hosted Audio/Video/Text Chat
+Self-Hosted Web Conferencing
 </p>
 
 <p>Peer-to-peer video, audio & text chat via WebRTC. Group video calls are achieved using WebRTC mesh. So the quality of the call is inversely proportional to the number of people on the call. The sweet number is somewhere around 6 to 8 people on an average high-speed connection.</p>
