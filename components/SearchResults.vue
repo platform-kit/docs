@@ -16,7 +16,7 @@
         {{ result.Title }}
       </h4>
       <a
-        class="btn w-100 text-left"
+        class="btn w-100 text-left d-none d-md-inline-block"
         :href="result.Repository"
         v-if="result.Repository != null"
         style="pointer-events: none"
