@@ -1,6 +1,6 @@
 ---
 Title: Messenger
-Description: Self-Hosted Audio/Video/Text Chat
+Description: Self-Hosted Web Conferencing
 Repository: "https://github.com/platform-kit/messenger"
 Icon: "chat-dots"
 ---

@@ -8,7 +8,7 @@ Icon: "server"
 <h1 align="center">PlatformKit Server</h1>
 
 <p align="center">
-Self-Hosted Serverless Infrastructure
+Self-Hosted Serverless API
 </p>
 
 <p align="center">Deploy serverless functions & static site generators via Express on any cloud platform.</p>

@@ -1,6 +1,6 @@
 --- 
 Title: Docs
-Description: Static documentation generator & PWA.
+Description: Static Documentation Generator
 Repository: "https://github.com/platform-kit/docs"
 Icon: "book"
 ---
