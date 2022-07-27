@@ -132,6 +132,8 @@ export default {
 
 .navbar-icon {
   max-height: 30px;
+  width:30px;
+  height:30px;
   margin-right: 5px;
   border-radius: 4px;
 }
