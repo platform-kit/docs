@@ -109,7 +109,7 @@ export default {
   methods: {
     keyDetector(type, event) {
       // console.info(type, event)
-      if (event.key == "Escape" || event.key == "Meta") {
+      if (event.key == "Escape" ) {
         console.log(event);
         this.focusSearch();
       }
