@@ -120,7 +120,7 @@ export default {
         this.$refs.navbar.$refs.searchinput.focus();
       }
       else {
-        this.search = null;
+        this.search = null;        
       }
       console.log("Escape key pressed.");
     },

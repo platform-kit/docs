@@ -1,7 +1,7 @@
 ---
-Title: Messenger
+Title: Chat
 Description: Self-Hosted Web Conferencing
-Repository: "https://github.com/platform-kit/messenger"
+Repository: "https://github.com/platform-kit/chat"
 Icon: "chat-dots"
 ---
 <h1 align="center">PlatformKit Messenger</h1>
@@ -38,7 +38,7 @@ Self-Hosted Web Conferencing
 Clone the project
 
 ```bash
-  git clone https://github.com/platform-kit/messenger pk-messenger
+  git clone https://github.com/platform-kit/chat pk-messenger
 ```
 
 Go to the project directory
@@ -81,4 +81,4 @@ TWILIO_AUTH_TOKEN=
 
 To deploy to the cloud, simply click one of the buttons below.
 
-<a href="https://heroku.com/deploy?template=https://github.com/platform-kit/messenger" target="_blank"><img src="https://img.shields.io/badge/Deploy%20to%20Heroku→-430098?style=for-the-badge&logo=heroku&logoColor=white"/></a> <a href="https://cloud.digitalocean.com/apps/new?repo=https://github.com/platform-kit/messenger/tree/main" target="_blank"><img src="https://img.shields.io/badge/Deploy%20to%20Digital_Ocean→-0080FF?style=for-the-badge&logo=DigitalOcean&logoColor=white" /> </a> <a href="https://render.com/deploy?repo=https://github.com/platform-kit/messenger" target="_blank"> <img src="https://img.shields.io/badge/Deploy%20to%20Render→-46E3B7?style=for-the-badge&logo=Render&logoColor=fff"/> </a> 
+<a href="https://heroku.com/deploy?template=https://github.com/platform-kit/chat" target="_blank"><img src="https://img.shields.io/badge/Deploy%20to%20Heroku→-430098?style=for-the-badge&logo=heroku&logoColor=white"/></a> <a href="https://cloud.digitalocean.com/apps/new?repo=https://github.com/platform-kit/chat/tree/main" target="_blank"><img src="https://img.shields.io/badge/Deploy%20to%20Digital_Ocean→-0080FF?style=for-the-badge&logo=DigitalOcean&logoColor=white" /> </a> <a href="https://render.com/deploy?repo=https://github.com/platform-kit/chat" target="_blank"> <img src="https://img.shields.io/badge/Deploy%20to%20Render→-46E3B7?style=for-the-badge&logo=Render&logoColor=fff"/> </a> 
