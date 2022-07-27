@@ -30,7 +30,7 @@
                 margin-right: 30px;
               "
             ></b-icon-caret-right-fill>
-            {{ link.Title || link.slug }}
+            <b-icon scale="0.75" class="mr-2" style="opacity:0.5;" :icon="link.Icon || 'book'"></b-icon>{{ link.Title || link.slug }}
           </b-nav-item>
         </b-nav>
       </div>

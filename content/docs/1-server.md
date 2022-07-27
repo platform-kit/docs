@@ -2,6 +2,7 @@
 Title: Server
 Description: Self-Hosted Serverless Infrastructure
 Repository: "https://github.com/platform-kit/server"
+Icon: "server"
 ---
 
 <h1 align="center">PlatformKit Server</h1>

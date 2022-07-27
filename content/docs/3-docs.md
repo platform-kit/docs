@@ -2,6 +2,7 @@
 Title: Docs
 Description: Static documentation generator & PWA.
 Repository: "https://github.com/platform-kit/docs"
+Icon: "book"
 ---
 <h1 align="center">PlatformKit Docs</h1>
 

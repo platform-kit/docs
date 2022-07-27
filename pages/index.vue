@@ -1,5 +1,5 @@
 <template>
-  <Layout id="layout" >
+  <Layout id="layout">
     <Navbar
       v-if="showNavbar == true"
       @updateSearch="updateSearch"
@@ -10,22 +10,22 @@
       :category="'Overview'"
     ></Navbar>
 
+    <SearchResults
+      @updateSearch="updateSearch"
+      v-if="(search == null || search == '') && currentPage == null"
+      :searchResults="content"
+    ></SearchResults>
+
     <DocLayout
-      v-if="(search == null || search == '') && currentPage != null"
+      v-else-if="(search == null || search == '') && currentPage != null"
       :content="currentPage"
       :navOptions="navOptions"
     />
     <SearchResults
       @updateSearch="updateSearch"
-      v-if="search != null && search != ''"
+      v-else-if="search != null || search != ''"
       :searchResults="searchResults"
     ></SearchResults>
-    <SearchResults
-      @updateSearch="updateSearch"
-      v-if="currentPage == null"
-      :searchResults="content"
-    ></SearchResults>
-    
   </Layout>
 </template>
 

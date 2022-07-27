@@ -12,7 +12,7 @@
       :key="index"
     >
       <h4>
-        <b-icon-book class="mr-2" style="opacity: 0.25"></b-icon-book>
+        <b-icon :icon="result.Icon || 'book'" class="mr-2" style="opacity: 0.5; color:royalblue;"></b-icon>
         {{ result.Title }}
       </h4>
       <a
@@ -20,7 +20,7 @@
         :href="result.Repository"
         v-if="result.Repository != null"
         style="pointer-events: none"
-        ><b-icon-link style="margin-left:-10px;margin-right:15px;" ></b-icon-link>{{ result.Repository }}</a
+        ><b-icon-link style="margin-left:-10px;margin-right:15px;opacity:0.5;" ></b-icon-link>{{ result.Repository }}</a
       >
       <b-card-text style="padding-left: 40px">
         {{ result.Description }}
