@@ -18,10 +18,13 @@
 
     <DocLayout
       v-else-if="(search == null || search == '') && currentPage != null"
+      id="search-results"
       :content="currentPage"
-      :navOptions="navOptions"
+      :navOptions="navOptions"      
     />
     <SearchResults
+      id="default-content"
+      :search="search"
       @updateSearch="updateSearch"
       v-else-if="search != null || search != ''"
       :searchResults="searchResults"

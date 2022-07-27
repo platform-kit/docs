@@ -1,6 +1,7 @@
 <!-- Please remove this file from your project -->
 <template>
   <div class="search-results px-4">
+    <p class="mx-auto mt-4 w-100 text-center" v-if="search  != null && search != ''">Search Results for: <span style="opacity:0.5" class="d-inline-block">{{ search }}</span></p>
     <b-card
       @click="
         $nuxt.$options.router.push('/#/' + result.slug);
@@ -25,6 +26,10 @@
       <b-card-text style="padding-left: 40px">
         {{ result.Description }}
       </b-card-text>
+      <b-card-text style="padding-left: 40px" v-if="search != null && search != ''">
+          <span class="badge bg-dark text-light br-10">Excerpt</span><br></br>
+          <code v-html="getSearchExcerpt(result.output.textWithLineBreaks)"></code>
+      </b-card-text>
     </b-card>
   </div>
 </template>
@@ -32,8 +37,13 @@
 <script>
 export default {
   name: "SearchResults",
-  props: ["searchResults"],
+  props: ["searchResults", "search"],
   methods: {
+    getSearchExcerpt(input){
+      var first = input.indexOf(this.search, 0);
+      var last = input.indexOf("<br>", first);
+      return "..." + input.substring(first, last);
+    },
     updateSearch: function (value) {
       this.$emit("updateSearch", null);
     },
