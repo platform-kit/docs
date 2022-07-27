@@ -187,14 +187,14 @@ export default {
     0px 7px 7px rgba(0, 50, 100, 0.075), 0px 5px 3px rgba(0, 50, 100, 0.05);
 }
 
-.nuxt-content p img {
-  border-radius: 4px !important;
-}
-
 .toc2 {
   margin-left: 0px;
 }
 .toc3 .caret {
   margin-right: 10px;
+}
+
+.nuxt-content img {
+  margin-bottom:5px;
 }
 </style>
