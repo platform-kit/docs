@@ -30,7 +30,13 @@
                 margin-right: 30px;
               "
             ></b-icon-caret-right-fill>
-            <b-icon scale="0.75" class="mr-2" style="opacity:0.5;" :icon="link.Icon || 'book'"></b-icon>{{ link.Title || link.slug }}
+            <b-icon
+              scale="0.75"
+              class="mr-2"
+              style="opacity: 0.5"
+              :icon="link.Icon || 'book'"
+            ></b-icon
+            >{{ link.Title || link.slug }}
           </b-nav-item>
         </b-nav>
       </div>
@@ -60,22 +66,23 @@
             ></b-nav-item
           >
 
-            <b-nav-item
+          <b-nav-item
             v-if="content.Repository != null"
             style="height: 42px"
             class="mb-2 mt-2 main-right-nav-item has-icon"
-            :href="content.Repository"           
-            target="_blank" 
+            :href="content.Repository"
+            target="_blank"
             ><span style="font-size: 75%; font-weight: 400"
-              ><b-icon-code-slash style="opacity: 0.5" class="mr-2"></b-icon-code-slash>Get The Source Code</span
+              ><b-icon-code-slash
+                style="opacity: 0.5"
+                class="mr-2"
+              ></b-icon-code-slash
+              >Get The Source Code</span
             ></b-nav-item
           >
 
-          
-
-
           <b-nav-item
-            style="height: 42px; pointer-events: none;"
+            style="height: 42px; pointer-events: none"
             class="mb-2 mt-2 main-right-nav-item"
             ><span style="font-size: 75%; font-weight: 400"
               ><b-icon-card-list
@@ -110,11 +117,9 @@
 </template>
 
 <script>
-
-
 export default {
   name: "DocLayout",
- 
+
   props: ["content", "navOptions"],
   methods: {
     copyURL: function () {
@@ -143,6 +148,8 @@ export default {
   border-right: 1px solid rgba(221, 223, 239, 0.75);
   background: #fff !important;
 }
+
+
 .main-left-nav {
   background: rgb(245, 247, 249);
 }
@@ -181,7 +188,7 @@ export default {
 }
 
 .main-left-nav-item.active {
-  background: rgb(0, 50, 100, 0.05);  
+  background: rgb(0, 50, 100, 0.05);
 }
 
 .main-left-nav-item.active a {
@@ -209,13 +216,17 @@ export default {
 }
 
 .nuxt-content img {
-  margin-bottom:5px;
+  margin-bottom: 5px;
 }
 .has-icon {
-  background:rgba(211, 218, 240, 0.25);
+  background: rgba(211, 218, 240, 0.25);
 }
 .has-icon svg {
-  color:royalblue !important;
-  opacity:1 !important;
+  color: royalblue !important;
+  opacity: 1 !important;
+}
+
+.nuxt-content img {
+  max-width: 90%;
 }
 </style>

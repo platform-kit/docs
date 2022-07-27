@@ -15,6 +15,7 @@ export default {
 .layout {
   min-width: 100%;
   background: #fff;
+  overflow-x: hidden !important;
 }
 
 .br-10 {
@@ -28,4 +29,16 @@ export default {
 .bg-none {
   backgroud: none !important;
 }
+
+html, body {
+  overflow-x: hidden !important;
+}
+body {
+  position: relative
+}
+
+@media (max-width: 991px) {
+  
+}
+
 </style>
