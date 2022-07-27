@@ -55,15 +55,18 @@
         </b-navbar-nav>
       </div>
       <b-navbar-nav
-        class="d-none d-md-block navbar-nav-right"
+        class="navbar-nav-right"
         style="padding-left: 19px; text-align: left; width: 33%"
       >
         <b-nav-item
           :href="links.github"
-          class="icon-button px-3 px-md-1 text-dark text-center"
+          class="icon-button px-3 px-md-1 text-dark text-center d-none d-md-inline-block"
           style="width: 50px"
           ><b-icon-github></b-icon-github
         ></b-nav-item>
+        <b-nav-item v-for="(navLink,index) in navOptions" :key="index" :href="'/#/' + navLink.slug" class="d-block d-md-none w-100 mobile-nav-links">
+          {{ navLink.Title }}
+        </b-nav-item>
       </b-navbar-nav>
     </b-collapse>
 
@@ -83,6 +86,7 @@ export default {
       logo: "/icon.png",
       siteName: "PlatformKit Docs",
       search: null,
+      navOptions: null,
       links: {
         github: null,
       },
@@ -90,6 +94,11 @@ export default {
   },
   async mounted() {
     this.links.github = process.env.GITHUB_URL;
+    var content = await this.$content("docs").sortBy("path").fetch();
+    var navOptions = content.filter(
+      (element) => element.path.split("docs/")[1].includes("/") != true
+    );
+    this.navOptions = navOptions;
   },
   methods: {
     updateSearch: function (value) {
@@ -187,7 +196,7 @@ export default {
 .icon-button {
   background: #fff;
   border-radius: 5px;
-  transition:all 0.3s;
+  transition: all 0.3s;
   border-left: rgb(0, 50, 100, 0.1) 2px solid;
   border-bottom: rgb(0, 50, 100, 0.1) 2px solid;
 }
