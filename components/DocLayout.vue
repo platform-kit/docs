@@ -35,7 +35,7 @@
         </b-nav>
       </div>
       <div
-        class="col-12 col-md-6 main-content px-5 py-2"
+        class="col-12 col-md-6 main-content px-3 px-md-5 py-2"
         style="margin: 0px; min-height: calc(100vh - 58px)"
       >
         <nuxt-content :document="content"></nuxt-content>
