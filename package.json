@@ -1,0 +1,35 @@
+{
+  "name": "docs",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "preinstall": "(cd commands/prebuild && npm install);",
+    "prebuild": "node ./commands/prebuild/prebuild.js",
+    "start": "nuxt start",
+    "flatbread": "flatbread start",
+    "generate": "nuxt generate",
+    "deploy": "(cd commands/prebuild && npm install); node ./commands/prebuild/prebuild.js; nuxt generate;",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@nuxt/content": "^1.15.1",
+    "bootstrap": "^4.6.1",
+    "bootstrap-vue": "^2.21.2",
+    "core-js": "^3.19.3",
+    "flatbread": "^1.0.0-alpha.19",
+    "nuxt": "^2.15.8",
+    "vue": "^2.6.14",
+    "vue-clipboard2": "^0.3.3",
+    "vue-server-renderer": "^2.6.14",
+    "vue-template-compiler": "^2.6.14",
+    "webpack": "^4.46.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.18.9",
+    "@babel/core": "^7.18.9",
+    "@vue/test-utils": "^1.3.0",
+    "jest": "^27.4.4",
+    "vue-jest": "^3.0.4"
+  }
+}
