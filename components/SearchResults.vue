@@ -1,13 +1,13 @@
 <!-- Please remove this file from your project -->
 <template>
-  <div class="search-results">
+  <div class="search-results px-4">
     <b-card
       @click="
         $nuxt.$options.router.push('/#/' + result.slug);
         updateSearch(null);
       "
       style="cursor: pointer"
-      class="search-result-card mx-4 mt-4"
+      class="search-result-card mx-auto mt-4"
       v-for="(result, index) in searchResults"
       :key="index"
       :title="result.Title"

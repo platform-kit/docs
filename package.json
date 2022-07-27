@@ -6,6 +6,7 @@
     "dev": "nuxt",
     "preinstall": "(cd commands/prebuild && npm install);",
     "prebuild": "node ./commands/prebuild/prebuild.js",
+    "build": "nuxt build",
     "start": "nuxt start",
     "flatbread": "flatbread start",
     "generate": "nuxt generate",

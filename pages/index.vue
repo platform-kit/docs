@@ -60,14 +60,14 @@ export default {
     };
   },
   async mounted() {
-    this.content = await this.$content("/docs").sortBy('path').fetch();
+    this.content = await this.$content("docs").sortBy('path').fetch();
 
     if (this.content != null) {
       this.currentPage = this.content[0];
     }
 
     var navOptions = this.content.filter(
-      (element) => element.path.split("/docs/")[1].includes("/") != true
+      (element) => element.path.split("docs/")[1].includes("/") != true
     );
     this.navOptions = navOptions;
 
@@ -91,7 +91,7 @@ export default {
       this.search = search;
       if (typeof search == "string") {
         console.log("Search: " + search);
-        this.searchResults = await this.$content("/docs")
+        this.searchResults = await this.$content("docs")
           .search(search)
           .fetch();
       } else {
