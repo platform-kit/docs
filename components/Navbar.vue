@@ -58,7 +58,7 @@
         class="navbar-nav-right"
         style="padding-left: 19px; text-align: left; width: 33%"
       >
-        <b-nav-item
+        <b-nav-item v-if="navOptions != null"
           :href="links.github"
           class="icon-button px-3 px-md-1 text-dark text-center d-none d-md-inline-block"
           style="width: 50px"
