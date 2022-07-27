@@ -111,7 +111,7 @@ export default {
 
       if (this.hash != null) {
         console.log("Hash: " + this.hash);
-        var page = await this.$content("/docs")
+        var page = await this.$content("docs")
           .where({ slug: this.hash })
           .fetch();
         console.log("Page: ");
