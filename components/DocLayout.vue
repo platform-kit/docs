@@ -57,6 +57,16 @@
           style="max-width: 222px; float: left"
         >
           <b-nav-item
+            v-if="content.readingTime != null"
+            style="height: 42px"
+            class="mb-2 mt-2 main-right-nav-item has-icon"            
+            ><span style="font-size: 75%; font-weight: 400"
+              ><b-icon-clock style="opacity: 0.5" class="mr-2"></b-icon-clock>{{ Math.ceil(content.readingTime) }} Minute Read</span
+            ></b-nav-item
+          >
+
+          
+          <b-nav-item
             style="height: 42px"
             class="mb-2 mt-2 main-right-nav-item has-icon"
             @click="copyURL()"

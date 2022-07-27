@@ -1,6 +1,9 @@
+import { strict as assert } from "assert";
+import { stripHtml } from "string-strip-html";
+
 export default {
   // Target: https://go.nuxtjs.dev/config-target
-  target: "static",  
+  target: "static",
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -18,27 +21,27 @@ export default {
   },
 
   env: {
-    GITHUB_URL: process.env.GITHUB_URL || 'http://github.com/platform-kit/docs'
+    GITHUB_URL: process.env.GITHUB_URL || "http://github.com/platform-kit/docs",
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['~/plugins/vue-clipboard2.js'],
+  plugins: ["~/plugins/vue-clipboard2.js"],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: ['@nuxtjs/pwa'],
+  buildModules: ["@nuxtjs/pwa"],
 
   bootstrapVue: {
     icons: true,
   },
 
   manifest: {
-    name: process.env.PWA_NAME || 'Docs',    
+    name: process.env.PWA_NAME || "Docs",
   },
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -47,16 +50,27 @@ export default {
     "bootstrap-vue/nuxt",
     // https://content.nuxtjs.org/v1/
     "@nuxt/content",
-    // https://www.npmjs.com/package/@nuxtjs/toast   
-    '@nuxtjs/toast',
+    // https://www.npmjs.com/package/@nuxtjs/toast
+    "@nuxtjs/toast",
   ],
 
   content: {
-    dir: process.env.CONTENT_DIRECTORY || 'content'
+    dir: process.env.CONTENT_DIRECTORY || "content",
   },
 
-  styleResources: {
-    
+  styleResources: {},
+
+  hooks: {
+    "content:file:beforeInsert": (document) => {
+      if (document.extension === ".md") {
+        document.output = {};
+        document.output.html = document.text;
+        document.output.strippedText = stripHtml(document.text).result.replace(/\n/g, " ");
+        document.output.textWithLineBreaks = stripHtml(document.text).result.replace(/\n/g, "<br>");;
+        const { time } = require("reading-time")(document.output.strippedText);
+        document.readingTime = time / 60000;
+      }
+    },
   },
 
   server: {
