@@ -1,5 +1,5 @@
 <template>
-  <Layout id="layout">
+  <Layout id="layout" >
     <Navbar
       v-if="showNavbar == true"
       @updateSearch="updateSearch"
@@ -11,7 +11,7 @@
     ></Navbar>
 
     <DocLayout
-      v-if="search == null || search == ''"
+      v-if="(search == null || search == '') && currentPage != null"
       :content="currentPage"
       :navOptions="navOptions"
     />
@@ -20,6 +20,12 @@
       v-if="search != null && search != ''"
       :searchResults="searchResults"
     ></SearchResults>
+    <SearchResults
+      @updateSearch="updateSearch"
+      v-if="currentPage == null"
+      :searchResults="content"
+    ></SearchResults>
+    
   </Layout>
 </template>
 
@@ -71,7 +77,7 @@ export default {
     this.content = await this.$content("docs").sortBy("path").fetch();
 
     if (this.content != null) {
-      this.currentPage = this.content[0];
+      // this.currentPage = this.content[0];
     }
 
     var navOptions = this.content.filter(

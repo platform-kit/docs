@@ -1,6 +1,7 @@
 ---
 Title: Auth
 Description: Self-Hosted Authentication
+Repository: "https://github.com/platform-kit/auth"
 ---
 
 <h1 align="center">PlatformKit Auth</h1>

@@ -64,7 +64,7 @@
             icon-button
             px-3 px-md-1
             text-dark text-center
-            d-none d-md-inline-block
+            d-none
           "
           style="width: 50px"
           ><b-icon-github></b-icon-github
@@ -140,7 +140,7 @@ export default {
   border-radius: 15px !important;
   padding-left: 15px;
   border: none !important;
-  background: #ecf1f5 !important;
+  background:rgb(239, 243, 249) !important;
   min-width: 300px;
 }
 
@@ -161,7 +161,7 @@ export default {
   padding-left: 7px;
   width: 40px;
   border: none !important;
-  background: #ecf1f5 !important;
+  background:rgb(239, 243, 249) !important;
   color: #000 !important;
   position: absolute;
   right: 0px;
@@ -226,5 +226,9 @@ export default {
     width: 100%;
     text-align: center;
   }
+}
+
+code{
+  background:rgb(239, 243, 249) !important;
 }
 </style>

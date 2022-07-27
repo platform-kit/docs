@@ -10,9 +10,19 @@
       class="search-result-card mx-auto mt-4"
       v-for="(result, index) in searchResults"
       :key="index"
-      :title="result.Title"
     >
-      <b-card-text>
+      <h4>
+        <b-icon-book class="mr-2" style="opacity: 0.25"></b-icon-book>
+        {{ result.Title }}
+      </h4>
+      <a
+        class="btn w-100 text-left"
+        :href="result.Repository"
+        v-if="result.Repository != null"
+        style="pointer-events: none"
+        ><b-icon-link style="margin-left:-10px;margin-right:15px;" ></b-icon-link>{{ result.Repository }}</a
+      >
+      <b-card-text style="padding-left: 40px">
         {{ result.Description }}
       </b-card-text>
     </b-card>
@@ -38,7 +48,21 @@ export default {
   transition: all 0.3s;
 }
 
+.search-result-card:nth-of-type(even) {
+  border-left: 4px solid rgb(177, 190, 228) !important;
+}
+
+.search-result-card:nth-of-type(odd) {
+  border-left: 4px solid royalblue !important;
+}
+
+.search-result-card {
+  box-shadow: 0px 15px 15px rgba(0, 50, 100, 0.0375),
+    0px 7px 7px rgba(0, 50, 100, 0.0375), 0px 5px 3px rgba(0, 50, 100, 0.025);
+}
+
 .search-result-card:hover {
+  background:rgb(239, 243, 249) !important;
   box-shadow: 0px 15px 15px rgba(0, 50, 100, 0.075),
     0px 7px 7px rgba(0, 50, 100, 0.075), 0px 5px 3px rgba(0, 50, 100, 0.05);
 }

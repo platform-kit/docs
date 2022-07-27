@@ -1,6 +1,7 @@
 ---
 Title: Messenger
 Description: Self-Hosted Audio/Video/Text Chat
+Repository: "https://github.com/platform-kit/messenger"
 ---
 <h1 align="center">PlatformKit Messenger</h1>
 

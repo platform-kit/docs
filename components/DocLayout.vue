@@ -52,13 +52,28 @@
         >
           <b-nav-item
             style="height: 42px"
-            class="mb-2 mt-2 main-right-nav-item"
+            class="mb-2 mt-2 main-right-nav-item has-icon"
             @click="copyURL()"
             ><span style="font-size: 75%; font-weight: 400"
               ><b-icon-link style="opacity: 0.5" class="mr-2"></b-icon-link>Copy
               Link</span
             ></b-nav-item
           >
+
+            <b-nav-item
+            v-if="content.Repository != null"
+            style="height: 42px"
+            class="mb-2 mt-2 main-right-nav-item has-icon"
+            :href="content.Repository"           
+            target="_blank" 
+            ><span style="font-size: 75%; font-weight: 400"
+              ><b-icon-code-slash style="opacity: 0.5" class="mr-2"></b-icon-code-slash>Get The Source Code</span
+            ></b-nav-item
+          >
+
+          
+
+
           <b-nav-item
             style="height: 42px; pointer-events: none;"
             class="mb-2 mt-2 main-right-nav-item"
@@ -166,8 +181,7 @@ export default {
 }
 
 .main-left-nav-item.active {
-  background: rgb(0, 50, 100, 0.05);
-  color: royalblue !important;
+  background: rgb(0, 50, 100, 0.05);  
 }
 
 .main-left-nav-item.active a {
@@ -196,5 +210,12 @@ export default {
 
 .nuxt-content img {
   margin-bottom:5px;
+}
+.has-icon {
+  background:rgba(211, 218, 240, 0.25);
+}
+.has-icon svg {
+  color:royalblue !important;
+  opacity:1 !important;
 }
 </style>
