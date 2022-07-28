@@ -52,7 +52,7 @@
         </text-highlight>
       </b-card-text>
     </b-card>
-    <div align="center">
+    <div align="center" class="pb-4 mb-2">
       <a
         :href="bylineLink"
         class="
