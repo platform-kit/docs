@@ -81,6 +81,7 @@ Before use, you will need to add the following environment variables to your .en
 
 ```env
 REPO=
+SITE_NAME=
 BUILD_COMMAND=
 CONTENT_DIRECTORY=
 ```
