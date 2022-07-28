@@ -22,17 +22,16 @@ export default {
   backgroud: none !important;
 }
 
-html, body {
+html,
+body {
   overflow-x: hidden !important;
 }
 body {
-  position: relative
+  position: relative;
 }
 
 @media (max-width: 991px) {
-  
 }
-
 </style>
 
 <style>
@@ -44,9 +43,12 @@ body {
   border-radius: 10px;
 }
 
-
 .raised {
   box-shadow: 0px 5px 15px rgba(0, 50, 100, 0.1) !important;
 }
 
+.text__highlight {
+  background: #fff0b4 !important;
+  border-radius: 3px !important;
+}
 </style>

@@ -52,6 +52,22 @@
         </text-highlight>
       </b-card-text>
     </b-card>
+    <div align="center">
+      <a
+        :href="bylineLink"
+        class="
+          mx-auto
+          d-inline-block
+          badge
+          mt-3
+          text-small
+          border
+          br-10
+          footer-badge
+        "
+        ><b-icon-book class="mr-2"></b-icon-book>{{ byline }}</a
+      >
+    </div>
   </div>
 </template>
 
@@ -65,6 +81,17 @@ export default {
         return import("vue-text-highlight");
       }
     },
+  },
+  data() {
+    return {
+      byLine: null,
+      byLineLink: null,
+    };
+  },
+  async mounted() {
+    this.byline = process.env.BYLINE || "Docs by PlatformKit";
+    this.bylineLink =
+      process.env.BYLINE || "https://github.com/platform-kit/docs";
   },
   methods: {
     strip(html) {
@@ -86,10 +113,10 @@ export default {
       }
     },
     getSearchExcerpt(input) {
-      var term = input.indexOf(this.search, 0);                  // first asppearance of the search term
-      var last = input.indexOf("<br>", term);                    // first appearance of a new line after the search term (last character we want)
-      var finalClip = input.substr(term, 130);                   // clip the full text from the point of the first appearance of hte term to 130 characters later,       
-      finalClip = this.strip(finalClip);                         // strip all html tags
+      var term = input.indexOf(this.search, 0); // first asppearance of the search term
+      var last = input.indexOf("<br>", term); // first appearance of a new line after the search term (last character we want)
+      var finalClip = input.substr(term, 130); // clip the full text from the point of the first appearance of hte term to 130 characters later,
+      finalClip = this.strip(finalClip); // strip all html tags
       return "... " + finalClip;
     },
     updateSearch: function (value) {
@@ -123,5 +150,14 @@ export default {
   background: rgb(239, 243, 249) !important;
   box-shadow: 0px 15px 15px rgba(0, 50, 100, 0.075),
     0px 7px 7px rgba(0, 50, 100, 0.075), 0px 5px 3px rgba(0, 50, 100, 0.05);
+}
+
+.footer-badge {
+  background: #ebf3fb;
+  border: 1px solid rgba(0, 75, 75, 0.1) !important;
+  opacity: 1;
+  padding: 5px 10px !important;
+  color: #3c6384;
+  border-radius: 25px;
 }
 </style>
