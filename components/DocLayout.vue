@@ -51,8 +51,8 @@
             style="margin-left: -15px"
             :labels="['Terrible', 'Bad', 'Okay', 'Good', 'Great']"
             class="mx-auto mb-3 feedback-component"
-            :v-model="feedback"
-            @input="sendAnalyticEvent('feedback')"
+            v-model="feedback"
+            @input="sendAnalyticEvent('feedback', feedback)"
           />
         </div>
       </div>
@@ -207,12 +207,18 @@ export default {
     // this.feedback = reactionData;
   },
   methods: {
-    async sendAnalyticEvent(eventType) {
-      this.$toast.show("Thanks for the feedback! 🥳", {
-            position: "top-center",
-            theme: "bubble",
-            duration: 3000,
-          });
+    async sendAnalyticEvent(eventType, feedbackValue) {
+      if (feedbackValue != null) {
+        var emoji = "🥳";
+        if (this.feedback == 1 || this.feedback == 2) {
+          emoji = "😬";
+        }
+        this.$toast.show("Thanks for the feedback! " + emoji, {
+          position: "top-center",
+          theme: "bubble",
+          duration: 3000,
+        });
+      }
       var data = {
         path: this.content.path,
         title: this.content.Title,
@@ -426,10 +432,10 @@ export default {
   margin: 0 !important;
 }
 
-@media(max-width:991px){
-.feedback-component{
-  transform:scale(0.8);
-  margin-left:-5px !important;
-}
+@media (max-width: 991px) {
+  .feedback-component {
+    transform: scale(0.8);
+    margin-left: -5px !important;
+  }
 }
 </style>
