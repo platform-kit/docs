@@ -215,6 +215,9 @@ export default {
         if (this.feedback == 1 || this.feedback == 2) {
           emoji = "😬";
         }
+        if (this.feedback == 5) {
+          emoji = "🤩";
+        }
         this.$toast.show("Thanks for the feedback! " + emoji, {
           position: "top-center",
           theme: "bubble",
