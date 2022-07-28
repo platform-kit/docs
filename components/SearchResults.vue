@@ -63,6 +63,7 @@
           text-small
           border
           br-10
+          
           footer-badge
         "
         ><b-icon-book class="mr-2"></b-icon-book>{{ byline }}</a
@@ -160,4 +161,9 @@ export default {
   color: #3c6384;
   border-radius: 25px;
 }
+
+.text-small {
+  font-size: 60%;
+}
+
 </style>
