@@ -489,6 +489,11 @@ export default {
   opacity:0.66;
 }
 
+.nuxt-content .token {
+  background:none;
+  color: hotpink;
+}
+
 .nuxt-content img {
   margin-bottom:5px;  
   border-radius:3px;  
