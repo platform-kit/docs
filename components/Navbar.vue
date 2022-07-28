@@ -93,7 +93,7 @@ export default {
   data() {
     return {
       logo: "/icon.png",
-      siteName: "PlatformKit Docs",      
+      siteName: process.env.GITHUB_URL || "PlatformKit",      
       navOptions: null,
       links: {
         github: null,
