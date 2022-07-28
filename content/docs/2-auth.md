@@ -3,6 +3,7 @@ Title: Auth
 Description: Self-Hosted Authentication
 Repository: "https://github.com/platform-kit/auth"
 Icon: "person-badge"
+Website: "https://auth.platformkit.com"
 ---
 
 <h1 align="center">PlatformKit Auth</h1>
