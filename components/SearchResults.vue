@@ -6,6 +6,7 @@
       @click="
         $nuxt.$options.router.push('/#/' + result.slug);
         updateSearch(null);
+        toggleNav();
       "
       style="cursor: pointer"
       class="search-result-card mx-auto mt-4"
@@ -39,7 +40,12 @@ export default {
   name: "SearchResults",
   props: ["searchResults", "search"],
   methods: {
-    getSearchExcerpt(input){
+    toggleNav() {
+      if (this.search != null && this.search != '' && this.$device.isMobile) {
+        this.$root.$emit("bv::toggle::collapse", "nav-collapse");
+      }
+    },
+    getSearchExcerpt(input) {
       var first = input.indexOf(this.search, 0);
       var last = input.indexOf("<br>", first);
       return "..." + input.substring(first, last);
@@ -72,7 +78,7 @@ export default {
 }
 
 .search-result-card:hover {
-  background:rgb(239, 243, 249) !important;
+  background: rgb(239, 243, 249) !important;
   box-shadow: 0px 15px 15px rgba(0, 50, 100, 0.075),
     0px 7px 7px rgba(0, 50, 100, 0.075), 0px 5px 3px rgba(0, 50, 100, 0.05);
 }

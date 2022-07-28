@@ -93,8 +93,7 @@ export default {
   data() {
     return {
       logo: "/icon.png",
-      siteName: "PlatformKit Docs",
-      search: null,
+      siteName: "PlatformKit Docs",      
       navOptions: null,
       links: {
         github: null,

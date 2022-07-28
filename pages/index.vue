@@ -51,6 +51,7 @@ export default {
       navOptions: null,
       hash: null,
       route: null,
+      isMobile: null
     };
   },
   head: {
@@ -78,6 +79,7 @@ export default {
     },
   },
   async mounted() {
+    
     window.addEventListener("keydown", (e) => this.keyDetector("keydown", e));
     window.addEventListener("keypress", (e) => this.keyDetector("keypress", e));
     this.content = await this.$content("docs").sortBy("path").fetch();
@@ -106,10 +108,10 @@ export default {
       }
     },
   },
-  methods: {
+  methods: {    
     keyDetector(type, event) {
       // console.info(type, event)
-      if (event.key == "Escape" ) {
+      if (event.key == "Escape") {
         console.log(event);
         this.focusSearch();
       }
@@ -118,9 +120,8 @@ export default {
       // this.$refs.searchinput.focus();
       if (this.search == "" || this.search == null) {
         this.$refs.navbar.$refs.searchinput.focus();
-      }
-      else {
-        this.search = null;        
+      } else {
+        this.search = null;
       }
       console.log("Escape key pressed.");
     },
@@ -137,7 +138,6 @@ export default {
     },
     async updateCurrentPage() {
       this.hash = window.location.hash.split("#/")[1];
-
       if (this.hash != null) {
         console.log("Hash: " + this.hash);
         var page = await this.$content("docs")

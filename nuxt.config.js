@@ -34,7 +34,7 @@ export default {
   components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: ["@nuxtjs/pwa"],
+  buildModules: ["@nuxtjs/pwa",  "@nuxtjs/device"],
 
   bootstrapVue: {
     icons: true,
