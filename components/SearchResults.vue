@@ -48,7 +48,7 @@ export default {
     getSearchExcerpt(input) {
       var first = input.indexOf(this.search, 0);
       var last = input.indexOf("<br>", first);
-      return "..." + input.substring(first, last);
+      return "... " + input.substring(first, last);
     },
     updateSearch: function (value) {
       this.$emit("updateSearch", null);
