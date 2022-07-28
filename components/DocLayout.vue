@@ -208,7 +208,7 @@ export default {
   },
   methods: {
     async sendAnalyticEvent(eventType) {
-      this.$toast.show("Thanks for the feedback!", {
+      this.$toast.show("Thanks for the feedback! 🥳", {
             position: "top-center",
             theme: "bubble",
             duration: 3000,
