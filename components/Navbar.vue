@@ -211,8 +211,9 @@ export default {
 }
 
 #navbar-main {
-  border-bottom: 1px solid rgb(221, 223, 239);
-  box-shadow: 0px 8px 50px rgb(0 50 125 / 15%) !important;
+  z-index:10;
+  border-bottom: 0px solid rgb(221, 223, 239);
+  box-shadow: 0px 4px 10px rgb(0 120 200 / 15%),  0px 8px 80px rgb(0 120 200 / 15%) !important;
 }
 
 @media (min-width: 991px) {
