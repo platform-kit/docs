@@ -48,8 +48,9 @@
         <div class="w-100 pt-5 pb-4 border-top mt-5 text-center" id="footer">
           <h5 class="w-100 text-center">Was this page helpful?</h5>
           <vue-feedback-reaction
+            style="margin-left: -15px"
             :labels="['Terrible', 'Bad', 'Okay', 'Good', 'Great']"
-            class="mx-auto mb-3"
+            class="mx-auto mb-3 feedback-component"
             :v-model="feedback"
             @input="sendAnalyticEvent('feedback')"
           />
@@ -199,8 +200,7 @@ export default {
       }
     },
   },
-  watch: {   
-  },
+  watch: {},
   async mounted() {
     var reactionData = localStorage.getItem("feedback:" + this.content.path);
     console.log("Previous feedback: " + reactionData);
@@ -419,5 +419,12 @@ export default {
 
 .html2pdf__page-break {
   margin: 0 !important;
+}
+
+@media(max-width:991px){
+.feedback-component{
+  transform:scale(0.8);
+  margin-left:-15px !important;
+}
 }
 </style>
