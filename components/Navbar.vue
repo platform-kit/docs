@@ -7,7 +7,7 @@
     :variant="variant"
     :class="classes"
   >
-    <div style="width: 25%; float: left">
+    <div class="navbar-left-container" style="float: left">
       <div class="brand-container">
         <b-navbar-brand href="/">
           <img :src="logo" alt="Logo" class="navbar-icon" />
@@ -248,5 +248,18 @@ export default {
 
 code {
   background: rgb(239, 243, 249) !important;
+}
+
+.navbar-left-container {
+  width: 25%;
+}
+@media (min-width: 991px) {
+  .navbar-left-container {
+    width: calc(25% - 7px);
+  }
+  .navbar-brand {
+    border-right: 2px solid #eee !important;
+    width: 100%;
+  }
 }
 </style>
