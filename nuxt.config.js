@@ -58,6 +58,10 @@ export default {
     "@nuxt/content",
     // https://www.npmjs.com/package/@nuxtjs/toast
     "@nuxtjs/toast",
+
+    // https://vue-scrollto.netlify.app/docs
+    ['vue-scrollto/nuxt', { duration: 300 }],
+
   ],
 
   content: {

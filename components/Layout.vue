@@ -18,14 +18,6 @@ export default {
   overflow-x: hidden !important;
 }
 
-.br-10 {
-  border-radius: 10px;
-}
-
-.raised {
-  box-shadow: 0px 5px 15px rgba(0, 50, 100, 0.1) !important;
-}
-
 .bg-none {
   backgroud: none !important;
 }
@@ -39,6 +31,22 @@ body {
 
 @media (max-width: 991px) {
   
+}
+
+</style>
+
+<style>
+.br-5 {
+  border-radius: 5px;
+}
+
+.br-10 {
+  border-radius: 10px;
+}
+
+
+.raised {
+  box-shadow: 0px 5px 15px rgba(0, 50, 100, 0.1) !important;
 }
 
 </style>

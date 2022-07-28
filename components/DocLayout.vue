@@ -41,10 +41,34 @@
         </b-nav>
       </div>
       <div
-        class="col-12 col-md-6 main-content px-3 px-md-5"
+        class="col-12 col-md-6 main-content m-0 p-0"
         style="margin: 0px; min-height: calc(100vh - 58px)"
       >
-        <nuxt-content :document="content"></nuxt-content>
+        <div class="w-100 bg-dark p-3 text-light d-inline-block d-md-none">
+          <b-button-group class="w-100">
+            <b-button v-b-modal.chapters-modal size="sm" class="text-light">
+              <b-icon icon="card-list" class="mr-1"></b-icon>Chapters
+            </b-button>
+            <b-button size="sm" class="text-light">
+              <b-icon icon="download" class="mr-1"></b-icon>PDF
+            </b-button>
+            <b-button
+              size="sm"
+              class="text-light"
+              v-if="content.Website != null"
+            >
+              <b-icon icon="link" class="mr-1"></b-icon>Website
+            </b-button>
+            <b-button
+              size="sm"
+              class="text-light"
+              v-if="content.Repository != null"
+            >
+              <b-icon icon="code" class="mr-1"></b-icon>Code
+            </b-button>
+          </b-button-group>
+        </div>
+        <nuxt-content class="px-3 px-md-5" :document="content"></nuxt-content>
         <div
           class="w-100 px-0 pt-5 pb-4 border-top mt-5 text-center"
           id="footer"
@@ -139,12 +163,13 @@
           >
           <b-nav-item
             v-for="link in content.toc"
+            v-scroll-to="'#' + link.id"
             :key="link.id"
             style=""
             class="mb-2 mt-2 main-right-nav-item"
             :class="{ toc2: link.depth === 2, toc3: link.depth === 3 }"
           >
-            <NuxtLink class="text-dark" :to="`#${link.id}`">
+            <a class="text-dark" >
               <b-icon-arrow90deg-right
                 flip-v
                 scale="0.66"
@@ -152,12 +177,37 @@
                 class="caret"
                 v-if="link.depth === 3"
               ></b-icon-arrow90deg-right
-              >{{ link.text }}</NuxtLink
+              >{{ link.text }}</a
             >
           </b-nav-item>
         </b-nav>
       </div>
     </div>
+
+    <b-modal title="On This Page" id="chapters-modal" hide-footer>
+      <b-list-group>
+        <b-list-group-item          
+          v-scroll-to="'#' + link.id"
+          @click="closeModal()"
+          v-for="link in content.toc"
+          :key="link.id"
+          style=""
+          class="mb-2 mt-2 border br-5 raised"
+          :class="{ toc2: link.depth === 2, toc3: link.depth === 3 }"
+        >
+          <span class="text-dark">
+            <b-icon-arrow90deg-right
+              flip-v
+              scale="0.66"
+              style="margin-top;3px;opacity:0.5;"
+              class="caret"
+              v-if="link.depth === 3"
+            ></b-icon-arrow90deg-right
+            >{{ link.text }}</span
+          >
+        </b-list-group-item>
+      </b-list-group>
+    </b-modal>
 
     <client-only>
       <vue-html2pdf
@@ -211,6 +261,9 @@ export default {
     // this.feedback = reactionData;
   },
   methods: {
+    closeModal() {
+      this.$bvModal.hide("chapters-modal");
+    },
     async sendAnalyticEvent(eventType, feedbackValue) {
       if (feedbackValue != null) {
         var emoji = "🥳";
@@ -345,9 +398,13 @@ export default {
 }
 
 .main-content {
-  border-left: 2px solid rgba(221, 223, 239, 0.5);
-  border-right: 1px solid rgba(221, 223, 239, 0.75);
   background: #fff !important;
+}
+@media (min-width: 991px) {
+  .main-content {
+    border-left: 2px solid rgba(221, 223, 239, 0.5);
+    border-right: 1px solid rgba(221, 223, 239, 0.75);
+  }
 }
 
 .main-left-nav {
@@ -427,7 +484,6 @@ export default {
   opacity: 1 !important;
 }
 
-
 .main-content h1 {
   disply: none !important;
 }
@@ -437,7 +493,6 @@ export default {
 }
 
 .feedback-component {
-  
 }
 
 @media (max-width: 991px) {
@@ -447,62 +502,67 @@ export default {
     bottom: 0px;
     left: -5px;
     min-width: 100% !important;
-  max-width: 100% !important;
-  width: 100% !important;
+    max-width: 100% !important;
+    width: 100% !important;
   }
 }
 </style>
 
 <style>
-.nuxt-content h1 {  
-  text-align:center;
-  font-size:180%;
+.nuxt-content h1 {
+  text-align: center;
+  font-size: 180%;
   padding-bottom: 25px;
-  margin-bottom:25px;
-  text-align:center;
-  border-bottom:1px solid rgba(0,50,150,0.1);
+  margin-bottom: 25px;
+  text-align: center;
+  border-bottom: 1px solid rgba(0, 50, 150, 0.1);
 }
 
-.nuxt-content h1, .nuxt-content h2, .nuxt-content h3, .nuxt-content h4, .nuxt-content h5, .nuxt-content h6  {
-  font-weight:300;
-  margin-bottom: 25px;  
-  margin-top:25px;
+.nuxt-content h1,
+.nuxt-content h2,
+.nuxt-content h3,
+.nuxt-content h4,
+.nuxt-content h5,
+.nuxt-content h6 {
+  font-weight: 300;
+  margin-bottom: 25px;
+  margin-top: 25px;
 }
 
 .nuxt-content h2 {
-  font-size:160%;
+  font-size: 160%;
 }
 
 .nuxt-content h3 {
-  font-size:140%;
+  font-size: 140%;
 }
 
 .nuxt-content h4 {
-  font-size:120%;
+  font-size: 120%;
 }
 
 .nuxt-content h5 {
-  font-size:100%;
+  font-size: 100%;
 }
 
 .nuxt-content h6 {
-  opacity:0.66;
+  opacity: 0.66;
 }
 
 .nuxt-content .token {
-  background:none;
+  background: none;
   color: hotpink;
 }
 
 .nuxt-content img {
-  margin-bottom:5px;  
-  border-radius:3px;  
+  margin-bottom: 5px;
+  border-radius: 3px;
 }
 .nuxt-content pre {
-  border-radius:5px;
-  background:#222;
-  color:#fff;
-  text-shadow:none;
+  border-radius: 5px;
+  background: #222;
+  color: #fff;
+  text-shadow: none;
 }
 
 .nuxt-content a img {
@@ -510,7 +570,7 @@ export default {
 }
 
 .nuxt-content a:hover img {
-  transform:scale(1.03);
-  box-shadow:0px 7px 12px rgba(0,50,150,0.25);
+  transform: scale(1.03);
+  box-shadow: 0px 7px 12px rgba(0, 50, 150, 0.25);
 }
 </style>
