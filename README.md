@@ -27,14 +27,19 @@ Search, analytics, pdf export, & offline mode.
 <img src="https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white"/> <img src="https://img.shields.io/badge/Digital_Ocean-0080FF?style=for-the-badge&logo=DigitalOcean&logoColor=white" /> <img src="https://img.shields.io/badge/Render-46E3B7?style=for-the-badge&logo=Render&logoColor=white"/> 
 </p>
 
-**License:** <br> <img src="https://img.shields.io/badge/License-000000?style=for-the-badge"/><img src="https://img.shields.io/badge/MIT-222?style=for-the-badge&logoColor=white"/>
+**License:** <br> <img src="https://img.shields.io/badge/License-000000?style=for-the-badge&logo=git"/> <img src="https://img.shields.io/badge/MIT-222?style=for-the-badge&logoColor=white"/>
 
 ## Features
 
-- Generate beautiful, searchable docs from [Markdown](https://www.markdownguide.org) files in any number of repositories.
-- Progressive Web App - works offline.
-- Add analytics support in 1 step.
-- Emoji based user feedback.
+- Generate beautiful, searchable docs from [Markdown](https://www.markdownguide.org) files
+- Frontmatter support (title, description, git repo, website)
+- Progressive Web App (works offline)
+- Code syntaax highlighting
+- Zero-config analytics
+- Emoji based feedback
+- Export docs as PDF
+- Reading time ETA
+
 
 ## Local Development
 
