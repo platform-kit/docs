@@ -424,7 +424,7 @@ export default {
 @media(max-width:991px){
 .feedback-component{
   transform:scale(0.8);
-  margin-left:-15px !important;
+  margin-left:-5px !important;
 }
 }
 </style>
