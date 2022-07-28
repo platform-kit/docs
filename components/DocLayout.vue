@@ -45,13 +45,15 @@
         style="margin: 0px; min-height: calc(100vh - 58px)"
       >
         <nuxt-content class="pt-2" :document="content"></nuxt-content>
-        <div class="w-100 pt-5 pb-4 border-top mt-5 text-center" id="footer">
+        <div
+          class="w-100 px-0 pt-5 pb-4 border-top mt-5 text-center"
+          id="footer"
+        >
           <h5 class="w-100 text-center">Was this page helpful?</h5>
           <vue-feedback-reaction
             v-if="showFeedback == true"
-            style="margin-left: -15px"
             :labels="['Terrible', 'Bad', 'Okay', 'Good', 'Great']"
-            class="mx-auto mb-3 feedback-component"
+            class="mr-auto mb-3 feedback-component"
             v-model="feedback"
             @input="sendAnalyticEvent('feedback', feedback)"
           />
@@ -437,10 +439,19 @@ export default {
   margin: 0 !important;
 }
 
+.feedback-component {
+  
+}
+
 @media (max-width: 991px) {
   .feedback-component {
-    transform: scale(0.8);
-    margin-left: -5px !important;
+    transform: scale(0.75);
+    position: relative;
+    bottom: 0px;
+    left: -5px;
+    min-width: 100% !important;
+  max-width: 100% !important;
+  width: 100% !important;
   }
 }
 </style>
