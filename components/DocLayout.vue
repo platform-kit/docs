@@ -41,10 +41,10 @@
         </b-nav>
       </div>
       <div
-        class="col-12 col-md-6 main-content px-3 px-md-5 py-2"
+        class="col-12 col-md-6 main-content px-3 px-md-5"
         style="margin: 0px; min-height: calc(100vh - 58px)"
       >
-        <nuxt-content class="pt-2" :document="content"></nuxt-content>
+        <nuxt-content :document="content"></nuxt-content>
         <div
           class="w-100 px-0 pt-5 pb-4 border-top mt-5 text-center"
           id="footer"
@@ -427,9 +427,6 @@ export default {
   opacity: 1 !important;
 }
 
-.nuxt-content img {
-  max-width: 90%;
-}
 
 .main-content h1 {
   disply: none !important;
@@ -453,5 +450,53 @@ export default {
   max-width: 100% !important;
   width: 100% !important;
   }
+}
+</style>
+
+<style>
+.nuxt-content h1 {  
+  text-align:center;
+  font-size:180%;
+  padding-bottom: 25px;
+  margin-bottom:25px;
+  text-align:center;
+  border-bottom:1px solid rgba(0,50,150,0.1);
+}
+
+.nuxt-content h1, .nuxt-content h2, .nuxt-content h3, .nuxt-content h4, .nuxt-content h5, .nuxt-content h6  {
+  font-weight:300;
+  margin-bottom: 25px;  
+  margin-top:25px;
+}
+
+.nuxt-content h2 {
+  font-size:160%;
+}
+
+.nuxt-content h3 {
+  font-size:140%;
+}
+
+.nuxt-content h4 {
+  font-size:120%;
+}
+
+.nuxt-content h5 {
+  font-size:100%;
+}
+
+.nuxt-content h6 {
+  opacity:0.66;
+}
+
+.nuxt-content img {
+  margin-bottom:5px;  
+  border-radius:3px;  
+}
+.nuxt-content pre {
+  border-radius:5px;
+  background:#222;
+  color:#fff;
+  text-shadow:none;
 }
 </style>
