@@ -4,7 +4,7 @@ Description: Self-Hosted Web Conferencing
 Repository: "https://github.com/platform-kit/chat"
 Icon: "chat-dots"
 ---
-<h1 align="center">PlatformKit Messenger</h1>
+<h1 align="center">PlatformKit Chat</h1>
 
 <p align="center">
 Self-Hosted Web Conferencing
@@ -38,13 +38,13 @@ Self-Hosted Web Conferencing
 Clone the project
 
 ```bash
-  git clone https://github.com/platform-kit/chat pk-messenger
+  git clone https://github.com/platform-kit/chat pk-chat
 ```
 
 Go to the project directory
 
 ```bash
-  cd pk-messenger
+  cd pk-chat
 ```
 
 Install dependencies
