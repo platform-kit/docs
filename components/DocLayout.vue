@@ -49,13 +49,15 @@
             <b-button v-b-modal.chapters-modal size="sm" class="text-light">
               <b-icon icon="card-list" class="mr-1"></b-icon>Chapters
             </b-button>
-            <b-button size="sm" class="text-light">
+            <b-button size="sm" class="text-light" @click="download()">
               <b-icon icon="download" class="mr-1"></b-icon>PDF
             </b-button>
             <b-button
               size="sm"
               class="text-light"
               v-if="content.Website != null"
+              :href="content.Website"
+              target="_blank"
             >
               <b-icon icon="link" class="mr-1"></b-icon>Website
             </b-button>
@@ -63,6 +65,8 @@
               size="sm"
               class="text-light"
               v-if="content.Repository != null"
+              :href="content.Repository"
+              target="_blank"
             >
               <b-icon icon="code" class="mr-1"></b-icon>Code
             </b-button>
