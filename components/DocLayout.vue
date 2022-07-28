@@ -48,6 +48,7 @@
         <div class="w-100 pt-5 pb-4 border-top mt-5 text-center" id="footer">
           <h5 class="w-100 text-center">Was this page helpful?</h5>
           <vue-feedback-reaction
+            v-if="showFeedback == true"
             style="margin-left: -15px"
             :labels="['Terrible', 'Bad', 'Okay', 'Good', 'Great']"
             class="mx-auto mb-3 feedback-component"
@@ -191,6 +192,8 @@ export default {
   data() {
     return {
       feedback: null,
+      showFeedback: true,
+      contentData: null,
     };
   },
   components: {
@@ -200,7 +203,6 @@ export default {
       }
     },
   },
-  watch: {},
   async mounted() {
     var reactionData = localStorage.getItem("feedback:" + this.content.path);
     console.log("Previous feedback: " + reactionData);
