@@ -34,11 +34,11 @@ Search, analytics, pdf export, & offline mode.
 - Generate beautiful, searchable docs from [Markdown](https://www.markdownguide.org) files
 - Frontmatter support (title, description, git repo, website)
 - Progressive Web App (works offline)
-- Code syntaax highlighting
+- Automated reading time estimates
+- Code syntax highlighting
 - Zero-config analytics
 - Emoji based feedback
 - Export docs as PDF
-- Reading time ETA
 
 
 ## Local Development
