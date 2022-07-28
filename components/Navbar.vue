@@ -173,6 +173,7 @@ export default {
 }
 
 .navbar-search-button {
+  box-shadow: none !important;
   border-radius: 0px 15px 15px 0px;
   padding-right: 10px;
   padding-left: 7px;
