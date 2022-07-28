@@ -72,7 +72,17 @@
             @click="copyURL()"
             ><span style="font-size: 75%; font-weight: 400"
               ><b-icon-link style="opacity: 0.5" class="mr-2"></b-icon-link>Copy
-              Link</span
+              Current URL</span
+            ></b-nav-item
+          >
+
+          <b-nav-item
+            style="height: 42px"
+            class="mb-2 mt-2 main-right-nav-item has-icon"
+            @click="download()"
+            ><span style="font-size: 75%; font-weight: 400"
+              ><b-icon-link style="opacity: 0.5" class="mr-2"></b-icon-link
+              >Download PDF</span
             ></b-nav-item
           >
 
@@ -83,10 +93,7 @@
             :href="content.Website"
             target="_blank"
             ><span style="font-size: 75%; font-weight: 400"
-              ><b-icon-window
-                style="opacity: 0.5"
-                class="mr-2"
-              ></b-icon-window
+              ><b-icon-window style="opacity: 0.5" class="mr-2"></b-icon-window
               >Website</span
             ></b-nav-item
           >
@@ -138,15 +145,56 @@
         </b-nav>
       </div>
     </div>
+    <client-only>
+      <vue-html2pdf
+        :show-layout="false"
+        :float-layout="true"
+        :enable-download="false"
+        :preview-modal="false"
+        :filename="generateFilename()"
+        :paginate-elements-by-height="1100"
+        :pdf-quality="2"
+        pdf-format="a4"
+        pdf-orientation="portrait"
+        pdf-content-width="800px"
+        :manual-pagination="false"
+        @progress="onProgress($event)"
+        @beforeDownload="beforeDownload($event)"
+        @hasDownloaded="hasDownloaded($event)"
+        ref="html2Pdf"
+      >
+        <pdf-content slot="pdf-content">
+          <nuxt-content class="p-5" :document="content"></nuxt-content>
+        </pdf-content>
+      </vue-html2pdf>
+    </client-only>
   </div>
 </template>
 
 <script>
 export default {
-  name: "DocLayout",  
+  name: "DocLayout",
   props: ["content", "navOptions"],
+  components: {
+    VueHtml2pdf: () => {
+      if (process.client) {
+        return import("vue-html2pdf");
+      }
+    },
+  },
   methods: {
-    
+    generateFilename() {
+      if (this.content != null) {
+        if (this.content.Title != null) {
+          return this.content.Title;
+        } else {
+          return this.content.slug;
+        }
+      }
+    },
+    download() {
+      this.$refs.html2Pdf.generatePdf();
+    },
     copyURL: function () {
       var self = this;
       this.$copyText(window.location.href).then(
@@ -165,6 +213,51 @@ export default {
           console.log(e);
         }
       );
+    },
+    async onProgress() {
+      /*
+      this.$toast.info("Loading...", {
+        position: "top-center",
+        theme: "bubble",
+        duration: 3000,
+      });
+      */
+    },
+    async hasDownload() {
+      /*
+      this.$toast.info("Download successful.", {
+        position: "top-center",
+        theme: "bubble",
+        duration: 3000,
+      });
+      */
+    },
+    async beforeDownload({ html2pdf, options, pdfContent }) {
+      var self = this;
+      await html2pdf()
+        .set(options)
+        .from(pdfContent)
+        .toPdf()
+        .get("pdf")
+        .then((pdf) => {
+          self.$toast.info("Downloading.", {
+            position: "top-center",
+            theme: "bubble",
+            duration: 3000,
+          });
+          const totalPages = pdf.internal.getNumberOfPages();
+          for (let i = 1; i <= totalPages; i++) {
+            pdf.setPage(i);
+            pdf.setFontSize(10);
+            pdf.setTextColor(150);
+            pdf.text(
+              "Page " + i + " of " + totalPages,
+              pdf.internal.pageSize.getWidth() * 0.88,
+              pdf.internal.pageSize.getHeight() - 0.3
+            );
+          }
+        })
+        .save();
     },
   },
 };
@@ -262,6 +355,10 @@ export default {
 }
 
 .main-content h1 {
-  disply:none !important;
+  disply: none !important;
+}
+
+.html2pdf__page-break {
+  margin: 0 !important;
 }
 </style>

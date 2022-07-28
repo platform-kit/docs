@@ -28,13 +28,17 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ["~/plugins/vue-clipboard2.js", "~/plugins/vue-text-highlight.js"],
+  plugins: [
+    "~/plugins/vue-clipboard2.js",
+    "~/plugins/vue-text-highlight.js",
+    { src: "~/plugins/vue-html2pdf.js", mode: "client" },
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: ["@nuxtjs/pwa",  "@nuxtjs/device"],
+  buildModules: ["@nuxtjs/pwa", "@nuxtjs/device"],
 
   bootstrapVue: {
     icons: true,
@@ -65,8 +69,13 @@ export default {
       if (document.extension === ".md") {
         document.output = {};
         document.output.html = document.text;
-        document.output.strippedText = stripHtml(document.text).result.replace(/\n/g, " ");
-        document.output.textWithLineBreaks = stripHtml(document.text).result.replace(/\n/g, "<br>");;
+        document.output.strippedText = stripHtml(document.text).result.replace(
+          /\n/g,
+          " "
+        );
+        document.output.textWithLineBreaks = stripHtml(
+          document.text
+        ).result.replace(/\n/g, "<br>");
         const { time } = require("reading-time")(document.output.strippedText);
         document.readingTime = time / 60000;
       }
