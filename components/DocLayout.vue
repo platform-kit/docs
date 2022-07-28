@@ -504,4 +504,13 @@ export default {
   color:#fff;
   text-shadow:none;
 }
+
+.nuxt-content a img {
+  transition: 0.3s all;
+}
+
+.nuxt-content a:hover img {
+  transform:scale(1.03);
+  box-shadow:0px 7px 12px rgba(0,50,150,0.25);
+}
 </style>
