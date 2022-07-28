@@ -1,7 +1,13 @@
 <!-- Please remove this file from your project -->
 <template>
   <div class="search-results px-4">
-    <p class="mx-auto mt-4 w-100 text-center" v-if="search  != null && search != ''">Search Results for: <span style="opacity:0.5" class="d-inline-block">{{ search }}</span></p>
+    <p
+      class="mx-auto mt-4 w-100 text-center"
+      v-if="search != null && search != ''"
+    >
+      Search Results for:
+      <span style="opacity: 0.5" class="d-inline-block">{{ search }}</span>
+    </p>
     <b-card
       @click="
         $nuxt.$options.router.push('/#/' + result.slug);
@@ -14,7 +20,11 @@
       :key="index"
     >
       <h4>
-        <b-icon :icon="result.Icon || 'book'" class="mr-2" style="opacity: 0.5; color:royalblue;"></b-icon>
+        <b-icon
+          :icon="result.Icon || 'book'"
+          class="mr-2"
+          style="opacity: 0.5; color: royalblue"
+        ></b-icon>
         {{ result.Title }}
       </h4>
       <a
@@ -22,14 +32,24 @@
         :href="result.Repository"
         v-if="result.Repository != null"
         style="pointer-events: none"
-        ><b-icon-link style="margin-left:-10px;margin-right:15px;opacity:0.5;" ></b-icon-link>{{ result.Repository }}</a
+        ><b-icon-link
+          style="margin-left: -10px; margin-right: 15px; opacity: 0.5"
+        ></b-icon-link
+        >{{ result.Repository }}</a
       >
       <b-card-text style="padding-left: 40px">
         {{ result.Description }}
       </b-card-text>
-      <b-card-text style="padding-left: 40px" v-if="search != null && search != ''">
-          <span class="badge bg-dark text-light br-10">Excerpt</span><br></br>
-          <code v-html="getSearchExcerpt(result.output.textWithLineBreaks)"></code>
+      <b-card-text
+        style="padding-left: 40px"
+        v-if="search != null && search != ''"
+      >
+        <text-highlight
+          :queries="getSearchQueries()"
+          style="color: #666 !important"
+        >
+          {{ getSearchExcerpt(result.output.textWithLineBreaks) }}
+        </text-highlight>
       </b-card-text>
     </b-card>
   </div>
@@ -39,16 +59,48 @@
 export default {
   name: "SearchResults",
   props: ["searchResults", "search"],
+  components: {
+    "text-highlight": () => {
+      if (process.client) {
+        return import("vue-text-highlight");
+      }
+    },
+  },
   methods: {
+    strip(html) {
+      var doc = new DOMParser().parseFromString(html, "text/html");
+      return doc.body.textContent || "";
+    },
+    getSearchQueries() {
+      if (this.search == null) {
+        return [];
+      } else {
+        return this.search.split(" ");
+      }
+    },
     toggleNav() {
-      if (this.search != null && this.search != '' && this.$device.isMobile) {
+      if (this.search != null && this.search != "" && this.$device.isMobile) {
         this.$root.$emit("bv::toggle::collapse", "nav-collapse");
       }
     },
     getSearchExcerpt(input) {
-      var first = input.indexOf(this.search, 0);
-      var last = input.indexOf("<br>", first);
-      return "... " + input.substring(first, last);
+      var term = input.indexOf(this.search, 0); // first asppearance of the search term
+      var last = input.indexOf("<br>", term); // first appearance of a new line after the search term (last character we want)
+
+      /*
+      var snippet = input.substr(0, term);
+      var first = input.indexOf("<br>", snippet);
+
+      var finalClip = input.substr(first, last);*/
+
+      var finalClip = input.substr(term, 100).replace('<br>', "\n\n") + " ...";
+      finalClip = this.strip(finalClip);
+
+      console.log(finalClip);
+      // var excerpt = input.substr(0, first);             // excerpting from the beginning of the searchable text to the last character (from previous step)
+      // var previousBr = excerpt.indexOf("<br>", last);   // first appearance of a <br> tag within the excerpted text
+      // var finalClip = input.substr(previousBr, last);   // clip from first appearance of <br> to last character
+      return "... " + finalClip;
     },
     updateSearch: function (value) {
       this.$emit("updateSearch", null);

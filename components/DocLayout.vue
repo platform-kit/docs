@@ -143,10 +143,10 @@
 
 <script>
 export default {
-  name: "DocLayout",
-
+  name: "DocLayout",  
   props: ["content", "navOptions"],
   methods: {
+    
     copyURL: function () {
       var self = this;
       this.$copyText(window.location.href).then(
@@ -259,5 +259,9 @@ export default {
 
 .nuxt-content img {
   max-width: 90%;
+}
+
+.main-content h1 {
+  disply:none !important;
 }
 </style>

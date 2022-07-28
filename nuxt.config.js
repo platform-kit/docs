@@ -28,7 +28,7 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ["~/plugins/vue-clipboard2.js"],
+  plugins: ["~/plugins/vue-clipboard2.js", "~/plugins/vue-text-highlight.js"],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
