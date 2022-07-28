@@ -86,22 +86,10 @@ export default {
       }
     },
     getSearchExcerpt(input) {
-      var term = input.indexOf(this.search, 0); // first asppearance of the search term
-      var last = input.indexOf("<br>", term); // first appearance of a new line after the search term (last character we want)
-
-      /*
-      var snippet = input.substr(0, term);
-      var first = input.indexOf("<br>", snippet);
-
-      var finalClip = input.substr(first, last);*/
-
-      var finalClip = input.substr(term, 100).replace('<br>', "\n\n") + " ...";
-      finalClip = this.strip(finalClip);
-
-      console.log(finalClip);
-      // var excerpt = input.substr(0, first);             // excerpting from the beginning of the searchable text to the last character (from previous step)
-      // var previousBr = excerpt.indexOf("<br>", last);   // first appearance of a <br> tag within the excerpted text
-      // var finalClip = input.substr(previousBr, last);   // clip from first appearance of <br> to last character
+      var term = input.indexOf(this.search, 0);                  // first asppearance of the search term
+      var last = input.indexOf("<br>", term);                    // first appearance of a new line after the search term (last character we want)
+      var finalClip = input.substr(term, 130);                   // clip the full text from the point of the first appearance of hte term to 130 characters later,       
+      finalClip = this.strip(finalClip);                         // strip all html tags
       return "... " + finalClip;
     },
     updateSearch: function (value) {
