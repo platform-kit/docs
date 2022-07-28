@@ -5,7 +5,7 @@ Static Documentation Generator
 </p>
 
 <p align="center">
-Create beautiful, searchable documentation that works offline.
+Search, analytics, pdf export, & offline mode.
 </p>
 
 <div align="center">
@@ -18,7 +18,8 @@ Create beautiful, searchable documentation that works offline.
 <p float="left">
 <img src="https://img.shields.io/badge/Node.js-ebf5fb?style=for-the-badge&logo=nodedotjs"/>
 <img src="https://img.shields.io/badge/Vue.js-ebf5fb?style=for-the-badge&logo=vuedotjs" />
-<img src="https://img.shields.io/badge/Lambda-ebf5fb?style=for-the-badge&logo=awslambda" />
+<img src="https://img.shields.io/badge/Nuxt.js-ebf5fb?style=for-the-badge&logo=nuxt.js" />
+<img src="https://img.shields.io/badge/Bootstrap-ebf5fb?style=for-the-badge&logo=bootstrap" />
 </p>
 
 **Deploy with:** <br> 
