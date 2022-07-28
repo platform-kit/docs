@@ -3,6 +3,7 @@ Title: Chat
 Description: Self-Hosted Web Conferencing
 Repository: "https://github.com/platform-kit/chat"
 Icon: "chat-dots"
+Website: "https://talk.platformkit.com"
 ---
 <h1 align="center">PlatformKit Chat</h1>
 

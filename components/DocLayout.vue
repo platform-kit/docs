@@ -59,13 +59,13 @@
           <b-nav-item
             v-if="content.readingTime != null"
             style="height: 42px"
-            class="mb-2 mt-2 main-right-nav-item has-icon"            
+            class="mb-2 mt-2 main-right-nav-item has-icon"
             ><span style="font-size: 75%; font-weight: 400"
-              ><b-icon-clock style="opacity: 0.5" class="mr-2"></b-icon-clock>{{ Math.ceil(content.readingTime) }} Minute Read</span
+              ><b-icon-clock style="opacity: 0.5" class="mr-2"></b-icon-clock
+              >{{ Math.ceil(content.readingTime) }} Minute Read</span
             ></b-nav-item
           >
 
-          
           <b-nav-item
             style="height: 42px"
             class="mb-2 mt-2 main-right-nav-item has-icon"
@@ -73,6 +73,21 @@
             ><span style="font-size: 75%; font-weight: 400"
               ><b-icon-link style="opacity: 0.5" class="mr-2"></b-icon-link>Copy
               Link</span
+            ></b-nav-item
+          >
+
+          <b-nav-item
+            v-if="content.Website != null"
+            style="height: 42px"
+            class="mb-2 mt-2 main-right-nav-item has-icon"
+            :href="content.Website"
+            target="_blank"
+            ><span style="font-size: 75%; font-weight: 400"
+              ><b-icon-window
+                style="opacity: 0.5"
+                class="mr-2"
+              ></b-icon-window
+              >Website</span
             ></b-nav-item
           >
 
