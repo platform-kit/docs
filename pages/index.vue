@@ -51,7 +51,7 @@ export default {
       navOptions: null,
       hash: null,
       route: null,
-      isMobile: null
+      isMobile: null,
     };
   },
   head: {
@@ -79,7 +79,6 @@ export default {
     },
   },
   async mounted() {
-    
     window.addEventListener("keydown", (e) => this.keyDetector("keydown", e));
     window.addEventListener("keypress", (e) => this.keyDetector("keypress", e));
     this.content = await this.$content("docs").sortBy("path").fetch();
@@ -108,7 +107,7 @@ export default {
       }
     },
   },
-  methods: {    
+  methods: {
     keyDetector(type, event) {
       // console.info(type, event)
       if (event.key == "Escape") {

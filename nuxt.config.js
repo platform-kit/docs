@@ -22,6 +22,7 @@ export default {
 
   env: {
     GITHUB_URL: process.env.GITHUB_URL || "http://github.com/platform-kit/docs",
+    FEEDBACK_ANALYTICS_URL: process.env.FEEDBACK_ANALYTICS_URL,
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -32,6 +33,7 @@ export default {
     "~/plugins/vue-clipboard2.js",
     "~/plugins/vue-text-highlight.js",
     { src: "~/plugins/vue-html2pdf.js", mode: "client" },
+    { src: "~/plugins/vue-feedback-reaction.js", mode: "client" },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

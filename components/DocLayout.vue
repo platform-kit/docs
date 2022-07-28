@@ -45,6 +45,15 @@
         style="margin: 0px; min-height: calc(100vh - 58px)"
       >
         <nuxt-content :document="content"></nuxt-content>
+        <div class="w-100 pt-5 pb-4 border-top mt-5 text-center" id="footer">
+          <h5 class="w-100 text-center">Was this page helpful?</h5>
+          <vue-feedback-reaction
+            :labels="['Terrible', 'Bad', 'Okay', 'Good', 'Great']"
+            class="mx-auto mb-3"
+            :v-model="feedback"
+            @input="sendAnalyticEvent('feedback')"
+          />
+        </div>
       </div>
       <div
         class="col-3 main-right-nav d-none d-md-inline-flex"
@@ -145,6 +154,7 @@
         </b-nav>
       </div>
     </div>
+
     <client-only>
       <vue-html2pdf
         :show-layout="false"
@@ -163,18 +173,25 @@
         @hasDownloaded="hasDownloaded($event)"
         ref="html2Pdf"
       >
-        <pdf-content slot="pdf-content">
+        <template slot="pdf-content">
           <nuxt-content class="p-5" :document="content"></nuxt-content>
-        </pdf-content>
+        </template>
       </vue-html2pdf>
     </client-only>
   </div>
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "DocLayout",
   props: ["content", "navOptions"],
+  data() {
+    return {
+      feedback: null,
+    };
+  },
   components: {
     VueHtml2pdf: () => {
       if (process.client) {
@@ -182,7 +199,48 @@ export default {
       }
     },
   },
+  watch: {   
+  },
+  async mounted() {
+    var reactionData = localStorage.getItem("feedback:" + this.content.path);
+    console.log("Previous feedback: " + reactionData);
+    // this.feedback = reactionData;
+  },
   methods: {
+    async sendAnalyticEvent(eventType) {
+      var data = {
+        path: this.content.path,
+        title: this.content.Title,
+        extension: this.content.extension,
+        url: window.location.href,
+        feedback: this.feedback,
+        eventType: eventType,
+      };
+      console.log("Analytics event: ");
+      console.log(data);
+      try {
+        await axios
+          .post(process.env.REACTION_ANALYTICS_URL, data, {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          })
+          .catch(function (error) {
+            console.log("Analytics event failed.");
+          })
+          .then(function (response) {
+            console.log(response);
+            console.log(response.status);
+            if (response != null && response.status == 200) {
+              console.log("Analytics event succeeded.");
+            } else {
+              console.log("Analytics event failed.");
+            }
+          });
+      } catch (err) {
+        console.log(err);
+      }
+    },
     generateFilename() {
       if (this.content != null) {
         if (this.content.Title != null) {

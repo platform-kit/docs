@@ -29,6 +29,8 @@ Static Documentation Generator
 
 - Generate beautiful, searchable docs from [Markdown](https://www.markdownguide.org) files in any number of repositories.
 - Progressive Web App - works offline.
+- Add analytics support in 1 step.
+- Emoji based user feedback.
 
 ## Local Development
 
