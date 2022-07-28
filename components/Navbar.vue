@@ -254,7 +254,7 @@ code {
 }
 @media (min-width: 991px) {
   .navbar-left-container {
-    width: calc(25% - 7px);
+    width: calc(25% - 6px);
   }
   .navbar-brand {
     border-right: 2px solid #eee !important;

@@ -10,7 +10,7 @@
           v-if="navOptions != null"
           vertical
           class="w-100 ml-auto"
-          style="max-width: 220px; float: right"
+          style="max-width: 221px; float: right"
         >
           <b-nav-item
             :href="'#/' + link.slug"
@@ -176,7 +176,7 @@ export default {
 }
 
 .main-content {
-  border-left: 1px solid rgba(221, 223, 239, 0.75);
+  border-left: 2px solid rgba(221, 223, 239, 0.5);
   border-right: 1px solid rgba(221, 223, 239, 0.75);
   background: #fff !important;
 }
