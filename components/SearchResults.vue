@@ -75,7 +75,9 @@ export default {
       if (this.search == null) {
         return [];
       } else {
-        return this.search.split(" ");
+        var array = this.search.split(" ");
+        array.push(this.search);
+        return array;
       }
     },
     toggleNav() {
