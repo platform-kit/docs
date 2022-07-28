@@ -218,7 +218,7 @@ export default {
 @media (min-width: 991px) {
   .brand-container {
     float: right;
-    width: 268px;
+    width: 231px;
     text-align: left;
   }
 }
