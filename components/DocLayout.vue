@@ -44,7 +44,7 @@
         class="col-12 col-md-6 main-content px-3 px-md-5 py-2"
         style="margin: 0px; min-height: calc(100vh - 58px)"
       >
-        <nuxt-content :document="content"></nuxt-content>
+        <nuxt-content class="pt-2" :document="content"></nuxt-content>
         <div class="w-100 pt-5 pb-4 border-top mt-5 text-center" id="footer">
           <h5 class="w-100 text-center">Was this page helpful?</h5>
           <vue-feedback-reaction
