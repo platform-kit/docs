@@ -1,12 +1,19 @@
+--- 
+Title: Docs
+Description: Static Documentation Generator
+Repository: "https://github.com/platform-kit/docs"
+Icon: "book"
+---
 <h1 align="center">PlatformKit Docs</h1>
 
 <p align="center">
-Static documentation generator and serverless CMS.
+Static Documentation Generator
 </p>
 
-<p>Peer-to-peer video, audio & text chat via WebRTC. Group video calls are achieved using WebRTC mesh. So the quality of the call is inversely proportional to the number of people on the call. The sweet number is somewhere around 6 to 8 people on an average high-speed connection.</p>
+<div align="center">
+    <img src="https://raw.githubusercontent.com/platform-kit/docs/master/assets/images/screenshot.png" style="border-radius:4px; margin:auto;max-width:300px;"  width="400"/>
+</div>
 
-**Connects with:** <br>
 
 **Built with:** <br>
 
@@ -27,6 +34,8 @@ Static documentation generator and serverless CMS.
 
 - Generate beautiful, searchable docs from [Markdown](https://www.markdownguide.org) files in any number of repositories.
 - Progressive Web App - works offline.
+- Add analytics support in 1 step.
+- Emoji based user feedback.
 
 ## Local Development
 
@@ -56,13 +65,14 @@ Start the server
 
 A local instance is now running at `https://localhost:3000`
 
-## Configuration
+### Configuration
 
 Before use, you will need to add the following environment variables to your .env file
 
 ```env
-GITHUB_REPO=
-DOCS_PATH=docs
+REPO=
+BUILD_COMMAND=
+CONTENT_DIRECTORY=
 ```
 
 ## Deployment
