@@ -704,12 +704,16 @@ export default {
   filter: drop-shadow(3px 7px 9px rgb(0 50 150 / 0.15));
 }
 
-.toast-custom {
-  text-align: center !important;
-  padding: 10px !important;
-  width: 100% !important;
-  display: block !important;
-  border-radius: 0px !important;
+@media (min-width: 991px) {
+  .toast-custom {
+    text-align: center !important;
+    padding: 10px 20px !important;
+    margin: auto;
+    display: block !important;
+    border-radius: 5px !important;
+    color:#000 !important;
+    background:linear-gradient(90deg, rgb(128 160 255), rgb(158, 235, 243) 150%);
+  }
 }
 
 @media (min-width: 991px) {
