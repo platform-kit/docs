@@ -579,6 +579,7 @@ export default {
 }
 
 .nuxt-content img.raised {
+  margin-bottom:10px;
   box-shadow:none !important;
   filter: drop-shadow(3px 7px 9px rgb(0 50 150 / 0.15));
 }
