@@ -58,18 +58,33 @@
       </div>
       <b-navbar-nav
         class="navbar-nav-right"
-        style="padding-left: 19px; text-align: left; width: calc(33% - 5px); border-left:1px solid #eee !important;"
+        style="
+          padding-left: 19px;
+          text-align: left;
+          border-left: 1px solid #eee !important;
+        "
       >
         <b-nav-item
           href="/#/saved"
-          class="icon-button-alt px-3 px-md-1 text-dark text-center d-none d-md-inline-block mr-2"
+          class="
+            icon-button-alt
+            px-3 px-md-1
+            text-dark text-center
+            d-none d-md-inline-block
+            mr-2
+          "
           style="width: 50px"
           ><b-icon-bookmark></b-icon-bookmark
         ></b-nav-item>
         <b-nav-item
           :href="links.github"
           v-if="links.github != null"
-          class="icon-button-alt px-3 px-md-1 text-dark text-center d-none d-md-inline-block"
+          class="
+            icon-button-alt
+            px-3 px-md-1
+            text-dark text-center
+            d-none d-md-inline-block
+          "
           style="width: 50px"
           ><b-icon-github></b-icon-github
         ></b-nav-item>
@@ -84,6 +99,16 @@
           </b-nav-item>
         </div>
       </b-navbar-nav>
+      <b-nav-item
+        href="/#/saved"
+        class="d-block d-md-none w-100 mobile-nav-links bookmark-nav-link"
+      >
+        <b-icon-bookmark-fill
+          class="mr-2 text-dark"
+          scale="0.5"
+        ></b-icon-bookmark-fill
+        >My Bookmarks
+      </b-nav-item>
     </b-collapse>
 
     <b-navbar-toggle
@@ -100,7 +125,7 @@ export default {
   data() {
     return {
       logo: "/icon.png",
-      siteName: process.env.SITE_NAME || "PlatformKit",      
+      siteName: process.env.SITE_NAME || "PlatformKit",
       navOptions: null,
       links: {
         github: null,
@@ -219,9 +244,10 @@ export default {
 }
 
 #navbar-main {
-  z-index:10;
+  z-index: 10;
   border-bottom: 0px solid rgb(221, 223, 239);
-  box-shadow: 0px 4px 10px rgb(0 120 200 / 15%),  0px 8px 80px rgb(0 120 200 / 15%) !important;
+  box-shadow: 0px 4px 10px rgb(0 120 200 / 15%),
+    0px 8px 80px rgb(0 120 200 / 15%) !important;
 }
 
 @media (min-width: 991px) {
@@ -248,7 +274,7 @@ export default {
   background: rgb(239 243 248);
   border-radius: 5px;
   transition: all 0.3s;
-  border:none;  
+  border: none;
 }
 .icon-button-alt:hover {
   box-shadow: 0px 3px 20px rgba(0, 50, 100, 0.1),
@@ -256,17 +282,16 @@ export default {
 }
 
 .icon-button-alt svg {
-  color:#000;
+  color: #000;
 }
 
-
 .navbar-nav-right {
-  width: 25%;
+  width: calc(33% - 5px);
 }
 
 @media (max-width: 991px) {
   .navbar-nav-right {
-    width: 100%;
+    width: 100% !important;
     text-align: center;
   }
 }
@@ -286,5 +311,11 @@ code {
     border-right: 2px solid #eee !important;
     width: 100%;
   }
+}
+
+.bookmark-nav-link a {
+  padding-left: 0px !important;
+  margin-left: -9px;
+  color:#000;
 }
 </style>
