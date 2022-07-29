@@ -649,10 +649,17 @@ export default {
 .nuxt-content h3,
 .nuxt-content h4,
 .nuxt-content h5,
-.nuxt-content h6 {
-  font-weight: 300;
+.nuxt-content h6 {  
   margin-bottom: 25px;
   margin-top: 25px;
+}
+
+.nuxt-content h1, .nuxt-content h2 {
+  font-weight: 700 !important;
+}
+
+ .nuxt-content h3, .nuxt-content h4, .nuxt-content h5, .nuxt-content h6{
+  font-weight: 300 !important;
 }
 
 .nuxt-content h2 {
@@ -729,5 +736,9 @@ export default {
 
 .page-nav-mobile {
   background: linear-gradient(90deg, #daecff, #e8fff8);
+}
+
+.nuxt-content {
+  font-family: "Open Sans";
 }
 </style>

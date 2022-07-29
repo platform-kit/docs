@@ -63,7 +63,7 @@
     </b-card>
     <div align="center" class="pb-4 mb-2">
       <a
-        :href="bylineLink"
+        :href="byLineLink"
         class="
           mx-auto
           d-inline-block
@@ -75,7 +75,7 @@
           
           footer-badge
         "
-        ><b-icon-book class="mr-2"></b-icon-book>{{ byline }}</a
+        ><b-icon-book class="mr-2"></b-icon-book>{{ byLine }}</a
       >
     </div>
   </div>
