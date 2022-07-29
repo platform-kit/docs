@@ -23,7 +23,7 @@
       "
       style="cursor: pointer"
       class="search-result-card mx-auto mt-4"
-      :class="{'d-none': showPost(result.path) == false}"
+      :class="{ 'd-none': showPost(result.path) == false }"
       v-for="(result, index) in searchResults"
       :key="index"
     >
@@ -34,7 +34,16 @@
           style="opacity: 0.5; color: royalblue"
         ></b-icon>
         {{ result.Title }}
-        <b-icon-heart-fill v-if="isFavorite(result.path)" scale="0.66" style="position:absolute;right:10px;top:10px;color:hotpink !important;"></b-icon-heart-fill>
+        <b-icon-heart-fill
+          v-if="isFavorite(result.path)"
+          scale="0.66"
+          style="
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            color: hotpink !important;
+          "
+        ></b-icon-heart-fill>
       </h4>
       <a
         class="btn w-100 text-left d-none d-md-inline-block"
@@ -72,7 +81,6 @@
           text-small
           border
           br-10
-          
           footer-badge
         "
         ><b-icon-book class="mr-2"></b-icon-book>{{ byLine }}</a
@@ -99,31 +107,40 @@ export default {
     };
   },
   async mounted() {
-    var byLine = this.byLine = process.env.BYLINE;
-     if(byLine == '' || byLine == null) {byLine =  "Docs by PlatformKit";}
-     this.byLine = byLine;
-    var byLineLink = process.env.BYLINE; 
-    if(byLineLink == '' || byLbyLineLinkine == null) {byLineLink =  "https://github.com/platform-kit/docs";}
+    var byLine = (this.byLine = process.env.BYLINE);
+    if (byLine == "" || byLine == null) {
+      byLine = "Docs by PlatformKit";
+    }
+    this.byLine = byLine;
+    var byLineLink = process.env.BYLINE;
+    if (byLineLink == "" || byLineLink == null) {
+      byLineLink = "https://github.com/platform-kit/docs";
+    }
     this.byLineLink = byLineLink;
   },
   methods: {
-    showPost(path){
-      if(this.showSavedResults !== true || this.search != null){
+    showPost(path) {
+      if (this.showSavedResults !== true || this.search != null) {
         return true;
       }
-      if(this.showSavedResults == true && this.isFavorite(path) == true){
-          return true;
-      }
-      else if (this.showSavedResults == true && this.isFavorite(path) == false) {
+      if (this.showSavedResults == true && this.isFavorite(path) == true) {
+        return true;
+      } else if (
+        this.showSavedResults == true &&
+        this.isFavorite(path) == false
+      ) {
         return false;
-      }
-      else {
+      } else {
         return false;
       }
     },
-    isFavorite(path){
-      if(localStorage.getItem("favorite:" + path) != null && (localStorage.getItem("favorite:" + path) == 'true' || localStorage.getItem("favorite:" + path)  == true )) {
-        return true
+    isFavorite(path) {
+      if (
+        localStorage.getItem("favorite:" + path) != null &&
+        (localStorage.getItem("favorite:" + path) == "true" ||
+          localStorage.getItem("favorite:" + path) == true)
+      ) {
+        return true;
       } else {
         return false;
       }
@@ -198,5 +215,4 @@ export default {
 .text-small {
   font-size: 60%;
 }
-
 </style>
