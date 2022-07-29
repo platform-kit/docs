@@ -718,9 +718,7 @@ export default {
 
 @media (min-width: 991px) {
   .toast-custom-container {
-    position: absolute;
-    top: 0px;
-    left: 0px;
+
     width: 100%;
   }
 }
