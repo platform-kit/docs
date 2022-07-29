@@ -99,9 +99,12 @@ export default {
     };
   },
   async mounted() {
-    this.byLine = process.env.BYLINE || "Docs by PlatformKit";
-    this.byLineLink =
-      process.env.BYLINE || "https://github.com/platform-kit/docs";
+    var byLine = this.byLine = process.env.BYLINE;
+     if(byLine == '' || byLine == null) {byLine =  "Docs by PlatformKit";}
+     this.byLine = byLine;
+    var byLineLink = process.env.BYLINE; 
+    if(byLineLink == '' || byLbyLineLinkine == null) {byLineLink =  "https://github.com/platform-kit/docs";}
+    this.byLineLink = byLineLink;
   },
   methods: {
     showPost(path){
