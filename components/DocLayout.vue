@@ -47,7 +47,9 @@
         class="col-12 col-md-6 main-content m-0 p-0"
         style="margin: 0px; min-height: calc(100vh - 58px)"
       >
-        <div class="w-100 p-3 text-light d-inline-block d-md-none page-nav-mobile">
+        <div
+          class="w-100 p-3 text-light d-inline-block d-md-none page-nav-mobile"
+        >
           <b-button-group class="w-100 article-nav">
             <b-button variant="light" v-b-modal.chapters-modal size="sm">
               <b-icon icon="card-list" class="mx-1"></b-icon>Contents
@@ -710,18 +712,17 @@ export default {
     padding: 10px 20px !important;
     margin: auto;
     display: block !important;
-    border-radius: 5px !important;  
+    border-radius: 5px !important;
   }
 }
 
 .toast-custom {
-  color:#000 !important;
-    background:linear-gradient(90deg, rgb(128 160 255), rgb(158, 235, 243) 150%);
+  color: #000 !important;
+  background: linear-gradient(90deg, rgb(128 160 255), rgb(158, 235, 243) 150%);
 }
 
 @media (min-width: 991px) {
   .toast-custom-container {
-
     width: 100%;
   }
 }

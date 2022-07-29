@@ -56,6 +56,16 @@
           </div>
         </b-navbar-nav>
       </div>
+       <b-nav-item        
+       href="/"
+        class="d-block d-md-none w-100 mobile-nav-links icon-nav-link"
+      >
+        <b-icon-book
+          class="mr-2 text-dark"
+          scale="0.5"
+        ></b-icon-book>
+        Content
+      </b-nav-item>
       <b-navbar-nav
         class="navbar-nav-right"
         style="
@@ -64,6 +74,18 @@
           border-left: 1px solid #eee !important;
         "
       >
+          <b-nav-item
+          href="/"
+          class="
+            icon-button-alt
+            px-3 px-md-1
+            text-dark text-center
+            d-none d-md-inline-block
+            mr-2
+          "
+          style="width: 50px"
+          ><b-icon-house></b-icon-house
+        ></b-nav-item>
         <b-nav-item
           href="/#/saved"
           class="
@@ -76,6 +98,7 @@
           style="width: 50px"
           ><b-icon-bookmark></b-icon-bookmark
         ></b-nav-item>
+       
         <b-nav-item
           :href="links.github"
           v-if="links.github != null"
@@ -101,12 +124,12 @@
       </b-navbar-nav>
       <b-nav-item
         href="/#/saved"
-        class="d-block d-md-none w-100 mobile-nav-links bookmark-nav-link"
+        class="d-block d-md-none w-100 mobile-nav-links icon-nav-link"
       >
-        <b-icon-bookmark-fill
+        <b-icon-bookmark
           class="mr-2 text-dark"
           scale="0.5"
-        ></b-icon-bookmark-fill
+        ></b-icon-bookmark
         >My Bookmarks
       </b-nav-item>
     </b-collapse>
@@ -293,6 +316,7 @@ export default {
   .navbar-nav-right {
     width: 100% !important;
     text-align: center;
+    margin-left:13px;
   }
 }
 
@@ -313,9 +337,9 @@ code {
   }
 }
 
-.bookmark-nav-link a {
+.icon-nav-link a {
   padding-left: 0px !important;
-  margin-left: -9px;
-  color:#000;
+  margin-left: 3px;  
+  color:rgba(0, 0, 0, 0.5);
 }
 </style>
