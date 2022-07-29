@@ -8,6 +8,13 @@
       Search Results for:
       <span style="opacity: 0.5" class="d-inline-block">{{ search }}</span>
     </p>
+
+    <p
+      class="mx-auto mt-4 w-100 text-center"
+      v-if="showSavedResults == true && (search == null || search == '')"
+    >
+      Your Bookmarks
+    </p>
     <b-card
       @click="
         $nuxt.$options.router.push('/#/' + result.slug);

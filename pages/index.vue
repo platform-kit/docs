@@ -14,8 +14,8 @@
     <SearchResults
       @updateSearch="updateSearch"
       v-if="(search == null || search == '') && currentPage == null"
-      :searchResults="content"     
-      :showSavedResults="showSavedResults" 
+      :searchResults="content"
+      :showSavedResults="showSavedResults"
     ></SearchResults>
 
     <DocLayout
@@ -23,7 +23,6 @@
       id="search-results"
       :content="currentPage"
       :navOptions="navOptions"
-      
     />
     <SearchResults
       id="default-content"
@@ -108,9 +107,7 @@ export default {
         this.hash = newHash;
         this.route = to;
         if (newHash == "saved") {
-          this.currentPage = null;
-          console.log("Viewing 'Saved' Docs.");
-          this.showSavedResults = true;
+          this.showSaved();
         } else {
           this.showSavedResults = false;
           await this.updateCurrentPage();
@@ -119,6 +116,11 @@ export default {
     },
   },
   methods: {
+    showSaved() {
+      this.currentPage = null;
+      console.log("Viewing 'Saved' Docs.");
+      this.showSavedResults = true;
+    },
     keyDetector(type, event) {
       // console.info(type, event)
       if (event.key == "Escape") {
@@ -149,15 +151,19 @@ export default {
     async updateCurrentPage() {
       this.hash = window.location.hash.split("#/")[1];
       if (this.hash != null) {
-        console.log("Hash: " + this.hash);
-        var page = await this.$content("docs")
-          .where({ slug: this.hash })
-          .fetch();
-        console.log("Page: ");
-        console.log(page);
-        this.currentPage = null;
-        if (page != null && page[0] != null && page[0].path != null) {
-          this.currentPage = page[0];
+        if (this.hash == "saved") {
+          this.showSaved();
+        } else {
+          console.log("Hash: " + this.hash);
+          var page = await this.$content("docs")
+            .where({ slug: this.hash })
+            .fetch();
+          console.log("Page: ");
+          console.log(page);
+          this.currentPage = null;
+          if (page != null && page[0] != null && page[0].path != null) {
+            this.currentPage = page[0];
+          }
         }
       }
     },
