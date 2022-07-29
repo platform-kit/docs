@@ -514,6 +514,10 @@ export default {
 .article-nav .btn {
   border: 1px solid rgb(215, 216, 229);
 }
+.article-nav .btn svg {
+  opacity:0.66;    
+  color:rgb(73, 97, 170);
+}
 </style>
 
 <style>
