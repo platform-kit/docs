@@ -109,6 +109,7 @@
         >
           <h5 class="w-100 text-center">Was this page helpful?</h5>
           <vue-feedback-reaction
+            v-b-visible="ctaHandler"
             v-if="showFeedback == true"
             :labels="['Terrible', 'Bad', 'Okay', 'Good', 'Great']"
             class="mr-auto mb-3 feedback-component"
@@ -343,6 +344,23 @@ export default {
   },
 
   methods: {
+    ctaHandler(isVisible) {
+      if (isVisible && this.content.CTA != null) {
+        var message = this.content.CTA;
+        if(this.content.CTALink != null){
+            message = "<a href='" + this.content.CTALink + "'/>" + message + "</a>";
+        }
+        this.$toast.show(message, {
+          position: "bottom-right",
+          theme: "toasted-primary",
+          duration:10000,          
+          closeOnSwipe: true,
+          className: "toast-custom",
+          containerClass: "toast-custom-container-bottom-right",
+        });
+      } else {
+      }
+    },
     toggleFavorite() {
       if (this.favorite == null || this.favorite == false) {
         this.favorite = true;
@@ -649,16 +667,20 @@ export default {
 .nuxt-content h3,
 .nuxt-content h4,
 .nuxt-content h5,
-.nuxt-content h6 {  
+.nuxt-content h6 {
   margin-bottom: 25px;
   margin-top: 25px;
 }
 
-.nuxt-content h1, .nuxt-content h2 {
+.nuxt-content h1,
+.nuxt-content h2 {
   font-weight: 700 !important;
 }
 
- .nuxt-content h3, .nuxt-content h4, .nuxt-content h5, .nuxt-content h6{
+.nuxt-content h3,
+.nuxt-content h4,
+.nuxt-content h5,
+.nuxt-content h6 {
   font-weight: 300 !important;
 }
 
@@ -721,11 +743,22 @@ export default {
     display: block !important;
     border-radius: 5px !important;
   }
+
+  .toast-custom-container-bottom-right {
+    
+  }
 }
 
 .toast-custom {
   color: #000 !important;
   background: linear-gradient(90deg, rgb(128 160 255), rgb(158, 235, 243) 150%);
+}
+
+.toast-custom a {
+  color:#fff !important;
+  text-align:center;
+  width:100%;
+  font-weight:600;
 }
 
 @media (min-width: 991px) {
@@ -739,6 +772,6 @@ export default {
 }
 
 .nuxt-content {
-  font-family:'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 </style>
