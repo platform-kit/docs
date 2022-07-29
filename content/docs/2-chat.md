@@ -11,6 +11,10 @@ Website: "https://talk.platformkit.com"
 Self-Hosted Web Conferencing
 </p>
 
+<p align="center">
+Peer-to-Peer Video Chat & Screen Sharing
+</p>
+
 <div align="center">
     <img src="https://raw.githubusercontent.com/platform-kit/chat/master/assets/images/screenshot.png" style="border-radius:4px; margin:auto;max-width:300px;"  width="400"/>
 </div>
