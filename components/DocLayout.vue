@@ -1,6 +1,6 @@
 <!-- Please remove this file from your project -->
 <template>
-  <div class="doc-layout container-fluid" v-if="content != null">
+  <div class="doc-layout container-fluid" v-if="content != null && content != false">
     <div class="row bg-white">
       <div
         class="col-3 main-left-nav d-none d-md-inline-flex"
@@ -47,10 +47,10 @@
         <div class="w-100 bg-dark p-3 text-light d-inline-block d-md-none">
           <b-button-group class="w-100 article-nav">
             <b-button variant="light" v-b-modal.chapters-modal size="sm">
-              <b-icon icon="card-list" class="mr-1"></b-icon>On this page
+              <b-icon icon="card-list" class="mx-1"></b-icon>Contents
             </b-button>
             <b-button variant="light" size="sm" @click="download()">
-              <b-icon icon="download" class="mr-1"></b-icon>PDF
+              <b-icon icon="download" class="mx-1"></b-icon>PDF
             </b-button>
             <b-button
               variant="light"
@@ -68,25 +68,27 @@
               :href="content.Repository"
               target="_blank"
             >
-              <b-icon icon="code" class="mr-1"></b-icon>Code
+              <b-icon icon="code" class="mx-1"></b-icon>Code
             </b-button>
             <b-button
+            style="min-width:50px;"
               @click="toggleFavorite"
               v-if="content != null && content.Repository != null"
               variant="light"
+              class="text-center"
               size="sm"
             >
               <b-icon
                 v-if="favorite == true"
                 icon="heart-fill"
-                style="color: hotpink; opacity: 1"
-                class="mr-1"
+                style="color: hotpink; opacity: 1;margin-left:5px;"
+                class="mx-1"
               ></b-icon>
               <b-icon
                 v-else
                 icon="heart"
-                style="color: hotpink; opacity: 1"
-                class="mr-1"
+                style="color: hotpink; opacity: 1;margin-left:5px;"
+                class="mx-1"
               ></b-icon>
             </b-button>
           </b-button-group>

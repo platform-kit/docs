@@ -90,8 +90,8 @@ export default {
     var navOptions = this.content.filter(
       (element) => element.path.split("docs/")[1].includes("/") != true
     );
-    this.navOptions = navOptions;
-
+    this.navOptions = navOptions;  
+    this.currentPage = null;  
     await this.updateCurrentPage();
   },
   watch: {
@@ -144,7 +144,9 @@ export default {
           .fetch();
         console.log("Page: ");
         console.log(page);
+        this.currentPage = null;
         if (page != null && page[0] != null && page[0].path != null) {
+          
           this.currentPage = page[0];
         }
       }
