@@ -344,7 +344,9 @@ code {
   color: rgba(0, 0, 0, 0.5);
 }
 
-.mobile-nav-links-container {
-  margin-left: 20px !important;
+@media (max-width: 991px) {
+  .mobile-nav-links-container {
+    margin-left: 20px !important;
+  }
 }
 </style>
