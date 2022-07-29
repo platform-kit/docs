@@ -45,16 +45,16 @@
         style="margin: 0px; min-height: calc(100vh - 58px)"
       >
         <div class="w-100 bg-dark p-3 text-light d-inline-block d-md-none">
-          <b-button-group class="w-100">
-            <b-button v-b-modal.chapters-modal size="sm" class="text-light">
-              <b-icon icon="card-list" class="mr-1"></b-icon>Chapters
+          <b-button-group class="w-100 article-nav">
+            <b-button variant="light" v-b-modal.chapters-modal size="sm">
+              <b-icon icon="card-list" class="mr-1"></b-icon>On this page
             </b-button>
-            <b-button size="sm" class="text-light" @click="download()">
+            <b-button variant="light" size="sm" @click="download()">
               <b-icon icon="download" class="mr-1"></b-icon>PDF
             </b-button>
             <b-button
+              variant="light"
               size="sm"
-              class="text-light"
               v-if="content.Website != null"
               :href="content.Website"
               target="_blank"
@@ -62,8 +62,8 @@
               <b-icon icon="link" class="mr-1"></b-icon>Website
             </b-button>
             <b-button
+              variant="light"
               size="sm"
-              class="text-light"
               v-if="content.Repository != null"
               :href="content.Repository"
               target="_blank"
@@ -510,6 +510,10 @@ export default {
     width: 100% !important;
   }
 }
+
+.article-nav .btn {
+  border: 1px solid rgb(215, 216, 229);
+}
 </style>
 
 <style>
@@ -579,8 +583,8 @@ export default {
 }
 
 .nuxt-content img.raised {
-  margin-bottom:10px !important;
-  box-shadow:none !important;
+  margin-bottom: 10px !important;
+  box-shadow: none !important;
   filter: drop-shadow(3px 7px 9px rgb(0 50 150 / 0.15));
 }
 </style>
