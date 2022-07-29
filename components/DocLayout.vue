@@ -74,7 +74,11 @@
               <b-icon icon="code" class="mx-1"></b-icon>Code
             </b-button>
             <b-button
-              style="max-width: 50px !important;min-width: 50px !important;width: 50px !important"
+              style="
+                max-width: 50px !important;
+                min-width: 50px !important;
+                width: 50px !important;
+              "
               @click="toggleFavorite"
               v-if="content != null && content.Repository != null"
               variant="light"
@@ -335,9 +339,8 @@ export default {
       "Stored value for 'favorite:" + this.content.path + "': " + this.favorite
     );
   },
-  
+
   methods: {
-    
     toggleFavorite() {
       if (this.favorite == null || this.favorite == false) {
         this.favorite = true;
@@ -384,13 +387,12 @@ export default {
           emoji = "🤩";
         }
         this.$toast.show("Thanks for the feedback! " + emoji, {
-          fullWidth: true,
-          fitToScreen: true,
           position: "top-center",
           theme: "toasted-primary",
           duration: 3000,
           closeOnSwipe: true,
-          className: 'toast-custom'
+          className: "toast-custom",
+          containerClass: "toast-custom-container",
         });
       }
       var data = {
@@ -703,6 +705,20 @@ export default {
 }
 
 .toast-custom {
-  border-radius:0px !important;
+  text-align: center !important;
+  padding: 10px !important;
+  width: 100% !important;
+  display: block !important;
+  border-radius: 0px !important;
+}
+
+@media (min-width: 991px) {
+  .toast-custom-container {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    margin-top: -100px;
+  }
 }
 </style>
