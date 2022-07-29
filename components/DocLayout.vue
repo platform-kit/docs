@@ -74,7 +74,7 @@
               <b-icon icon="code" class="mx-1"></b-icon>Code
             </b-button>
             <b-button
-              style="min-width: 50px"
+              style="max-width: 50px !important;min-width: 50px !important;width: 50px !important"
               @click="toggleFavorite"
               v-if="content != null && content.Repository != null"
               variant="light"
