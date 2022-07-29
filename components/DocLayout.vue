@@ -384,9 +384,13 @@ export default {
           emoji = "🤩";
         }
         this.$toast.show("Thanks for the feedback! " + emoji, {
+          fullWidth: true,
+          fitToScreen: true,
           position: "top-center",
-          theme: "bubble",
+          theme: "toasted-primary",
           duration: 3000,
+          closeOnSwipe: true,
+          className: 'toast-custom'
         });
       }
       var data = {
@@ -696,5 +700,9 @@ export default {
   margin-bottom: 10px !important;
   box-shadow: none !important;
   filter: drop-shadow(3px 7px 9px rgb(0 50 150 / 0.15));
+}
+
+.toast-custom {
+  border-radius:0px !important;
 }
 </style>
