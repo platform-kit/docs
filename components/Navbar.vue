@@ -313,7 +313,7 @@ export default {
 }
 
 .navbar-nav-right {
-  width: calc(33% - 6px);
+  width: calc(33% - 4px);
 }
 
 @media (max-width: 991px) {
