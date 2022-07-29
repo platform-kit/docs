@@ -56,15 +56,11 @@
           </div>
         </b-navbar-nav>
       </div>
-       <b-nav-item        
-       href="/"
+      <b-nav-item
+        href="/"
         class="d-block d-md-none w-100 mobile-nav-links icon-nav-link"
       >
-        <b-icon-book
-          class="mr-2 text-dark"
-          scale="0.5"
-        ></b-icon-book>
-        Content
+        <b-icon-book class="mr-2 text-dark" scale="0.5"></b-icon-book>Content
       </b-nav-item>
       <b-navbar-nav
         class="navbar-nav-right"
@@ -74,7 +70,7 @@
           border-left: 1px solid #eee !important;
         "
       >
-          <b-nav-item
+        <b-nav-item
           href="/"
           class="
             icon-button-alt
@@ -83,7 +79,7 @@
             d-none d-md-inline-block
             mr-2
           "
-          style="margin-left:-3px;width: 50px"
+          style="margin-left: -3px; width: 50px"
           ><b-icon-house></b-icon-house
         ></b-nav-item>
         <b-nav-item
@@ -98,7 +94,7 @@
           style="width: 50px"
           ><b-icon-bookmark></b-icon-bookmark
         ></b-nav-item>
-       
+
         <b-nav-item
           :href="links.github"
           v-if="links.github != null"
@@ -126,11 +122,8 @@
         href="/#/saved"
         class="d-block d-md-none w-100 mobile-nav-links icon-nav-link"
       >
-        <b-icon-bookmark
-          class="mr-2 text-dark"
-          scale="0.5"
-        ></b-icon-bookmark
-        >My Bookmarks
+        <b-icon-bookmark class="mr-2 text-dark" scale="0.5"></b-icon-bookmark>My
+        Bookmarks
       </b-nav-item>
     </b-collapse>
 
@@ -316,7 +309,7 @@ export default {
   .navbar-nav-right {
     width: 100% !important;
     text-align: center;
-    margin-left:13px;
+    margin-left: 13px;
   }
 }
 
@@ -339,7 +332,7 @@ code {
 
 .icon-nav-link a {
   padding-left: 0px !important;
-  margin-left: 3px;  
-  color:rgba(0, 0, 0, 0.5);
+  margin-left: 3px;
+  color: rgba(0, 0, 0, 0.5);
 }
 </style>
