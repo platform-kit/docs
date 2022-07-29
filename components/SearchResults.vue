@@ -99,8 +99,8 @@ export default {
     };
   },
   async mounted() {
-    this.byline = process.env.BYLINE || "Docs by PlatformKit";
-    this.bylineLink =
+    this.byLine = process.env.BYLINE || "Docs by PlatformKit";
+    this.byLineLink =
       process.env.BYLINE || "https://github.com/platform-kit/docs";
   },
   methods: {
