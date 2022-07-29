@@ -275,6 +275,9 @@ export default {
 }
 
 @media (min-width: 991px) {
+  #navbar-main {
+    padding: 15px;
+  }
   .brand-container {
     float: right;
     width: 231px;
@@ -310,7 +313,7 @@ export default {
 }
 
 .navbar-nav-right {
-  width: calc(33% - 5px);
+  width: calc(33% - 6px);
 }
 
 @media (max-width: 991px) {
