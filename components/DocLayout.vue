@@ -739,6 +739,6 @@ export default {
 }
 
 .nuxt-content {
-  font-family: "Open Sans";
+  font-family:'Open Sans', sans-serif;
 }
 </style>
