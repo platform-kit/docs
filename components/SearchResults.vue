@@ -26,6 +26,7 @@
           style="opacity: 0.5; color: royalblue"
         ></b-icon>
         {{ result.Title }}
+        <b-icon-heart-fill v-if="isFavorite(result.path)" scale="0.66" style="position:absolute;right:10px;top:10px;color:hotpink !important;"></b-icon-heart-fill>
       </h4>
       <a
         class="btn w-100 text-left d-none d-md-inline-block"
@@ -95,6 +96,11 @@ export default {
       process.env.BYLINE || "https://github.com/platform-kit/docs";
   },
   methods: {
+    isFavorite(path){
+      if(localStorage.getItem("favorite:" + path) != null && (localStorage.getItem("favorite:" + path) == 'true' || localStorage.getItem("favorite:" + path)  == true )) {
+        return true
+      }
+    },
     strip(html) {
       var doc = new DOMParser().parseFromString(html, "text/html");
       return doc.body.textContent || "";

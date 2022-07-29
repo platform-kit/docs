@@ -1,6 +1,9 @@
 <!-- Please remove this file from your project -->
 <template>
-  <div class="doc-layout container-fluid" v-if="content != null && content != false">
+  <div
+    class="doc-layout container-fluid"
+    v-if="content != null && content != false"
+  >
     <div class="row bg-white">
       <div
         class="col-3 main-left-nav d-none d-md-inline-flex"
@@ -71,7 +74,7 @@
               <b-icon icon="code" class="mx-1"></b-icon>Code
             </b-button>
             <b-button
-            style="min-width:50px;"
+              style="min-width: 50px"
               @click="toggleFavorite"
               v-if="content != null && content.Repository != null"
               variant="light"
@@ -81,13 +84,13 @@
               <b-icon
                 v-if="favorite == true"
                 icon="heart-fill"
-                style="color: hotpink; opacity: 1;margin-left:5px;"
+                style="color: hotpink; opacity: 1; margin-left: 5px"
                 class="mx-1"
               ></b-icon>
               <b-icon
                 v-else
                 icon="heart"
-                style="color: hotpink; opacity: 1;margin-left:5px;"
+                style="color: hotpink; opacity: 1; margin-left: 5px"
                 class="mx-1"
               ></b-icon>
             </b-button>
@@ -135,7 +138,8 @@
                 icon="heart"
                 style="color: hotpink !important; opacity: 1"
                 class="mr-1"
-              ></b-icon> Favorite</span
+              ></b-icon>
+              Favorite</span
             ></b-nav-item
           >
 
@@ -316,7 +320,24 @@ export default {
     console.log("Previous feedback: " + reactionData);
     // this.feedback = reactionData;
   },
+  beforeUpdate: function () {
+    this.feedback = null;
+    this.showFeedback = false;
+    this.showFeedback = true;
+    console.log("beforeUpdate()");
+    var favorite = window.localStorage.getItem("favorite:" + this.content.path);
+    if (favorite == true || favorite == "true") {
+      this.favorite = true;
+    } else {
+      this.favorite = false;
+    }
+    console.log(
+      "Stored value for 'favorite:" + this.content.path + "': " + this.favorite
+    );
+  },
+  
   methods: {
+    
     toggleFavorite() {
       if (this.favorite == null || this.favorite == false) {
         this.favorite = true;
@@ -351,6 +372,9 @@ export default {
       this.$bvModal.hide("chapters-modal");
     },
     async sendAnalyticEvent(eventType, feedbackValue) {
+      console.log("Feedback Value: \n");
+      console.log(feedbackValue);
+      this.feedback = feedbackValue;
       if (feedbackValue != null) {
         var emoji = "🥳";
         if (this.feedback == 1 || this.feedback == 2) {
