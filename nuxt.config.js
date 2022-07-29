@@ -21,7 +21,7 @@ export default {
   },
 
   env: {
-    GITHUB_URL: process.env.GITHUB_URL || "http://github.com/platform-kit/docs",
+    GITHUB_URL: process.env.GITHUB_URL,
     FEEDBACK_ANALYTICS_URL: process.env.FEEDBACK_ANALYTICS_URL,
   },
 

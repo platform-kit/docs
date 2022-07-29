@@ -14,7 +14,8 @@
     <SearchResults
       @updateSearch="updateSearch"
       v-if="(search == null || search == '') && currentPage == null"
-      :searchResults="content"
+      :searchResults="content"     
+      :showSavedResults="showSavedResults" 
     ></SearchResults>
 
     <DocLayout
@@ -22,6 +23,7 @@
       id="search-results"
       :content="currentPage"
       :navOptions="navOptions"
+      
     />
     <SearchResults
       id="default-content"
@@ -29,6 +31,7 @@
       @updateSearch="updateSearch"
       v-else-if="search != null || search != ''"
       :searchResults="searchResults"
+      :showSavedResults="showSavedResults"
     ></SearchResults>
   </Layout>
 </template>
@@ -46,6 +49,7 @@ export default {
       showNavbar: true,
       search: null,
       searchResults: null,
+      showSavedResults: null,
       content: null,
       currentPage: null,
       navOptions: null,
@@ -90,8 +94,8 @@ export default {
     var navOptions = this.content.filter(
       (element) => element.path.split("docs/")[1].includes("/") != true
     );
-    this.navOptions = navOptions;  
-    this.currentPage = null;  
+    this.navOptions = navOptions;
+    this.currentPage = null;
     await this.updateCurrentPage();
   },
   watch: {
@@ -103,7 +107,14 @@ export default {
         var newHash = to.hash.split("#/")[1];
         this.hash = newHash;
         this.route = to;
-        await this.updateCurrentPage();
+        if (newHash == "saved") {
+          this.currentPage = null;
+          console.log("Viewing 'Saved' Docs.");
+          this.showSavedResults = true;
+        } else {
+          this.showSavedResults = false;
+          await this.updateCurrentPage();
+        }
       }
     },
   },
@@ -146,7 +157,6 @@ export default {
         console.log(page);
         this.currentPage = null;
         if (page != null && page[0] != null && page[0].path != null) {
-          
           this.currentPage = page[0];
         }
       }

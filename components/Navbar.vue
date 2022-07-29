@@ -58,11 +58,18 @@
       </div>
       <b-navbar-nav
         class="navbar-nav-right"
-        style="padding-left: 19px; text-align: left; width: 33%"
+        style="padding-left: 19px; text-align: left; width: calc(33% - 5px); border-left:1px solid #eee !important;"
       >
         <b-nav-item
+          href="/#/saved"
+          class="icon-button-alt px-3 px-md-1 text-dark text-center d-none d-md-inline-block mr-2"
+          style="width: 50px"
+          ><b-icon-bookmark></b-icon-bookmark
+        ></b-nav-item>
+        <b-nav-item
           :href="links.github"
-          class="icon-button px-3 px-md-1 text-dark text-center d-none"
+          v-if="links.github != null"
+          class="icon-button-alt px-3 px-md-1 text-dark text-center d-none d-md-inline-block"
           style="width: 50px"
           ><b-icon-github></b-icon-github
         ></b-nav-item>
@@ -236,6 +243,22 @@ export default {
   background: #ecf1f5;
   border-radius: 5px;
 }
+
+.icon-button-alt {
+  background: rgb(239 243 248);
+  border-radius: 5px;
+  transition: all 0.3s;
+  border:none;  
+}
+.icon-button-alt:hover {
+  box-shadow: 0px 3px 20px rgba(0, 50, 100, 0.1),
+    0px 7px 10px rgba(0, 50, 100, 0.2) !important;
+}
+
+.icon-button-alt svg {
+  color:#000;
+}
+
 
 .navbar-nav-right {
   width: 25%;

@@ -16,6 +16,7 @@
       "
       style="cursor: pointer"
       class="search-result-card mx-auto mt-4"
+      :class="{'d-none': showPost(result.path) == false}"
       v-for="(result, index) in searchResults"
       :key="index"
     >
@@ -76,7 +77,7 @@
 <script>
 export default {
   name: "SearchResults",
-  props: ["searchResults", "search"],
+  props: ["searchResults", "search", "showSavedResults"],
   components: {
     "text-highlight": () => {
       if (process.client) {
@@ -96,9 +97,25 @@ export default {
       process.env.BYLINE || "https://github.com/platform-kit/docs";
   },
   methods: {
+    showPost(path){
+      if(this.showSavedResults !== true || this.search != null){
+        return true;
+      }
+      if(this.showSavedResults == true && this.isFavorite(path) == true){
+          return true;
+      }
+      else if (this.showSavedResults == true && this.isFavorite(path) == false) {
+        return false;
+      }
+      else {
+        return false;
+      }
+    },
     isFavorite(path){
       if(localStorage.getItem("favorite:" + path) != null && (localStorage.getItem("favorite:" + path) == 'true' || localStorage.getItem("favorite:" + path)  == true )) {
         return true
+      } else {
+        return false;
       }
     },
     strip(html) {
