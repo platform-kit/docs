@@ -15,7 +15,7 @@ Self-Hosted Authentication
 <p align="center">Securely sign-in to over 500 platforms.</p>
 
 <div align="center">
-    <img src="https://raw.githubusercontent.com/platform-kit/auth/master/docs/images/screenshot.png" style="border-radius:4px; margin:auto;max-width:300px;"  width="400"/>
+    <img src="https://raw.githubusercontent.com/platform-kit/auth/master/docs/images/screenshot.png" style="border-radius:4px; margin:auto;max-width:300px;" class="raised"  width="400"/>
 </div>
 
 **Connects with:** <br>

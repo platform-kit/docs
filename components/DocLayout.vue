@@ -173,7 +173,7 @@
             class="mb-2 mt-2 main-right-nav-item"
             :class="{ toc2: link.depth === 2, toc3: link.depth === 3 }"
           >
-            <a class="text-dark" >
+            <a class="text-dark">
               <b-icon-arrow90deg-right
                 flip-v
                 scale="0.66"
@@ -190,7 +190,7 @@
 
     <b-modal title="On This Page" id="chapters-modal" hide-footer>
       <b-list-group>
-        <b-list-group-item          
+        <b-list-group-item
           v-scroll-to="'#' + link.id"
           @click="closeModal()"
           v-for="link in content.toc"
@@ -576,5 +576,9 @@ export default {
 .nuxt-content a:hover img {
   transform: scale(1.03);
   box-shadow: 0px 7px 12px rgba(0, 50, 150, 0.25);
+}
+
+.nuxt-content img.raised {
+  filter: drop-shadow(3px 7px 9px rgb(0 50 150 / 0.15));
 }
 </style>

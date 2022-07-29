@@ -15,7 +15,7 @@ Search, analytics, pdf export, & offline mode.
 </p>
 
 <div align="center">
-    <img src="https://raw.githubusercontent.com/platform-kit/docs/master/assets/images/screenshot.png" style="border-radius:4px; margin:auto;max-width:300px;"  width="400"/>
+    <img src="https://raw.githubusercontent.com/platform-kit/docs/master/assets/images/screenshot.png" style="border-radius:4px; margin:auto;max-width:300px;" class="raised" width="400"/>
 </div>
 
 
