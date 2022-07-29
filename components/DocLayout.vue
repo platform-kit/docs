@@ -70,6 +70,25 @@
             >
               <b-icon icon="code" class="mr-1"></b-icon>Code
             </b-button>
+            <b-button
+              @click="toggleFavorite"
+              v-if="content != null && content.Repository != null"
+              variant="light"
+              size="sm"
+            >
+              <b-icon
+                v-if="favorite == true"
+                icon="heart-fill"
+                style="color: hotpink; opacity: 1"
+                class="mr-1"
+              ></b-icon>
+              <b-icon
+                v-else
+                icon="heart"
+                style="color: hotpink; opacity: 1"
+                class="mr-1"
+              ></b-icon>
+            </b-button>
           </b-button-group>
         </div>
         <nuxt-content class="px-3 px-md-5" :document="content"></nuxt-content>
@@ -97,6 +116,27 @@
           class="w-100 mr-auto"
           style="max-width: 222px; float: left"
         >
+          <b-nav-item
+            @click="toggleFavorite"
+            v-if="content != null && content.Repository != null"
+            style="height: 42px"
+            class="mb-2 mt-2 main-right-nav-item has-icon"
+            ><span style="font-size: 75%; font-weight: 400"
+              ><b-icon
+                v-if="favorite == true"
+                icon="heart-fill"
+                style="color: hotpink !important; opacity: 1"
+                class="mr-1"
+              ></b-icon>
+              <b-icon
+                v-else
+                icon="heart"
+                style="color: hotpink !important; opacity: 1"
+                class="mr-1"
+              ></b-icon> Favorite</span
+            ></b-nav-item
+          >
+
           <b-nav-item
             v-if="content.readingTime != null"
             style="height: 42px"
@@ -247,6 +287,7 @@ export default {
   props: ["content", "navOptions"],
   data() {
     return {
+      favorite: null,
       feedback: null,
       showFeedback: true,
       contentData: null,
@@ -260,11 +301,50 @@ export default {
     },
   },
   async mounted() {
-    var reactionData = localStorage.getItem("feedback:" + this.content.path);
+    var reactionData = window.localStorage.getItem(
+      "feedback:" + this.content.path
+    );
+    var favorite = window.localStorage.getItem("favorite:" + this.content.path);
+    if (favorite == true || favorite == "true") {
+      this.favorite = true;
+    }
+    console.log(
+      "Stored value for 'favorite:" + this.content.path + "': " + this.favorite
+    );
     console.log("Previous feedback: " + reactionData);
     // this.feedback = reactionData;
   },
   methods: {
+    toggleFavorite() {
+      if (this.favorite == null || this.favorite == false) {
+        this.favorite = true;
+        this.makeFavorite();
+      } else {
+        this.favorite = false;
+        this.unFavorite();
+      }
+    },
+    makeFavorite() {
+      this.favorite = true;
+      window.localStorage.setItem("favorite:" + this.content.path, true);
+    },
+    unFavorite() {
+      this.favorite = false;
+      window.localStorage.setItem("favorite:" + this.content.path, false);
+    },
+    isFavorite() {
+      if (
+        localStorage.getItem("favorite:" + this.content.path) != null &&
+        localStorage.getItem("favorite:" + this.content.path) == true &&
+        localStorage.getItem("favorite:" + this.content.path) == "true"
+      ) {
+        this.favorite = true;
+        return true;
+      } else {
+        this.favorite = false;
+        return false;
+      }
+    },
     closeModal() {
       this.$bvModal.hide("chapters-modal");
     },
@@ -515,8 +595,8 @@ export default {
   border: 1px solid rgb(215, 216, 229);
 }
 .article-nav .btn svg {
-  opacity:0.66;    
-  color:rgb(73, 97, 170);
+  opacity: 0.66;
+  color: rgb(73, 97, 170);
 }
 </style>
 
