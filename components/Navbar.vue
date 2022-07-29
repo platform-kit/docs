@@ -83,7 +83,7 @@
             d-none d-md-inline-block
             mr-2
           "
-          style="width: 50px"
+          style="margin-left:-3px;width: 50px"
           ><b-icon-house></b-icon-house
         ></b-nav-item>
         <b-nav-item
