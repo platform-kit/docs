@@ -55,76 +55,82 @@
             </b-input-group>
           </div>
         </b-navbar-nav>
-      </div>
-      <b-nav-item
-        href="/"
-        class="d-block d-md-none w-100 mobile-nav-links icon-nav-link"
-      >
-        <b-icon-book class="mr-2 text-dark" scale="0.5"></b-icon-book>Content
-      </b-nav-item>
-      <b-navbar-nav
-        class="navbar-nav-right"
-        style="
-          padding-left: 19px;
-          text-align: left;
-          border-left: 1px solid #eee !important;
-        "
-      >
+      </div>            
         <b-nav-item
           href="/"
-          class="
-            icon-button-alt
-            px-3 px-md-1
-            text-dark text-center
-            d-none d-md-inline-block
-            mr-2
+          class="d-block d-md-none w-100 mobile-nav-links icon-nav-link"
+        >
+          <b-icon-book class="mr-2 text-dark" scale="0.5"></b-icon-book>Content
+        </b-nav-item>  
+        <b-navbar-nav
+          class="navbar-nav-right mobile-nav-links-container"
+          style="
+            padding-left: 19px;
+            text-align: left;
+            border-left: 1px solid #eee !important;
           "
-          style="margin-left: -3px; width: 50px"
-          ><b-icon-house></b-icon-house
-        ></b-nav-item>
+        >
+         
+          <b-nav-item
+            href="/#/saved"
+            class="
+              icon-button-alt
+              px-3 px-md-1
+              text-dark text-center
+              d-none d-md-inline-block
+              mr-2
+            "
+            style="width: 50px"
+            ><b-icon-bookmark></b-icon-bookmark
+          ></b-nav-item>
+
+          <b-nav-item
+            :href="links.github"
+            v-if="links.github != null"
+            class="
+              icon-button-alt
+              px-3 px-md-1
+              text-dark text-center
+              d-none d-md-inline-block
+            "
+            style="width: 50px"
+            ><b-icon-github></b-icon-github
+          ></b-nav-item>
+          
+             <b-nav-item
+            href="/"
+            class="
+              icon-button-alt
+              px-3 px-md-1
+              text-dark text-center
+              d-none d-md-inline-block
+              mr-2
+            "
+            style="margin-left: -3px; width: 50px"
+            ><b-icon-house></b-icon-house
+          ></b-nav-item>
+          
+          <div v-if="navOptions != null">
+            <b-nav-item
+              v-for="(navLink, index) in navOptions"
+              :key="index"
+              :href="'/#/' + navLink.slug"
+              class="d-block d-md-none w-100 mobile-nav-links"
+            >
+              {{ navLink.Title }}
+            </b-nav-item>
+            </div>
+          
+        </b-navbar-nav>
         <b-nav-item
           href="/#/saved"
-          class="
-            icon-button-alt
-            px-3 px-md-1
-            text-dark text-center
-            d-none d-md-inline-block
-            mr-2
-          "
-          style="width: 50px"
-          ><b-icon-bookmark></b-icon-bookmark
-        ></b-nav-item>
-
-        <b-nav-item
-          :href="links.github"
-          v-if="links.github != null"
-          class="
-            icon-button-alt
-            px-3 px-md-1
-            text-dark text-center
-            d-none d-md-inline-block
-          "
-          style="width: 50px"
-          ><b-icon-github></b-icon-github
-        ></b-nav-item>
-        <div v-if="navOptions != null">
-          <b-nav-item
-            v-for="(navLink, index) in navOptions"
-            :key="index"
-            :href="'/#/' + navLink.slug"
-            class="d-block d-md-none w-100 mobile-nav-links"
-          >
-            {{ navLink.Title }}
-          </b-nav-item>
-        </div>
-      </b-navbar-nav>
-      <b-nav-item
-        href="/#/saved"
-        class="d-block d-md-none w-100 mobile-nav-links icon-nav-link"
-      >
-        <b-icon-bookmark class="mr-2 text-dark" scale="0.5"></b-icon-bookmark>My
-        Bookmarks
-      </b-nav-item>
+          class="d-block d-md-none w-100 mobile-nav-links icon-nav-link"
+        >
+          <b-icon-bookmark class="mr-2 text-dark" scale="0.5"></b-icon-bookmark
+          >My Bookmarks
+        </b-nav-item>
+        
+      </div>
     </b-collapse>
 
     <b-navbar-toggle
@@ -334,7 +340,11 @@ code {
 
 .icon-nav-link a {
   padding-left: 0px !important;
-  margin-left: 3px;
+  margin-left: 11px;
   color: rgba(0, 0, 0, 0.5);
+}
+
+.mobile-nav-links-container {
+  margin-left: 20px !important;
 }
 </style>
