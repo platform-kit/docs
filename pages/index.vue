@@ -120,6 +120,7 @@ export default {
       this.currentPage = null;
       console.log("Viewing 'Saved' Docs.");
       this.showSavedResults = true;
+      this.search = null;
     },
     keyDetector(type, event) {
       // console.info(type, event)
