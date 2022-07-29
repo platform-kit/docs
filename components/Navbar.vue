@@ -180,7 +180,7 @@ export default {
   height: 25px;
   margin-left: 8px;
   margin-right: 1px;
-  margin-top: -3px;
+  margin-top: -5px;
   border-radius: 4px;
 }
 
