@@ -14,7 +14,7 @@ export default {
 <style scoped>
 .layout {
   min-width: 100%;
-  background: #fff;
+  background: #f4f7f9;
   overflow-x: hidden !important;
 }
 
