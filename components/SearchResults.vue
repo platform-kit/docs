@@ -61,7 +61,7 @@
         </text-highlight>
       </b-card-text>
     </b-card>
-    <div align="center" class="pb-4 mb-2" v-if="searchResults != null">
+    <div align="center" class="pb-4 mb-2">
       <a
         :href="bylineLink"
         class="
