@@ -175,10 +175,12 @@ export default {
 }
 
 .navbar-icon {
-  max-height: 30px;
-  width: 30px;
-  height: 30px;
-  margin-right: 5px;
+  max-height: 25px;
+  width: 25px;
+  height: 25px;
+  margin-left: 8px;
+  margin-right: 1px;
+  margin-top: -3px;
   border-radius: 4px;
 }
 
