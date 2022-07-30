@@ -252,8 +252,7 @@
         class="cta-image"
         v-if="content.CTAImage != null"
         v-bind:style="{ backgroundImage: 'url(' + content.CTAImage + ')' }"
-      >
-        >
+      >        
       </div>
 
       <b-button
@@ -799,8 +798,7 @@ export default {
   font-family: "Open Sans", sans-serif;
 }
 
-.cta {
-  display: block !important;
+.cta {  
   pointer-events: none;
   opacity: 0;
   position: fixed;
@@ -809,7 +807,7 @@ export default {
   min-width: 350px;
   z-index: 888;
   padding: 15px 20px 15px 15px;
-  transition: opacity 0.5s !important;
+  transition: all 0.5s !important;
   box-shadow: 0px 15px 15px rgba(0, 50, 100, 0.075),
     0px 7px 7px rgba(0, 50, 100, 0.15), 0px 5px 3px rgba(0, 50, 100, 0.1) !important;
 }
@@ -841,6 +839,7 @@ export default {
   background-position: center;
 }
 .cta-visible {
+  transition: all 0.5s !important;
   margin: 15px 15px 0px 15px;
   pointer-events: all;
   opacity: 1;
