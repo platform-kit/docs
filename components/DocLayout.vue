@@ -818,10 +818,8 @@ export default {
   }
 }
 
-@media (min-width: 991px) {
-  .cta-content {
-    padding-right: 5px;
-  }
+.cta-content {
+  padding-right: 8px;
 }
 
 .cta .cta-image {
@@ -849,5 +847,9 @@ export default {
   .cta-visible {
     margin: 15px 0px 0px 15px !important;
   }
+}
+
+.cta-content p {
+  margin: 0px;
 }
 </style>
