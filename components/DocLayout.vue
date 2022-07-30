@@ -349,7 +349,7 @@ export default {
     },
   },
   async mounted() {
-    this.ctaVisible = false;  
+    this.ctaVisible = false;
     var reactionData = window.localStorage.getItem(
       "feedback:" + this.content.path
     );
@@ -363,7 +363,7 @@ export default {
     console.log("Previous feedback: " + reactionData);
     // this.feedback = reactionData;
   },
-  beforeUpdate: function () {      
+  beforeUpdate: function () {
     this.feedback = null;
     this.showFeedback = false;
     this.showFeedback = true;
@@ -800,44 +800,56 @@ export default {
 }
 
 .cta {
+  display: block !important;
   pointer-events: none;
   opacity: 0;
-  position: fixed;  
+  position: fixed;
   bottom: 15px;
-  right: 15px;
-  min-width:350px;
+  right: 0px;
+  min-width: 350px;
   z-index: 888;
   padding: 15px 20px 15px 15px;
-  transition: all 0.3s !important;
+  transition: opacity 0.5s !important;
   box-shadow: 0px 15px 15px rgba(0, 50, 100, 0.075),
     0px 7px 7px rgba(0, 50, 100, 0.15), 0px 5px 3px rgba(0, 50, 100, 0.1) !important;
 }
 
 @media (max-width: 991px) {
   .cta {
-    width: calc(100% - 60px);
-    max-width: calc(100% - 60px);
-    max-height: auto;
+    width: calc(100% - 60px) !important;
+    max-width: calc(100% - 60px) !important;
+  }
+}
+
+@media (min-width: 991px) {
+  .cta-content {
+    padding-right: 5px;
   }
 }
 
 .cta .cta-image {
   display: flex;
-  float:left;
-  margin:0px 15px 15px 0px;
+  float: left;
+  margin: 0px 15px 15px 0px;
   min-height: 150px;
   width: 50%;
-  min-width:100px;
-  border-radius:4px;
+  min-width: 100px;
+  max-width: 150px;
+  border-radius: 4px;
   float: left;
-  background-size:cover;
-  background-position:center;
+  background-size: cover;
+  background-position: center;
 }
 .cta-visible {
+  margin: 15px 15px 0px 15px;
   pointer-events: all;
-  transition: 0.3s all !important;
   opacity: 1;
-  right: 30px;
+  right: 15px;
   display: inline-block !important;
+}
+@media (max-width: 991px) {
+  .cta-visible {
+    margin: 15px 0px 0px 15px !important;
+  }
 }
 </style>
