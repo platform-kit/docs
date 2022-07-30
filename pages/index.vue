@@ -20,6 +20,7 @@
 
     <DocLayout
       v-else-if="(search == null || search == '') && currentPage != null"
+      :key="currentPage.path"
       id="search-results"
       :content="currentPage"
       :navOptions="navOptions"

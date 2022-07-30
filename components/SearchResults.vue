@@ -215,7 +215,6 @@ export default {
   border-left-color: #f5a044 !important;  
 }
 
-
 .search-result-card {
   box-shadow: 0px 15px 15px rgba(0, 50, 100, 0.0375),
     0px 7px 7px rgba(0, 50, 100, 0.0375), 0px 5px 3px rgba(0, 50, 100, 0.025);

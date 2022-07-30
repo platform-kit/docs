@@ -128,10 +128,9 @@
           <h5 class="w-100 text-center">Was this page helpful?</h5>
           <vue-feedback-reaction
             :key="content.path"
-            v-if="showFeedback == true"
+            v-model="feedback"
             :labels="['Terrible', 'Bad', 'Okay', 'Good', 'Great']"
             class="mr-auto mb-3 feedback-component"
-            v-model="feedback"
             @input="sendAnalyticEvent('feedback', feedback)"
           />
         </div>
@@ -357,7 +356,6 @@ export default {
       feedback: null,
       showFeedback: true,
       contentData: null,
-      nextPage: null,
       previousArticle: null,
     };
   },
@@ -370,7 +368,7 @@ export default {
   },
   async mounted() {
     this.ctaVisible = false;
-     this.feedback = null;
+    this.feedback = null;
     this.showFeedback = false;
 
     this.$nextTick(() => {
@@ -391,8 +389,8 @@ export default {
     // this.feedback = reactionData;
   },
   beforeUpdate: function () {
-   
     console.log("beforeUpdate()");
+    
     var favorite = window.localStorage.getItem("favorite:" + this.content.path);
     if (favorite == true || favorite == "true") {
       this.favorite = true;
@@ -402,6 +400,7 @@ export default {
     console.log(
       "Stored value for 'favorite:" + this.content.path + "': " + this.favorite
     );
+    this.feedback = null;
   },
 
   methods: {
@@ -456,6 +455,7 @@ export default {
     async sendAnalyticEvent(eventType, feedbackValue) {
       console.log("Feedback Value: \n");
       console.log(feedbackValue);
+
       this.feedback = feedbackValue;
       if (feedbackValue != null) {
         var emoji = "🥳";
@@ -465,6 +465,8 @@ export default {
         if (this.feedback == 5) {
           emoji = "🤩";
         }
+      }
+      if (feedbackValue != null) {
         this.$toast.show("Thanks for the feedback! " + emoji, {
           position: "top-center",
           theme: "toasted-primary",
