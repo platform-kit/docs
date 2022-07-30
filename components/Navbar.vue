@@ -142,6 +142,7 @@
               id="my-nav-dropdown"
               text="Account"              
               toggle-class="nav-link-custom"
+              style="width:105px;"
               right
             >
               <b-dropdown-item disabled><b-avatar :text="user.email[0]" style="margin-left:-5px; margin-right:5px;height:20px;width:20px;"></b-avatar> {{ user.email }}</b-dropdown-item>              
