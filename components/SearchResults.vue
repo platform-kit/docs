@@ -41,7 +41,7 @@
             position: absolute;
             right: 10px;
             top: 10px;
-            color: hotpink !important;
+            color: #d6d6d6 !important;
           "
         ></b-icon-heart-fill>
       </h4>
