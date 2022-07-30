@@ -10,6 +10,7 @@
       :type="'light'"
       :classes="'bg-white'"
       :category="'Overview'"
+      @signOut="signOutHandler"
     ></Navbar>
     <b-spinner
       class="mx-auto mt-5 d-block"
@@ -144,20 +145,29 @@ export default {
         } else {
           this.showSavedResults = false;
           await this.updateCurrentPage();
-          
         }
       }
     },
   },
   methods: {
+    signOutHandler() {
+      this.setLocalStorage("userToken", null);
+      this.userToken = null;
+    },
     getUser() {
       console.log(
         "LocalStorage is available: " + this.isLocalStorageAvailable()
       );
       var storedUser = this.getLocalStorage("userToken");
       console.log("Stored userToken: " + storedUser);
-      if (storedUser != null) {        
-        this.userToken = this.jwtDecode(storedUser);
+      if (storedUser != null) {
+        const urlParams = new URLSearchParams(window.location.search);
+        const myParam = urlParams.get("t");
+        var alert = false;
+        if (myParam != null) {
+          alert = true;
+        }
+        this.userToken = this.jwtDecode(storedUser, alert);
       }
 
       return this.userToken?.payload?.user;
@@ -170,12 +180,12 @@ export default {
         var token = this.jwtDecode(myParam);
         this.userToken = token;
         this.setLocalStorage("userToken", myParam);
-        var currentUri = window.location.href.split('?')[0];
+        var currentUri = window.location.href.split("?")[0];
         // window.location.href = currentUri + "#/";
         // console.log(token);
       }
     },
-    jwtDecode(t) {
+    jwtDecode(t, alert) {
       if (t != null) {
         let token = {};
         token.raw = t;
@@ -183,14 +193,16 @@ export default {
           token.header = JSON.parse(window.atob(t.split(".")[0]));
           token.payload = JSON.parse(window.atob(t.split(".")[1]));
         } catch (err) {
-          this.$toast.show("⚠️ Sign in failed.", {
-            position: "top-center",
-            theme: "toasted-primary",
-            duration: 3000,
-            closeOnSwipe: true,
-            className: "toast-custom",
-            containerClass: "toast-custom-container",
-          });
+          if (alert == true) {
+            this.$toast.show("⚠️ Sign in failed.", {
+              position: "top-center",
+              theme: "toasted-primary",
+              duration: 3000,
+              closeOnSwipe: true,
+              className: "toast-custom",
+              containerClass: "toast-custom-container",
+            });
+          }
           console.log(err);
         }
         return token;
@@ -275,7 +287,6 @@ export default {
             this.currentPage = page[0];
             this.getSurroundingArticles();
             this.getHeadDynamically();
-            
           }
         }
       }
@@ -292,7 +303,7 @@ export default {
     getLocalStorage(key) {
       try {
         var item = localStorage.getItem(key);
-        return item; 
+        return item;
       } catch (e) {}
     },
     isLocalStorageAvailable() {

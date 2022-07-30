@@ -146,7 +146,7 @@
               right
             >
               <b-dropdown-item disabled><b-avatar :text="user.email[0]" style="margin-left:-5px; margin-right:5px;height:20px;width:20px;"></b-avatar> {{ user.email }}</b-dropdown-item>              
-              <b-dropdown-item class="text-center">Sign Out</b-dropdown-item>
+              <b-dropdown-item class="text-center" @click="signOut">Sign Out</b-dropdown-item>
             </b-nav-item-dropdown>
           </div>
           
@@ -198,6 +198,9 @@ export default {
     this.navOptions = navOptions;
   },
   methods: {
+    signOut(){
+      this.$emit('signOut');
+    },
     signIn() {
       var operand = "?";
       if (this.authUrl.includes("?")) {
