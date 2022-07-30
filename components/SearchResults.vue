@@ -184,36 +184,10 @@ export default {
   max-width: 900px;
   margin: 15px auto 15px auto;
   transition: all 0.3s;
-}
-
-.search-result-card:nth-of-type(even) {
-  border-left: 4px solid rgb(177, 190, 228) !important;
-}
-
-.search-result-card:nth-of-type(odd) {
-  border-left: 4px solid royalblue !important;
-}
-
-.search-result-card:nth-of-type(1){
-  border-left-color:rgb(104, 139, 245) !important;
-}
-
-.search-result-card:nth-of-type(2){
-  border-left-color: #73f6b7 !important 
-}
-
-.search-result-card:nth-of-type(3){
-  border-left-color: #ffef63 !important;   
+  border-left: 4px solid #ccd4de !important;
 }
 
 
-.search-result-card:nth-of-type(4){
-  border-left-color: #ffc107 !important;  
-}
-
-.search-result-card:nth-of-type(5){
-  border-left-color: #f5a044 !important;  
-}
 
 .search-result-card {
   box-shadow: 0px 15px 15px rgba(0, 50, 100, 0.0375),
