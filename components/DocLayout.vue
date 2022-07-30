@@ -805,7 +805,8 @@ export default {
     border-radius: 5px !important;
   }
 
-  .toast-custom-container-bottom-right {
+  .toast-custom-container {
+    margin-top:-75px;
   }
 }
 
