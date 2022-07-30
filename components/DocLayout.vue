@@ -252,8 +252,7 @@
         class="cta-image"
         v-if="content.CTAImage != null"
         v-bind:style="{ backgroundImage: 'url(' + content.CTAImage + ')' }"
-      >        
-      </div>
+      ></div>
 
       <b-button
         @click="ctaVisible = falase"
@@ -798,7 +797,7 @@ export default {
   font-family: "Open Sans", sans-serif;
 }
 
-.cta {  
+.cta {
   pointer-events: none;
   opacity: 0;
   position: fixed;
