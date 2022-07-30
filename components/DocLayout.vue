@@ -242,8 +242,10 @@
     </div>
 
     <b-card
-      v-if="ctaVisible == true && content.CTA != null"
-      :class="{ 'cta-visible': ctaVisible == true }"
+      :class="{
+        'cta-visible': ctaVisible == true,
+        'cta-hidden': ctaVisible == false,
+      }"
       id="cta-card"
       img-left
       class="mb-3 cta br-10 p-0"
@@ -382,6 +384,7 @@ export default {
       if (isVisible && this.content.CTA != null) {
         this.ctaVisible = true;
       } else {
+        this.ctaVisible = false;
       }
     },
     toggleFavorite() {
@@ -802,11 +805,11 @@ export default {
   opacity: 0;
   position: fixed;
   bottom: 15px;
-  right: 0px;
+  right: -15px;
   min-width: 350px;
   z-index: 888;
   padding: 15px 20px 15px 15px;
-  transition: all 0.5s !important;
+  transition: all 0.5s;
   box-shadow: 0px 15px 15px rgba(0, 50, 100, 0.075),
     0px 7px 7px rgba(0, 50, 100, 0.15), 0px 5px 3px rgba(0, 50, 100, 0.1) !important;
 }
@@ -843,10 +846,19 @@ export default {
   right: 15px;
   display: inline-block !important;
 }
+
 @media (max-width: 991px) {
   .cta-visible {
     margin: 15px 0px 0px 15px !important;
   }
+}
+
+.cta-hidden {
+  bottom: 0px;
+  right: 0px;
+  transition: all 0.5s !important;
+  pointer-events: none !important;
+  opacity: 0;
 }
 
 .cta-content p {
