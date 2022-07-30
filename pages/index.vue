@@ -10,7 +10,17 @@
       :classes="'bg-white'"
       :category="'Overview'"
     ></Navbar>
-
+    <b-spinner
+      class="mx-auto mt-5 d-block"
+      v-if="
+        (search == null || search == '') &&
+        currentPage == null &&
+        content == null
+      "
+      type="border"
+      style="color:royalblue;"
+      label="Loading..."
+    ></b-spinner>
     <SearchResults
       @updateSearch="updateSearch"
       v-if="(search == null || search == '') && currentPage == null"
@@ -47,6 +57,7 @@ export default {
   data() {
     return {
       pageTitle: null || "Docs",
+      pageDescription: null,
       showNavbar: true,
       search: null,
       searchResults: null,
@@ -71,6 +82,16 @@ export default {
           hid: "description",
           name: "description",
           content: this.currentPage?.Description,
+        },
+        {
+          hid: "twitter:title",
+          name: "twitter:title",
+          content: this.pageTitle,
+        },
+        {
+          hid: "twitter:description",
+          name: "twitter:description",
+          content: this.pageDescription,
         },
       ],
 
@@ -123,7 +144,7 @@ export default {
     },
   },
   methods: {
-    getTitleDynamically() {
+    getHeadDynamically() {
       var title = this.currentPage?.Title;
       if (title != null && this.currentPage?.Description != null) {
         title = title + " - " + this.currentPage?.Description;
@@ -131,6 +152,7 @@ export default {
         title = "Docs";
       }
       this.pageTitle = title;
+      this.pageDescription = this.currentPage?.Description;
     },
     async getSurroundingArticles() {
       try {
@@ -200,7 +222,7 @@ export default {
           if (page != null && page[0] != null && page[0].path != null) {
             this.currentPage = page[0];
             this.getSurroundingArticles();
-            this.getTitleDynamically();
+            this.getHeadDynamically();
           }
         }
       }

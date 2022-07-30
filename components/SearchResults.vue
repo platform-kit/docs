@@ -1,6 +1,9 @@
 <!-- Please remove this file from your project -->
 <template>
-  <div class="search-results px-4">
+  <div
+    class="search-results px-4"
+    :class="{ visible: searchResults != null, hidden: searchResults == null }"
+  >
     <p
       class="mx-auto mt-4 w-100 text-center"
       v-if="search != null && search != ''"
@@ -31,7 +34,7 @@
         <b-icon
           :icon="result.Icon || 'book'"
           class="mr-2 search-result-icon"
-          style="opacity: 0.25;"
+          style="opacity: 0.25"
         ></b-icon>
         {{ result.Title }}
         <b-icon-heart-fill
@@ -70,7 +73,7 @@
         </text-highlight>
       </b-card-text>
     </b-card>
-    <div align="center" class="pb-4 mb-2">
+    <div align="center" class="pb-4 mb-2" v-if="byLine != null">
       <a
         :href="byLineLink"
         class="
@@ -118,7 +121,7 @@ export default {
     }
     this.byLineLink = byLineLink;
   },
-  methods: {    
+  methods: {
     showPost(path) {
       if (this.showSavedResults !== true || this.search != null) {
         return true;
@@ -182,14 +185,13 @@ export default {
 <style scoped>
 .search-result-card {
   max-width: 900px;
-  margin: 15px auto 15px auto;
-  transition: all 0.3s;
+  margin: 15px auto 15px auto !important;
+  transition: all 0.5s !important;
   border-left: 4px solid #ccd4de !important;
 }
 
-
-
 .search-result-card {
+  transition: all 1s !important;
   box-shadow: 0px 15px 15px rgba(0, 50, 100, 0.0375),
     0px 7px 7px rgba(0, 50, 100, 0.0375), 0px 5px 3px rgba(0, 50, 100, 0.025);
 }
@@ -201,7 +203,7 @@ export default {
 }
 
 .search-result-card svg {
-  color:navy;
+  color: navy;
 }
 
 .footer-badge {
@@ -215,5 +217,20 @@ export default {
 
 .text-small {
   font-size: 60%;
+}
+
+.search-results {
+  opacity: 0;
+  transition: 0s;
+  transition-delay: 0s;
+}
+
+.search-results.hidden {
+  opacity: 0;
+}
+
+.search-results.visible {
+  opacity: 1;
+  transition: all 1s;
 }
 </style>
