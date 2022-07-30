@@ -395,8 +395,7 @@ export default {
       this.favorite = true;
     } else {
       this.favorite = false;
-    }
-    this.getSurroundingArticles();
+    }    
     console.log(
       "Stored value for 'favorite:" + this.content.path + "': " + this.favorite
     );
