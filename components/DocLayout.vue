@@ -104,12 +104,12 @@
         </div>
         <nuxt-content class="px-3 px-md-5" :document="content"></nuxt-content>
         <div
+          v-b-visible="ctaHandler"
           class="w-100 px-0 pt-5 pb-4 border-top mt-5 text-center"
           id="footer"
         >
           <h5 class="w-100 text-center">Was this page helpful?</h5>
           <vue-feedback-reaction
-            v-b-visible="ctaHandler"
             v-if="showFeedback == true"
             :labels="['Terrible', 'Bad', 'Okay', 'Good', 'Great']"
             class="mr-auto mb-3 feedback-component"
@@ -801,7 +801,7 @@ export default {
 }
 
 .cta {
-  display:block !important;
+  display: block !important;
   pointer-events: none;
   opacity: 0;
   position: fixed;
@@ -827,7 +827,7 @@ export default {
 }
 
 .cta .cta-image {
-  background:#eff;
+  background: #eff;
   display: flex;
   float: left;
   margin: 0px 15px 15px 0px;
