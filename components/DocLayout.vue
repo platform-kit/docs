@@ -909,7 +909,7 @@ export default {
   transition: all 0.3s;
   background-repeat: no-repeat !important;
   background-position: -200px;
-  background: linear-gradient(-90deg, #fff, rgb(203, 246, 222));
+  background: #edfff5;
 }
 
 .next-article-label {
