@@ -104,7 +104,7 @@
         </div>
         <nuxt-content class="px-3 px-md-5" :document="content"></nuxt-content>
         <div
-          class="surrounding-articles mt-4 pt-1 mb-0"
+          class="surrounding-articles mt-4 pt-1 mb-0 border-top pt-2"
           v-if="nextArticle != null || previousArticle != null"
         >
           <b-card
