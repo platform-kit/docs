@@ -60,24 +60,30 @@ export default {
       isMobile: null,
     };
   },
-  head: {
-    title: "Docs",
-    titleTemplate: `%s`,
 
-    /*
-        meta: [
-          { charset: 'utf-8' },
-          { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-          {
-            hid: 'description',
-            name: 'description',
-            content: 'my website description'
-          }
-        ],
-        */
-    link: [
-      { rel: "icon", type: "image/png", href: process.env.LOGO || "/icon.png" },
-    ],
+  head() {
+    return {
+      title:
+        this.currentPage?.Title + " - " + this.currentPage?.Description ||
+        "Docs", // "Docs",
+      titleTemplate: `%s`,
+
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: this.currentPage?.Description,
+        },
+      ],
+
+      link: [
+        {
+          rel: "icon",
+          type: "image/png",
+          href: process.env.LOGO || "/icon.png",
+        },
+      ],
+    };
   },
   computed: {
     getTitle() {
@@ -95,12 +101,9 @@ export default {
       .fetch();
 
     if (this.content != null) {
-      // this.currentPage = this.content[0];
-    }
-
-    if (navOptions != null) {
       var navOptions = this.content.filter(
-        (element) => element.path.split("docs/")[1].includes("/") != true
+        // get the top-level results
+        (element) => element.path.split("/")[1].includes("/") != true
       );
     }
     this.navOptions = navOptions;

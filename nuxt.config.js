@@ -30,7 +30,7 @@ export default {
 
   env: {
     REPO: process.env.REPO,
-    GITHUB_URL: process.env.GITHUB_URL,
+    GITHUB_URL: process.env.GITHUB_URL,    
     FEEDBACK_ANALYTICS_URL: process.env.FEEDBACK_ANALYTICS_URL,
   },
 
