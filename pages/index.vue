@@ -1,6 +1,7 @@
 <template>
   <Layout id="layout">
     <Navbar
+      :user="userToken?.payload?.user"
       ref="navbar"
       v-if="showNavbar == true"
       @updateSearch="updateSearch"
@@ -18,7 +19,7 @@
         content == null
       "
       type="border"
-      style="color:royalblue;"
+      style="color: royalblue"
       label="Loading..."
     ></b-spinner>
     <SearchResults
@@ -56,6 +57,7 @@ export default {
   name: "Index",
   data() {
     return {
+      userToken: null,
       pageTitle: null || "Docs",
       pageDescription: null,
       showNavbar: true,
@@ -106,6 +108,8 @@ export default {
   },
   computed: {},
   async mounted() {
+    this.getToken();
+    this.getUser();
     window.addEventListener("keydown", (e) => this.keyDetector("keydown", e));
     window.addEventListener("keypress", (e) => this.keyDetector("keypress", e));
     this.content = await this.$content("")
@@ -130,6 +134,7 @@ export default {
       // react to route changes...
       console.log("Navigated to: ");
       console.log(to);
+      this.getToken();
       if (to.hash != null) {
         var newHash = to.hash.split("#/")[1];
         this.hash = newHash;
@@ -139,11 +144,58 @@ export default {
         } else {
           this.showSavedResults = false;
           await this.updateCurrentPage();
+          
         }
       }
     },
   },
   methods: {
+    getUser() {
+      console.log(
+        "LocalStorage is available: " + this.isLocalStorageAvailable()
+      );
+      var storedUser = this.getLocalStorage("userToken");
+      console.log("Stored userToken: " + storedUser);
+      if (storedUser != null) {        
+        this.userToken = this.jwtDecode(storedUser);
+      }
+
+      return this.userToken?.payload?.user;
+    },
+    getToken() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const myParam = urlParams.get("t");
+      console.log(myParam);
+      if (myParam != null && myParam != "") {
+        var token = this.jwtDecode(myParam);
+        this.userToken = token;
+        this.setLocalStorage("userToken", myParam);
+        var currentUri = window.location.href.split('?')[0];
+        // window.location.href = currentUri + "#/";
+        // console.log(token);
+      }
+    },
+    jwtDecode(t) {
+      if (t != null) {
+        let token = {};
+        token.raw = t;
+        try {
+          token.header = JSON.parse(window.atob(t.split(".")[0]));
+          token.payload = JSON.parse(window.atob(t.split(".")[1]));
+        } catch (err) {
+          this.$toast.show("⚠️ Sign in failed.", {
+            position: "top-center",
+            theme: "toasted-primary",
+            duration: 3000,
+            closeOnSwipe: true,
+            className: "toast-custom",
+            containerClass: "toast-custom-container",
+          });
+          console.log(err);
+        }
+        return token;
+      }
+    },
     getHeadDynamically() {
       var title = this.currentPage?.Title;
       if (title != null && this.currentPage?.Description != null) {
@@ -223,9 +275,25 @@ export default {
             this.currentPage = page[0];
             this.getSurroundingArticles();
             this.getHeadDynamically();
+            
           }
         }
       }
+    },
+    setLocalStorage(key, value) {
+      try {
+        localStorage.setItem(key, value);
+        return true;
+      } catch (e) {
+        return false;
+      }
+    },
+
+    getLocalStorage(key) {
+      try {
+        var item = localStorage.getItem(key);
+        return item; 
+      } catch (e) {}
     },
     isLocalStorageAvailable() {
       var test = "test";

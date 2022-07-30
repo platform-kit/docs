@@ -797,6 +797,7 @@ export default {
 
 @media (min-width: 991px) {
   .toast-custom {
+    pointer-events:none;
     text-align: center !important;
     padding: 10px 20px !important;
     margin: auto;
@@ -805,6 +806,7 @@ export default {
   }
 
   .toast-custom-container {
+    pointer-events:none;
     margin-top:-93px;
   }
 }

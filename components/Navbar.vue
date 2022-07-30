@@ -83,19 +83,7 @@
             style="width: 50px"
             ><b-icon-bookmark></b-icon-bookmark
           ></b-nav-item>
-
-          <b-nav-item
-            :href="links.github"
-            v-if="links.github != null"
-            class="
-              icon-button-alt
-              px-3 px-md-1
-              text-dark text-center
-              d-none d-md-inline-block
-            "
-            style="width: 50px"
-            ><b-icon-github></b-icon-github
-          ></b-nav-item>
+         
           
              <b-nav-item
             href="/"
@@ -119,7 +107,47 @@
             >
               {{ navLink.Title }}
             </b-nav-item>
-            </div>
+             <b-nav-item
+            :href="links.github"
+            v-if="links.github != null"
+            class="
+              icon-button-alt
+              px-3 px-md-1
+              text-dark text-center
+              d-none d-md-inline-block
+            "
+            style="width: 50px"
+            ><b-icon-github></b-icon-github
+          ></b-nav-item>
+           <b-nav-item
+              v-if="authUrl != null && user == null"              
+              @click="signIn()"
+            class="
+              icon-button-alt
+              px-3 px-md-1
+              text-dark text-center
+              d-none d-md-inline-block
+            "
+            style="width: 105px"
+            >
+            <div><b-icon-person class="mr-2"></b-icon-person>Sign In</div>            
+          </b-nav-item>
+          
+          <b-nav-item-dropdown
+            v-if="authUrl != null && user != null"
+              class="icon-button-alt
+              px-3 px-md-1
+              text-dark text-center
+              d-none d-md-inline-block"
+              id="my-nav-dropdown"
+              text="Account"              
+              toggle-class="nav-link-custom"
+              right
+            >
+              <b-dropdown-item disabled><b-avatar :text="user.email[0]" style="margin-left:-5px; margin-right:5px;height:20px;width:20px;"></b-avatar> {{ user.email }}</b-dropdown-item>              
+              <b-dropdown-item class="text-center">Sign Out</b-dropdown-item>
+            </b-nav-item-dropdown>
+          </div>
           
         </b-navbar-nav>
         <b-nav-item
@@ -143,12 +171,13 @@
 <script>
 export default {
   name: "Navbar",
-  props: ["variant", "type", "classes", "category", "page", "search"],
+  props: ["variant", "type", "classes", "category", "page", "search", "user"],
   data() {
     return {
       logo: "/icon.png",
       siteName: process.env.SITE_NAME || "PlatformKit",
       navOptions: null,
+      authUrl: process.env.AUTH_URL,
       links: {
         github: null,
       },
@@ -156,15 +185,31 @@ export default {
   },
   async mounted() {
     this.links.github = process.env.GITHUB_URL;
-    var content = await this.$content("").where({
+    var content = await this.$content("")
+      .where({
         extension: ".md",
-      }).sortBy("path").fetch();
+      })
+      .sortBy("path")
+      .fetch();
     var navOptions = content.filter(
       (element) => element.path.split("/")[1].includes("/") != true
     );
     this.navOptions = navOptions;
   },
   methods: {
+    signIn() {
+      var operand = "?";
+      if (this.authUrl.includes("?")) {
+        operand = "&";
+      }
+      var url =
+        this.authUrl +
+        operand +
+        "redirect=" +
+        encodeURIComponent(window.location.origin);
+      console.log("Redirecting to: " + url);
+      window.location.href = url;
+    },
     updateSearch: function (value) {
       this.$emit("updateSearch", value);
     },
