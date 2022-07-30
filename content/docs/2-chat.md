@@ -4,8 +4,8 @@ Description: Self-Hosted Web Conferencing
 Repository: "https://github.com/platform-kit/chat"
 Icon: "chat-dots"
 Website: "https://talk.platformkit.com"
-CTA: "Click here to try it out!"
-CTALink: "https://talk.platformkit.com"
+CTA: "<p>Honestly, it's better than Zoom!</p><p><a href='https://talk.platformkit.com' target='_blank'>Click here</a> to try it out.</p>"
+CTAImage: "https://images.unsplash.com/photo-1617777934845-a818fd6e1bcb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2831&q=80"
 ---
 <h1 align="center">PlatformKit Chat</h1>
 

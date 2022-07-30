@@ -241,6 +241,40 @@
       </div>
     </div>
 
+    <b-card
+      v-if="ctaVisible == true && content.CTA != null"
+      :class="{ 'cta-visible': ctaVisible == true }"
+      id="cta-card"
+      img-left
+      class="mb-3 cta br-10 p-0"
+    >
+      <div
+        class="cta-image"
+        v-if="content.CTAImage != null"
+        v-bind:style="{ backgroundImage: 'url(' + content.CTAImage + ')' }"
+      >
+        >
+      </div>
+
+      <b-button
+        @click="ctaVisible = falase"
+        variant="light"
+        class="text-danger raised cta-close-button border"
+        style="
+          float: right;
+          position: absolute;
+          top: -15px;
+          right: -15px;
+          border-radius: 50px;
+          height: 50px;
+          width: 50px;
+        "
+      >
+        <b-icon-x></b-icon-x>
+      </b-button>
+      <div class="cta-content" v-html="content.CTA"></div>
+    </b-card>
+
     <b-modal title="On This Page" id="chapters-modal" hide-footer>
       <b-list-group>
         <b-list-group-item
@@ -300,6 +334,7 @@ export default {
   props: ["content", "navOptions"],
   data() {
     return {
+      ctaVisible: false,
       favorite: null,
       feedback: null,
       showFeedback: true,
@@ -314,6 +349,7 @@ export default {
     },
   },
   async mounted() {
+    this.ctaVisible = false;  
     var reactionData = window.localStorage.getItem(
       "feedback:" + this.content.path
     );
@@ -327,7 +363,7 @@ export default {
     console.log("Previous feedback: " + reactionData);
     // this.feedback = reactionData;
   },
-  beforeUpdate: function () {
+  beforeUpdate: function () {      
     this.feedback = null;
     this.showFeedback = false;
     this.showFeedback = true;
@@ -346,18 +382,7 @@ export default {
   methods: {
     ctaHandler(isVisible) {
       if (isVisible && this.content.CTA != null) {
-        var message = this.content.CTA;
-        if(this.content.CTALink != null){
-            message = "<a href='" + this.content.CTALink + "'/>" + message + "</a>";
-        }
-        this.$toast.show(message, {
-          position: "bottom-right",
-          theme: "toasted-primary",
-          duration:10000,          
-          closeOnSwipe: true,
-          className: "toast-custom",
-          containerClass: "toast-custom-container-bottom-right",
-        });
+        this.ctaVisible = true;
       } else {
       }
     },
@@ -745,7 +770,6 @@ export default {
   }
 
   .toast-custom-container-bottom-right {
-    
   }
 }
 
@@ -755,10 +779,10 @@ export default {
 }
 
 .toast-custom a {
-  color:#fff !important;
-  text-align:center;
-  width:100%;
-  font-weight:600;
+  color: #fff !important;
+  text-align: center;
+  width: 100%;
+  font-weight: 600;
 }
 
 @media (min-width: 991px) {
@@ -773,5 +797,47 @@ export default {
 
 .nuxt-content {
   font-family: "Open Sans", sans-serif;
+}
+
+.cta {
+  pointer-events: none;
+  opacity: 0;
+  position: fixed;  
+  bottom: 15px;
+  right: 15px;
+  min-width:350px;
+  z-index: 888;
+  padding: 15px 20px 15px 15px;
+  transition: all 0.3s !important;
+  box-shadow: 0px 15px 15px rgba(0, 50, 100, 0.075),
+    0px 7px 7px rgba(0, 50, 100, 0.15), 0px 5px 3px rgba(0, 50, 100, 0.1) !important;
+}
+
+@media (max-width: 991px) {
+  .cta {
+    width: calc(100% - 60px);
+    max-width: calc(100% - 60px);
+    max-height: auto;
+  }
+}
+
+.cta .cta-image {
+  display: flex;
+  float:left;
+  margin:0px 15px 15px 0px;
+  min-height: 150px;
+  width: 50%;
+  min-width:100px;
+  border-radius:4px;
+  float: left;
+  background-size:cover;
+  background-position:center;
+}
+.cta-visible {
+  pointer-events: all;
+  transition: 0.3s all !important;
+  opacity: 1;
+  right: 30px;
+  display: inline-block !important;
 }
 </style>
