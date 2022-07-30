@@ -811,7 +811,7 @@ export default {
 
 .toast-custom {
   color: #000 !important;
-  background: #edfff5;
+  background: #edfff5 !important;
 }
 
 .toast-custom a {
