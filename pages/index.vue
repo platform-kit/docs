@@ -46,7 +46,7 @@ export default {
   name: "Index",
   data() {
     return {
-      title: "Index",
+      pageTitle: null || "Docs",
       showNavbar: true,
       search: null,
       searchResults: null,
@@ -63,9 +63,7 @@ export default {
 
   head() {
     return {
-      title:
-        this.currentPage?.Title + " - " + this.currentPage?.Description ||
-        "Docs", // "Docs",
+      title: this.pageTitle,
       titleTemplate: `%s`,
 
       meta: [
@@ -85,11 +83,7 @@ export default {
       ],
     };
   },
-  computed: {
-    getTitle() {
-      return this.title;
-    },
-  },
+  computed: {},
   async mounted() {
     window.addEventListener("keydown", (e) => this.keyDetector("keydown", e));
     window.addEventListener("keypress", (e) => this.keyDetector("keypress", e));
@@ -129,6 +123,15 @@ export default {
     },
   },
   methods: {
+    getTitleDynamically() {
+      var title = this.currentPage?.Title;
+      if (title != null && this.currentPage?.Description != null) {
+        title = title + " - " + this.currentPage?.Description;
+      } else {
+        title = "Docs";
+      }
+      this.pageTitle = title;
+    },
     async getSurroundingArticles() {
       try {
         const [prev, next] = await this.$content("/")
@@ -197,6 +200,7 @@ export default {
           if (page != null && page[0] != null && page[0].path != null) {
             this.currentPage = page[0];
             this.getSurroundingArticles();
+            this.getTitleDynamically();
           }
         }
       }
