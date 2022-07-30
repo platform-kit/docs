@@ -30,8 +30,8 @@
       <h4>
         <b-icon
           :icon="result.Icon || 'book'"
-          class="mr-2"
-          style="opacity: 0.5; color: royalblue"
+          class="mr-2 search-result-icon"
+          style="opacity: 0.25;"
         ></b-icon>
         {{ result.Title }}
         <b-icon-heart-fill
@@ -194,6 +194,28 @@ export default {
   border-left: 4px solid royalblue !important;
 }
 
+.search-result-card:nth-of-type(1){
+  border-left-color:rgb(104, 139, 245) !important;
+}
+
+.search-result-card:nth-of-type(2){
+  border-left-color: #73f6b7 !important 
+}
+
+.search-result-card:nth-of-type(3){
+  border-left-color: #ffef63 !important;   
+}
+
+
+.search-result-card:nth-of-type(4){
+  border-left-color: #ffc107 !important;  
+}
+
+.search-result-card:nth-of-type(5){
+  border-left-color: #f5a044 !important;  
+}
+
+
 .search-result-card {
   box-shadow: 0px 15px 15px rgba(0, 50, 100, 0.0375),
     0px 7px 7px rgba(0, 50, 100, 0.0375), 0px 5px 3px rgba(0, 50, 100, 0.025);
@@ -203,6 +225,10 @@ export default {
   background: rgb(239, 243, 249) !important;
   box-shadow: 0px 15px 15px rgba(0, 50, 100, 0.075),
     0px 7px 7px rgba(0, 50, 100, 0.075), 0px 5px 3px rgba(0, 50, 100, 0.05);
+}
+
+.search-result-card svg {
+  color:navy;
 }
 
 .footer-badge {

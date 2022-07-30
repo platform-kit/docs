@@ -116,9 +116,7 @@
               >Next Article
               <b-icon-arrow-right class="ml-2"></b-icon-arrow-right
             ></span>
-            <b-card-title class="mb-2 mt-0">{{
-              nextPage.Title
-            }}</b-card-title>
+            <b-card-title class="mb-2 mt-0">{{ nextPage.Title }}</b-card-title>
             <b-card-text>{{ nextPage.Description }}</b-card-text>
           </b-card>
         </div>
@@ -129,6 +127,7 @@
         >
           <h5 class="w-100 text-center">Was this page helpful?</h5>
           <vue-feedback-reaction
+            :key="content.path"
             v-if="showFeedback == true"
             :labels="['Terrible', 'Bad', 'Okay', 'Good', 'Great']"
             class="mr-auto mb-3 feedback-component"
@@ -371,6 +370,13 @@ export default {
   },
   async mounted() {
     this.ctaVisible = false;
+     this.feedback = null;
+    this.showFeedback = false;
+
+    this.$nextTick(() => {
+      // Add the component back in
+      this.showFeedback = true;
+    });
     var reactionData = window.localStorage.getItem(
       "feedback:" + this.content.path
     );
@@ -381,20 +387,18 @@ export default {
     console.log(
       "Stored value for 'favorite:" + this.content.path + "': " + this.favorite
     );
-    console.log("Previous feedback: " + reactionData);    
+    console.log("Previous feedback: " + reactionData);
     // this.feedback = reactionData;
   },
   beforeUpdate: function () {
-    this.feedback = null;
-    this.showFeedback = false;
-    this.showFeedback = true;
+   
     console.log("beforeUpdate()");
     var favorite = window.localStorage.getItem("favorite:" + this.content.path);
     if (favorite == true || favorite == "true") {
       this.favorite = true;
     } else {
       this.favorite = false;
-    }    
+    }
     console.log(
       "Stored value for 'favorite:" + this.content.path + "': " + this.favorite
     );
@@ -408,7 +412,7 @@ export default {
         this.$router.push(redirect);
       }
     },
-    
+
     ctaHandler(isVisible) {
       if (isVisible && this.content.CTA != null) {
         this.ctaVisible = true;
