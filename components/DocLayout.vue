@@ -801,6 +801,7 @@ export default {
 }
 
 .cta {
+  display:block !important;
   pointer-events: none;
   opacity: 0;
   position: fixed;
@@ -826,6 +827,7 @@ export default {
 }
 
 .cta .cta-image {
+  background:#eff;
   display: flex;
   float: left;
   margin: 0px 15px 15px 0px;
