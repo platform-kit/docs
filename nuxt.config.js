@@ -1,12 +1,19 @@
 import { strict as assert } from "assert";
 import { stripHtml } from "string-strip-html";
 
-var contentDirectory = "content/docs";
-if (process.env.REPO != null) {
-  contentDirectory = "workspace";
-  if (process.env.CONTENT_DIRECTORY != null && process.env.CONTENT_DIRECTORY) {
-    contentDirectory = contentDirectory + "/" + process.env.CONTENT_DIRECTORY;
+function getContentDirectory() {
+  var contentDirectory = "content/docs";
+  if (process.env.REPO != null) {
+    contentDirectory = "workspace";
+    if (
+      process.env.CONTENT_DIRECTORY != null &&
+      process.env.CONTENT_DIRECTORY
+    ) {
+      contentDirectory = contentDirectory + "/" + process.env.CONTENT_DIRECTORY;
+    }
   }
+  console.log(contentDirectory);
+  return contentDirectory;
 }
 
 export default {
@@ -30,7 +37,7 @@ export default {
 
   env: {
     REPO: process.env.REPO,
-    GITHUB_URL: process.env.GITHUB_URL,    
+    GITHUB_URL: process.env.GITHUB_URL,
     FEEDBACK_ANALYTICS_URL: process.env.FEEDBACK_ANALYTICS_URL,
   },
 
@@ -73,7 +80,7 @@ export default {
   ],
 
   content: {
-    dir: contentDirectory,
+    dir: getContentDirectory(),
   },
 
   styleResources: {},
@@ -81,10 +88,10 @@ export default {
   hooks: {
     "content:file:beforeInsert": (document) => {
       if (document.extension === ".md") {
-        if(document.Title == null){
+        if (document.Title == null) {
           var string = document.path;
-          if(typeof string == 'string') {
-            string = string.replace('/', '');
+          if (typeof string == "string") {
+            string = string.replace("/", "");
           }
           document.Title = string;
         }

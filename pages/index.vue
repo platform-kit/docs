@@ -108,7 +108,7 @@ export default {
   async mounted() {
     window.addEventListener("keydown", (e) => this.keyDetector("keydown", e));
     window.addEventListener("keypress", (e) => this.keyDetector("keypress", e));
-    this.content = await this.$content("/")
+    this.content = await this.$content("")
       .where({
         extension: ".md",
       })
@@ -156,7 +156,7 @@ export default {
     },
     async getSurroundingArticles() {
       try {
-        const [prev, next] = await this.$content("/")
+        const [prev, next] = await this.$content("")
           .where({
             extension: ".md",
           })
@@ -194,7 +194,7 @@ export default {
       this.search = search;
       if (typeof search == "string") {
         console.log("Search: " + search);
-        this.searchResults = await this.$content("/")
+        this.searchResults = await this.$content("")
           .where({
             extension: ".md",
           })
@@ -213,7 +213,7 @@ export default {
           this.showSaved();
         } else {
           console.log("Hash: " + this.hash);
-          var page = await this.$content("/")
+          var page = await this.$content("")
             .where({ slug: this.hash, extension: ".md" })
             .fetch();
           console.log("Page: ");

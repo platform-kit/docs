@@ -497,8 +497,7 @@ export default {
             console.log("Analytics event failed.");
           })
           .then(function (response) {
-            console.log(response);
-            console.log(response.status);
+            console.log(response);            
             if (response != null && response.status == 200) {
               console.log("Analytics event succeeded.");
             } else {

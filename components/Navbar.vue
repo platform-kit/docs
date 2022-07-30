@@ -156,7 +156,7 @@ export default {
   },
   async mounted() {
     this.links.github = process.env.GITHUB_URL;
-    var content = await this.$content("/").where({
+    var content = await this.$content("").where({
         extension: ".md",
       }).sortBy("path").fetch();
     var navOptions = content.filter(
