@@ -164,8 +164,10 @@ export default {
       }
     },
     getSearchExcerpt(input) {
-      var term = input.indexOf(this.search, 0); // first asppearance of the search term
-      var last = input.indexOf("<br>", term); // first appearance of a new line after the search term (last character we want)
+      var lowercaseString = input.toLowerCase();
+      var search = this.search.toLowerCase();
+      var term = lowercaseString.indexOf(search, 0); // first asppearance of the search term
+      var last = lowercaseString.indexOf("<br>", term); // first appearance of a new line after the search term (last character we want)
       var finalClip = input.substr(term, 130); // clip the full text from the point of the first appearance of hte term to 130 characters later,
       finalClip = this.strip(finalClip); // strip all html tags
       return "... " + finalClip;
