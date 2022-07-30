@@ -3,7 +3,7 @@ Title: Docs
 Description: Static Documentation Generator
 Repository: "https://github.com/platform-kit/docs"
 Icon: "book"
-CTA: "<p>👀 You're curently using it. What do you think?</p>"
+CTA: "<p>👀 This page was built with PlatformKit Docs. What do you think?</p>"
 ---
 <h1 align="center">PlatformKit Docs</h1>
 
