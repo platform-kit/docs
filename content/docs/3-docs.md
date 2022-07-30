@@ -1,10 +1,11 @@
---- 
+---
 Title: Docs
 Description: Static Documentation Generator
 Repository: "https://github.com/platform-kit/docs"
 Icon: "book"
 CTA: "<p>👀 This page was built with PlatformKit Docs. What do you think?</p>"
 ---
+
 <h1 align="center">PlatformKit Docs</h1>
 
 <p align="center">
@@ -19,7 +20,6 @@ Search, analytics, pdf export, & offline mode.
     <img src="https://raw.githubusercontent.com/platform-kit/docs/master/assets/images/screenshot.png" style="border-radius:4px; margin:auto;max-width:300px;" class="raised" width="400"/>
 </div>
 
-
 **Built with:** <br>
 
 <p float="left">
@@ -29,7 +29,8 @@ Search, analytics, pdf export, & offline mode.
 <img src="https://img.shields.io/badge/Bootstrap-ebf5fb?style=for-the-badge&logo=bootstrap" />
 </p>
 
-**Deploy with:** <br> 
+**Deploy with:** <br>
+
 <p float="left">
 <img src="https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white"/> <img src="https://img.shields.io/badge/Digital_Ocean-0080FF?style=for-the-badge&logo=DigitalOcean&logoColor=white" /> <img src="https://img.shields.io/badge/Render-46E3B7?style=for-the-badge&logo=Render&logoColor=white"/> 
 </p>
@@ -46,7 +47,6 @@ Search, analytics, pdf export, & offline mode.
 - Zero-config analytics
 - Emoji based feedback
 - Export docs as PDF
-
 
 ## Local Development
 
@@ -65,7 +65,7 @@ Go to the project directory
 Install dependencies
 
 ```bash
-  npm install 
+  npm install
 ```
 
 Start the server
@@ -93,10 +93,4 @@ To deploy to the cloud, simply click one of the buttons below.
 
 Note: if you deploy to Netlify, you will have to provision a database manually.
 
-<a href="https://heroku.com/deploy?template=https://github.com/platform-kit/docs" target="_blank"><img src="https://img.shields.io/badge/Deploy%20to%20Heroku→-430098?style=for-the-badge&logo=heroku&logoColor=white"/></a> <a href="https://cloud.digitalocean.com/apps/new?repo=https://github.com/platform-kit/docs/tree/main" target="_blank"><img src="https://img.shields.io/badge/Deploy%20to%20Digital_Ocean→-0080FF?style=for-the-badge&logo=DigitalOcean&logoColor=white" /> </a> <a href="https://render.com/deploy?repo=https://github.com/platform-kit/docs" target="_blank"> <img src="https://img.shields.io/badge/Deploy%20to%20Render→-46E3B7?style=for-the-badge&logo=Render&logoColor=fff"/> </a> 
-
-
-
-
-
-
+<a href="https://heroku.com/deploy?template=https://github.com/platform-kit/docs" target="_blank"><img src="https://img.shields.io/badge/Deploy%20to%20Heroku→-430098?style=for-the-badge&logo=heroku&logoColor=white"/></a> <a href="https://cloud.digitalocean.com/apps/new?repo=https://github.com/platform-kit/docs/tree/main" target="_blank"><img src="https://img.shields.io/badge/Deploy%20to%20Digital_Ocean→-0080FF?style=for-the-badge&logo=DigitalOcean&logoColor=white" /> </a> <a href="https://render.com/deploy?repo=https://github.com/platform-kit/docs" target="_blank"> <img src="https://img.shields.io/badge/Deploy%20to%20Render→-46E3B7?style=for-the-badge&logo=Render&logoColor=fff"/> </a>
