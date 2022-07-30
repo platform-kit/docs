@@ -156,9 +156,11 @@ export default {
   },
   async mounted() {
     this.links.github = process.env.GITHUB_URL;
-    var content = await this.$content("docs").sortBy("path").fetch();
+    var content = await this.$content("/").where({
+        extension: ".md",
+      }).sortBy("path").fetch();
     var navOptions = content.filter(
-      (element) => element.path.split("docs/")[1].includes("/") != true
+      (element) => element.path.split("/")[1].includes("/") != true
     );
     this.navOptions = navOptions;
   },

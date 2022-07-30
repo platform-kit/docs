@@ -87,15 +87,22 @@ export default {
   async mounted() {
     window.addEventListener("keydown", (e) => this.keyDetector("keydown", e));
     window.addEventListener("keypress", (e) => this.keyDetector("keypress", e));
-    this.content = await this.$content("docs").sortBy("path").fetch();
+    this.content = await this.$content("/")
+      .where({
+        extension: ".md",
+      })
+      .sortBy("path")
+      .fetch();
 
     if (this.content != null) {
       // this.currentPage = this.content[0];
     }
 
-    var navOptions = this.content.filter(
-      (element) => element.path.split("docs/")[1].includes("/") != true
-    );
+    if (navOptions != null) {
+      var navOptions = this.content.filter(
+        (element) => element.path.split("docs/")[1].includes("/") != true
+      );
+    }
     this.navOptions = navOptions;
     this.currentPage = null;
     await this.updateCurrentPage();
@@ -121,7 +128,10 @@ export default {
   methods: {
     async getSurroundingArticles() {
       try {
-        const [prev, next] = await this.$content("docs")
+        const [prev, next] = await this.$content("/")
+          .where({
+            extension: ".md",
+          })
           .sortBy("path")
           .surround(this.currentPage.path)
           .fetch();
@@ -156,7 +166,12 @@ export default {
       this.search = search;
       if (typeof search == "string") {
         console.log("Search: " + search);
-        this.searchResults = await this.$content("docs").search(search).fetch();
+        this.searchResults = await this.$content("/")
+          .where({
+            extension: ".md",
+          })
+          .search(search)
+          .fetch();
       } else {
         this.showNavbar = false;
         this.search = null;
@@ -170,8 +185,8 @@ export default {
           this.showSaved();
         } else {
           console.log("Hash: " + this.hash);
-          var page = await this.$content("docs")
-            .where({ slug: this.hash })
+          var page = await this.$content("/")
+            .where({ slug: this.hash, extension: ".md" })
             .fetch();
           console.log("Page: ");
           console.log(page);

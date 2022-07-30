@@ -1,6 +1,14 @@
 import { strict as assert } from "assert";
 import { stripHtml } from "string-strip-html";
 
+var contentDirectory = "content/docs";
+if (process.env.REPO != null) {
+  contentDirectory = "workspace";
+  if (process.env.CONTENT_DIRECTORY != null) {
+    contentDirectory = contentDirectory + process.env.CONTENT_DIRECTORY;
+  }
+}
+
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: "static",
@@ -21,6 +29,7 @@ export default {
   },
 
   env: {
+    REPO: process.env.REPO,
     GITHUB_URL: process.env.GITHUB_URL,
     FEEDBACK_ANALYTICS_URL: process.env.FEEDBACK_ANALYTICS_URL,
   },
@@ -60,12 +69,11 @@ export default {
     "@nuxtjs/toast",
 
     // https://vue-scrollto.netlify.app/docs
-    ['vue-scrollto/nuxt', { duration: 300 }],
-
+    ["vue-scrollto/nuxt", { duration: 300 }],
   ],
 
   content: {
-    dir: process.env.CONTENT_DIRECTORY || "content",
+    dir: contentDirectory,
   },
 
   styleResources: {},
@@ -73,6 +81,13 @@ export default {
   hooks: {
     "content:file:beforeInsert": (document) => {
       if (document.extension === ".md") {
+        if(document.Title == null){
+          var string = document.path;
+          if(typeof string == 'string') {
+            string = string.replace('/', '');
+          }
+          document.Title = string;
+        }
         document.output = {};
         document.output.html = document.text;
         document.output.strippedText = stripHtml(document.text).result.replace(
