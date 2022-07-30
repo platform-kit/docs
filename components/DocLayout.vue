@@ -811,7 +811,7 @@ export default {
 
 .toast-custom {
   color: #000 !important;
-  background: linear-gradient(90deg, rgb(128 160 255), rgb(158, 235, 243) 150%);
+  background: #edfff5;
 }
 
 .toast-custom a {
