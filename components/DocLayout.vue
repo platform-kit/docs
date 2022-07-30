@@ -109,7 +109,7 @@
         >
           <b-card
             v-if="nextPage != null"
-            @click="goTonextPage()"
+            @click="goToNextPage()"
             class="mx-3 my-3 br-10 raised p-2 mb-0 next-article-card"
           >
             <span class="badge next-article-label"
@@ -404,10 +404,10 @@ export default {
   },
 
   methods: {
-    goTonextPage() {
-      if (this.nextPage != null) {
-        var redirect = "/#/" + this.nextPage.path.split("/docs/")[1];
-        console.log(redirect);
+    goToNextPage() {
+      if (this.nextPage != null) {        
+        var redirect = "/#/" + this.nextPage.path.split("/")[1];
+        console.log("Redirecting to: " + redirect);
         this.$router.push(redirect);
       }
     },
