@@ -105,11 +105,11 @@
         <nuxt-content class="px-3 px-md-5" :document="content"></nuxt-content>
         <div
           class="surrounding-articles mt-4 pt-1 mb-0 border-top pt-2"
-          v-if="nextArticle != null"
+          v-if="nextPage != null"
         >
           <b-card
-            v-if="nextArticle != null"
-            @click="goToNextArticle()"
+            v-if="nextPage != null"
+            @click="goTonextPage()"
             class="mx-3 my-3 br-10 raised p-2 mb-0 next-article-card"
           >
             <span class="badge next-article-label"
@@ -117,9 +117,9 @@
               <b-icon-arrow-right class="ml-2"></b-icon-arrow-right
             ></span>
             <b-card-title class="mb-2 mt-0">{{
-              nextArticle.Title
+              nextPage.Title
             }}</b-card-title>
-            <b-card-text>{{ nextArticle.Description }}</b-card-text>
+            <b-card-text>{{ nextPage.Description }}</b-card-text>
           </b-card>
         </div>
         <div
@@ -350,7 +350,7 @@ import axios from "axios";
 
 export default {
   name: "DocLayout",
-  props: ["content", "navOptions"],
+  props: ["content", "nextPage", "navOptions"],
   data() {
     return {
       ctaVisible: false,
@@ -358,7 +358,7 @@ export default {
       feedback: null,
       showFeedback: true,
       contentData: null,
-      nextArticle: null,
+      nextPage: null,
       previousArticle: null,
     };
   },
@@ -381,8 +381,7 @@ export default {
     console.log(
       "Stored value for 'favorite:" + this.content.path + "': " + this.favorite
     );
-    console.log("Previous feedback: " + reactionData);
-    this.getSurroundingArticles();
+    console.log("Previous feedback: " + reactionData);    
     // this.feedback = reactionData;
   },
   beforeUpdate: function () {
@@ -402,24 +401,14 @@ export default {
   },
 
   methods: {
-    goToNextArticle() {
-      if (this.nextArticle != null) {
-        var redirect = "/#/" + this.nextArticle.path.split("/docs/")[1];
+    goTonextPage() {
+      if (this.nextPage != null) {
+        var redirect = "/#/" + this.nextPage.path.split("/docs/")[1];
         console.log(redirect);
         this.$router.push(redirect);
       }
     },
-    async getSurroundingArticles() {
-      try {
-      const [prev, next] = await this.$content("docs")
-        .sortBy("path")
-        .surround(this.content.path)
-        .fetch();
-      this.nextArticle = next;      
-      } catch(err){
-        console.log(err);
-      }
-    },
+    
     ctaHandler(isVisible) {
       if (isVisible && this.content.CTA != null) {
         this.ctaVisible = true;

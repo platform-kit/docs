@@ -23,6 +23,7 @@
       id="search-results"
       :content="currentPage"
       :navOptions="navOptions"
+      :nextPage="nextPage"
     />
     <SearchResults
       id="default-content"
@@ -51,6 +52,7 @@ export default {
       showSavedResults: null,
       content: null,
       currentPage: null,
+      nextPage: null,
       navOptions: null,
       hash: null,
       route: null,
@@ -116,6 +118,17 @@ export default {
     },
   },
   methods: {
+    async getSurroundingArticles() {
+      try {
+        const [prev, next] = await this.$content("docs")
+          .sortBy("path")
+          .surround(this.currentPage.path)
+          .fetch();
+        this.nextPage = next;
+      } catch (err) {
+        console.log(err);
+      }
+    },
     showSaved() {
       this.currentPage = null;
       console.log("Viewing 'Saved' Docs.");
@@ -164,6 +177,7 @@ export default {
           this.currentPage = null;
           if (page != null && page[0] != null && page[0].path != null) {
             this.currentPage = page[0];
+            this.getSurroundingArticles();
           }
         }
       }
