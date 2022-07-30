@@ -172,6 +172,7 @@
 
        
         <b-nav-item
+        @click="signIn()"
           v-if="authUrl != null && user == null"
           class="d-block d-md-none w-100 mobile-nav-links icon-nav-link" >
             <div style="">
