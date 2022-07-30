@@ -411,12 +411,15 @@ export default {
       }
     },
     async getSurroundingArticles() {
+      try {
       const [prev, next] = await this.$content("docs")
         .sortBy("path")
         .surround(this.content.path)
         .fetch();
-      this.nextArticle = next;
-      this.previousArticle = prev;
+      this.nextArticle = next;      
+      } catch(err){
+        console.log(err);
+      }
     },
     ctaHandler(isVisible) {
       if (isVisible && this.content.CTA != null) {
