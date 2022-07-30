@@ -802,11 +802,11 @@ export default {
     padding: 10px 20px !important;
     margin: auto;
     display: block !important;
-    border-radius: 5px !important;
+    border-radius:25px !important;
   }
 
   .toast-custom-container {
-    margin-top:-75px;
+    margin-top:-93px;
   }
 }
 
@@ -824,7 +824,7 @@ export default {
 
 @media (min-width: 991px) {
   .toast-custom-container {
-    width: 100%;
+    width: 100%;    
   }
 }
 
