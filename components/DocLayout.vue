@@ -843,8 +843,8 @@ export default {
   pointer-events: none;
   opacity: 0;
   position: fixed;
-  bottom: 15px;
-  right: -15px;
+  right: 0px;
+  bottom: 0px;
   min-width: 350px;
   z-index: 888;
   padding: 15px 20px 15px 15px;
@@ -884,6 +884,7 @@ export default {
   pointer-events: all;
   opacity: 1;
   right: 15px;
+  bottom: 15px;
   display: inline-block !important;
 }
 
@@ -894,8 +895,6 @@ export default {
 }
 
 .cta-hidden {
-  bottom: 0px;
-  right: 0px;
   transition: all 0.5s !important;
   pointer-events: none !important;
   opacity: 0;
@@ -909,12 +908,8 @@ export default {
   cursor: pointer;
   transition: all 0.3s;
   background-repeat: no-repeat !important;
-  background-position: -250px;
+  background-position: -200px;
   background: linear-gradient(-90deg, #fff, rgb(203, 246, 222));
-}
-.next-article-card:hover {
-  transform: scale(1.0125);
-  background-position: -150px;
 }
 
 .next-article-label {
