@@ -151,13 +151,36 @@
           </div>
           
         </b-navbar-nav>
-        <b-nav-item
+        <b-nav-item        
           href="/#/saved"
           class="d-block d-md-none w-100 mobile-nav-links icon-nav-link"
         >
           <b-icon-bookmark class="mr-2 text-dark" scale="0.5"></b-icon-bookmark
           >My Bookmarks
         </b-nav-item>
+        <b-nav-item
+        v-if="authUrl != null && user != null"
+          @click="signOut"
+          class="d-block d-md-none w-100 mobile-nav-links icon-nav-link" >
+            <div style="">
+              <b-icon-lock class="text-danger mr-2" scale="0.66"></b-icon-lock>
+              Sign Out               
+                <b-icon-arrow-right class="ml-2" scale="0.66" style="display:inline-block !important;position:relative;top:3px;left:0px; "></b-icon-arrow-right>
+              
+            </div>
+          </b-nav-item>
+
+       
+        <b-nav-item
+          v-if="authUrl != null && user == null"
+          class="d-block d-md-none w-100 mobile-nav-links icon-nav-link" >
+            <div style="">
+              <b-icon-person class="text-primary mr-2" scale="0.66"></b-icon-person>
+              Sign In               
+                <b-icon-arrow-right class="ml-2" scale="0.66" style="display:inline-block !important;position:relative;top:3px;left:0px; "></b-icon-arrow-right>
+              
+            </div>
+          </b-nav-item>
         
       </div>
     </b-collapse>
@@ -198,8 +221,8 @@ export default {
     this.navOptions = navOptions;
   },
   methods: {
-    signOut(){
-      this.$emit('signOut');
+    signOut() {
+      this.$emit("signOut");
     },
     signIn() {
       var operand = "?";
