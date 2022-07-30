@@ -118,7 +118,7 @@ export default {
     }
     this.byLineLink = byLineLink;
   },
-  methods: {
+  methods: {    
     showPost(path) {
       if (this.showSavedResults !== true || this.search != null) {
         return true;

@@ -104,8 +104,27 @@
         </div>
         <nuxt-content class="px-3 px-md-5" :document="content"></nuxt-content>
         <div
+          class="surrounding-articles mt-4 pt-1 mb-0"
+          v-if="nextArticle != null || previousArticle != null"
+        >
+          <b-card
+            v-if="nextArticle != null"
+            @click="goToNextArticle()"
+            class="mx-3 my-3 br-10 raised p-2 mb-0 next-article-card"
+          >
+            <span class="badge next-article-label"
+              >Next Article
+              <b-icon-arrow-right class="ml-2"></b-icon-arrow-right
+            ></span>
+            <b-card-title class="mb-2 mt-0">{{
+              nextArticle.Title
+            }}</b-card-title>
+            <b-card-text>{{ nextArticle.Description }}</b-card-text>
+          </b-card>
+        </div>
+        <div
           v-b-visible="ctaHandler"
-          class="w-100 px-0 pt-5 pb-4 border-top mt-5 text-center"
+          class="w-100 px-0 pt-5 pb-4 border-top mt-4 text-center"
           id="footer"
         >
           <h5 class="w-100 text-center">Was this page helpful?</h5>
@@ -257,7 +276,7 @@
       ></div>
 
       <b-button
-        @click="ctaVisible = falase"
+        @click="ctaVisible = false"
         variant="light"
         class="text-danger raised cta-close-button border"
         style="
@@ -339,6 +358,8 @@ export default {
       feedback: null,
       showFeedback: true,
       contentData: null,
+      nextArticle: null,
+      previousArticle: null,
     };
   },
   components: {
@@ -361,6 +382,7 @@ export default {
       "Stored value for 'favorite:" + this.content.path + "': " + this.favorite
     );
     console.log("Previous feedback: " + reactionData);
+    this.getSurroundingArticles();
     // this.feedback = reactionData;
   },
   beforeUpdate: function () {
@@ -374,12 +396,28 @@ export default {
     } else {
       this.favorite = false;
     }
+    this.getSurroundingArticles();
     console.log(
       "Stored value for 'favorite:" + this.content.path + "': " + this.favorite
     );
   },
 
   methods: {
+    goToNextArticle() {
+      if (this.nextArticle != null) {
+        var redirect = "/#/" + this.nextArticle.path.split("/docs/")[1];
+        console.log(redirect);
+        this.$router.push(redirect);
+      }
+    },
+    async getSurroundingArticles() {
+      const [prev, next] = await this.$content("/docs")
+        .sortBy("path")
+        .surround(this.content.path)
+        .fetch();
+      this.nextArticle = next;
+      this.previousArticle = prev;
+    },
     ctaHandler(isVisible) {
       if (isVisible && this.content.CTA != null) {
         this.ctaVisible = true;
@@ -865,5 +903,26 @@ export default {
 
 .cta-content p {
   margin: 0px;
+}
+
+.next-article-card {
+  cursor: pointer;
+  transition: all 0.3s;
+  background-repeat: no-repeat !important;
+  background-position: -250px;
+  background: linear-gradient(-90deg, #fff, rgb(203, 246, 222));
+}
+.next-article-card:hover {
+  transform: scale(1.0125);
+  background-position: -150px;
+}
+
+.next-article-label {
+  background: rgb(173, 242, 203);
+  color: green;
+  position: absolute;
+  right: -10px;
+  top: 20px;
+  float: right;
 }
 </style>
