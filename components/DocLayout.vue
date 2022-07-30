@@ -411,7 +411,7 @@ export default {
       }
     },
     async getSurroundingArticles() {
-      const [prev, next] = await this.$content("/docs")
+      const [prev, next] = await this.$content("docs")
         .sortBy("path")
         .surround(this.content.path)
         .fetch();
