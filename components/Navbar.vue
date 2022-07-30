@@ -77,7 +77,7 @@
               icon-button-alt
               px-3 px-md-1
               text-dark text-center
-              d-none d-md-inline-block
+              d-none d-lg-inline-block
               mr-2
             "
             style="width: 50px"
@@ -91,7 +91,7 @@
               icon-button-alt
               px-3 px-md-1
               text-dark text-center
-              d-none d-md-inline-block
+              d-none d-lg-inline-block
               mr-2
             "
             style="margin-left: -3px; width: 50px"
@@ -114,7 +114,7 @@
               icon-button-alt
               px-3 px-md-1
               text-dark text-center
-              d-none d-md-inline-block
+              d-none d-lg-inline-block
             "
             style="width: 50px"
             ><b-icon-github></b-icon-github
@@ -126,7 +126,7 @@
               icon-button-alt
               px-3 px-md-1
               text-dark text-center
-              d-none d-md-inline-block
+              d-none d-lg-inline-block
             "
             style="width: 105px"
             >
@@ -145,7 +145,7 @@
               style="width:105px;"
               right
             >
-              <b-dropdown-item disabled><b-avatar :text="user.email[0]" style="margin-left:-5px; margin-right:5px;height:20px;width:20px;"></b-avatar> {{ user.email }}</b-dropdown-item>              
+              <b-dropdown-item disabled><b-avatar variant="dark" :text="user.email[0]" style="margin-left:-5px; margin-right:5px;height:20px;width:20px;"></b-avatar> {{ user.email }}</b-dropdown-item>              
               <b-dropdown-item class="text-center" @click="signOut">Sign Out</b-dropdown-item>
             </b-nav-item-dropdown>
           </div>
@@ -158,7 +158,16 @@
           <b-icon-bookmark class="mr-2 text-dark" scale="0.5"></b-icon-bookmark
           >My Bookmarks
         </b-nav-item>
+       
         <b-nav-item
+        v-if="authUrl != null && user != null"          
+          class="d-block d-md-none w-100 mobile-nav-links icon-nav-link" style="pointer-events:none;" >
+            
+              <b-avatar variant="dark" style="width:20px;height:20px;margin-right:5px;font-size:75%" :text="user.email[0]"></b-avatar>
+              {{ user.email }}                               
+            
+          </b-nav-item>
+       <b-nav-item
         v-if="authUrl != null && user != null"
           @click="signOut"
           class="d-block d-md-none w-100 mobile-nav-links icon-nav-link" >
