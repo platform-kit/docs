@@ -4,8 +4,8 @@ import { stripHtml } from "string-strip-html";
 var contentDirectory = "content/docs";
 if (process.env.REPO != null) {
   contentDirectory = "workspace";
-  if (process.env.CONTENT_DIRECTORY != null) {
-    contentDirectory = contentDirectory + process.env.CONTENT_DIRECTORY;
+  if (process.env.CONTENT_DIRECTORY != null && process.env.CONTENT_DIRECTORY) {
+    contentDirectory = contentDirectory + "/" + process.env.CONTENT_DIRECTORY;
   }
 }
 
