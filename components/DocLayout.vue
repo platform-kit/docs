@@ -82,7 +82,10 @@
         <div
           class="w-100 p-3 text-light d-inline-block d-md-none page-nav-mobile"
         >
-          <b-button-group style="transform:scale(.9)" class="w-100 article-nav mx-auto">
+          <b-button-group
+            style="transform: scale(0.9)"
+            class="w-100 article-nav mx-auto"
+          >
             <b-button variant="light" v-b-modal.chapters-modal size="sm">
               <b-icon icon="card-list" class="mx-1"></b-icon>Contents
             </b-button>
@@ -135,13 +138,32 @@
           </b-button-group>
         </div>
 
+        <b-button
+          @click="toggleEdit"
+          v-if="isDev == true && isEditing == false"
+          style=""
+          class="px-3 edit-button"
+          variant="primary"
+          ><b-icon-pencil class="mr-2"></b-icon-pencil>Edit</b-button
+        >
         <nuxt-content
-          ref="contentEditor"          
           :class="{
+            'no-click': isDev == true,
+            'd-none': isEditing == true,
             'with-excerpt': content.excerpt != null && this.user == null,
           }"
           class="px-3 px-md-5"
           :document="document"
+        ></nuxt-content>
+        <nuxt-content
+          style="min-height: 100vh"
+          ref="contentEditor"
+          :class="{
+            'd-none': isEditing == false,
+            'with-excerpt': content.excerpt != null && this.user == null,
+          }"
+          class="px-3 px-md-5"
+          :document="content"
         ></nuxt-content>
         <div
           class="pt-4 pb-0 mt-4 px-3"
@@ -165,7 +187,7 @@
           >
             <b-icon-exclamation-triangle-fill
               scale="1.5"
-              style="opacity:0.33;"
+              style="opacity: 0.33"
               class="mx-auto mb-3 mt-2"
             ></b-icon-exclamation-triangle-fill
             ><br />
@@ -437,6 +459,7 @@ export default {
   data() {
     return {
       isDev: false,
+      isEditing: false,
       document: null,
       ctaVisible: false,
       favorite: null,
@@ -453,7 +476,7 @@ export default {
       }
     },
   },
-  async mounted() {      
+  async mounted() {
     if (process.env.ENVIRONMENT == "development") {
       this.isDev = true;
     }
@@ -477,7 +500,8 @@ export default {
       "Stored value for 'favorite:" + this.content.path + "': " + this.favorite
     );
     console.log("Previous feedback: " + reactionData);
-    // this.feedback = reactionData;
+
+    this.getContentOrExcerpt();
   },
   beforeUpdate: function () {
     console.log("beforeUpdate()");
@@ -495,8 +519,9 @@ export default {
   },
 
   methods: {
-    swapContentDocument() {
-      document = this.content;
+    toggleEdit() {
+      this.isEditing = true;
+      this.$refs.contentEditor.toggleEdit();
     },
     signIn() {
       var operand = "?";
@@ -520,14 +545,12 @@ export default {
       } else {
         var document = this.content;
         if (this.content.excerpt != null) {
-          if (this.user != null) {
-            document = { body: this.content.body };
-          } else {
-            document = { body: this.content.excerpt };
-          }
+          document = { body: this.content.excerpt };
         } else {
-          document = { body: this.content.body };
+          document = this.content;
         }
+        this.document = document;
+        return this.document;
       }
     },
     goToNextPage() {
@@ -1136,5 +1159,29 @@ export default {
     rgba(0, 0, 0, 0.66),
     rgba(0, 0, 0, 0.77) 85%
   );
+}
+
+.edit-button {
+  z-index: 9;
+  position: absolute;
+  top: 15px;
+  right: 14px;
+}
+
+@media (max-width: 991px) {
+  .edit-button {
+    z-index: 9999;
+    position: fixed;
+    top: unset !important;
+    bottom: 17px;
+    right: 17px;
+  }
+}
+
+.no-click{
+  pointer-events:none;
+}
+.no-click a{
+  pointer-events:all;
 }
 </style>

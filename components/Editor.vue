@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-4 w-100" style="index:999 !important;">
+  <div class="mt-4 w-100" style="min-height:100vh;index:999 !important;">
     <b-button-group class="w-100 br-5 mb-3">
       <b-button class="br-5" @click="cancel()" variant="outline-danger">
         <b-icon-x-circle
