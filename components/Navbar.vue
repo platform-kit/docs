@@ -70,7 +70,20 @@
             border-left: 1px solid #eee !important;
           "
         >
-         
+       
+             <b-nav-item
+            href="/"
+            class="
+              icon-button-alt
+              px-3 px-md-1
+              text-dark text-center
+              d-none d-lg-inline-block
+              mr-2
+            "
+            style="margin-left: -3px; width: 50px"
+            ><b-icon-house></b-icon-house
+          ></b-nav-item>
+            
           <b-nav-item
             href="/#/saved"
             class="
@@ -85,18 +98,6 @@
           ></b-nav-item>
          
           
-             <b-nav-item
-            href="/"
-            class="
-              icon-button-alt
-              px-3 px-md-1
-              text-dark text-center
-              d-none d-lg-inline-block
-              mr-2
-            "
-            style="margin-left: -3px; width: 50px"
-            ><b-icon-house></b-icon-house
-          ></b-nav-item>
           
           <div v-if="navOptions != null">
             <b-nav-item
@@ -419,7 +420,7 @@ code {
   .navbar-left-container {
     width: calc(25% - 13px);
   }
-  
+
   .navbar-brand {
     border-right: 2px solid #eee !important;
     width: 100%;
