@@ -111,12 +111,12 @@
           class="pt-4 pb-0 mt-4 px-3"          
           v-if="content.excerpt != null && this.user == null"
         >
-          <b-card bg-variant="dark" class="text-center m-0 mb-0 text-light br-10 raised" style="min-height:50px;">
+          <b-card bg-variant="dark" class="text-center m-0 mb-0 px-0 pt-4 text-light br-10 raised" style="min-height:50px;">
             <b-icon-exclamation-triangle-fill
               class="mx-auto"
             ></b-icon-exclamation-triangle-fill
             ><br />
-            Sign in to continue reading the rest of this article.
+            <p class="py-4 px-4" style="line-height:200%;">Sign in to continue reading the rest of this article.</p>
           </b-card>
         </div>
         <div
