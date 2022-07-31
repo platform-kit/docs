@@ -82,7 +82,7 @@
         <div
           class="w-100 p-3 text-light d-inline-block d-md-none page-nav-mobile"
         >
-          <b-button-group class="w-100 article-nav">
+          <b-button-group style="transform:scale(.9)" class="w-100 article-nav mx-auto">
             <b-button variant="light" v-b-modal.chapters-modal size="sm">
               <b-icon icon="card-list" class="mx-1"></b-icon>Contents
             </b-button>

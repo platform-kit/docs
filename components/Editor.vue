@@ -39,7 +39,7 @@
         ></b-input>
       </b-input-group>
     </div>
-    <vue-simplemde
+    <vue-simplemde    
       preview-class="nuxt-content"
       @input="updateFrontMatter"
       class="w-100 br-5 p-3"

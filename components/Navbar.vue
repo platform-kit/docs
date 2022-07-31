@@ -397,7 +397,7 @@ export default {
 }
 
 .navbar-nav-right {
-  width: calc(33% - 4px);
+  width: calc(32% - 0px);
 }
 
 @media (max-width: 991px) {
@@ -417,8 +417,9 @@ code {
 }
 @media (min-width: 991px) {
   .navbar-left-container {
-    width: calc(25% - 6px);
+    width: calc(25% - 13px);
   }
+  
   .navbar-brand {
     border-right: 2px solid #eee !important;
     width: 100%;
