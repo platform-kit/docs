@@ -36,6 +36,7 @@ export default {
   },
 
   env: {
+    ENVIRONMENT: process.env.ENVIRONMENT,
     REPO: process.env.REPO,
     AUTH_URL: process.env.AUTH_URL,
     GITHUB_URL: process.env.GITHUB_URL,
@@ -82,6 +83,7 @@ export default {
 
   content: {
     dir: getContentDirectory(),
+    editor: '~/components/Editor.vue',
   },
 
   styleResources: {},

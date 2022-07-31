@@ -15,13 +15,16 @@
           {{ content.Description }}
         </h4>
         <div class="w-100 text-center my-4 d-block">
-          <b-badge variant="light" class="br-15 px-2 py-1" style="background:#ddffec !important;"
+          <b-badge
+            variant="light"
+            class="br-15 px-2 py-1"
+            style="background: #ddffec !important"
             >{{ Math.ceil(content.readingTime) }} Minute Read</b-badge
           >
         </div>
         <div class="w-100 text-center mb-3 d-block">
           <b-button
-          v-scroll-to="'#main'"
+            v-scroll-to="'#main'"
             variant="outline-light"
             class="br-25 mx-auto"
             style="width: 50px; height: 50px"
@@ -72,7 +75,7 @@
           </b-nav-item>
         </b-nav>
       </div>
-      <div        
+      <div
         class="col-12 col-md-6 main-content m-0 p-0"
         style="margin: 0px; min-height: calc(100vh - 58px)"
       >
@@ -131,12 +134,15 @@
             </b-button>
           </b-button-group>
         </div>
+
         <nuxt-content
+          ref="contentEditor"
+          @endEdit="alert(123)"
           :class="{
             'with-excerpt': content.excerpt != null && this.user == null,
           }"
           class="px-3 px-md-5"
-          :document="getContentOrExcerpt()"
+          :document="document"
         ></nuxt-content>
         <div
           class="pt-4 pb-0 mt-4 px-3"
@@ -429,6 +435,8 @@ export default {
   props: ["content", "nextPage", "navOptions", "user"],
   data() {
     return {
+      isDev: false,
+      document: null,
       ctaVisible: false,
       favorite: null,
       feedback: null,
@@ -444,7 +452,11 @@ export default {
       }
     },
   },
-  async mounted() {
+  async mounted() {      
+    if (process.env.ENVIRONMENT == "development") {
+      this.isDev = true;
+    }
+    this.document = this.content;
     this.ctaVisible = false;
     this.feedback = null;
     this.showFeedback = false;
@@ -482,6 +494,9 @@ export default {
   },
 
   methods: {
+    swapContentDocument() {
+      document = this.content;
+    },
     signIn() {
       var operand = "?";
       if (process.env.AUTH_URL != null && process.env.AUTH_URL.includes("?")) {
@@ -499,14 +514,19 @@ export default {
       this.$emit("updateSearch", value);
     },
     getContentOrExcerpt() {
-      if (this.content.excerpt != null) {
-        if (this.user != null) {
-          return { body: this.content.body };
-        } else {
-          return { body: this.content.excerpt };
-        }
+      if (process.env.ENVIRONMENT != "development") {
+        this.document = this.content;
       } else {
-        return { body: this.content.body };
+        var document = this.content;
+        if (this.content.excerpt != null) {
+          if (this.user != null) {
+            document = { body: this.content.body };
+          } else {
+            document = { body: this.content.excerpt };
+          }
+        } else {
+          document = { body: this.content.body };
+        }
       }
     },
     goToNextPage() {
@@ -1084,11 +1104,11 @@ export default {
 }
 
 .page-cover h1 {
-  font-weight:800;
+  font-weight: 800;
 }
 
 .page-cover h4 {
-  font-weight:200;
+  font-weight: 200;
 }
 
 @media (max-width: 991px) {
