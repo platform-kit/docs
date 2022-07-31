@@ -947,7 +947,7 @@ export default {
   float: right;
 }
 
-.with-excerpt:before {
+.with-excerpt:after {
   background: linear-gradient(
     0deg,
     #fff,
