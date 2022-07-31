@@ -152,7 +152,8 @@
             bg-variant="dark"
             class="
               text-center
-              m-0
+              my-0
+              mx-3
               mb-0
               px-0
               pt-4
@@ -186,7 +187,7 @@
           </b-card>
         </div>
         <div
-          class="surrounding-articles mt-4 pt-1 mb-0 border-top pt-2"
+          class="surrounding-articles mt-4 pt-1 mb-0 border-top pt-2 px-3"
           v-if="nextPage != null"
         >
           <b-card
