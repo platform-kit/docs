@@ -965,6 +965,16 @@ export default {
   background: #edfff5;
 }
 
+.next-article-card:hover{
+ background: #fffdf5; 
+}
+
+.next-article-card:hover .next-article-label{
+ background: #ffecac; 
+ color:rgb(240, 164, 0);
+ right: -20px;
+}
+
 .next-article-label {
   background: rgb(173, 242, 203);
   color: green;
@@ -972,6 +982,7 @@ export default {
   right: -10px;
   top: 20px;
   float: right;
+  transition:all 0.5s;
 }
 
 .with-excerpt:after {
