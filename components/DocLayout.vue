@@ -103,20 +103,28 @@
           </b-button-group>
         </div>
         <nuxt-content
-          :class="{ 'with-excerpt': content.excerpt != null && this.user == null }"
+          :class="{
+            'with-excerpt': content.excerpt != null && this.user == null,
+          }"
           class="px-3 px-md-5"
           :document="getContentOrExcerpt()"
         ></nuxt-content>
         <div
-          class="pt-4 pb-0 mt-4 px-3"          
+          class="pt-4 pb-0 mt-4 px-3"
           v-if="content.excerpt != null && this.user == null"
         >
-          <b-card bg-variant="dark" class="text-center m-0 mb-0 px-0 pt-4 text-light br-10 raised" style="min-height:50px;">
+          <b-card
+            bg-variant="dark"
+            class="text-center m-0 mb-0 px-0 pt-4 text-light br-10 raised"
+            style="min-height: 50px"
+          >
             <b-icon-exclamation-triangle-fill
               class="mx-auto"
             ></b-icon-exclamation-triangle-fill
             ><br />
-            <p class="py-4 px-4" style="line-height:200%;">Sign in to continue reading the rest of this page.</p>
+            <p class="py-4 px-4" style="line-height: 200%">
+              Sign in to continue reading the rest of this page.
+            </p>
           </b-card>
         </div>
         <div
@@ -420,15 +428,15 @@ export default {
   },
 
   methods: {
-    getContentOrExcerpt(){      
-      if(this.content.excerpt != null){
-      if(this.user != null){
-        return {body: this.content.body};
-      }
-      else { return { body: this.content.excerpt}; }
-      }
-      else {
-        return { body: this.content.body};
+    getContentOrExcerpt() {
+      if (this.content.excerpt != null) {
+        if (this.user != null) {
+          return { body: this.content.body };
+        } else {
+          return { body: this.content.excerpt };
+        }
+      } else {
+        return { body: this.content.body };
       }
     },
     goToNextPage() {
@@ -953,17 +961,15 @@ export default {
     #fff,
     rgba(255, 255, 255, 0) 350px
   ) !important;
-  
   content: "\00a0";
-  height:350px;
-  display:block;
-  position:absolute;
-  width:100%;
-  float:right;
-  bottom:0px;
-  left:0px;
+  height: 350px;
+  display: block;
+  position: absolute;
+  min-width: 100%;
+  float: right;
+  left: 0px;
   width: 100%;
-  z-index:999;
-  
+  margin-top: -325px;
+  z-index: 999;
 }
 </style>
