@@ -167,7 +167,7 @@
         ></nuxt-content>
         <div
           class="pt-4 pb-0 mt-4 px-3"
-          v-if="content.excerpt != null && this.user == null"
+          v-if="content.excerpt != null && this.user == null && isEditing == false"
         >
           <b-card
             bg-variant="dark"
@@ -210,7 +210,7 @@
         </div>
         <div
           class="surrounding-articles mt-4 pt-1 mb-0 border-top pt-2 px-3"
-          v-if="nextPage != null"
+          v-if="nextPage != null && isEditing == false"
         >
           <b-card
             v-if="nextPage != null"
@@ -226,6 +226,7 @@
           </b-card>
         </div>
         <div
+          v-if="isEditing == false"
           v-b-visible="ctaHandler"
           class="w-100 px-0 pt-5 pb-4 border-top mt-4 text-center"
           id="footer"
