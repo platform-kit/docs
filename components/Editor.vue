@@ -1,14 +1,25 @@
 <template>
-  <div class="mt-4 w-100" style="min-height:100vh;index:999 !important;">
-    <b-button-group class="w-100 br-5 mb-3">
-      <b-button class="br-5" @click="cancel()" variant="outline-danger">
+  <div
+    class="mt-4 w-100"
+    style="min-height: 100vh; index: 999 !important; overflow: visible"
+  >
+    <b-button-group class="w-100 br-5 mb-3 raised">
+      <b-button
+        class="br-5 text-danger border cancel-button"
+        @click="cancel()"
+        variant="light"
+      >
         <b-icon-x-circle
           scale="0.66"
           style="position: relative; top: 1px"
         ></b-icon-x-circle>
         Cancel
       </b-button>
-      <b-button class="br-5" @click="save()" variant="outline-success">
+      <b-button
+        class="br-5 text-success border save-button"
+        @click="save()"
+        variant="light"
+      >
         <b-icon-check-circle
           scale="0.66"
           style="position: relative; top: 1px"
@@ -23,23 +34,46 @@
         fields.attributes != null
       "
     >
-      <b-input-group
-        class="mb-2"
-        v-for="(field, index) in fields?.attributes"
-        :key="index"
-      >
-        <template #prepend>
-          <b-input-group-text style="min-width: 125px; font-size:75%;background:linear-gradient(45deg, #ecf1fa, transparent);"
-            ><strong class="text-dark">{{ index }}</strong></b-input-group-text
+      <div v-for="(field, index) in fields?.attributes" :key="index">
+        <b-input-group class="mb-3 br-5" v-if="field.length < 50">
+          <div class="w-100 mb-2">
+            <b-badge variant="dark" class="br-10 px-2 py-1 field-label">{{
+              index
+            }}</b-badge>
+          </div>
+          <b-input
+            style="border-radius: 5px !important"
+            @input="updateFrontMatter(null, true)"
+            v-model="fields.attributes[index]"
+          ></b-input>
+        </b-input-group>
+        <b-input-group class="mb-3 br-5" v-else>
+          <div class="w-100 mb-2">
+            <b-badge variant="dark" class="br-10 px-2 py-1 field-label">{{
+              index
+            }}</b-badge>
+          </div>
+          <b-textarea
+            style="border-radius: 5px !important; min-height: 100px"
+            @input="updateFrontMatter(null, true)"
+            v-model="fields.attributes[index]"
           >
-        </template>
-        <b-input
-          @input="updateFrontMatter(null, true)"
-          v-model="fields.attributes[index]"
-        ></b-input>
-      </b-input-group>
+          </b-textarea>
+        </b-input-group>
+      </div>
     </div>
-    <vue-simplemde    
+    <div style="margin-top:-10px;">
+    <b-badge
+      variant="dark"
+      class="br-10 px-2 py-1 field-label"
+      style="
+        position: relative;
+        top:10px;
+        z-index: 10;
+      "
+      >Markdown Content</b-badge
+    >
+    <vue-simplemde
       preview-class="nuxt-content"
       @input="updateFrontMatter"
       class="w-100 br-5 p-3"
@@ -60,6 +94,7 @@
       @compositionstart.prevent="isInComposition = true"
       @compositionend.prevent="isInComposition = false"
     />
+    </div>
   </div>
 </template>
 
@@ -135,7 +170,7 @@ export default {
         // Generate frontmatter by looping through all values
         for (const [key, value] of Object.entries(this.fields?.attributes)) {
           this.frontMatterString =
-            this.frontMatterString + "\n" + key + ": " + value;          
+            this.frontMatterString + "\n" + key + ": " + value;
         }
         this.frontMatterString = this.frontMatterString + "\n---\n";
 
@@ -149,9 +184,9 @@ export default {
             this.contentBodyString = input;
           }
           this.contentBodyString = this.contentBodyString.trim();
-          // Combine the frontmatter and the 
+          // Combine the frontmatter and the
           this.file = this.frontMatterString + this.contentBodyString;
-          this.file = this.file.replaceAll("\n\n\n", "\n\n")
+          this.file = this.file.replaceAll("\n\n\n", "\n\n");
         }
       }
     },
@@ -207,3 +242,31 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.field-label {
+  background: #dae7ff !important;
+  color: #7c93b1 !important;
+  float: left;
+  position: absolute;
+  left: -15px;
+  top: -5px;
+  z-index: 10;
+}
+
+.cancel-button {
+  background: #ecf3ff !important;
+  color: #000 !important;
+}
+.save-button {
+  background: #ecf3ff !important;
+  color: #000 !important;
+}
+</style>
+<style >
+.editor-toolbar {
+  margin:auto !important;
+  width:100% !important;
+  display:inline-block !important;
+}
+</style>
