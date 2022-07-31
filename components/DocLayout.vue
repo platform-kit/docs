@@ -115,7 +115,7 @@
         >
           <b-card
             bg-variant="dark"
-            class="text-center m-0 mb-0 px-0 pt-4 text-light br-10 raised"
+            class="text-center m-0 mb-0 px-0 pt-4 text-light br-10 raised sign-in-card"
             style="min-height: 50px"
           >
             <b-icon-exclamation-triangle-fill scale="1.5"
@@ -999,5 +999,11 @@ export default {
 
 .sign-in-button svg {
   color: rgb(0,35,75,0.5) !important;
+}
+
+.next-article-card.raised, .sign-in-card.raised {
+  z-index:999;
+  box-shadow: 0px 15px 15px rgba(0, 50, 100, 0.1),
+    0px 7px 7px rgba(0, 50, 100, 0.1), 0px 5px 3px rgba(0, 50, 100, 0.1) !important;
 }
 </style>
