@@ -721,7 +721,7 @@ export default {
 }
 
 .main-left-nav-item:hover {
-  background: rgb(0, 50, 100, 0.1) !important;
+  background: #fff !important;
 }
 
 .main-left-nav-item,
