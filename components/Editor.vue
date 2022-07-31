@@ -5,9 +5,9 @@
   >
     <b-button-group class="w-100 br-5 mb-3 raised">
       <b-button
-        class="br-5 text-danger border cancel-button"
+        class="br-5 text-light  cancel-button"
         @click="cancel()"
-        variant="light"
+        variant="danger"
       >
         <b-icon-x-circle
           scale="0.66"
@@ -16,9 +16,9 @@
         Cancel
       </b-button>
       <b-button
-        class="br-5 text-success border save-button"
+        class="br-5 text-light  save-button"
         @click="save()"
-        variant="light"
+        variant="dark"
       >
         <b-icon-check-circle
           scale="0.66"
@@ -255,12 +255,10 @@ export default {
 }
 
 .cancel-button {
-  background: #ecf3ff !important;
-  color: #000 !important;
+  
 }
 .save-button {
-  background: #ecf3ff !important;
-  color: #000 !important;
+  
 }
 </style>
 <style >
