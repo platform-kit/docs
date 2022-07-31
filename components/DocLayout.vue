@@ -1,10 +1,39 @@
 <!-- Please remove this file from your project -->
 <template>
   <div
-    class="doc-layout container-fluid"
+    class="doc-layout container-fluid m-0 p-0"
     v-if="content != null && content != false"
   >
-    <div class="row bg-white">
+    <div
+      v-if="content.Cover != null"
+      class="w-100 page-cover m-0 p-0 d-flex"
+      v-bind:style="{ backgroundImage: 'url(' + content.Cover + ')' }"
+    >
+      <div class="m-auto d-block text-light" style="z-index: 9999 !important">
+        <h1 class="mx-auto text-center mt-0 mb-4">{{ content.Title }}</h1>
+        <h4 v-if="content.Description != null" class="text-center my-4">
+          {{ content.Description }}
+        </h4>
+        <div class="w-100 text-center my-4 d-block">
+          <b-badge variant="light" class="br-15 px-2 py-1" style="background:#ddffec !important;"
+            >{{ Math.ceil(content.readingTime) }} Minute Read</b-badge
+          >
+        </div>
+        <div class="w-100 text-center mb-3 d-block">
+          <b-button
+          v-scroll-to="'#main'"
+            variant="outline-light"
+            class="br-25 mx-auto"
+            style="width: 50px; height: 50px"
+            ><b-icon-caret-down-fill
+              scale="0.66"
+              style="margin-top: 2px"
+            ></b-icon-caret-down-fill
+          ></b-button>
+        </div>
+      </div>
+    </div>
+    <div class="row bg-white" id="main">
       <div
         class="col-3 main-left-nav d-none d-md-inline-flex"
         style="margin: 0px; min-height: calc(100vh - 58px)"
@@ -43,7 +72,7 @@
           </b-nav-item>
         </b-nav>
       </div>
-      <div
+      <div        
         class="col-12 col-md-6 main-content m-0 p-0"
         style="margin: 0px; min-height: calc(100vh - 58px)"
       >
@@ -115,10 +144,21 @@
         >
           <b-card
             bg-variant="dark"
-            class="text-center m-0 mb-0 px-0 pt-4 text-light br-10 raised sign-in-card"
+            class="
+              text-center
+              m-0
+              mb-0
+              px-0
+              pt-4
+              text-light
+              br-10
+              raised
+              sign-in-card
+            "
             style="min-height: 50px"
           >
-            <b-icon-exclamation-triangle-fill scale="1.5"
+            <b-icon-exclamation-triangle-fill
+              scale="1.5"
               class="mx-auto mb-3 mt-2"
             ></b-icon-exclamation-triangle-fill
             ><br />
@@ -126,7 +166,16 @@
               Sign in to continue reading the rest of this page.
             </p>
             <p class="pb-4 px-4">
-              <b-button @click="signIn()" class="br-25 px-4 bg-white text-dark sign-in-button"><b-icon-person-badge class="mr-2" ></b-icon-person-badge>Sign In <b-icon-arrow-right class="ml-1" style="position:relative;top:1px;" scale="0.66"></b-icon-arrow-right></b-button>
+              <b-button
+                @click="signIn()"
+                class="br-25 px-4 bg-white text-dark sign-in-button"
+                ><b-icon-person-badge class="mr-2"></b-icon-person-badge>Sign In
+                <b-icon-arrow-right
+                  class="ml-1"
+                  style="position: relative; top: 1px"
+                  scale="0.66"
+                ></b-icon-arrow-right
+              ></b-button>
             </p>
           </b-card>
         </div>
@@ -152,7 +201,9 @@
           class="w-100 px-0 pt-5 pb-4 border-top mt-4 text-center"
           id="footer"
         >
-          <h5 class="w-100 text-center">{{ content.FeedbackLabel || 'Was this page helpful?' }}</h5>
+          <h5 class="w-100 text-center">
+            {{ content.FeedbackLabel || "Was this page helpful?" }}
+          </h5>
           <vue-feedback-reaction
             :key="content.path"
             v-model="feedback"
@@ -965,14 +1016,14 @@ export default {
   background: #edfff5;
 }
 
-.next-article-card:hover{
- background: #fffdf5; 
+.next-article-card:hover {
+  background: #fffdf5;
 }
 
-.next-article-card:hover .next-article-label{
- background: #ffecac; 
- color:rgb(240, 164, 0);
- right: -20px;
+.next-article-card:hover .next-article-label {
+  background: #ffecac;
+  color: rgb(240, 164, 0);
+  right: -20px;
 }
 
 .next-article-label {
@@ -982,7 +1033,7 @@ export default {
   right: -10px;
   top: 20px;
   float: right;
-  transition:all 0.5s;
+  transition: all 0.5s;
 }
 
 .with-excerpt:after {
@@ -1003,22 +1054,61 @@ export default {
   z-index: 999;
 }
 
-.sign-in-button{
-  color:#000 !important;
-  background: linear-gradient(rgb(255,255,255), rgba(0,50,150,0.25));
+.sign-in-button {
+  color: #000 !important;
+  background: linear-gradient(rgb(255, 255, 255), rgba(0, 50, 150, 0.25));
 }
 
 .sign-in-button svg {
-  color: rgb(0,35,75,0.5) !important;
+  color: rgb(0, 35, 75, 0.5) !important;
 }
 
 .sign-in-card {
-  background:radial-gradient(#44485a, #222) !important;
+  background: radial-gradient(#44485a, #222) !important;
 }
 
-.next-article-card.raised, .sign-in-card.raised {
-  z-index:999;
+.next-article-card.raised,
+.sign-in-card.raised {
+  z-index: 999;
   box-shadow: 0px 15px 15px rgba(0, 50, 100, 0.1),
     0px 7px 7px rgba(0, 50, 100, 0.1), 0px 5px 3px rgba(0, 50, 100, 0.1) !important;
+}
+
+.page-cover {
+  margin: 0px;
+  min-height: calc(100vh - 70px);
+  background-position: center;
+  background-size: cover;
+  font-family: "Open Sans";
+}
+
+.page-cover h1 {
+  font-weight:800;
+}
+
+.page-cover h4 {
+  font-weight:200;
+}
+
+@media (max-width: 991px) {
+  .page-cover {
+    min-height: calc(100vh - 56px);
+  }
+}
+
+.page-cover::before {
+  content: "";
+  display: block;
+  min-height: calc(100vh);
+  position: absolute;
+  z-index: 1 !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.66),
+    rgba(0, 0, 0, 0.77) 85%
+  );
 }
 </style>
