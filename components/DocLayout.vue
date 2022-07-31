@@ -157,7 +157,7 @@
             'd-none': isEditing == true,
             'with-excerpt': content.excerpt != null && this.user == null,
           }"
-          class="px-3 px-md-5"
+          class="px-3 px-md-5 mx-3 mx-md-0"
           :document="document"
         ></nuxt-content>
         <nuxt-content
