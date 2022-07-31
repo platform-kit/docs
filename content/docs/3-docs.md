@@ -96,4 +96,6 @@ Note: if you deploy to Netlify, you will have to provision a database manually.
 
 <!--more-->
 
+## Auth Example
+
 This is premium content that only shows up if you're logged in.
