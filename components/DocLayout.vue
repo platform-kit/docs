@@ -118,12 +118,15 @@
             class="text-center m-0 mb-0 px-0 pt-4 text-light br-10 raised"
             style="min-height: 50px"
           >
-            <b-icon-exclamation-triangle-fill
-              class="mx-auto"
+            <b-icon-exclamation-triangle-fill scale="1.5"
+              class="mx-auto mb-3 mt-2"
             ></b-icon-exclamation-triangle-fill
             ><br />
             <p class="py-4 px-4" style="line-height: 200%">
               Sign in to continue reading the rest of this page.
+            </p>
+            <p class="pb-4 px-4">
+              <b-button @click="signIn()" class="br-25 px-4 bg-white text-dark sign-in-button"><b-icon-person-badge class="mr-2" ></b-icon-person-badge>Sign In <b-icon-arrow-right class="ml-1" style="position:relative;top:1px;" scale="0.66"></b-icon-arrow-right></b-button>
             </p>
           </b-card>
         </div>
@@ -428,6 +431,22 @@ export default {
   },
 
   methods: {
+    signIn() {
+      var operand = "?";
+      if (process.env.AUTH_URL != null && process.env.AUTH_URL.includes("?")) {
+        operand = "&";
+      }
+      var url =
+        process.env.AUTH_URL +
+        operand +
+        "redirect=" +
+        encodeURIComponent(window.location.origin);
+      console.log("Redirecting to: " + url);
+      window.location.href = url;
+    },
+    updateSearch: function (value) {
+      this.$emit("updateSearch", value);
+    },
     getContentOrExcerpt() {
       if (this.content.excerpt != null) {
         if (this.user != null) {
@@ -971,5 +990,14 @@ export default {
   width: 100%;
   margin-top: -325px;
   z-index: 999;
+}
+
+.sign-in-button{
+  color:#000 !important;
+  background: rgb(173, 242, 203) !important;
+}
+
+.sign-in-button svg {
+  color: green !important;
 }
 </style>

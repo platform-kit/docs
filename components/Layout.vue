@@ -43,6 +43,20 @@ body {
   border-radius: 10px;
 }
 
+.br-10 {
+  border-radius: 10px;
+}
+.br-15 {
+  border-radius: 15px;
+}
+.br-20 {
+  border-radius: 20px;
+}
+
+.br-25 {
+  border-radius: 25px;
+}
+
 .raised {
   box-shadow: 0px 5px 15px rgba(0, 50, 100, 0.1) !important;
 }
