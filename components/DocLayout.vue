@@ -994,10 +994,10 @@ export default {
 
 .sign-in-button{
   color:#000 !important;
-  background: rgb(173, 242, 203) !important;
+  background: linear-gradient(rgb(255,255,255), rgba(0,50,150,0.25));
 }
 
 .sign-in-button svg {
-  color: green !important;
+  color: rgb(0,35,75,0.5) !important;
 }
 </style>
