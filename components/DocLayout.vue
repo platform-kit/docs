@@ -1075,6 +1075,10 @@ export default {
   z-index: 999;
 }
 
+.is-editing:after {
+  display: none !important;
+}
+
 .sign-in-button {
   color: #000 !important;
   background: linear-gradient(rgb(255, 255, 255), rgba(0, 50, 150, 0.25));
@@ -1090,7 +1094,7 @@ export default {
 
 .next-article-card.raised,
 .sign-in-card.raised {
-  z-index: 999;
+  z-index: 1;
   box-shadow: 0px 15px 15px rgba(0, 50, 100, 0.1),
     0px 7px 7px rgba(0, 50, 100, 0.1), 0px 5px 3px rgba(0, 50, 100, 0.1) !important;
 }

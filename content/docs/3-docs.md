@@ -1,11 +1,10 @@
 ---
 Title: Docs
 Description: Static Documentation Generator
-Repository: "https://github.com/platform-kit/docs"
-Icon: "book"
-FeedbackLabel: "How about those features, though?"
+Repository: https://github.com/platform-kit/docs
+Icon: book
+FeedbackLabel: How about those features, though?
 ---
-
 <h1 align="center">PlatformKit Docs</h1>
 
 <p align="center">
