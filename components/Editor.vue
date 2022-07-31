@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-4 w-100" style="index:999999999999999999999999 !important;">
+  <div class="mt-4 w-100" style="index:999 !important;">
     <b-button-group class="w-100 br-5 mb-3">
       <b-button class="br-5" @click="cancel()" variant="outline-danger">
         <b-icon-x-circle
@@ -44,7 +44,7 @@
       @input="updateFrontMatter"
       class="w-100 br-5 p-3"
       style="
-        z-index: 9999999999999999999999999999999999999999999999999 !important;
+        z-index: 9999 !important;
         margin: 0px !important;
         padding: 0px !important;
       "
