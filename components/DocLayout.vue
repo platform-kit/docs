@@ -722,6 +722,7 @@ export default {
 
 .main-left-nav-item:hover {
   background: #fff !important;
+  box-shadow: 0px 8px 10px rgb(0 50 150 / 10%);
 }
 
 .main-left-nav-item,
