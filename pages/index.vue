@@ -37,6 +37,7 @@
       :content="currentPage"
       :navOptions="navOptions"
       :nextPage="nextPage"
+      :user="userToken?.payload?.user"
     />
     <SearchResults
       id="default-content"

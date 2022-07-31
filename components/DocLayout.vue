@@ -103,13 +103,13 @@
           </b-button-group>
         </div>
         <nuxt-content
-          :class="{ 'with-excerpt': content.excerpt != null }"
+          :class="{ 'with-excerpt': content.excerpt != null && this.user == null }"
           class="px-3 px-md-5"
-          :document="{ body: content.excerpt || content.body }"
+          :document="getContentOrExcerpt()"
         ></nuxt-content>
         <div
           class="pt-4 pb-0 mt-4 px-3"          
-          v-if="content.excerpt != null"
+          v-if="content.excerpt != null && this.user == null"
         >
           <b-card bg-variant="dark" class="text-center m-0 mb-0 text-light br-10 raised" style="min-height:50px;">
             <b-icon-exclamation-triangle-fill
@@ -364,7 +364,7 @@ import axios from "axios";
 
 export default {
   name: "DocLayout",
-  props: ["content", "nextPage", "navOptions"],
+  props: ["content", "nextPage", "navOptions", "user"],
   data() {
     return {
       ctaVisible: false,
@@ -420,6 +420,17 @@ export default {
   },
 
   methods: {
+    getContentOrExcerpt(){      
+      if(this.content.excerpt != null){
+      if(this.user != null){
+        return {body: this.content.body};
+      }
+      else { return { body: this.content.excerpt}; }
+      }
+      else {
+        return { body: this.content.body};
+      }
+    },
     goToNextPage() {
       if (this.nextPage != null) {
         var redirect = "/#/" + this.nextPage.path.split("/")[1];
