@@ -98,4 +98,4 @@ Note: if you deploy to Netlify, you will have to provision a database manually.
 
 ## Auth Example
 
-[This page](http://www.platformkit.com/#/3-docs) is an example premium content that only shows up if you're logged in.
+[This page](http://www.platformkit.com/#/3-docs) is an example authentication / premium content (this content only shows up if you're logged in.)
