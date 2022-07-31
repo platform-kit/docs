@@ -1,7 +1,20 @@
 <template>
   <div class="mt-4 w-100">
     <b-button-group class="w-100 br-5 mb-3">
-    <b-button class="br-5" @click="save()" variant="dark">Save</b-button>
+      <b-button class="br-5" @click="cancel()" variant="outline-danger">
+        <b-icon-x-circle
+          scale="0.66"
+          style="position: relative; top: 1px"
+        ></b-icon-x-circle>
+        Cancel
+      </b-button>
+      <b-button class="br-5" @click="save()" variant="outline-success">
+        <b-icon-check-circle
+          scale="0.66"
+          style="position: relative; top: 1px"
+        ></b-icon-check-circle>
+        Save
+      </b-button>
     </b-button-group>
     <textarea
       class="w-100 br-5 p-3"
@@ -10,7 +23,7 @@
       @keydown.tab.exact.prevent="onTabRight"
       @keydown.tab.shift.prevent="onTabLeft"
       @compositionstart.prevent="isInComposition = true"
-      @compositionend.prevent="isInComposition = false"      
+      @compositionend.prevent="isInComposition = false"
     />
   </div>
 </template>
@@ -24,7 +37,9 @@ export default {
   data() {
     return {
       file: "",
+      cancelEdit: false,
       isInComposition: false,
+      originalFile: null,
     };
   },
   watch: {
@@ -37,13 +52,26 @@ export default {
     },
     file() {
       this.onType();
-      this.$emit("input", this.file);
+      if (this.cancelEdit == false) {
+        this.$emit("input", this.file);
+        if (this.originalFile == "" || this.originalFile == null) {
+          this.originalFile = this.originalFile;
+        }
+      } else if (this.cancelEdit == true) {
+        this.$emit("input", this.originalFile);
+      }
     },
   },
   methods: {
-    save(){
-      this.$emit('endEdit');      
-      this.$router.go('/#/' + document.path);
+    cancel() {
+      this.cancelEdit = true;
+      this.$emit("input", this.originalFile);
+      this.$emit("endEdit");
+      this.$router.go("/#/" + document.path);
+    },
+    save() {
+      this.$emit("endEdit");
+      this.$router.go("/#/" + document.path);
     },
     onType() {
       const el = this.$refs.textarea;
@@ -54,6 +82,7 @@ export default {
       });
     },
     onTabRight(event) {
+      /*
       if (this.isInComposition) {
         return;
       }
@@ -65,8 +94,10 @@ export default {
       event.target.value = this.file; // required to make the cursor stay in place.
       event.target.selectionEnd = event.target.selectionStart =
         originalSelectionStart + 1;
+        */
     },
     onTabLeft(event) {
+      /*
       if (this.isInComposition) {
         return;
       }
@@ -78,6 +109,7 @@ export default {
       event.target.value = this.file; // required to make the cursor stay in place.
       event.target.selectionEnd = event.target.selectionStart =
         originalSelectionStart - 1;
+        */
     },
   },
 };
