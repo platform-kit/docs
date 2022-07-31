@@ -102,7 +102,23 @@
             </b-button>
           </b-button-group>
         </div>
-        <nuxt-content class="px-3 px-md-5" :document="content"></nuxt-content>
+        <nuxt-content
+          :class="{ 'with-excerpt': content.excerpt != null }"
+          class="px-3 px-md-5"
+          :document="{ body: content.excerpt || content.body }"
+        ></nuxt-content>
+        <div
+          class="pt-4 pb-0 mt-4 px-3"          
+          v-if="content.excerpt != null"
+        >
+          <b-card bg-variant="dark" class="text-center m-0 mb-0 text-light br-10 raised" style="min-height:50px;">
+            <b-icon-exclamation-triangle-fill
+              class="mx-auto"
+            ></b-icon-exclamation-triangle-fill
+            ><br />
+            Sign in to continue reading the rest of this article.
+          </b-card>
+        </div>
         <div
           class="surrounding-articles mt-4 pt-1 mb-0 border-top pt-2"
           v-if="nextPage != null"
@@ -390,7 +406,7 @@ export default {
   },
   beforeUpdate: function () {
     console.log("beforeUpdate()");
-    
+
     var favorite = window.localStorage.getItem("favorite:" + this.content.path);
     if (favorite == true || favorite == "true") {
       this.favorite = true;
@@ -405,7 +421,7 @@ export default {
 
   methods: {
     goToNextPage() {
-      if (this.nextPage != null) {        
+      if (this.nextPage != null) {
         var redirect = "/#/" + this.nextPage.path.split("/")[1];
         console.log("Redirecting to: " + redirect);
         this.$router.push(redirect);
@@ -497,7 +513,7 @@ export default {
             console.log("Analytics event failed.");
           })
           .then(function (response) {
-            console.log(response);            
+            console.log(response);
             if (response != null && response.status == 200) {
               console.log("Analytics event succeeded.");
             } else {
@@ -797,17 +813,17 @@ export default {
 
 @media (min-width: 991px) {
   .toast-custom {
-    pointer-events:none;
+    pointer-events: none;
     text-align: center !important;
     padding: 10px 20px !important;
     margin: auto;
     display: block !important;
-    border-radius:25px !important;
+    border-radius: 25px !important;
   }
 
   .toast-custom-container {
-    pointer-events:none;
-    margin-top:-93px;
+    pointer-events: none;
+    margin-top: -93px;
   }
 }
 
@@ -825,7 +841,7 @@ export default {
 
 @media (min-width: 991px) {
   .toast-custom-container {
-    width: 100%;    
+    width: 100%;
   }
 }
 
@@ -918,5 +934,25 @@ export default {
   right: -10px;
   top: 20px;
   float: right;
+}
+
+.with-excerpt:before {
+  background: linear-gradient(
+    0deg,
+    #fff,
+    rgba(255, 255, 255, 0) 350px
+  ) !important;
+  
+  content: "\00a0";
+  height:350px;
+  display:block;
+  position:absolute;
+  width:100%;
+  float:right;
+  bottom:0px;
+  left:0px;
+  width: 100%;
+  z-index:999;
+  
 }
 </style>
