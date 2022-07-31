@@ -137,7 +137,7 @@ export default {
           this.frontMatterString =
             this.frontMatterString + "\n" + key + ": " + value;          
         }
-        this.frontMatterString = this.frontMatterString + "\n---";
+        this.frontMatterString = this.frontMatterString + "\n---\n";
 
         if (this.file.includes("---") && this.file.split("---").length > 2) {
           // If the contentBodyString has never been set, set it
@@ -148,9 +148,10 @@ export default {
           if (input != null && frontMatterOnly != true) {
             this.contentBodyString = input;
           }
-
+          this.contentBodyString = this.contentBodyString.trim();
           // Combine the frontmatter and the 
-          this.file = this.frontMatterString + "\n" + this.contentBodyString;
+          this.file = this.frontMatterString + this.contentBodyString;
+          this.file = this.file.replaceAll("\n\n\n", "\n\n")
         }
       }
     },
