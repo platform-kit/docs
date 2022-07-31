@@ -29,7 +29,7 @@
         :key="index"
       >
         <template #prepend>
-          <b-input-group-text style="min-width: 125px"
+          <b-input-group-text style="min-width: 125px; font-size:75%;"
             ><strong class="text-dark">{{ index }}</strong></b-input-group-text
           >
         </template>
