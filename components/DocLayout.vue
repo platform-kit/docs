@@ -136,8 +136,7 @@
         </div>
 
         <nuxt-content
-          ref="contentEditor"
-          @endEdit="alert(123)"
+          ref="contentEditor"          
           :class="{
             'with-excerpt': content.excerpt != null && this.user == null,
           }"
