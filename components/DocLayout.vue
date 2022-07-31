@@ -1062,22 +1062,24 @@ export default {
   transition: all 0.3s;
   background-repeat: no-repeat !important;
   background-position: -200px;
-  background: #edfff5;
+ background: #fffdf5; 
 }
 
 .next-article-card:hover {
-  background: #fffdf5;
+  
+  background: #edfff5;
 }
 
 .next-article-card:hover .next-article-label {
-  background: #ffecac;
-  color: rgb(240, 164, 0);
+  background: rgb(173, 242, 203);
+  color: green;
   right: -20px;
 }
 
 .next-article-label {
-  background: rgb(173, 242, 203);
-  color: green;
+  background: #ffecac;
+  color: rgb(240, 164, 0);
+  
   position: absolute;
   right: -10px;
   top: 20px;
