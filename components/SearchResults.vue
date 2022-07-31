@@ -20,7 +20,7 @@
     </p>
     <b-card
       @click="
-        $nuxt.$options.router.push('/#/' + result.slug);
+        $nuxt.$options.router.push('/#/' + result.path);
         updateSearch(null);
         toggleNav();
       "

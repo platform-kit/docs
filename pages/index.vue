@@ -26,7 +26,7 @@
     <SearchResults
       @updateSearch="updateSearch"
       v-if="(search == null || search == '') && currentPage == null"
-      :searchResults="content"
+      :searchResults="navOptions"
       :showSavedResults="showSavedResults"
     ></SearchResults>
 
@@ -114,15 +114,21 @@ export default {
     this.getUser();
     window.addEventListener("keydown", (e) => this.keyDetector("keydown", e));
     window.addEventListener("keypress", (e) => this.keyDetector("keypress", e));
-    this.content = await this.$content("")
+    this.content = await this.$content("", { deep: true })
+      .where({
+        extension: ".md",
+      })
+      .sortBy("path")
+      .fetch();
+    var navOps = await this.$content("", { deep: false })
       .where({
         extension: ".md",
       })
       .sortBy("path")
       .fetch();
 
-    if (this.content != null) {
-      var navOptions = this.content.filter(
+    if (navOps != null) {
+      var navOptions = navOps.filter(
         // get the top-level results
         (element) => element.path.split("/")[1].includes("/") != true
       );
@@ -259,7 +265,7 @@ export default {
       this.search = search;
       if (typeof search == "string") {
         console.log("Search: " + search);
-        this.searchResults = await this.$content("")
+        this.searchResults = await this.$content("", { deep: true })
           .where({
             extension: ".md",
           })
@@ -278,8 +284,8 @@ export default {
           this.showSaved();
         } else {
           console.log("Hash: " + this.hash);
-          var page = await this.$content("")
-            .where({ slug: this.hash, extension: ".md" })
+          var page = await this.$content("", { deep: true })
+            .where({ path: "/" + this.hash, extension: ".md" })
             .fetch();
           console.log("Page: ");
           console.log(page);

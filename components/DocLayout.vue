@@ -1012,6 +1012,10 @@ export default {
   color: rgb(0,35,75,0.5) !important;
 }
 
+.sign-in-card {
+  background:radial-gradient(#44485a, #222) !important;
+}
+
 .next-article-card.raised, .sign-in-card.raised {
   z-index:999;
   box-shadow: 0px 15px 15px rgba(0, 50, 100, 0.1),
