@@ -116,7 +116,7 @@
               class="mx-auto"
             ></b-icon-exclamation-triangle-fill
             ><br />
-            <p class="py-4 px-4" style="line-height:200%;">Sign in to continue reading the rest of this article.</p>
+            <p class="py-4 px-4" style="line-height:200%;">Sign in to continue reading the rest of this page.</p>
           </b-card>
         </div>
         <div
