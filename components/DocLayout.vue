@@ -166,6 +166,7 @@
           >
             <b-icon-exclamation-triangle-fill
               scale="1.5"
+              style="opacity:0.33;"
               class="mx-auto mb-3 mt-2"
             ></b-icon-exclamation-triangle-fill
             ><br />
