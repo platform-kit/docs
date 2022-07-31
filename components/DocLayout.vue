@@ -549,8 +549,8 @@ export default {
     },
     getContentOrExcerpt() {
       var document = this.content;
-      if (this.content.excerpt != null) {
-        document = { body: this.content.excerpt };
+      if (this.content.excerpt != null && this.user == null) {
+        document.body =  this.content.excerpt;
       } else {
         document = this.content;
       }
