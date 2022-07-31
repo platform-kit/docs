@@ -142,9 +142,9 @@
           @click="toggleEdit"
           v-if="isDev == true && isEditing == false"
           style=""
-          class="px-3 edit-button"
-          variant="primary"
-          ><b-icon-pencil class="mr-2"></b-icon-pencil>Edit</b-button
+          class="px-3 edit-button br-25 raised border-dark"
+          variant="light"
+          ><b-icon-pencil scale="0.66" style="position:relative;top:1px;" class="mr-2"></b-icon-pencil>Edit</b-button
         >
         <nuxt-content
           :class="{
