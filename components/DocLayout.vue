@@ -144,7 +144,12 @@
           style=""
           class="px-3 edit-button br-25 raised border-dark"
           variant="light"
-          ><b-icon-pencil scale="0.66" style="position:relative;top:1px;" class="mr-2"></b-icon-pencil>Edit</b-button
+          ><b-icon-pencil
+            scale="0.66"
+            style="position: relative; top: 1px"
+            class="mr-2"
+          ></b-icon-pencil
+          >Edit</b-button
         >
         <nuxt-content
           :class="{
@@ -167,7 +172,9 @@
         ></nuxt-content>
         <div
           class="pt-4 pb-0 mt-4 px-3"
-          v-if="content.excerpt != null && this.user == null && isEditing == false"
+          v-if="
+            content.excerpt != null && this.user == null && isEditing == false
+          "
         >
           <b-card
             bg-variant="dark"
@@ -541,18 +548,14 @@ export default {
       this.$emit("updateSearch", value);
     },
     getContentOrExcerpt() {
-      if (process.env.ENVIRONMENT != "development") {
-        this.document = this.content;
+      var document = this.content;
+      if (this.content.excerpt != null) {
+        document = { body: this.content.excerpt };
       } else {
-        var document = this.content;
-        if (this.content.excerpt != null) {
-          document = { body: this.content.excerpt };
-        } else {
-          document = this.content;
-        }
-        this.document = document;
-        return this.document;
+        document = this.content;
       }
+      this.document = document;
+      return this.document;
     },
     goToNextPage() {
       if (this.nextPage != null) {
@@ -1179,10 +1182,10 @@ export default {
   }
 }
 
-.no-click{
-  pointer-events:none;
+.no-click {
+  pointer-events: none;
 }
-.no-click a{
-  pointer-events:all;
+.no-click a {
+  pointer-events: all;
 }
 </style>
