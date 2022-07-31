@@ -152,7 +152,7 @@
           class="w-100 px-0 pt-5 pb-4 border-top mt-4 text-center"
           id="footer"
         >
-          <h5 class="w-100 text-center">Was this page helpful?</h5>
+          <h5 class="w-100 text-center">{{ content.FeedbackLabel || 'Was this page helpful?' }}</h5>
           <vue-feedback-reaction
             :key="content.path"
             v-model="feedback"
