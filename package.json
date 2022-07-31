@@ -25,6 +25,7 @@
     "core-js": "^3.19.3",
     "flatbread": "^1.0.0-alpha.19",
     "friendly-error": "^1.1.0",
+    "front-matter": "^4.0.2",
     "nuxt": "^2.15.8",
     "nuxt-content-editor": "^1.0.1",
     "reading-time": "^1.5.0",
@@ -35,6 +36,7 @@
     "vue-html2pdf": "^1.8.0",
     "vue-scrollto": "^2.20.0",
     "vue-server-renderer": "^2.6.14",
+    "vue-simplemde": "^2.1.1",
     "vue-template-compiler": "^2.6.14",
     "vue-text-highlight": "^2.0.10",
     "webpack": "^4.46.0"

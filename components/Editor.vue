@@ -16,8 +16,43 @@
         Save
       </b-button>
     </b-button-group>
-    <textarea
+    <div
+      v-if="
+        originalFile != null &&
+        originalFile.includes('---') &&
+        fields.attributes != null
+      "
+    >
+      <b-input-group
+        class="mb-2"
+        v-for="(field, index) in fields?.attributes"
+        :key="index"
+      >
+        <template #prepend>
+          <b-input-group-text style="min-width: 125px"
+            ><strong class="text-dark">{{ index }}</strong></b-input-group-text
+          >
+        </template>
+        <b-input
+          @input="updateFrontMatter(null, true)"
+          v-model="fields.attributes[index]"
+        ></b-input>
+      </b-input-group>
+    </div>
+    <vue-simplemde
+      preview-class="nuxt-content"
+      @input="updateFrontMatter"
       class="w-100 br-5 p-3"
+      style="
+        z-index: 9999999 !important;
+        margin: 0px !important;
+        padding: 0px !important;
+      "
+      v-model="contentBodyString"
+      ref="markdownEditor"
+    />
+    <textarea
+      class="w-100 br-5 p-3 d-none"
       ref="textarea"
       v-model="file"
       @keydown.tab.exact.prevent="onTabRight"
@@ -29,6 +64,8 @@
 </template>
 
 <script>
+import fm from "front-matter";
+
 export default {
   props: {
     value: String,
@@ -37,25 +74,48 @@ export default {
   data() {
     return {
       file: "",
+      contentBodyString: "",
+      frontMatterString: "",
       cancelEdit: false,
       isInComposition: false,
       originalFile: null,
+      fields: null,
     };
   },
+  mounted() {
+    this.updateFrontMatter();
+  },
   watch: {
+    originalFile() {
+      function getPosition(string, subString, index) {
+        return string.split(subString, index).join(subString).length;
+      }
+      if (this.originalFile != null && this.originalFile.includes("---")) {
+        var frontMatter = fm(this.originalFile);
+        this.fields = frontMatter;
+      }
+    },
     value() {
       this.file = this.value;
     },
     isEditing() {
       this.onType();
       this.$refs.textarea.focus();
+      this.updateFrontMatter();
     },
     file() {
       this.onType();
+      if (
+        typeof this.value != "undefined" &&
+        this.value != "" &&
+        this.value != null
+      ) {
+        this.updateFrontMatter();
+      }
       if (this.cancelEdit == false) {
         this.$emit("input", this.file);
         if (this.originalFile == "" || this.originalFile == null) {
-          this.originalFile = this.originalFile;
+          this.originalFile = this.file;
         }
       } else if (this.cancelEdit == true) {
         this.$emit("input", this.originalFile);
@@ -63,6 +123,37 @@ export default {
     },
   },
   methods: {
+    updateFrontMatter(input, frontMatterOnly) {
+      // console.log(input); // input from vue-simplemde component
+      this.frontMatterString = "---";
+      if (
+        this != null &&
+        this.fields != null &&
+        this.fields.attributes != null &&
+        this.file != null
+      ) {
+        // Generate frontmatter by looping through all values
+        for (const [key, value] of Object.entries(this.fields?.attributes)) {
+          this.frontMatterString =
+            this.frontMatterString + "\n" + key + ": " + value;          
+        }
+        this.frontMatterString = this.frontMatterString + "\n---";
+
+        if (this.file.includes("---") && this.file.split("---").length > 2) {
+          // If the contentBodyString has never been set, set it
+          if (this.contentBodyString == "" || this.contentBodyString == null) {
+            this.contentBodyString = this.file.split("---")[2];
+          }
+          // If input is being passed from the markdown component, use it
+          if (input != null && frontMatterOnly != true) {
+            this.contentBodyString = input;
+          }
+
+          // Combine the frontmatter and the 
+          this.file = this.frontMatterString + "\n" + this.contentBodyString;
+        }
+      }
+    },
     cancel() {
       this.cancelEdit = true;
       this.$emit("input", this.originalFile);
@@ -70,6 +161,7 @@ export default {
       this.$router.go("/#/" + document.path);
     },
     save() {
+      this.updateFrontMatter();
       this.$emit("endEdit");
       this.$router.go("/#/" + document.path);
     },

@@ -7,7 +7,6 @@ Website: https://auth.platformkit.com
 CTA: <a href='https://auth.platformkit.com' target='_blank'>Click here</a> to try it out!
 ---
 
-
 <h1 align="center">PlatformKit Auth</h1>
 
 <p align="center">

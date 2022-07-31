@@ -52,6 +52,7 @@ export default {
     "~/plugins/vue-text-highlight.js",
     { src: "~/plugins/vue-html2pdf.js", mode: "client" },
     { src: "~/plugins/vue-feedback-reaction.js", mode: "client" },
+    { src: "~/plugins/vue-simplemde.js", mode: "client" },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
