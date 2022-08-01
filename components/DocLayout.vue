@@ -1246,6 +1246,7 @@ export default {
   backdrop-filter: blur(15px) !important;
   -webkit-backdrop-filter: blur(10px);
   background-color: #94949438 !important;
+  box-shadow:0px 5px 10px rgb(0 0 0 / 50%) !important;
   padding: 12px !important;
 }
 
