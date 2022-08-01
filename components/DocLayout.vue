@@ -85,7 +85,7 @@
       </div>
       <div
         class="col-12 col-md-6 main-content m-0 px-0 pt-0 pb-3"
-        :class="{ 'with-cover-page': content.Cover != null }"
+        :class="{ 'with-cover-page': (content.Cover != false && (content.CoverImage != null || content.CoverContent != null)) }"
         style="margin: 0px; min-height: calc(100vh - 58px)"
       >
         <div
