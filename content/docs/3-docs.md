@@ -45,11 +45,13 @@ Search, analytics, pdf export, & offline mode.
 - Frontmatter support (title, description, git repo, website)
 - Progressive Web App (works offline)
 - Automated reading time estimates
+- Premium Content (requires login)
+- Custom Per-Page Call To Action
 - Code syntax highlighting
 - Zero-config analytics
 - Emoji based feedback
 - Export docs as PDF
-
+- Markdown based CMS
 ## Screenshots
 
 <div align="center">
