@@ -1218,4 +1218,8 @@ export default {
     z-index: 9;
   }
 }
+
+.nuxt-content > * {
+  margin-top:25px !important;
+}
 </style>
