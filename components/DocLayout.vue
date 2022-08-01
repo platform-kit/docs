@@ -95,7 +95,12 @@
             style="transform: scale(0.9)"
             class="w-100 article-nav mx-auto"
           >
-            <b-button v-if="content.toc != null && content.toc.length > 1" variant="light" v-b-modal.chapters-modal size="sm">
+            <b-button
+              v-if="content.toc != null && content.toc.length > 1"
+              variant="light"
+              v-b-modal.chapters-modal
+              size="sm"
+            >
               <b-icon icon="card-list" class="mx-1"></b-icon>Contents
             </b-button>
             <b-button variant="light" size="sm" @click="download()">
@@ -250,7 +255,7 @@
           <h5 class="w-100 text-center">
             {{ content.FeedbackLabel || "Was this page helpful?" }}
           </h5>
-          <vue-feedback-reaction            
+          <vue-feedback-reaction
             :key="content.path"
             v-model="feedback"
             :labels="['Terrible', 'Bad', 'Okay', 'Good', 'Great']"
@@ -263,7 +268,7 @@
         class="col-3 main-right-nav d-none d-md-inline-flex"
         style="margin: 0px; min-height: calc(100vh - 58px)"
       >
-        <b-nav          
+        <b-nav
           vertical
           class="w-100 mr-auto"
           style="max-width: 222px; float: left"
@@ -348,7 +353,7 @@
           >
 
           <b-nav-item
-          v-if="content.toc != null && content.toc.length > 1"
+            v-if="content.toc != null && content.toc.length > 1"
             style="height: 42px; pointer-events: none"
             class="mb-2 mt-2 main-right-nav-item"
             ><span style="font-size: 75%; font-weight: 400"
@@ -416,7 +421,12 @@
       <div class="cta-content" v-html="content.CTA"></div>
     </b-card>
 
-    <b-modal title="On This Page" v-if="content.toc != null && content.toc.length > 1" id="chapters-modal" hide-footer>
+    <b-modal
+      title="On This Page"
+      v-if="content.toc != null && content.toc.length > 1"
+      id="chapters-modal"
+      hide-footer
+    >
       <b-list-group>
         <b-list-group-item
           v-scroll-to="'#' + link.id"
@@ -1229,13 +1239,14 @@ export default {
 .cover-content h5,
 .cover-content h6 {
   text-align: center;
-  margin:30px 0px 0px 0px;
+  margin: 30px 0px 0px 0px;
 }
 
 .cover-content code {
   backdrop-filter: blur(15px) !important;
-  background-color:#92929221!important;
-      padding: 12px !important;
+  -webkit-backdrop-filter: blur(10px);5
+  background-color: #94949438 !important;
+  padding: 12px !important;
 }
 
 @media (min-width: 991px) {
