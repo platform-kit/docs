@@ -1230,7 +1230,7 @@ export default {
 .cover-content {
   padding-left: 25px;
   padding-right: 25px;
-  padding-bottom: 80px !important;
+  padding-bottom: 50px !important;
 }
 
 .cover-content h1,
