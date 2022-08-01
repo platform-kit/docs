@@ -49,7 +49,7 @@
         </b-input-group>
         <b-input-group
           class="mb-3 br-5"
-          v-if="
+          v-else-if="
             field == 'true' ||
             field == true ||
             field == 'false' ||
