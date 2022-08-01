@@ -1,13 +1,12 @@
 ---
 Title: Generate Beautiful Documentation
-Cover: "https://images.unsplash.com/photo-1580894742597-87bc8789db3d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80"
+Cover: https://images.unsplash.com/photo-1580894742597-87bc8789db3d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80
 Description: Static Documentation Generator
-Repository: "https://github.com/platform-kit/docs"
-Icon: "book"
-FeedbackLabel: "How about those features, though?"
+Repository: https://github.com/platform-kit/docs
+Icon: book
+FeedbackLabel: How about those features, though?
 ---
-
-<h1 align="center">PlatformKit Docs</h1>
+# PlatformKit Docs
 
 <p align="center">
 Static Documentation Generator
@@ -18,7 +17,7 @@ Search, analytics, pdf export, & offline mode.
 </p>
 
 <div align="center">
-    <img src="https://raw.githubusercontent.com/platform-kit/docs/master/assets/images/screenshot.png" style="border-radius:4px; margin:auto;max-width:300px;" class="raised" width="400"/>
+    <img src="https://raw.githubusercontent.com/platform-kit/docs/master/assets/images/screenshot.png" width="400"/>
 </div>
 
 **Built with:** <br>
