@@ -5,7 +5,7 @@
     v-if="content != null && content != false"
   >
     <div
-      v-if="content.Cover != null"
+      v-if="content.Cover != null || content.CoverContent != null"
       class="w-100 page-cover m-0 p-0 d-flex"
       v-bind:style="{ backgroundImage: 'url(' + content.Cover + ')' }"
     >
@@ -763,6 +763,7 @@ export default {
 <style scoped>
 .doc-layout {
   min-width: 100%;
+  background:linear-gradient(45deg, #6552ff, #008cff);
 }
 
 .main-content {
@@ -1147,7 +1148,7 @@ export default {
     0px 7px 7px rgba(0, 50, 100, 0.1), 0px 5px 3px rgba(0, 50, 100, 0.1) !important;
 }
 
-.page-cover {
+.page-cover {  
   margin: 0px;
   min-height: calc(100vh - 70px);
   background-position: center;
