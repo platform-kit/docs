@@ -1248,6 +1248,7 @@ export default {
   -webkit-backdrop-filter: blur(10px);
   background-color: #00000038 !important;
   padding: 12px !important;
+  color: #ffe480 !important;
 }
 
 @media (min-width: 991px) {
