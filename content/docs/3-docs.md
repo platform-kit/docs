@@ -1,5 +1,5 @@
 ---
-Title: PlatformKit Docs
+Title: Docs
 Description: Static Documentation Generator
 Repository: "https://github.com/platform-kit/docs"
 Icon: book
