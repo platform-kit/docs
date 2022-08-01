@@ -1,12 +1,12 @@
 ---
-Title: New Title
+Title: PlatformKit Docs
 Description: Static Documentation Generator
 Repository: "https://github.com/platform-kit/docs"
 Icon: book
 FeedbackLabel: How about those features, though?
 TextAreaDemo: "This is a multi-line value wrapped in quotes which should appear in a textarea input: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 ---
-<h1 align="center">New Markdown Content</h1>
+<h1 align="center">PlatformKit Docs</h1>
 
 <p align="center">
 Static Documentation Generator
