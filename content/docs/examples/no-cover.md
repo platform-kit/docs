@@ -1,8 +1,6 @@
 ---
-Title: Generate Beautiful Documentation
-Cover: "https://images.unsplash.com/photo-1615716271874-310ff0dd04dd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80"
-CoverContent: <h1>Generate Beautiful Docs</h1><h4>This is an example of a page with a cover image.</h4>
-Description: This is an example of a page with a cover image.
+Title: "Example: No Cover Page"
+Description: This is an example of a doc without a cover page.
 Icon: image
 Feedback: true
 ---

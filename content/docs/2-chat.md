@@ -4,6 +4,8 @@ Description: Self-Hosted Web Conferencing
 Repository: "https://github.com/platform-kit/chat"
 Icon: chat-dots
 Website: "https://talk.platformkit.com"
+Cover: "https://images.unsplash.com/photo-1618004912476-29818d81ae2e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2128&q=80"
+CoverContent: <h1>Self-Hosted Web Conferencing</h1><h4>Audio Chat, Video Chat, Text Chat, Screen Sharing & more.</h4><code class='d-table br-5 bg-dark p-1 px-2 mt-5 mx-auto'>git clone https://github.com/platform-kit/chat</code>
 CTA: "<p>Honestly, it's better than Zoom!</p><p><a href='https://talk.platformkit.com' target='_blank'>Click here</a> to try it out.</p>"
 CTAImage: "https://images.unsplash.com/photo-1617777934845-a818fd6e1bcb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2831&q=80"
 ---

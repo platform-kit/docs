@@ -3,6 +3,8 @@ Title: Docs
 Description: Static Documentation Generator
 Repository: "https://github.com/platform-kit/docs"
 Icon: book
+Cover: "https://images.unsplash.com/photo-1655704705321-3ac52dc67f70?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80"
+CoverContent: <h1>Self-Hosted Documentation Generator</h1><h4>PWA/SPA with Search, Offline Mode, User Feedback, Premium Content & more.</h4><code class='d-table br-5 bg-dark p-1 px-2 mt-5 mx-auto'>git clone https://github.com/platform-kit/docs</code>
 FeedbackLabel: How about those features, though?
 TextAreaDemo: "This is a multi-line value wrapped in quotes which should appear in a textarea input: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 ---
@@ -123,12 +125,16 @@ Note: if you deploy to Netlify, you will have to provision a database manually.
 
 <a href="https://heroku.com/deploy?template=https://github.com/platform-kit/docs" target="_blank"><img src="https://img.shields.io/badge/Deploy%20to%20Heroku→-430098?style=for-the-badge&logo=heroku&logoColor=white"/></a> <a href="https://cloud.digitalocean.com/apps/new?repo=https://github.com/platform-kit/docs/tree/main" target="_blank"><img src="https://img.shields.io/badge/Deploy%20to%20Digital_Ocean→-0080FF?style=for-the-badge&logo=DigitalOcean&logoColor=white" /> </a> <a href="https://render.com/deploy?repo=https://github.com/platform-kit/docs" target="_blank"> <img src="https://img.shields.io/badge/Deploy%20to%20Render→-46E3B7?style=for-the-badge&logo=Render&logoColor=fff"/> </a>
 
-<!--more-->
+## Examples
 
-## Auth Example
+### Authentication Required (premium content)
 
-[This page](http://www.platformkit.com/#/3-docs) is an example authentication / premium content (this content only shows up if you're logged in.)
+[This page](/#/examples/auth) is an example authentication / premium content (this content only shows up if you're logged in.)
 
-## Cover Page Example
+### No Cover Page
 
-[This page](/#/example/cover-page-example) is an example of specifying a cover page image with the `Cover` field.
+[This page](/#/examples/no-cover) is an example of a what a typical markdown doc would look like if no cover image is specified. Still quite beautiful!
+
+### No Feedback
+
+[This page](/#/examples/no-feedback) is an example of a what a page looks like if the `Feedback` field is set to `false`.
