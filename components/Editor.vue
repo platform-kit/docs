@@ -5,7 +5,7 @@
   >
     <b-button-group class="w-100 br-5 mb-3 raised">
       <b-button
-        class="br-5 text-light  cancel-button"
+        class="br-5 text-light cancel-button"
         @click="cancel()"
         variant="danger"
       >
@@ -16,7 +16,7 @@
         Cancel
       </b-button>
       <b-button
-        class="br-5 text-light  save-button"
+        class="br-5 text-light save-button"
         @click="save()"
         variant="dark"
       >
@@ -54,7 +54,7 @@
             }}</b-badge>
           </div>
           <b-textarea
-            style="border-radius: 5px !important; min-height: 100px"
+            style="border-radius: 5px !important; min-height: 100px;"
             @input="updateFrontMatter(null, true)"
             v-model="fields.attributes[index]"
           >
@@ -62,38 +62,34 @@
         </b-input-group>
       </div>
     </div>
-    <div style="margin-top:-10px;">
-    <b-badge
-      variant="dark"
-      class="br-10 px-2 py-1 field-label"
-      style="
-        position: relative;
-        top:10px;
-        z-index: 10;
-      "
-      >Markdown Content</b-badge
-    >
-    <vue-simplemde
-      preview-class="nuxt-content"
-      @input="updateFrontMatter"
-      class="w-100 br-5 p-3"
-      style="
-        z-index: 9999 !important;
-        margin: 0px !important;
-        padding: 0px !important;
-      "
-      v-model="contentBodyString"
-      ref="markdownEditor"
-    />
-    <textarea
-      class="w-100 br-5 p-3 d-none"
-      ref="textarea"
-      v-model="file"
-      @keydown.tab.exact.prevent="onTabRight"
-      @keydown.tab.shift.prevent="onTabLeft"
-      @compositionstart.prevent="isInComposition = true"
-      @compositionend.prevent="isInComposition = false"
-    />
+    <div style="margin-top: -10px">
+      <b-badge
+        variant="dark"
+        class="br-10 px-2 py-1 field-label"
+        style="position: relative; top: 10px; z-index: 10"
+        >Markdown Content</b-badge
+      >
+      <vue-simplemde
+        preview-class="nuxt-content"
+        @input="updateFrontMatter"
+        class="w-100 br-5 p-3"
+        style="
+          z-index: 9999 !important;
+          margin: 0px !important;
+          padding: 0px !important;
+        "
+        v-model="contentBodyString"
+        ref="markdownEditor"
+      />
+      <textarea
+        class="w-100 br-5 p-3 d-none"
+        ref="textarea"
+        v-model="file"
+        @keydown.tab.exact.prevent="onTabRight"
+        @keydown.tab.shift.prevent="onTabLeft"
+        @compositionstart.prevent="isInComposition = true"
+        @compositionend.prevent="isInComposition = false"
+      />
     </div>
   </div>
 </template>
@@ -169,8 +165,13 @@ export default {
       ) {
         // Generate frontmatter by looping through all values
         for (const [key, value] of Object.entries(this.fields?.attributes)) {
+          if(value.includes(":")){
           this.frontMatterString =
-            this.frontMatterString + "\n" + key + ": " + value;
+            this.frontMatterString + "\n" + key + ': "' + value + '"';
+          } else {
+            this.frontMatterString =
+            this.frontMatterString + "\n" + key + ': ' + value + '';
+          }
         }
         this.frontMatterString = this.frontMatterString + "\n---\n";
 
@@ -255,16 +256,14 @@ export default {
 }
 
 .cancel-button {
-  
 }
 .save-button {
-  
 }
 </style>
 <style >
 .editor-toolbar {
-  margin:auto !important;
-  width:100% !important;
-  display:inline-block !important;
+  margin: auto !important;
+  width: 100% !important;
+  display: inline-block !important;
 }
 </style>

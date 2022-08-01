@@ -142,7 +142,7 @@
           @click="toggleEdit"
           v-if="isDev == true && isEditing == false"
           style=""
-          class="px-3 edit-button br-25 raised border-dark"
+          class="px-3 edit-button br-5 raised border-dark"
           variant="light"
           ><b-icon-pencil
             scale="0.66"
@@ -550,7 +550,7 @@ export default {
     getContentOrExcerpt() {
       var document = this.content;
       if (this.content.excerpt != null && this.user == null) {
-        document.body =  this.content.excerpt;
+        document.body = this.content.excerpt;
       } else {
         document = this.content;
       }
@@ -1062,11 +1062,10 @@ export default {
   transition: all 0.3s;
   background-repeat: no-repeat !important;
   background-position: -200px;
- background: #fffdf5; 
+  background: #fffdf5;
 }
 
 .next-article-card:hover {
-  
   background: #edfff5;
 }
 
@@ -1079,7 +1078,7 @@ export default {
 .next-article-label {
   background: #ffecac;
   color: rgb(240, 164, 0);
-  
+
   position: absolute;
   right: -10px;
   top: 20px;
@@ -1168,10 +1167,23 @@ export default {
 }
 
 .edit-button {
+  transition:all 0.3s;
+  background: rgb(238 242 249);
+  border-top: 2px solid rgb(238 242 249) !important;
+  border-right: 2px solid rgb(238 242 249) !important;
+  border-left: 2px solid rgb(215 224 236) !important;
+  border-bottom: 2px solid rgb(215 224 236) !important;
   z-index: 9;
   position: absolute;
   top: 15px;
   right: 14px;
+}
+
+.edit-button:hover {
+  transform: scale(1.05);  
+  border: 2px solid black !important;  
+  box-shadow: 0px 15px 15px rgba(0, 50, 100, 0.075),
+    0px 7px 7px rgba(0, 50, 100, 0.075), 0px 5px 3px rgba(0, 50, 100, 0.05) !important;
 }
 
 @media (max-width: 991px) {
