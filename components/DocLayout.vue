@@ -1233,7 +1233,7 @@ export default {
 }
 
 .cover-content code {
-  backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px) !important;
   background-color:#92929221!important;
 }
 
