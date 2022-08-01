@@ -39,6 +39,7 @@ export default {
     ENVIRONMENT: process.env.ENVIRONMENT,
     REPO: process.env.REPO,
     AUTH_URL: process.env.AUTH_URL,
+    SITE_NAME: process.env.SITE_NAME || 'PlatformKit',
     GITHUB_URL: process.env.GITHUB_URL,
     FEEDBACK_ANALYTICS_URL: process.env.FEEDBACK_ANALYTICS_URL,
   },
