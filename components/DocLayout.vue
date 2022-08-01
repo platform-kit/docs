@@ -10,18 +10,26 @@
       v-bind:style="{ backgroundImage: 'url(' + content.Cover + ')' }"
     >
       <div class="m-auto d-block text-light" style="z-index: 9999 !important">
-        <h1 class="mx-auto text-center mt-0 mb-4">{{ content.Title }}</h1>
-        <h4 v-if="content.Description != null" class="text-center my-4">
-          {{ content.Description }}
-        </h4>
-        <div class="w-100 text-center my-4 d-block">
-          <b-badge
-            variant="light"
-            class="br-15 px-2 py-1"
-            style="background: #ddffec !important"
-            >{{ Math.ceil(content.readingTime) }} Minute Read</b-badge
-          >
+        <div v-if="content.CoverContent == null">
+          <h1 class="mx-auto text-center mt-0 mb-4">{{ content.Title }}</h1>
+          <h4 v-if="content.Description != null" class="text-center my-4">
+            {{ content.Description }}
+          </h4>
+          <div class="w-100 text-center my-4 d-block">
+            <b-badge
+              variant="light"
+              class="br-15 px-2 py-1"
+              style="background: #ddffec !important"
+              >{{ Math.ceil(content.readingTime) }} Minute Read</b-badge
+            >
+          </div>
         </div>
+        <div
+          v-else
+          class="m-auto d-block text-light cover-content"
+          style="z-index: 9999 !important"
+          v-html="content.CoverContent"
+        ></div>
         <div class="w-100 text-center mb-3 d-block">
           <b-button
             v-scroll-to="'#main'"
@@ -1208,7 +1216,25 @@ export default {
   pointer-events: all;
 }
 
+.cover-content {
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-bottom: 80px !important;
+}
+
+.cover-content h1,
+.cover-content h2,
+.cover-content h3,
+.cover-content h4,
+.cover-content h5,
+.cover-content h6 {
+  text-align: center;
+  margin:30px 0px 0px 0px;
+}
+
 @media (min-width: 991px) {
+  .cover-content {
+  }
   .col-12.with-cover-page {
     margin-top: -80px !important;
     margin: 0px;
@@ -1220,6 +1246,6 @@ export default {
 }
 
 .nuxt-content > * {
-  margin-top:25px !important;
+  margin-top: 25px !important;
 }
 </style>
