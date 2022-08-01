@@ -66,3 +66,9 @@ body {
   border-radius: 3px !important;
 }
 </style>
+
+<style>
+ * {
+      touch-action: manipulation;
+  }
+</style>
