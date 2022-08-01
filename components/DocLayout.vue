@@ -1186,10 +1186,7 @@ export default {
     0px 7px 7px rgba(0, 50, 100, 0.075), 0px 5px 3px rgba(0, 50, 100, 0.05) !important;
 }
 
-@media (max-width: 991px) {
-  .nuxt-content img {
-    max-width:90% !important;
-  }
+@media (max-width: 991px) {  
   .edit-button {
     z-index: 9999;
     position: fixed;
@@ -1198,6 +1195,10 @@ export default {
     right: 17px;
   }
 }
+
+.nuxt-content img {
+    max-width:90% !important;
+  }
 
 .no-click {
   pointer-events: none;
