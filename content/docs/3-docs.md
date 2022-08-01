@@ -1,13 +1,12 @@
 ---
-Title: Docs
+Title: New Title
 Description: Static Documentation Generator
 Repository: "https://github.com/platform-kit/docs"
 Icon: book
 FeedbackLabel: How about those features, though?
-TextAreaDemo: "This is a multi-line value wrapped in quotes which should appear in a textarea input:
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+TextAreaDemo: "This is a multi-line value wrapped in quotes which should appear in a textarea input: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 ---
-<h1 align="center">PlatformKit Docs</h1>
+<h1 align="center">New Markdown Content</h1>
 
 <p align="center">
 Static Documentation Generator
@@ -52,6 +51,10 @@ Search, analytics, pdf export, & offline mode.
 ## Screenshots
 
 <div align="center">
+<div class="badge badge-primary my-3">User Feedback</div><br>
+<img src="https://raw.githubusercontent.com/platform-kit/docs/master/assets/images/feedback.gif" width="400" class="border raised"/>
+<br>
+
 <div class="badge badge-primary my-3">Cover Image</div><br>
 <img src="https://raw.githubusercontent.com/platform-kit/docs/master/assets/images/cover-image.png" width="400" class="border raised"/>
 <br>
@@ -61,7 +64,7 @@ Search, analytics, pdf export, & offline mode.
 <br>
 
 <div class="badge badge-primary my-3">Content Editor</div><br>
-<img src="https://raw.githubusercontent.com/platform-kit/docs/master/assets/images/cms.png" width="400" class="border raised" />
+<img src="https://raw.githubusercontent.com/platform-kit/docs/master/assets/images/cms.gif" width="400" class="border raised" />
 </div>
 
 ## Local Development
