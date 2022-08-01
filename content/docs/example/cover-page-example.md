@@ -4,7 +4,7 @@ Cover: "https://images.unsplash.com/photo-1615716271874-310ff0dd04dd?ixlib=rb-1.
 CoverContent: "<h1>Generate Beautiful Docs</h1><h4>This is an example of a page with a cover image.</h4>"
 Description: This is an example of a page with a cover image.
 Icon: image
-FeedbackLabel: How about those features, though?
+Feedback: False
 ---
 **The standard Lorem Ipsum passage, used since the 1500s**
 

@@ -84,7 +84,7 @@
         </b-nav>
       </div>
       <div
-        class="col-12 col-md-6 main-content m-0 p-0"
+        class="col-12 col-md-6 main-content m-0 px-0 pt-0 pb-3"
         :class="{ 'with-cover-page': content.Cover != null }"
         style="margin: 0px; min-height: calc(100vh - 58px)"
       >
@@ -242,7 +242,7 @@
           </b-card>
         </div>
         <div
-          v-if="isEditing == false"
+          v-if="isEditing == false && content.Feedback !== false"
           v-b-visible="ctaHandler"
           class="w-100 px-0 pt-5 pb-4 border-top mt-4 text-center"
           id="footer"
@@ -250,7 +250,7 @@
           <h5 class="w-100 text-center">
             {{ content.FeedbackLabel || "Was this page helpful?" }}
           </h5>
-          <vue-feedback-reaction
+          <vue-feedback-reaction            
             :key="content.path"
             v-model="feedback"
             :labels="['Terrible', 'Bad', 'Okay', 'Good', 'Great']"
