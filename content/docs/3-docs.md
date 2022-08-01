@@ -6,6 +6,7 @@ Icon: book
 FeedbackLabel: How about those features, though?
 TextAreaDemo: "This is a multi-line value wrapped in quotes, which should appear in a textarea input: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 ---
+
 <h1 align="center">PlatformKit Docs</h1>
 
 <p align="center">
@@ -47,6 +48,22 @@ Search, analytics, pdf export, & offline mode.
 - Zero-config analytics
 - Emoji based feedback
 - Export docs as PDF
+
+## Screenshots
+
+<div align="center">
+<div class="badge badge-primary my-3">Cover Image</div><br>
+<img src="https://raw.githubusercontent.com/platform-kit/docs/master/assets/images/cover-image.png" width="400" class="border raised"/>
+<br>
+
+<div class="badge badge-primary my-3">Premium Content & User Feedback</div><br>
+<img src="https://raw.githubusercontent.com/platform-kit/docs/master/assets/images/premium-content.png" class="border raised" width="400"/>
+<br>
+
+<div class="badge badge-primary my-3">Content Editor</div><br>
+<img src="https://raw.githubusercontent.com/platform-kit/docs/master/assets/images/cms.png" width="400" class="border raised" />
+</div>
+
 
 ## Local Development
 
@@ -102,4 +119,5 @@ Note: if you deploy to Netlify, you will have to provision a database manually.
 [This page](http://www.platformkit.com/#/3-docs) is an example authentication / premium content (this content only shows up if you're logged in.)
 
 ## Cover Page Example
+
 [This page](/#/example/cover-page-example) is an example of specifying a cover page image with the `Cover` field.
