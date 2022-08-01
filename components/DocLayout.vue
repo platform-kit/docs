@@ -1232,6 +1232,11 @@ export default {
   margin:30px 0px 0px 0px;
 }
 
+.cover-content code {
+  backdrop-filter: blur(15px);
+  background-color:#92929221!important;
+}
+
 @media (min-width: 991px) {
   .cover-content {
   }
