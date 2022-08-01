@@ -1,102 +1,23 @@
 ---
 Title: Generate Beautiful Documentation
 Cover: "https://images.unsplash.com/photo-1615716271874-310ff0dd04dd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80"
-Description: Static Documentation Generator
+Description: This is an example of a page with a cover image.
 Repository: "https://github.com/platform-kit/docs"
 Icon: book
 FeedbackLabel: How about those features, though?
 ---
-# PlatformKit Docs
+**The standard Lorem Ipsum passage, used since the 1500s**
 
-<p align="center">
-Static Documentation Generator
-</p>
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 
-<p align="center">
-Search, analytics, pdf export, & offline mode.
-</p>
+**Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC**
 
-<div align="center">
-    <img src="https://raw.githubusercontent.com/platform-kit/docs/master/assets/images/screenshot.png" width="400"/>
-</div>
+"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
 
-**Built with:** <br>
+**1914 translation by H. Rackham**
 
-<p float="left">
-<img src="https://img.shields.io/badge/Node.js-ebf5fb?style=for-the-badge&logo=nodedotjs"/>
-<img src="https://img.shields.io/badge/Vue.js-ebf5fb?style=for-the-badge&logo=vuedotjs" />
-<img src="https://img.shields.io/badge/Nuxt.js-ebf5fb?style=for-the-badge&logo=nuxt.js" />
-<img src="https://img.shields.io/badge/Bootstrap-ebf5fb?style=for-the-badge&logo=bootstrap" />
-</p>
+"But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?"
 
-**Deploy with:** <br>
+**Section 1.10.33 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC**
 
-<p float="left">
-<img src="https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white"/> <img src="https://img.shields.io/badge/Digital_Ocean-0080FF?style=for-the-badge&logo=DigitalOcean&logoColor=white" /> <img src="https://img.shields.io/badge/Render-46E3B7?style=for-the-badge&logo=Render&logoColor=white"/> 
-</p>
-
-**License:** <br> <img src="https://img.shields.io/badge/License-000000?style=for-the-badge&logo=git"/> <img src="https://img.shields.io/badge/MIT-222?style=for-the-badge&logoColor=white"/>
-
-## Features
-
-- Generate beautiful, searchable docs from [Markdown](https://www.markdownguide.org) files
-- Frontmatter support (title, description, git repo, website)
-- Progressive Web App (works offline)
-- Automated reading time estimates
-- Code syntax highlighting
-- Zero-config analytics
-- Emoji based feedback
-- Export docs as PDF
-
-## Local Development
-
-Clone the project
-
-```bash
-  git clone https://github.com/platform-kit/docs pk-docs
-```
-
-Go to the project directory
-
-```bash
-  cd pk-docs
-```
-
-Install dependencies
-
-```bash
-  npm install
-```
-
-Start the server
-
-```bash
-  npm run dev
-```
-
-A local instance is now running at `https://localhost:3000`
-
-### Configuration
-
-Before use, you will need to add the following environment variables to your .env file
-
-```env
-REPO=
-SITE_NAME=
-BUILD_COMMAND=
-CONTENT_DIRECTORY=
-```
-
-## Deployment
-
-To deploy to the cloud, simply click one of the buttons below.
-
-Note: if you deploy to Netlify, you will have to provision a database manually.
-
-<a href="https://heroku.com/deploy?template=https://github.com/platform-kit/docs" target="_blank"><img src="https://img.shields.io/badge/Deploy%20to%20Heroku→-430098?style=for-the-badge&logo=heroku&logoColor=white"/></a> <a href="https://cloud.digitalocean.com/apps/new?repo=https://github.com/platform-kit/docs/tree/main" target="_blank"><img src="https://img.shields.io/badge/Deploy%20to%20Digital_Ocean→-0080FF?style=for-the-badge&logo=DigitalOcean&logoColor=white" /> </a> <a href="https://render.com/deploy?repo=https://github.com/platform-kit/docs" target="_blank"> <img src="https://img.shields.io/badge/Deploy%20to%20Render→-46E3B7?style=for-the-badge&logo=Render&logoColor=fff"/> </a>
-
-<!--more-->
-
-## Auth Example
-
-[This page](http://www.platformkit.com/#/3-docs) is an example authentication / premium content (this content only shows up if you're logged in.)
+"At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."
