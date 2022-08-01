@@ -1187,6 +1187,9 @@ export default {
 }
 
 @media (max-width: 991px) {
+  .nuxt-content img {
+    max-width:90% !important;
+  }
   .edit-button {
     z-index: 9999;
     position: fixed;
