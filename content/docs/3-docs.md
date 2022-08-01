@@ -52,10 +52,6 @@ Search, analytics, pdf export, & offline mode.
 
 <div align="center">
 
-<div class="badge badge-primary my-3">User Feedback</div><br>
-<img src="https://raw.githubusercontent.com/platform-kit/docs/master/assets/images/feedback.gif" width="400" class="border raised"/>
-<br>
-
 <div class="badge badge-primary my-3">Cover Image</div><br>
 <img src="https://raw.githubusercontent.com/platform-kit/docs/master/assets/images/cover-image.png" width="400" class="border raised"/>
 <br>
@@ -63,17 +59,21 @@ Search, analytics, pdf export, & offline mode.
 <div class="badge badge-primary my-3">Premium Content</div><br>
 <img src="https://raw.githubusercontent.com/platform-kit/docs/master/assets/images/premium-content.png" class="border raised" width="400"/>
 <br>
-
-<div class="badge badge-primary my-3">Content Editor</div><br>
-<img src="https://raw.githubusercontent.com/platform-kit/docs/master/assets/images/cms.gif" width="400" class="border raised" />
+	
+	
+<div class="badge badge-primary my-3">User Feedback</div><br>
+<img src="https://raw.githubusercontent.com/platform-kit/docs/master/assets/images/feedback.gif" width="400" class="border raised"/>
 <br>
 
 <div class="badge badge-primary my-3">Call To Action</div><br>
 <img src="https://raw.githubusercontent.com/platform-kit/docs/master/assets/images/cta.gif" width="400" class="border raised" />
 <br>
+	
+<div class="badge badge-primary my-3">Content Editor</div><br>
+<img src="https://raw.githubusercontent.com/platform-kit/docs/master/assets/images/cms.gif" width="400" class="border raised" />
+<br>
 
 </div>
-
 
 
 ## Local Development
