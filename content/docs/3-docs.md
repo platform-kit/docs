@@ -102,7 +102,7 @@ Start the server
   npm run dev
 ```
 
-A local instance is now running at `https://localhost:3000`
+A local instance is now running at `http://localhost:8000`
 
 ### Configuration
 
