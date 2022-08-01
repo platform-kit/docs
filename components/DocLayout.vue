@@ -77,6 +77,7 @@
       </div>
       <div
         class="col-12 col-md-6 main-content m-0 p-0"
+        :class="{ 'with-cover-page': content.Cover != null }"
         style="margin: 0px; min-height: calc(100vh - 58px)"
       >
         <div
@@ -1167,7 +1168,7 @@ export default {
 }
 
 .edit-button {
-  transition:all 0.3s;
+  transition: all 0.3s;
   background: rgb(238 242 249);
   border-top: 2px solid rgb(238 242 249) !important;
   border-right: 2px solid rgb(238 242 249) !important;
@@ -1180,13 +1181,13 @@ export default {
 }
 
 .edit-button:hover {
-  transform: scale(1.05);  
-  border: 2px solid black !important;  
+  transform: scale(1.05);
+  border: 2px solid black !important;
   box-shadow: 0px 15px 15px rgba(0, 50, 100, 0.075),
     0px 7px 7px rgba(0, 50, 100, 0.075), 0px 5px 3px rgba(0, 50, 100, 0.05) !important;
 }
 
-@media (max-width: 991px) {  
+@media (max-width: 991px) {
   .edit-button {
     z-index: 9999;
     position: fixed;
@@ -1197,13 +1198,24 @@ export default {
 }
 
 .nuxt-content img {
-    max-width:90% !important;
-  }
+  max-width: 90% !important;
+}
 
 .no-click {
   pointer-events: none;
 }
 .no-click a {
   pointer-events: all;
+}
+
+@media (min-width: 991px) {
+  .col-12.with-cover-page {
+    margin-top: -80px !important;
+    margin: 0px;
+    border-radius: 5px;
+    background: #fff !important;
+    min-height: calc(100vh - 58px);
+    z-index: 9;
+  }
 }
 </style>

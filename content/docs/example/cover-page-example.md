@@ -1,8 +1,8 @@
 ---
 Title: Generate Beautiful Documentation
-Cover: https://images.unsplash.com/photo-1580894742597-87bc8789db3d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80
+Cover: "https://images.unsplash.com/photo-1615716271874-310ff0dd04dd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80"
 Description: Static Documentation Generator
-Repository: https://github.com/platform-kit/docs
+Repository: "https://github.com/platform-kit/docs"
 Icon: book
 FeedbackLabel: How about those features, though?
 ---
