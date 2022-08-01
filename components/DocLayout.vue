@@ -1178,10 +1178,11 @@ export default {
   top: 0;
   left: 0;
   width: 100%;
+  mix-blend-mode: multiply;
   background: linear-gradient(
     180deg,
-    rgba(0, 0, 0, 0.66),
-    rgba(0, 0, 0, 0.77) 85%
+    rgba(0, 0, 0, 0.25),
+    rgba(0, 0, 0, 0.5) 85%
   );
 }
 
@@ -1245,8 +1246,7 @@ export default {
 .cover-content code {
   backdrop-filter: blur(15px) !important;
   -webkit-backdrop-filter: blur(10px);
-  background-color: #94949438 !important;
-  box-shadow:0px 5px 10px rgb(0 0 0 / 50%) !important;
+  background-color: #00000038 !important;
   padding: 12px !important;
 }
 
