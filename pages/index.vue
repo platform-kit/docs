@@ -79,7 +79,7 @@ export default {
   head() {
     return {
       title: this.pageTitle,
-      titleTemplate: `%s`,
+      titleTemplate: `%s` + ' • ' + process.env.SITE_NAME || "PlatformKit",
 
       meta: [
         {
