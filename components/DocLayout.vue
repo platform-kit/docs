@@ -95,7 +95,7 @@
             style="transform: scale(0.9)"
             class="w-100 article-nav mx-auto"
           >
-            <b-button variant="light" v-b-modal.chapters-modal size="sm">
+            <b-button v-if="content.toc != null && content.toc.length > 1" variant="light" v-b-modal.chapters-modal size="sm">
               <b-icon icon="card-list" class="mx-1"></b-icon>Contents
             </b-button>
             <b-button variant="light" size="sm" @click="download()">
