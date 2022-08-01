@@ -165,7 +165,7 @@ export default {
       ) {
         // Generate frontmatter by looping through all values
         for (const [key, value] of Object.entries(this.fields?.attributes)) {
-          if(value.includes(":")){
+          if(value != null && typeof value == 'string' && value.includes(":")){
           this.frontMatterString =
             this.frontMatterString + "\n" + key + ': "' + value + '"';
           } else {
