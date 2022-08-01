@@ -119,7 +119,7 @@ Note: if you deploy to Netlify, you will have to provision a database manually.
 
 ## Examples
 
-### Authentication Required (premium content)
+### Premium Content
 
 [This page](/#/examples/auth) is an example authentication / premium content (this content only shows up if you're logged in.)
 
