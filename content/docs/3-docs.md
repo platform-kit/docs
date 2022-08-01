@@ -51,6 +51,7 @@ Search, analytics, pdf export, & offline mode.
 ## Screenshots
 
 <div align="center">
+
 <div class="badge badge-primary my-3">User Feedback</div><br>
 <img src="https://raw.githubusercontent.com/platform-kit/docs/master/assets/images/feedback.gif" width="400" class="border raised"/>
 <br>
@@ -65,11 +66,15 @@ Search, analytics, pdf export, & offline mode.
 
 <div class="badge badge-primary my-3">Content Editor</div><br>
 <img src="https://raw.githubusercontent.com/platform-kit/docs/master/assets/images/cms.gif" width="400" class="border raised" />
-</div>
+<br>
 
 <div class="badge badge-primary my-3">Call To Action</div><br>
 <img src="https://raw.githubusercontent.com/platform-kit/docs/master/assets/images/cta.gif" width="400" class="border raised" />
+<br>
+
 </div>
+
+
 
 ## Local Development
 
