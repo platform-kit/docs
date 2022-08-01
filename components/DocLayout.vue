@@ -263,8 +263,7 @@
         class="col-3 main-right-nav d-none d-md-inline-flex"
         style="margin: 0px; min-height: calc(100vh - 58px)"
       >
-        <b-nav
-          v-if="content.toc != null"
+        <b-nav          
           vertical
           class="w-100 mr-auto"
           style="max-width: 222px; float: left"
@@ -349,6 +348,7 @@
           >
 
           <b-nav-item
+          v-if="content.toc != null && content.toc.length > 1"
             style="height: 42px; pointer-events: none"
             class="mb-2 mt-2 main-right-nav-item"
             ><span style="font-size: 75%; font-weight: 400"
@@ -416,7 +416,7 @@
       <div class="cta-content" v-html="content.CTA"></div>
     </b-card>
 
-    <b-modal title="On This Page" id="chapters-modal" hide-footer>
+    <b-modal title="On This Page" v-if="content.toc != null && content.toc.length > 1" id="chapters-modal" hide-footer>
       <b-list-group>
         <b-list-group-item
           v-scroll-to="'#' + link.id"
