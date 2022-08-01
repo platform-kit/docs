@@ -5,9 +5,9 @@
     v-if="content != null && content != false"
   >
     <div
-      v-if="content.Cover != null || content.CoverContent != null"
+      v-if="content.CoverImage != null || content.CoverContent != null || content.Cover == true"
       class="w-100 page-cover m-0 p-0 d-flex"
-      v-bind:style="{ backgroundImage: 'url(' + content.Cover + ')' }"
+      v-bind:style="{ backgroundImage: 'url(' + content.CoverImage + ')' }"
     >
       <div class="m-auto d-block text-light" style="z-index: 9999 !important">
         <div v-if="content.CoverContent == null">

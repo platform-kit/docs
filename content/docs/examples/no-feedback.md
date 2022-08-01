@@ -1,6 +1,6 @@
 ---
 Title: "Example: No Feedback"
-Cover: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2128&q=80"
+CoverImage: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2128&q=80"
 CoverContent: "<h1>Example: Feedback Disabled</h1><h4>This is an example of a page without a feedback section.</h4>"
 Description: This is an example of a page with a cover image.
 Icon: image
