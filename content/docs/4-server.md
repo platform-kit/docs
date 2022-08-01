@@ -3,7 +3,7 @@ Title: Server
 Description: Self-Hosted Serverless API
 Repository: "https://github.com/platform-kit/server"
 Icon: "server"
-Cover: "https://images.unsplash.com/photo-1635492491273-455af7728453?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1860&q=80"
+Cover: "https://images.unsplash.com/photo-1642104704074-907c0698cbd9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80"
 CoverContent: <h1>Self-Hosted Serverless API</h1><h4>Open-Source Netlify/AWS Lambda Alternative.</h4><code class='d-table br-5 bg-dark p-1 px-2 mt-5 mx-auto'>git clone https://github.com/platform-kit/server</code>
 ---
 
