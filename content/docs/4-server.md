@@ -3,7 +3,7 @@ Title: Server
 Description: Self-Hosted Serverless API
 Repository: "https://github.com/platform-kit/server"
 Icon: "server"
-CoverContent: <h1>Self-Hosted Serverless API</h1><h4>Open-Source Netlify/AWS Lambda Alternative</h4><code class='d-table br-5 bg-dark p-1 px-2 mt-5 mx-auto'>git clone https://github.com/platform-kit/server</code>
+CoverContent: <h1>Self-Hosted Serverless API</h1><h4>Open-Source Netlify/AWS Alternative</h4><code class='d-table br-5 bg-dark p-1 px-2 mt-5 mx-auto'>git clone https://github.com/platform-kit/server</code>
 ---
 
 <h1 align="center">PlatformKit Server</h1>
