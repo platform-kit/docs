@@ -1245,6 +1245,7 @@ export default {
 }
 
 .cover-content code {
+  border-radius:7px;
   backdrop-filter: blur(20px) !important;
   -webkit-backdrop-filter: blur(20px);
   background-color: #51515138 !important;
