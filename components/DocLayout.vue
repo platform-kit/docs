@@ -763,7 +763,7 @@ export default {
 <style scoped>
 .doc-layout {
   min-width: 100%;
-  background:linear-gradient(45deg, #6552ff, #008cff);
+  background:linear-gradient(45deg, #000, #333);
 }
 
 .main-content {
