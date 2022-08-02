@@ -1246,17 +1246,13 @@ export default {
 
 .cover-content code {
   border-radius:7px !important;
-  overflow:hidden !important;
-  
+  border:none !important;  
+  overflow:hidden !important;  
   backdrop-filter: blur(20px) !important;
   -webkit-backdrop-filter: blur(20px);
   background-color: #51515138 !important;
   padding: 12px !important;
-  color: #ffe480 !important;
-  border-left:2px solid #ffe480;
-  border-right: none !important;
-  border-top: none !important;
-  border-bottom: none !important;
+  color: #ffe480 !important;  
 }
 
 @media(max-width: 991px){
