@@ -3,7 +3,6 @@ Title: Docs
 Description: Static Documentation
 Repository: "https://github.com/platform-kit/docs"
 Icon: book
-CoverImage: "https://images.unsplash.com/photo-1638443523564-46b8a648c5a1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1500&q=100"
 CoverContent: <h1>Self-Hosted Documentation</h1><h4>Open-Source GitBook Alternative</h4><code class='d-table br-5 bg-dark p-1 px-2 mt-5 mx-auto'>git clone https://github.com/platform-kit/docs</code>
 FeedbackLabel: How about those features, though?
 TextAreaDemo: "This is a multi-line value wrapped in quotes which should appear in a textarea input: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."

@@ -35,7 +35,7 @@
       "
     >
       <div v-for="(field, index) in fields?.attributes" :key="index">
-        <b-input-group class="mb-3 br-5" v-if="field.length < 50">
+        <b-input-group class="mb-3 br-5" v-if="field != null && field.length < 50">
           <div class="w-100 mb-2">
             <b-badge variant="dark" class="br-10 px-2 py-1 field-label">{{
               index
@@ -50,10 +50,11 @@
         <b-input-group
           class="mb-3 br-5"
           v-else-if="
+            field != null && (
             field == 'true' ||
             field == true ||
             field == 'false' ||
-            field == false
+            field == false)
           "
         >
           <b-badge
@@ -77,7 +78,7 @@
             <b>(Value: {{ fields.attributes[index] }})</b>
           </b-form-checkbox>
         </b-input-group>
-        <b-input-group class="mb-3 br-5" v-else>
+        <b-input-group class="mb-3 br-5" v-else-if="field != null">
           <div class="w-100 mb-2">
             <b-badge variant="dark" class="br-10 px-2 py-1 field-label">{{
               index
@@ -194,7 +195,7 @@ export default {
         this.file != null
       ) {
         // Generate frontmatter by looping through all values
-        for (const [key, value] of Object.entries(this.fields?.attributes)) {
+        for (const [key, value] of Object.entries(this.fields?.attributes)) {          
           if (
             value != null &&
             typeof value == "string" &&
@@ -202,7 +203,7 @@ export default {
           ) {
             this.frontMatterString =
               this.frontMatterString + "\n" + key + ': "' + value + '"';
-          } else {
+          } else if (value != null) {
             this.frontMatterString =
               this.frontMatterString + "\n" + key + ": " + value + "";
           }
