@@ -4,6 +4,7 @@ Description: Self-Hosted Authentication
 Repository: "https://github.com/platform-kit/auth"
 Icon: person-badge
 Website: "https://auth.platformkit.com"
+CoverImage: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2128&q=80"
 CoverContent: "<h1>Self-Hosted Authentication</h1><h4>Open-Source Auth0 Alternative</h4><code class='d-table br-5 bg-dark p-1 px-2 mt-5 mx-auto'>git clone https://github.com/platform-kit/auth</code>"
 CTA: "<a href='https://auth.platformkit.com' target='_blank'>Click here</a> to try it out!"
 ---
