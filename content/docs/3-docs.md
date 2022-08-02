@@ -64,7 +64,7 @@ Search, analytics, pdf export, & offline mode.
 <br>
 
 <div class="badge badge-primary my-3">Call To Action</div><br>
-<img src="https://raw.githubusercontent.com/platform-kit/docs/master/assets/images/cta.gif" width="400" class="border raised" />
+<img src="https://raw.githubusercontent.com/platform-kit/docs/master/assets/images/cta.png" width="400" class="border raised" />
 <br>	
 
 </div>
